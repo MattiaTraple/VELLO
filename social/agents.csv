@@ -1,0 +1,101 @@
+ID,Age,Interest,Activity
+1,90,"['Fotografia di viaggio', 'Investimenti azionari', 'Amicizia', 'Moda streetwear']",0.5
+2,38,"['Stile vintage', 'Fai da te per la casa', 'Riduzione della plastica', 'Thriller psicologici']",0.5
+3,22,"['Crescita personale', 'Economia', 'Fotografia digitale', 'Criptovalute']",0.2
+4,21,"['Intelligenza artificiale', 'Destinazioni esotiche', 'Stile vintage', ""Libri d'arte""]",0.5
+5,66,"['Giochi indie', 'Disegno e illustrazione', 'Lingue straniere', 'Fotografia di viaggio']",0.5
+6,46,"['Indie', 'Cucina italiana', 'Poesia contemporanea', 'Arte digitale']",0.8
+7,30,"['Terapia cognitivo-comportamentale (TCC)', 'Alta moda', 'Cucina italiana', 'Fotografia di architettura']",0.2
+8,21,"['Fai da te per la casa', 'Pianificazione pensionistica', 'Abbigliamento sostenibile', 'Arte digitale']",0.8
+9,21,"['Riduzione della plastica', 'Immobiliare', 'Saggi di divulgazione scientifica', 'Sparatutto in prima persona (FPS)']",0.5
+10,26,"['Tennis', 'Pianificazione pensionistica', 'Cucito e ricamo', 'Maratone e corsa']",0.8
+11,26,"['Cura dei gatti', 'Politica internazionale', 'Scultura', 'Giochi per dispositivi mobili']",0.8
+12,79,"['Hip hop', 'Poesia contemporanea', 'Protezione degli animali', 'Fotografia di paesaggi']",0.8
+13,41,"['Criptovalute', 'Strategia in tempo reale (RTS)', 'Terapia cognitivo-comportamentale (TCC)', 'Immobiliare']",0.8
+14,30,"['Falegnameria', 'Saggi di divulgazione scientifica', 'Cucina italiana', 'Viaggi in camper']",0.8
+15,21,"['Fotografia di paesaggi', 'Progetti di bricolage', 'Poesia contemporanea', 'Saggi di divulgazione scientifica']",0.2
+16,65,"['Lavorazione del legno', 'Alta moda', 'Protezione degli animali', 'Mindfulness']",0.8
+17,47,"['Gestione dello stress', 'Alta moda', 'Allenamento funzionale', 'Intelligenza artificiale']",0.2
+18,78,"['Cucito e ricamo', 'Dessert e dolci', 'Drammi', 'Cucito e ricamo']",0.2
+19,36,"['Criptovalute', 'Stile vintage', 'Crescita delle relazioni di coppia', 'Escursioni in montagna']",0.8
+20,18,"['Gestione dei conflitti', 'Fotografia di viaggio', 'Alta moda', 'Allevamento di animali esotici']",0.5
+21,36,"['Moda streetwear', 'Strategia in tempo reale (RTS)', 'Criptovalute', 'Scultura']",0.2
+22,25,"['Anime', 'Cucina gourmet', 'Hip hop', 'Corsi online']",0.2
+23,28,"[""Tecnologia dell'informazione"", 'Terapia cognitivo-comportamentale (TCC)', 'Romanzi storici', 'Dessert e dolci']",0.8
+24,23,"['Maratone e corsa', 'Dessert e dolci', 'Thriller psicologici', 'Giochi di ruolo (RPG)']",0.5
+25,57,"['Tennis', 'Stile vintage', 'Progetti di bricolage', 'Cucina italiana']",0.8
+26,31,"['Amicizia', 'Fantasy epico', 'Allevamento di animali esotici', 'Programmi di dimagrimento']",0.8
+27,17,"['Progetti di bricolage', 'Calcio', 'Alta moda', 'Giochi indie']",0.5
+28,25,"['Criptovalute', 'Sparatutto in prima persona (FPS)', 'Disegno e illustrazione', 'Consigli per appuntamenti']",0.5
+29,36,"['Fotografia digitale', 'Diritti umani', 'Fotografia di paesaggi', 'Sviluppo personale']",0.2
+30,17,"['Mobilità sostenibile', 'Investimenti azionari', 'Drammi', 'Stile vintage']",0.8
+31,72,"['Lingue straniere', ""Libri d'arte"", 'Fotografia di paesaggi', 'Romanzi storici']",0.8
+32,74,"['Giochi per dispositivi mobili', 'Destinazioni esotiche', 'Terapia cognitivo-comportamentale (TCC)', 'Crescita personale']",0.5
+33,76,"['Criptovalute', 'Allenamento funzionale', 'App per la produttività', 'Conservazione della biodiversità']",0.5
+34,38,"[""Libri d'arte"", 'Moda streetwear', 'Giochi di ruolo (RPG)', 'Progetti di bricolage']",0.2
+35,41,"['Fotografia digitale', 'Maratone e corsa', 'Programmi di dimagrimento', 'App per la produttività']",0.8
+36,33,"['Falegnameria', 'Nuove app e software', 'Corsi online', 'Cucina italiana']",0.8
+37,61,"['Allenamento funzionale', 'Dessert e dolci', 'Immobiliare', 'Lavorazione del legno']",0.2
+38,30,"['Programmi di dimagrimento', 'Lingue straniere', 'Riduzione della plastica', 'Viaggi low-cost']",0.8
+39,30,"['Turismo culturale', 'Ritratti in studio', 'Commedie romantiche', 'Giochi di ruolo (RPG)']",0.5
+40,21,"['Fotografia naturalistica', 'Anime', 'Ricette vegetariane/vegane', 'Dessert e dolci']",0.2
+41,31,"['Scultura', 'Addestramento dei cani', 'Protezione degli animali', 'Rock']",0.5
+42,16,"['Terapia cognitivo-comportamentale (TCC)', 'Giochi di ruolo (RPG)', 'Jazz', 'Mobilità sostenibile']",0.5
+43,33,"['Protezione degli animali', 'Maratone e corsa', 'Anime', 'Turismo culturale']",0.5
+44,30,"['Hip hop', 'Lavorazione del legno', 'Mindfulness', 'Lavorazione del legno']",0.5
+45,61,"['Fotografia digitale', 'Commedie romantiche', 'Fantascienza', 'Tennis']",0.2
+46,32,"['Fai da te per la casa', 'Scultura', 'Crescita personale', 'Jazz']",0.5
+47,56,"['Fotografia naturalistica', 'Mindfulness', 'Sviluppo personale', 'Terapia cognitivo-comportamentale (TCC)']",0.5
+48,29,"['Riduzione della plastica', 'Mobilità sostenibile', 'Disegno e illustrazione', 'Cucina gourmet']",0.8
+49,23,"['Cucina internazionale', 'Giochi di ruolo (RPG)', 'Mobilità sostenibile', 'Dessert e dolci']",0.2
+50,25,"['Addestramento dei cani', 'Fotografia naturalistica', 'Rock', 'Poesia contemporanea']",0.2
+51,29,"['Musica classica', 'Corsi online', 'Thriller psicologici', 'Falegnameria']",0.5
+52,22,"['Commedie romantiche', 'Corsi accademici', 'Giochi di ruolo (RPG)', 'Immobiliare']",0.8
+53,21,"['Riduzione della plastica', 'Rock', 'Fai da te per la casa', 'Attualità locali']",0.8
+54,48,"['Moda streetwear', 'Mobilità sostenibile', 'Fai da te per la casa', 'Diritti umani']",0.2
+55,29,"['Ricette vegetariane/vegane', 'Economia', 'Alta moda', 'Cucina internazionale']",0.8
+56,25,"['Diritti umani', 'Anime', 'Dessert e dolci', 'Economia']",0.2
+57,21,"['Terapia cognitivo-comportamentale (TCC)', 'Consigli di relazione', 'Viaggi in camper', 'Energia rinnovabile']",0.2
+58,32,"['Lavorazione del legno', 'App per la produttività', 'Programmi di dimagrimento', 'Pittura ad olio']",0.8
+59,50,"['Fotografia di architettura', 'Consigli di relazione', 'Gestione dei conflitti', 'Giochi per dispositivi mobili']",0.5
+60,36,"['Mobilità sostenibile', 'Criptovalute', 'Corsi accademici', 'Disegno e illustrazione']",0.2
+61,18,"['Cucina gourmet', 'Cucina gourmet', 'Escursioni in montagna', 'Hip hop']",0.2
+62,37,"['Investimenti azionari', 'Cucina gourmet', 'Amicizia', 'Cucito e ricamo']",0.8
+63,73,"['Cucito e ricamo', 'Saggi di divulgazione scientifica', 'Musica classica', 'Allenamento a corpo libero']",0.5
+64,39,"['Risparmio', 'Rock', 'Disegno e illustrazione', 'Allevamento di animali esotici']",0.2
+65,46,"[""Libri d'arte"", 'Allevamento di animali esotici', 'Giochi per dispositivi mobili', 'Allevamento di animali esotici']",0.5
+66,22,"['Protezione degli animali', 'Ricette vegetariane/vegane', 'Conservazione della biodiversità', 'Editing di paesaggi']",0.2
+67,39,"['Hip hop', 'Falegnameria', 'App per la produttività', 'Yoga e meditazione']",0.8
+68,21,"['Giochi per dispositivi mobili', 'Fotografia di viaggio', 'Ritratti in studio', 'Allenamento funzionale']",0.2
+69,23,"['Economia', 'Politica internazionale', 'Cucina gourmet', 'Alimentazione sana']",0.5
+70,23,"['Politica internazionale', 'Allenamento a corpo libero', 'Conservazione della biodiversità', 'Consigli di relazione']",0.5
+71,28,"['Turismo culturale', 'Mobilità sostenibile', 'Sparatutto in prima persona (FPS)', 'Cucina italiana']",0.2
+72,26,"['Romanzi storici', 'Hip hop', 'Pianificazione pensionistica', 'Gestione dei conflitti']",0.8
+73,38,"['Gestione dei conflitti', ""Libri d'arte"", 'Giochi per dispositivi mobili', 'Crescita personale']",0.2
+74,53,"['Ambiente e cambiamenti climatici', 'Pianificazione pensionistica', 'Thriller psicologici', 'Scultura']",0.5
+75,13,"['Mindfulness', 'Surf', 'Anime', 'Arte digitale']",0.8
+76,17,"['Tennis', 'Stile vintage', 'Surf', 'Corsi online']",0.2
+77,26,"['Escursioni in montagna', 'Ritratti in studio', 'Allenamento a corpo libero', 'Thriller psicologici']",0.2
+78,37,"['Giochi di ruolo (RPG)', 'Agricoltura biologica', 'Viaggi in camper', 'Alimentazione sana']",0.8
+79,26,"['Lingue straniere', 'Ritratti in studio', 'Conservazione della biodiversità', 'Giochi indie']",0.2
+80,72,"['Anime', 'Allenamento a corpo libero', 'Politica internazionale', 'Editing di paesaggi']",0.8
+81,22,"['Allevamento di animali esotici', 'Viaggi low-cost', 'Abbigliamento sostenibile', 'Conservazione della biodiversità']",0.5
+82,33,"['Stile vintage', 'Mobilità sostenibile', 'Fotografia di architettura', 'Fantascienza']",0.8
+83,25,"['Fotografia digitale', 'Cura dei gatti', 'Riduzione della plastica', 'Agricoltura biologica']",0.5
+84,26,"['Hip hop', 'Viaggi low-cost', 'Psicologia positiva', 'Yoga e meditazione']",0.2
+85,19,"['Pittura ad olio', 'Maratone e corsa', ""Tecnologia dell'informazione"", 'Cucina internazionale']",0.5
+86,38,"['Nuove app e software', 'Acquariologia', 'Fotografia naturalistica', 'Cucina internazionale']",0.2
+87,22,"['Crescita delle relazioni di coppia', 'Maratone e corsa', 'Turismo culturale', 'Arte digitale']",0.5
+88,26,"['App per la produttività', 'Cucina gourmet', 'Pianificazione pensionistica', 'Agricoltura biologica']",0.8
+89,27,"['Fotografia di viaggio', 'Ritratti in studio', 'Giochi di ruolo (RPG)', 'Intelligenza artificiale']",0.8
+90,31,"['Alimentazione sana', 'Dessert e dolci', 'Drammi', 'Giochi per dispositivi mobili']",0.5
+91,31,"['Immobiliare', 'Fotografia di paesaggi', 'Romanzi storici', 'Corsi accademici']",0.8
+92,15,"['Jazz', 'Abbigliamento sostenibile', 'Gestione dei conflitti', 'Energia rinnovabile']",0.5
+93,19,"['Corsi accademici', 'Programmi di dimagrimento', 'Pittura ad olio', 'Dessert e dolci']",0.8
+94,28,"['Diritti umani', 'Fotografia di viaggio', 'Surf', 'Attualità locali']",0.2
+95,21,"['Diritti umani', 'Intelligenza artificiale', 'Hip hop', 'Poesia contemporanea']",0.2
+96,13,"['Allenamento funzionale', 'Fotografia di architettura', 'Progetti di bricolage', 'Lavorazione del legno']",0.8
+97,75,"['Cucina internazionale', 'Giochi indie', 'Hip hop', 'Psicologia positiva']",0.8
+98,26,"['Cucina internazionale', 'Diritti umani', 'Psicologia positiva', 'Cucina internazionale']",0.5
+99,44,"['Mindfulness', 'Escursioni in montagna', 'Disegno e illustrazione', 'Anime']",0.2
+100,29,"['Allevamento di animali esotici', 'Ambiente e cambiamenti climatici', 'Economia', 'Hip hop']",0.8

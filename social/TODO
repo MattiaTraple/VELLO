@@ -1,0 +1,12 @@
+AGENTS 
+- Aggiugnere livelli emotivi che variano in base agli argomenti
+- Aggiugnere gli atteggiamenti
+
+
+POST
+- devo poi stabilire ogni quanto voglio fargli generare post in base al livello di attività che gli voglio impostare
+
+
+
+STORIA
+- Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
