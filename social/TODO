@@ -10,3 +10,6 @@ POST
 
 STORIA
 - Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
+
+NOTIZIE
+- Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?

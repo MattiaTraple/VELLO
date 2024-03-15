@@ -56,6 +56,3 @@ def post_gen_prob(prob):
         return True  # L'utente pubblica
     else:
         return False
-    
-for _ in range(50):
-    print(interest_gen())

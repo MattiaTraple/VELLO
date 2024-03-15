@@ -1,7 +1,7 @@
 import random
-from random_generator import age_gen
-from random_generator import interest_gen
-from random_generator import activity_gen
+from social.func.random_generator import age_gen
+from social.func.random_generator import interest_gen
+from social.func.random_generator import activity_gen
 
 
 #classe dedicata alla generazione ddegli agents e alle funzioni ad essi dedicati
