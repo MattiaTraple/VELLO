@@ -1,15 +1,40 @@
-AGENTS 
-- Aggiugnere livelli emotivi che variano in base agli argomenti
-- Aggiugnere gli atteggiamenti
+- AGENTS 
+    - Aggiugnere livelli emotivi che variano in base agli argomenti
+    - Aggiugnere gli atteggiamenti
+    - FOLLOWER
+        - opzione per come far si che l'agents inizi a seguire gentee: o ogni volta dopo aver creato tutti i profili l'utente va ad anaizzarli uno ad uno per capire se gli interessa seguirli o meno, oppure puù farlo quando si imbatte nei post degli altri, quindi finche non vede il post di una persona non inzia a seguirla (farlo casualemnte?)
+        - follower e followed possono essere non corrisposti? 
+        - meritocrazia: il nuemro dei tuoi follower non influenza come vengono mostarti i tuoi post
 
+
+- POST
+    - devo poi stabilire ogni quanto voglio fargli generare post in base al livello di attività che gli voglio impostare
+    - Tenere conto dell'aspetto emtivo nei post
+    - Come vengono mostrati i post, in base a quale logica
+        - Da considerare che ci sarà una sorta di elenco dei post di tutti che quando un agents accede alla prima pagina verranno filtrati per decidere 
+    - poss: gestisco la pubblicazione dei post come 
+    - notizia escce->uno ad uno decido se gli agents vogliono pubblicare a riguardo mettendo poi gli interessati in fila->vengono pubblicati i post uno ad uno->successivamente in teoria tutti gli altri dovrebbero decidere se sono interessanti a pubblicare o meno
+
+INTERAZIONI
+- Commenti/like/condivisioni
+
+
+- STORIA
+    - Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
+
+- NOTIZIE
+    - Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?
+
+p.s. : dove cazzo salvo tutte ste interazioni? probabilmente quando la simulazione finisce sparisce tutto, anzi dai stampiamo tutto su un bel json così posso analizzarne i dati
+
+
+- DOMANDE PROF
+    - Devo utilizzare anche una sorta di interfaccia graica, o la semplice generazione di un json che mi permette di ricapitolare ciò che è avvenuto durante la simulazione è sufficiente?  
+    - API GPT
+    - Scegliere il meccanismo di amicizia, se è orientata o non orientata, meccanismi di accettazione etc
+        - Come gestisco questa richeista? ne faccio una per ogni utente verso ogni utente? non è pesante?
+        - La richiesta la fa inizio simulazione?
+    - Ma autogen verrà utilizzato i ncombo con simpy?
 
 POST
-- devo poi stabilire ogni quanto voglio fargli generare post in base al livello di attività che gli voglio impostare
-
-
-
-STORIA
-- Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
-
-NOTIZIE
-- Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?
+- Come avviene la distribuzione del post? succ

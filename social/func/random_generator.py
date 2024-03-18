@@ -40,13 +40,12 @@ def interest_gen():
     #interst_topic=sottotopi_scelti_1+sottotopi_scelti_4
     return(sottotopi_scelti_4)
 
-# Esempio di utilizzo
-print(interest_gen())
 
 #ACTIVITY GENERATOR
 def activity_gen():
     #0.8=active, 0.5=intermediate, 0.2 inactive
     return random.choice([0.8, 0.5, 0.2])  
+
 
 #POST-PROBABILITY GENERATOR ---> START
 def post_gen_prob(prob):
