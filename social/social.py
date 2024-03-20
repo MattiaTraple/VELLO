@@ -1,8 +1,6 @@
 import random
 import simpy as si
 import numpy as np
-from social.func.random_generator import post_gen_prob
-from social.func.req_openia_llm import o
 from agent import Agent
 
 
@@ -20,28 +18,35 @@ class Social:
       self.agents=[Agent() for _ in range(40)]
 """      
    
-def simulation_social(env):
-   #generazione degli agents
-   agents_list=[Agent() for _ in range(40)]
-
-   #creazione delle connessioni di amicizia
-   for ag in agents_list:
-      #gli elenco tutti gli utentei e gli cheido man mano se è interessato a seguirli
-      env.process(ag.start_follow(agent_candidate))
-      #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
-      env.process(ag.generate_post(NEWS))
-      #stesso ragionamento, in base a dati demografici
-      env.process(ag.intWithPost())
-   
+def simulation_social(env,agents_list):
+   while True:
+      for ag in agents_list:
+         #dopo che tutti gli utentei sono stati ccreati,propongo liste di amici papabili che l'agent sceglie se seguire o meno
+         ag.find_friends(agents_list)
+         
+         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
+         env.process(ag.generate_post(NEWS))
+         #stesso ragionamento, in base a dati demo*grafici
+         #da pensare ancora come gestire il feed
+         env.process(ag.intWithPost())
 
 
+
+#MAIN
+#generazione degli agents
+agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
+
+
+for ag in agents_dict:
+      #gli elenco tutti gli utenti e gli cheido man mano se è interessato a seguirli
+      ag.start_follow()
 
 #avvio della simulazione
 env = si.Environment()
-env.process(simulation_social(env))
+env.process(simulation_social(env,agents_dict))
 #momentanemente attiva per 5 minuti
 env.run(until=300)
-   
+
    
    
    
@@ -53,7 +58,7 @@ env.run(until=300)
 
    
 
-      
+'''      
    #WORK IN PROGRESS
    
       
@@ -67,7 +72,7 @@ env.run(until=300)
       
       #risorsa condivisa, quando esaurisce gli altri devono aspettare
       self.risorsa_codivisa=si.Resource(env, risorsa_condivisa)
-   
+
    
    
    
@@ -78,6 +83,6 @@ env.run(until=300)
       #con timeout ho settato un periodo di attesa
       yield self.env.timeout(random_time)
       print("stampo il risultato")
-   
+ '''  
    
    

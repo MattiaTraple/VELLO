@@ -29,12 +29,18 @@ p.s. : dove cazzo salvo tutte ste interazioni? probabilmente quando la simulazio
 
 
 - DOMANDE PROF
-    - Devo utilizzare anche una sorta di interfaccia graica, o la semplice generazione di un json che mi permette di ricapitolare ciò che è avvenuto durante la simulazione è sufficiente?  
     - API GPT
     - Scegliere il meccanismo di amicizia, se è orientata o non orientata, meccanismi di accettazione etc
         - Come gestisco questa richeista? ne faccio una per ogni utente verso ogni utente? non è pesante?
         - La richiesta la fa inizio simulazione?
-    - Ma autogen verrà utilizzato i ncombo con simpy?
-
+t
 POST
 - Come avviene la distribuzione del post? succ
+
+- SIMULAZIONE:
+    Posso sfruttare la simulaizone per
+    - Scambi di commenti tra utenti: uno scrive, ua votla che invia il messaggio sblocca l'altro se il messaggio è in risposta a lui, una volta che viene sbloccato il secondo interlocutore, viene fatta la stessa cosa come per il primo, la cconversazione non so ancora come stopparla
+    - Per la generazione dei post in realtà non so se abbia senso usarla, posso ciclare e fare creare prima tutti i post, se voglio far postare qualcuno influenzato da qualcun altro la cosa si fa più complicata
+    - Forse utilizzabile per i rapporti di amicizia, uno va a chiedere all'altro l'amicizia, a sua volta l'altro verifica se gli interessa o meno, se accettare o meno (devo deccidere se voglio avere dei rapporti di amicizia tipo facebook non direzionata, o tipo IG, direzionata)
+
+parlarne con il prof

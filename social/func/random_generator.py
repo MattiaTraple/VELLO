@@ -31,14 +31,14 @@ def age_gen():
 def interest_gen():
     #_,sottotopi_1 = random.choice(interest_list)
     #sottotopi_scelti_1 = random.sample(sottotopi_1, 2)
-    sottotopi_scelti_4=[]
-    while len(sottotopi_scelti_4) < 4:
+    sottotopi_scelti=[]
+    while len(sottotopi_scelti) < 6:
         _,sottotipo_scelto = random.choice(interest_list)
         sotto=random.sample(sottotipo_scelto, 1)
-        if sotto not in sottotopi_scelti_4:
-            sottotopi_scelti_4.extend(sotto)
+        if sotto not in sottotopi_scelti:
+            sottotopi_scelti.extend(sotto)
     #interst_topic=sottotopi_scelti_1+sottotopi_scelti_4
-    return(sottotopi_scelti_4)
+    return(sottotopi_scelti)
 
 
 #ACTIVITY GENERATOR
