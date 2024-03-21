@@ -33,7 +33,8 @@ p.s. : dove cazzo salvo tutte ste interazioni? probabilmente quando la simulazio
     - Scegliere il meccanismo di amicizia, se è orientata o non orientata, meccanismi di accettazione etc
         - Come gestisco questa richeista? ne faccio una per ogni utente verso ogni utente? non è pesante?
         - La richiesta la fa inizio simulazione?
-t
+        - Passo tutti sti campi a chat per decidere "self.age self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age" oppure posso limitarmi al grado/limitarmi da un certo piunto di vista (considerando che il grado funge da scrematura)
+
 POST
 - Come avviene la distribuzione del post? succ
 

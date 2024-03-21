@@ -1,8 +1,7 @@
 import json
 from openai import OpenAI
 import os
-
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "<your OpenAI API key if not set as env var>"))
+from social.settings import CLIENT
 
 
 #func dedicata alla generazioen dei post
@@ -36,21 +35,11 @@ def gen_post(id,interest,age,news):
   
 
 #funzione dedicata alla decisione di iniziare un amicizia o meno
-def req_follow(id,age,interest,agent_candidate,history):
-    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+age+" anni e i temi che ti interessano sono :"" ".join(interest)+". Hai incontrato il profilo di un altro utente e devi decidere se seguirlo considerando che ha un età di "+agent_candidate.age+" anni e i temi che gli interessano sono :".join(agent_candidate.interest)+" , cosa decidi di fare?(rispondi solo 'True' se lo vuoi iniizare a seguire, 'False' nel caso in cui tu non voglia)"
+def req_follow(my_age,my_interest,req_gr,req_int,req_age):
+    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+my_age+" anni e i temi che ti interessano sono :"" ".join(my_interest)+". Hai incontrato il profilo di un altro utente e devi decidere se iniziare a seguirlo o meno considerando che ha un età di "+req_age+" anni e i temi che gli interessano sono :".join(req_int)+" , cosa decidi di fare?(rispondi solo 'True' se lo vuoi iniizare a seguire, 'False' nel caso in cui tu non voglia)"
     user_cont="Sei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
-
-    if request(sys_cont,user_cont)=="True":
-        with open('data/relationship.json', 'r') as file:
-            contenuto_json = json.load(file)
-
-        if id in contenuto_json:
-             contenuto_json[id].append(agent_candidate.id)
-        else:
-            contenuto_json[id] = [agent_candidate.id]
-            
-        with open('data/relationship.json', 'w') as file:
-            json.dump(contenuto_json, file, indent=4)
+    return request(sys_cont,user_cont)
+        
     
         
     
@@ -58,7 +47,7 @@ def req_follow(id,age,interest,agent_candidate,history):
 def request(sys_cont,user_cont):
     # Example OpenAI Python library request
     MODEL = "gpt-3.5-turbo"
-    response = client.chat.completions.create(
+    response = CLIENT.chat.completions.create(
         model=MODEL,
         messages=[
             #The system message can be used to prime the assistant with different personalities or behaviors.

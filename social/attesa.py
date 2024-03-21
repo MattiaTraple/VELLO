@@ -11,15 +11,15 @@ class Agent:
     
     #inizializzare un nuovo agents
     def __init__(self):
-      #inizialmente lo uso al posto del nome
+      # Inizialmente lo uso al posto del nome
       Agent.id_counter += 1
       self.id = Agent.id_counter
       self.age=age_gen()
       self.interest=interest_gen()
       self.activity=activity_gen()
-      #campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
+      # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
-      #quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
+      # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
       self.pos_frind=[]
       
     def ff(self,agents_candidates):   

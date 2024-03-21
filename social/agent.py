@@ -1,5 +1,9 @@
+import json
+import os
 from func.random_generator import age_gen, post_gen_prob, interest_gen, activity_gen
-from func.req_openia_llm import gen_post, req_follow
+#from func.req_openia_llm import gen_post, req_follow
+from settings import NUM_AGENTS, NUM_FRIEND
+from social.func.req_openia_llm import req_follow
 
 # Classe dedicata alla generazione ddegli agents e alle funzioni ad essi dedicati
 class Agent:
@@ -8,31 +12,30 @@ class Agent:
     
     # Inizializzare un nuovo agents
     def __init__(self):
-      #inizialmente lo uso al posto del nome
+      # Inizialmente lo uso al posto del nome
       Agent.id_counter += 1
       self.id = Agent.id_counter
       self.age=age_gen()
       self.interest=interest_gen()
       self.activity=activity_gen()
-      #campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
+      # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
-      #quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
-      self.pos_frind={}
-
-
-    # Funzione usata per iniizare a seguire altri agents, basando la scelta su una combo di età e interessi
-    def start_follow(self):
-        #per ogni agent che riceve vado a realizzare una richiesta che poi inoltro ad OpenIA
-        req_follow(self.age,self.interest,self.history)
+      # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
+      self.friend=[]
 
 
     # Riceve la lista di tutti gli agents, rimuove l'utente che ha chiamato la funzione, infine procede per l'assegnazione dei gradi
     def find_friends(self,agents_candidates):      
-        #rimuovo quello che ha vhiamato la funzione, considderando che la lista poi la utilizzero sempre e la salvo in pos_frind
-        ag_cd=agents_candidates     
+        # Rimuovo quello che ha vhiamato la funzione, considderando che la lista poi la utilizzero sempre e la salvo in pos_frind
+        ag_cd=agents_candidates.copy()    
         del ag_cd[self.id]
-        self.pos_frind=self.order_by_degree(ag_cd)
-
+        pos_friend=self.order_by_degree(ag_cd)
+        for id, inner in pos_friend.items():
+            # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
+            if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
+                self.friend.append(inner["agent"].id)
+                if len(self.friend)==NUM_FRIEND:break      
+        self.json_update()    
 
     # Funzione dedicata alla creazione e generazione del post
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
@@ -75,12 +78,42 @@ class Agent:
         agent_gr_dic={}
         # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
         for ag_id,ag in ag_cd.items():
-            gr = self.cal_degree_friend(ag.age,ag.intrest)
+            gr = self.cal_degree_friend(ag.age,ag.interest)
             agent_gr_dic[ag_id] = {'grade': gr, 'agent': ag}
         # Versione corta    
         # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
-        return(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
+        return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
 
+
+    # PROBLEMA-> quando il file è già stato creato trovo due copie delle amicizie dello stesso id
+    # Fun usata per aggiugnere al file json, sotto l'id dell'agente attuale, la lista delle amicizie
+    def json_update(self):
+
+        if os.path.exists('social/data/relationship.json'):
+            with open('social/data/relationship.json', 'r') as f:
+                con_json = json.load(f)
+        else:
+            con_json = {}
+        print(self.friend)
+        for id in self.friend:
+            if self.id in con_json:
+                con_json[self.id].append(id)
+            else:
+                con_json[self.id] = [id]
+        with open('social/data/relationship.json', 'w') as f:
+            json.dump(con_json, f, indent=4)
+            
+            
+
+agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
+count=0
+for ag in agents_dict.values():
+         #dopo che tutti gli utentei sono stati ccreati,propongo liste di amici papabili che l'agent sceglie se seguire o meno
+         
+         ag.find_friends(agents_dict)
+         if count==1:break
+         count+=1
+         
 
 #GENERARE CSV AGENTI CASUALI 
 """    

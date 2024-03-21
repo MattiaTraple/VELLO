@@ -1,14 +1,7 @@
-import random
 import simpy as si
 import numpy as np
 from agent import Agent
-
-
-#Simulations Settings
-NUM_AGENTS=40
-SIM_TIME=120
-#inizialmente la notizia su cui si baseranno i post sarà questa
-NEWS="Elon Musk ha rubato un cucchiaino in un ristorante"
+from social.settings import NEWS, NUM_AGENTS, SIM_TIME
 
 """
 class Social:
@@ -18,11 +11,13 @@ class Social:
       self.agents=[Agent() for _ in range(40)]
 """      
    
-def simulation_social(env,agents_list):
+def simulation_social(env,agents_dict):
+   
    while True:
-      for ag in agents_list:
+      # Metto il .values() perchè senno prendo l'id, dentro values trovo l'oggetto vero e proprio
+      for ag in agents_dict.values():
          #dopo che tutti gli utentei sono stati ccreati,propongo liste di amici papabili che l'agent sceglie se seguire o meno
-         ag.find_friends(agents_list)
+         ag.find_friends(agents_dict)
          
          #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
          env.process(ag.generate_post(NEWS))
@@ -36,16 +31,11 @@ def simulation_social(env,agents_list):
 #generazione degli agents
 agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
 
-
-for ag in agents_dict:
-      #gli elenco tutti gli utenti e gli cheido man mano se è interessato a seguirli
-      ag.start_follow()
-
 #avvio della simulazione
 env = si.Environment()
 env.process(simulation_social(env,agents_dict))
 #momentanemente attiva per 5 minuti
-env.run(until=300)
+env.run(until=SIM_TIME)
 
    
    
