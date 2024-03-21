@@ -1,3 +1,5 @@
 - studiare lo yeld e la simulazione
-- finire funzione di invio elemnco amici candidati a gpt e richeista di ricevere indietro una lista di true e false separati da ,
-sisteare chaiamta
+- creare il feed per ogni utente (da decidere se per argomento, amicizie, altri fattori, una combo, magari calcolo un grado che mi fa ordinare i post, da considerare un time, ootrei ordinarli anche per recentezza)
+
+feed e ccomment
+- creare classe post

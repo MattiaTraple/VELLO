@@ -1,11 +1,11 @@
 import json
 import os
 from func.random_generator import age_gen, post_gen_prob, interest_gen, activity_gen
-#from func.req_openia_llm import gen_post, req_follow
-from settings import NUM_AGENTS, NUM_FRIEND
-from social.func.req_openia_llm import req_follow
+from func.req_openia_llm import gen_post, req_follow
+from settings import NEWS, NUM_AGENTS, NUM_FRIEND
 
-# Classe dedicata alla generazione ddegli agents e alle funzioni ad essi dedicati
+
+# Classe dedicata alla generazione degli agents e alle funzioni ad essi dedicati
 class Agent:
     
     id_counter = 0
@@ -22,6 +22,7 @@ class Agent:
       self.history=[]
       # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
       self.friend=[]
+      self.feed=[]
 
 
     # Riceve la lista di tutti gli agents, rimuove l'utente che ha chiamato la funzione, infine procede per l'assegnazione dei gradi
@@ -39,20 +40,26 @@ class Agent:
 
     # Funzione dedicata alla creazione e generazione del post
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
-    def generate_post(self,news):
+    def generate_post(self):
       #datatime di generazione
       if post_gen_prob(self.activity):
          #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
          #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
-         gen_post(self.id, self.interest, self.age, news)
-         return "SYS---> "+self.id+" ha postato"
-      return "SYS---> "+self.id+" non ha postato nulla"
+         gen_post(self.id, self.interest, self.age, NEWS)
+         print("SYS ---> "+str(self.id)+" ha postato")
+      print("SYS ---> "+str(self.id)+" non ha postato")
+
+
+    
+    
 
 
     # L'utente decide se e come interagire con un post
-    #def intWithPost(self):
-        
+    def intWithPost(self):
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
+        #come ordino 
+        
+        
         
         
     # Funzione chiamata da order_by_degree per restituire il grado di un agents
@@ -71,7 +78,7 @@ class Agent:
         # Calcola il grado dell'utente in base agli interessi in comune
         grado+=sum(0.5 for int1 in self.interest for int2 in ag_int if int1 == int2)
         return grado
-
+        
 
     # Funzione chiamata da find_friends per restituire una lista di agent ordinati per grado di coerenza
     def order_by_degree(self,ag_cd):
@@ -94,7 +101,7 @@ class Agent:
                 con_json = json.load(f)
         else:
             con_json = {}
-        print(self.friend)
+            
         for id in self.friend:
             if self.id in con_json:
                 con_json[self.id].append(id)
@@ -103,8 +110,25 @@ class Agent:
         with open('social/data/relationship.json', 'w') as f:
             json.dump(con_json, f, indent=4)
             
-            
 
+
+
+
+
+# Generate post
+"""           
+agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
+count=0
+print("Recap di chi ha postato dopo la notizia")
+for ag in agents_dict.values():
+        ag.generate_post()     
+        if count==10:break
+        count+=1
+
+"""
+
+# Test per follower relation
+"""
 agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
 count=0
 for ag in agents_dict.values():
@@ -113,7 +137,7 @@ for ag in agents_dict.values():
          ag.find_friends(agents_dict)
          if count==1:break
          count+=1
-         
+"""         
 
 #GENERARE CSV AGENTI CASUALI 
 """    

@@ -1,49 +1,61 @@
 import json
 from openai import OpenAI
 import os
-from social.settings import CLIENT
+CLIENT = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "<your OpenAI API key if not set as env var>"))
 
 
-#func dedicata alla generazioen dei post
+
+# Fun dedicata alla generazioen dei post
 def gen_post(id,interest,age,news):
     #scrivo bene le richeiste per openia
     #se uso 3.5 turbo specifico anche il sys, senno uso solo lo user
-    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+age+" anni e i temi che ti interessano sono :"" ".join(interest)+". Hai appena letto della notizia "+news+" e decidi di reagire creando un post a riguardo, tenendo conto dell'e informazioni demografiche e di interessi che ti ho dato in precedenza,  quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"#contino la richiesta
+    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+str(age)+" anni e i temi che ti interessano sono :"" ".join(interest)+". Hai appena letto della notizia "+news+" e decidi di reagire creando un post a riguardo, tenendo conto dell'e informazioni demografiche e di interessi che ti ho dato in precedenza,  quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"#contino la richiesta
     user_cont="Sei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     
+    
+    
+    
+    
+    
+    #verisone senza classe post
+    """
     #setto il nuovo post
     post = {
         "nome_utente": id,
-        "risposta": request(sys_cont, user_cont),
+        "risposta": "prova123456789",#request(sys_cont, user_cont),
         "commenti": [] 
     }
+    """
+    
+    
     
     # Leggi JSON
-    with open('data/post.json', 'r') as file:
-        contenuto_json = json.load(file)
+    if os.path.exists('social/data/post.json'):
+        with open('social/data/post.json', 'r') as f:
+            con_json = json.load(f)
+    else:
+        con_json = {}
     
     # Aggiungo nuovo post
-    if news in contenuto_json:
-        contenuto_json[news].append(post)
+    if news in con_json:
+        con_json[news].append(post)
     else:
-        contenuto_json[news] = [post]
+        con_json[news] = [post]
     
     # Aggiorno Json
-    with open('data/post.json', 'w') as file:
-        json.dump(contenuto_json, file, indent=4)
+    with open('social/data/post.json', 'w') as file:
+        json.dump(con_json, file, indent=4)
   
 
-#funzione dedicata alla decisione di iniziare un amicizia o meno
+# Fun dedicata alla decisione di iniziare un amicizia o meno
 def req_follow(my_age,my_interest,req_gr,req_int,req_age):
-    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+my_age+" anni e i temi che ti interessano sono :"" ".join(my_interest)+". Hai incontrato il profilo di un altro utente e devi decidere se iniziare a seguirlo o meno considerando che ha un età di "+req_age+" anni e i temi che gli interessano sono :".join(req_int)+" , cosa decidi di fare?(rispondi solo 'True' se lo vuoi iniizare a seguire, 'False' nel caso in cui tu non voglia)"
+    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+str(my_age)+" anni e i temi che ti interessano sono :"" ".join(my_interest)+". Hai incontrato il profilo di un altro utente e devi decidere se iniziare a seguirlo o meno considerando che ha un età di "+str(req_age)+" anni e i temi che gli interessano sono :".join(req_int)+" , cosa decidi di fare?(rispondi solo 'True' se lo vuoi iniizare a seguire, 'False' nel caso in cui tu non voglia)"
     user_cont="Sei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
     return request(sys_cont,user_cont)
-        
+                 
     
-        
-    
-#richiesta generica che verrà inviata a OpenIA
+# Richiesta generica che verrà inviata a OpenIA
 def request(sys_cont,user_cont):
     # Example OpenAI Python library request
     MODEL = "gpt-3.5-turbo"
@@ -58,3 +70,8 @@ def request(sys_cont,user_cont):
         temperature=0,
     )
     return response.json()['choices'][0]['message']['content']
+
+
+# Fun dedicata alla generazione di un commento
+# req_comment():
+    

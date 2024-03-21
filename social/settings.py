@@ -11,5 +11,4 @@ NUM_FRIEND=10
 # Notizia di prova fornita
 NEWS="Elon Musk ha rubato un cucchiaino in un ristorante"
 
-# Chiave API usata per le richieste
-CLIENT = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "<your OpenAI API key if not set as env var>"))
+
