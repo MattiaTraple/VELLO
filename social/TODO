@@ -24,8 +24,12 @@ INTERAZIONI
 
 - NOTIZIE
     - Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?
+    - Asseganre in modo dinamico il tipo di topic che tratta una news, mi serve per la creazioen dei feed e la distribuzione dei postin generale
+    - difficile fare un meccanismo di classificazione delle news (al momento li inserisco manualmente)
 
-p.s. : dove cazzo salvo tutte ste interazioni? probabilmente quando la simulazione finisce sparisce tutto, anzi dai stampiamo tutto su un bel json così posso analizzarne i dati
+- COMMENTI
+    - come avviene la scelta se eseguire o meno un commento? in modo randomico o per richeista all'LLM? ciè, o uso il random o chiedo all'lmm se commentare, cosidero che posso usare i livello di activity dell'utente per stabilire in modo randomico l'interesse o meno, altri campi considerabili:
+        - se il post fa parte del feed molto probabilmente è più interessato, se il feed è generato in basse agli amici/in base ai topic dei post che interessano all'utente
 
 
 - DOMANDE PROF

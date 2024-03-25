@@ -1,5 +1,9 @@
 - studiare lo yeld e la simulazione
 - creare il feed per ogni utente (da decidere se per argomento, amicizie, altri fattori, una combo, magari calcolo un grado che mi fa ordinare i post, da considerare un time, ootrei ordinarli anche per recentezza)
 
-feed e ccomment
-- creare classe post
+
+
+- rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
+    - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
+
+- creare classe post-> ci vanno dei metodi?

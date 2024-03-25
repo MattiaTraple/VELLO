@@ -48,7 +48,7 @@ def activity_gen():
 
 
 #POST-PROBABILITY GENERATOR ---> START
-def post_gen_prob(prob):
+def content_interaction_gen_prob(prob):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
     if rand < prob:

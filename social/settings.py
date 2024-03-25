@@ -1,6 +1,6 @@
 # Questo file è dedicato ai settings della simulazione
-import os
-from openai import OpenAI
+from collections import namedtuple
+
 
 # Numero di agenti che verranno ccreati
 NUM_AGENTS=40
@@ -8,7 +8,11 @@ NUM_AGENTS=40
 SIM_TIME=300
 # Limite iniziale di amici fissati
 NUM_FRIEND=10
+
 # Notizia di prova fornita
-NEWS="Elon Musk ha rubato un cucchiaino in un ristorante"
-
-
+News = namedtuple('News', ['name', 'topics'])
+NEWS = News(name="Sale il valore di Bitcoin, di coseguenza l'inquinamento aumenta", topics=["Criptovalute", "Ambiente e cambiamenti climatici", ""])
+# Post Presenti nel feed
+NUM_FEED=10
+# Lista momentanea in cui salvo i post di tutti gli utenti
+POST_DATABASE=[]
