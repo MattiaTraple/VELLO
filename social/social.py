@@ -1,10 +1,12 @@
 import simpy as si
 import numpy as np
 from agent import Agent
-from social.settings import NEWS, NUM_AGENTS, SIM_TIME
+from social.func.results_managment import update_database_npost
+from social.settings import NEWS, NUM_AGENTS, SIM_TIME, POST_DATABASE
 
 
-
+# Salvataggio di tutti i post in un json Recap
+update_database_npost(POST_DATABASE)
 
 
 

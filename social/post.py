@@ -1,4 +1,5 @@
 import datetime
+from comment import Comment  
 
 # Classe dedicata al funzionamento dei post in generale
 
@@ -23,4 +24,5 @@ class Post:
         com=gen_com(self.news,self.content,agent)
         # Salvo id di chi pubblica il commento, il commento stesso, e il tempo in cui lo ha fatto
         if com:
-            self.comments.append((agent.id,com,datetime.datetime.now()))
+            # Creazione oggetto com
+            self.comments.append(Comment(self.id,self.agent_id,com))

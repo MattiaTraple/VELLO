@@ -17,35 +17,8 @@ def gen_post(id,interest,age,news):
     sys_cont=f"Il contesto è questo, tu sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news.name} e decidi di reagire creando un post a riguardo, tenendo conto delle informazioni demografiche e di interessi che ti ho dato in precedenza, considerando che i topic della notizia rientrano in:{', '.join(topics)} ,in  quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"#contino la richiesta
     user_cont="... "
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
-    
     #mettere request(sys_cont, user_cont) al posto di "bulaeivwribviwr"
     post=Post("bulaeivwribviwr",news,id)
-    new_post = {
-        "post_id": post.id,
-        "agent_id":post.agent_id,
-        "content": post.content,
-        "datatime": post.datatime.strftime("%Y-%m-%d %H:%M:%S"),
-        "comments": []
-    }
-
-    
-    
-    if os.path.exists('social/data/post.json'):
-        with open('social/data/post.json', 'r') as f:
-            con_json = json.load(f)
-    else:
-        con_json = {}
-    
-    # Aggiunta del nuovo post
-    if news.name in con_json:
-        con_json[news.name].append(new_post)
-    else:
-        con_json[news.name] = [new_post]
-    
-    # Aggiorno Json
-    with open('social/data/post.json', 'w') as file:
-        json.dump(con_json, file, indent=4)
-        
     return post
  
 # Fun dedicata alla decisione di iniziare un amicizia o meno

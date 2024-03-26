@@ -1,5 +1,6 @@
 # Questo file è dedicato ai settings della simulazione
 from collections import namedtuple
+from social.func.req_openia_llm import gen_define_news
 
 
 # Numero di agenti che verranno ccreati

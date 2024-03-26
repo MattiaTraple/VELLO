@@ -51,7 +51,6 @@ class Agent:
             #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
             new_p=gen_post(self.id, self.interest, self.age, NEWS)
             self.published.append(new_p)
-            POST_DATABASE.append(new_p)
             print("SYS ---> "+str(self.id)+" ha postato")
         print("SYS ---> "+str(self.id)+" non ha postato")
         

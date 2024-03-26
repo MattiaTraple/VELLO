@@ -14,7 +14,8 @@
     - Come vengono mostrati i post, in base a quale logica
         - Da considerare che ci sarà una sorta di elenco dei post di tutti che quando un agents accede alla prima pagina verranno filtrati per decidere 
     - poss: gestisco la pubblicazione dei post come 
-    - notizia escce->uno ad uno decido se gli agents vogliono pubblicare a riguardo mettendo poi gli interessati in fila->vengono pubblicati i post uno ad uno->successivamente in teoria tutti gli altri dovrebbero decidere se sono interessanti a pubblicare o meno
+    - notizia escce->uno ad uno decido se gli agents vogliono pubblicare a riguardo mettendo poi gli interessati in fila->vengono pubblicati i post uno ad uno->successivamente in teoria tutti gli altri dovrebbero decidere se sono interessanti a pubblicare o 
+    - Al momento esiste una limitazione di un post ad utente per ogni notizia, i commenti non sono contati
 
 INTERAZIONI
 - Commenti/like/condivisioni
@@ -29,16 +30,23 @@ INTERAZIONI
     - difficile fare un meccanismo di classificazione delle news (al momento li inserisco manualmente)
 
 - COMMENTI
+    - Nella classe serve l'id?
+
     - come avviene la scelta se eseguire o meno un commento? in modo randomico o per richeista all'LLM? ciè, o uso il random o chiedo all'lmm se commentare, cosidero che posso usare i livello di activity dell'utente per stabilire in modo randomico l'interesse o meno, altri campi considerabili:
         - se il post fa parte del feed molto probabilmente è più interessato, se il feed è generato in basse agli amici/in base ai topic dei post che interessano all'utente
+    - Opzione commento di risposta da parte del proprietario del post
+
 
 
 - DOMANDE PROF
     - LAMA GPT
-    - Scegliere il meccanismo di amicizia, se è orientata o non orientata, meccanismi di accettazione etc
-        - Come gestisco questa richeista? ne faccio una per ogni utente verso ogni utente? non è pesante?
+    - richieste amiccizia
         - La richiesta la fa inizio simulazione?
         - Passo tutti sti campi a chat per decidere "self.age self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age" oppure posso limitarmi al grado/limitarmi da un certo piunto di vista (considerando che il grado funge da scrematura)
+
+amicizia->non orientata
+commenti->passo le info al LLM e lui decide (come stavo facendo io
+)
 
 POST
 - Come avviene la distribuzione del post? succ
