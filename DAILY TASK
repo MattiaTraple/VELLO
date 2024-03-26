@@ -1,6 +1,9 @@
 - studiare lo yeld e la simulazione
-- creare il feed per ogni utente (da decidere se per argomento, amicizie, altri fattori, una combo, magari calcolo un grado che mi fa ordinare i post, da considerare un time, ootrei ordinarli anche per recentezza)
 
+- Commenti, riguardo richiesta e campi che passo, devo dare più contensto di chi sta per commentare?
+    - tipo gli interessi o
+
+- meccanismo di salvataggio database post a fine simulazione su un json (prima no che tanto uso lla lista normalmente)
 
 
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare

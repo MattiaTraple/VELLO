@@ -3,6 +3,13 @@ import numpy as np
 from agent import Agent
 from social.settings import NEWS, NUM_AGENTS, SIM_TIME
 
+
+
+
+
+
+
+
 """
 class Social:
    #adefinizione agents

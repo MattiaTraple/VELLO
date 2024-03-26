@@ -147,7 +147,7 @@ class Agent:
             
 
 
-# Generate post e riempi feed
+# Generate post e riempi feed3
 agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
 count=0
 for ag in agents_dict.values():

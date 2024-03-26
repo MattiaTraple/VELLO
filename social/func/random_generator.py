@@ -1,11 +1,11 @@
+import os
 import random
 import json
 
 #RANGE E INTERESSI
 range_age = [(range(13, 17), 0.066), (range(17, 24), 0.171), (range(25, 34), 0.385), (range(35, 49), 0.207), (range(50, 102), 0.171)]
-interest_list = [
-    ("Viaggi e avventure", ["Escursioni in montagna", "Viaggi in camper", "Turismo culturale", "Viaggi low-cost", "Destinazioni esotiche"]),("Cucina e ricette", ["Cucina italiana", "Ricette vegetariane/vegane", "Cucina gourmet", "Dessert e dolci", "Cucina internazionale"]),("Fitness e benessere", ["Allenamento a corpo libero", "Yoga e meditazione", "Alimentazione sana", "Programmi di dimagrimento", "Allenamento funzionale"]),("Arte e creatività", ["Pittura ad olio", "Fotografia di paesaggi", "Scultura", "Disegno e illustrazione", "Arte digitale"]),("Musica e concerti", ["Rock", "Hip hop", "Jazz", "Musica classica", "Indie"]),("Tecnologia e innovazione", ["Intelligenza artificiale", "Criptovalute", "App per la produttività", "Fotografia digitale", "Nuove app e software"]),("Film e serie TV", ["Fantascienza", "Drammi", "Commedie romantiche", "Thriller psicologici", "Anime"]),("Libri e lettura", ["Romanzi storici", "Fantasy epico", "Saggi di divulgazione scientifica", "Poesia contemporanea", "Libri d'arte"]),("Fotografia e editing", ["Fotografia di viaggio", "Ritratti in studio", "Fotografia di architettura", "Editing di paesaggi", "Fotografia naturalistica"]),("Politica e attualità", ["Politica internazionale", "Economia", "Ambiente e cambiamenti climatici", "Diritti umani", "Attualità locali"]),("Ambiente e sostenibilità", ["Riduzione della plastica", "Energia rinnovabile", "Agricoltura biologica", "Mobilità sostenibile", "Conservazione della biodiversità"]),("Moda e stile", ["Moda streetwear", "Stile vintage", "Alta moda", "Abbigliamento sostenibile", "Consigli di abbinamento"]),("Fai da te e progetti manuali", ["Lavorazione del legno", "Cucito e ricamo", "Falegnameria", "Fai da te per la casa", "Progetti di bricolage"]),("Sport e competizioni", ["Calcio", "Tennis", "Surf", "Pallavolo", "Maratone e corsa"]),("Giochi e videogiochi", ["Giochi di ruolo (RPG)", "Sparatutto in prima persona (FPS)", "Strategia in tempo reale (RTS)", "Giochi indie", "Giochi per dispositivi mobili"]),("Animali domestici e cura degli animali", ["Addestramento dei cani", "Cura dei gatti", "Acquariologia", "Allevamento di animali esotici", "Protezione degli animali"]),("Psicologia e benessere mentale", ["Gestione dello stress", "Crescita personale", "Mindfulness", "Terapia cognitivo-comportamentale (TCC)", "Psicologia positiva"]),    ("Educazione e apprendimento", ["Corsi online", "Lingue straniere", "Sviluppo personale", "Corsi accademici", "Tecnologia dell'informazione"]),("Finanza personale e investimenti", ["Risparmio", "Investimenti azionari", "Criptovalute", "Pianificazione pensionistica", "Immobiliare"]),("Relazioni interpersonali e consigli sentimentali", ["Consigli di relazione", "Amicizia", "Consigli per appuntamenti", "Gestione dei conflitti", "Crescita delle relazioni di coppia"])
-]
+interest_list=json.load(open('social/data/topic.json', 'r'))
+
 
 
 #AGE GENERATOR ---> START
@@ -29,16 +29,16 @@ def age_gen():
 
 #INTEREST GENERATOR ---> START
 def interest_gen():
-    #_,sottotopi_1 = random.choice(interest_list)
-    #sottotopi_scelti_1 = random.sample(sottotopi_1, 2)
-    sottotopi_scelti=[]
-    while len(sottotopi_scelti) < 6:
-        _,sottotipo_scelto = random.choice(interest_list)
-        sotto=random.sample(sottotipo_scelto, 1)
-        if sotto not in sottotopi_scelti:
-            sottotopi_scelti.extend(sotto)
-    #interst_topic=sottotopi_scelti_1+sottotopi_scelti_4
-    return(sottotopi_scelti)
+
+    # Estrai due sottoargomenti casuali dalla stessa macrocategoria
+    cat_mac1 = random.choice(list(interest_list.keys()))
+    topic_res = random.sample(interest_list[cat_mac1], 2)
+
+    # Estrai quattro sottoargomenti casuali da macrocategorie diverse
+    other_cat_mac = [mc for mc in interest_list if mc != cat_mac1]
+    topic_res.extend([random.choice(interest_list[m]) for m in random.sample(other_cat_mac, 4)])
+
+    return topic_res
 
 
 #ACTIVITY GENERATOR
