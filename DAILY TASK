@@ -1,12 +1,11 @@
 - studiare lo yeld e la simulazione
 
-- Commenti, riguardo richiesta e campi che passo, devo dare più contensto di chi sta per commentare?
-    - tipo gli interessi o
-
-- meccanismo di salvataggio database post a fine simulazione su un json (prima no che tanto uso lla lista normalmente)
+- iniziare a gestire al simulazione su social.py
 
 
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
 
 - creare classe post-> ci vanno dei metodi?
+
+- Adattare le richieste a LamaAi_>prof

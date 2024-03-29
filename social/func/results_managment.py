@@ -44,8 +44,4 @@ def single_post(post):
 
 # Fun aus per estrazione commenti
 def add_comment(comments):
-    res=[]
-    for com in comments:
-        res.append({"commenter_id":com.agent,"content":com.content})
-    
-    return res
+    return [{"commenter_id": com.agent, "content": com.content, "datatime": com.datetime} for com in comments]

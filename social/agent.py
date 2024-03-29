@@ -59,7 +59,7 @@ class Agent:
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
         #come ordino 
         
-        # Deccide se commentare 
+        # Deccide se commentare basato su activiti dell'utente
         if content_interaction_gen_prob(self.activity):
             post.create_comment(self)
         
