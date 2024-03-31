@@ -4,7 +4,7 @@ import os
 import random
 from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, activity_gen
 from func.req_openia_llm import gen_post, req_follow
-from settings import NEWS, NUM_AGENTS, NUM_FEED, NUM_FRIEND, POST_DATABASE
+from settings import config
 
 
 
@@ -14,7 +14,9 @@ class Agent:
     id_counter = 0
     
     # Inizializzare un nuovo agents
-    def __init__(self):
+    def __init__(self,env):
+      # Permette ddi tenera a conatto con il riferimento dell'agent nella simulazione
+      self.env = env  
       # Inizialmente lo uso al posto del nome
       Agent.id_counter += 1
       self.id = Agent.id_counter
@@ -29,8 +31,10 @@ class Agent:
       # Lista post pubblicati
       self.published=[]
 
+    # Versione c 
+
     # Riceve la lista di tutti gli agents, rimuove l'utente che ha chiamato la funzione, infine procede per l'assegnazione dei gradi
-    def find_friends(self,agents_candidates):      
+    def find_friends(self,agents_candidates):   
         # Rimuovo quello che ha vhiamato la funzione, considderando che la lista poi la utilizzero sempre e la salvo in pos_frind
         ag_cd=agents_candidates.copy()    
         del ag_cd[self.id]
@@ -39,8 +43,9 @@ class Agent:
             # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
             #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
                 self.friend.append(inner["agent"].id)
-                if len(self.friend)==NUM_FRIEND:break      
-        self.json_update()    
+                if len(self.friend)==config.NUM_FRIEND:break      
+        self.json_update()
+        return     
 
     # Funi dedicata alla creazione e generazione del post
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
@@ -49,10 +54,10 @@ class Agent:
         if content_interaction_gen_prob(self.activity):
             #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
             #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
-            new_p=gen_post(self.id, self.interest, self.age, NEWS)
+            new_p=gen_post(self.id, self.interest, self.age, config.NEWS)
             self.published.append(new_p)
-            print("SYS ---> "+str(self.id)+" ha postato")
-        print("SYS ---> "+str(self.id)+" non ha postato")
+            print("LOG ----> "+str(self.id)+" ha postato")
+        print("LOG ----> "+str(self.id)+" non ha postato")
         
     # L'utente decide se e come interagire con un post
     def intWithPost(self,post):
@@ -119,7 +124,7 @@ class Agent:
 
     # mod1 -> 1 post randomico per i primi 10 amici della lista di persone che segue
     def polulate_feed1(self,agents_dict):
-        for ag in itertools.islice(agents_dict.values(), NUM_FEED):
+        for ag in itertools.islice(agents_dict.values(), config.NUM_FEED):
             if ag.id!=self.id:
                 if ag.published:
                     # Prende un post randomico tra quelli di un amico
@@ -127,7 +132,7 @@ class Agent:
                         
     # mod2 -> 1 post più recente i primi 10 amici della lista di persone che segue
     def polulate_feed2(self,agents_dict):
-        for ag in itertools.islice(agents_dict.values(), NUM_FEED):
+        for ag in itertools.islice(agents_dict.values(), config.NUM_FEED):
             if ag.id!=self.id:
                 if ag.published:
                     # Prende l'ultimo post dell'amico
@@ -137,7 +142,7 @@ class Agent:
     def polulate_feed3(self):
         count=1
         # Uso shuffle così da dare i post da analizzare per la selezioen in ordine casuale e non in ordine di creazione, do più variabilità
-        for post in random.shuffle(POST_DATABASE):
+        for post in random.shuffle(config.POST_DATABASE):
             if count==10: break
             #solo il post non è dell'agent di cui stiamo ccreando il feed e se c'è un matching tra topic posso andare ad aggiungerlo al feed
             if post.agent_id!=self.id and set(post.topic) & set(self.interest):
@@ -145,7 +150,7 @@ class Agent:
                 count+=1         
             
 
-
+'''
 # Generate post e riempi feed3
 agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
 count=0
@@ -159,7 +164,7 @@ for ag in agents_dict.values():
     ag.polulate_feed3()
     if count==1:break
     count+=1
-
+'''
 
 # Test per follower relation
 """

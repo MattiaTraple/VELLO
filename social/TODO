@@ -3,7 +3,6 @@
     - Aggiugnere gli atteggiamenti
     - FOLLOWER
         - opzione per come far si che l'agents inizi a seguire gentee: o ogni volta dopo aver creato tutti i profili l'utente va ad anaizzarli uno ad uno per capire se gli interessa seguirli o meno, oppure puù farlo quando si imbatte nei post degli altri, quindi finche non vede il post di una persona non inzia a seguirla (farlo casualemnte?)
-        - follower e followed possono essere non corrisposti? 
         - meritocrazia: il nuemro dei tuoi follower non influenza come vengono mostarti i tuoi post
             - Per il momento il feed è basato su seguit e i post più recenti/randomici oppure su post per categoria estratti randomicamente 
 
@@ -55,4 +54,3 @@ POST
     Posso sfruttare la simulaizone per
     - Scambi di commenti tra utenti: uno scrive, ua votla che invia il messaggio sblocca l'altro se il messaggio è in risposta a lui, una volta che viene sbloccato il secondo interlocutore, viene fatta la stessa cosa come per il primo, la cconversazione non so ancora come stopparla
     - Per la generazione dei post in realtà non so se abbia senso usarla, posso ciclare e fare creare prima tutti i post, se voglio far postare qualcuno influenzato da qualcun altro la cosa si fa più complicata
-    - Forse utilizzabile per i rapporti di amicizia, uno va a chiedere all'altro l'amicizia, a sua volta l'altro verifica se gli interessa o meno, se accettare o meno (devo deccidere se voglio avere dei rapporti di amicizia tipo facebook non direzionata, o tipo IG, direzionata)
