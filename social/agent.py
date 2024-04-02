@@ -26,26 +26,26 @@ class Agent:
       # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
       # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
-      self.friend=[]
+      self.friends=[]
       self.feed=[]
       # Lista post pubblicati
       self.published=[]
 
     # Versione c 
-
-    # Riceve la lista di tutti gli agents, rimuove l'utente che ha chiamato la funzione, infine procede per l'assegnazione dei gradi
     def find_friends(self,agents_candidates):   
-        # Rimuovo quello che ha vhiamato la funzione, considderando che la lista poi la utilizzero sempre e la salvo in pos_frind
-        ag_cd=agents_candidates.copy()    
-        del ag_cd[self.id]
-        pos_friend=self.order_by_degree(ag_cd)
-        for id, inner in pos_friend.items():
+        # Possi limitare in caso gli amici che voglio fare aggiugnere   
+        # if len(self.friends)==config.NUM_FRIEND:return              
+        
+        ag_ca=self.order_by_degree(agents_candidates)
+        for ag_id in ag_ca:
             # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
             #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
-                self.friend.append(inner["agent"].id)
-                if len(self.friend)==config.NUM_FRIEND:break      
+                # Escludi l'agente corrente e gli agenti già presenti nella lista degli amici
+                if ag_id != self.id and ag_id not in self.friends:
+                    self.friends.append(ag_id)
+                    return ag_id                
         self.json_update()
-        return     
+
 
     # Funi dedicata alla creazione e generazione del post
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
@@ -56,6 +56,7 @@ class Agent:
             #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
             new_p=gen_post(self.id, self.interest, self.age, config.NEWS)
             self.published.append(new_p)
+            config.POST_DATABASE.append(new_p)
             print("LOG ----> "+str(self.id)+" ha postato")
         print("LOG ----> "+str(self.id)+" non ha postato")
         
@@ -92,9 +93,9 @@ class Agent:
     def order_by_degree(self,ag_cd):
         agent_gr_dic={}
         # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
-        for ag_id,ag in ag_cd.items():
+        for ag in ag_cd:
             gr = self.cal_degree_friend(ag.age,ag.interest)
-            agent_gr_dic[ag_id] = {'grade': gr, 'agent': ag}
+            agent_gr_dic[ag.id] = {'grade': gr}
         # Versione corta    
         # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
         return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
@@ -110,7 +111,7 @@ class Agent:
         else:
             con_json = {}
             
-        for id in self.friend:
+        for id in self.friends:
             if self.id in con_json:
                 con_json[self.id].append(id)
             else:

@@ -1,21 +1,25 @@
 import random
 import simpy as si
-from func.results_managment import update_database_npost
+from func.results_managment import updateJons_post, updateJson_rel
 from settings import  config
 
+# Lista oin cui vengono salvati tutti gli agenti
+AGENT_LIST=[]
 
 #generazione degli agents
 #----->agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
 
 # Funzione per la generazione degli agenti
 def generate_agents(env, num_agents):
-   from agent import Agent
-   agent = Agent(env)
-   print(f'SYM ----> è stato creato l agent {agent.id} - activiti: {agent.activity}')
-   #devo scegliere quando inizializzare il feed
-      
-   # Qui puoi fare altre inizializzazioni per gli agenti se necessario
-   yield env.process(agent_behavior(env, agent))
+    from agent import Agent
+    agent = Agent(env)
+    # Tengo una lista degli agent che mi servirà per le varie interazioni
+    AGENT_LIST.append(agent)
+    print(f'SYM ----> è stato creato l agent {agent.id} - activity: {agent.activity}')
+    #devo scegliere quando inizializzare il feed
+    #-----
+    # Qui puoi fare altre inizializzazioni per gli agenti se necessario
+    yield env.process(agent_behavior(env, agent))
 
 # Processo che modella il comportamento di un agente nel social network
 def agent_behavior(env, agent):
@@ -23,13 +27,14 @@ def agent_behavior(env, agent):
         # Simula il comportamento dell'agente nel social network
         
         # Aggiunge un amico ogni tot tempo
-        #yield env.timeout(random.randint(10, 30))
-        #if len(agent.friend)!=NUM_FRIEND: # Se segue già tutti non ha senso aggiungergli follower
-          #  while friend_id == agent.agent_id:
-           #    friend_id = random.randint(0, NUM_AGENTS - 1)
-            #agent.add_friend(friend_id)
+        yield env.timeout(random.randint(200, 300))
+        #print(f"agent: {agent.friends}, ng: {num_agents} ")
+        if len(agent.friends)<len(AGENT_LIST)-1: # Se segue già tutti non ha senso aggiungergli follower
+            #qua viene generato a caso, voglio che inizi a seguire un altro agente obbligaotriamente, segue l'elenco finchè non ne trova uno he gloi interessa  
+            #faccio restituire dalla funzione l'id dell'agent di cui è diventato amico
+            id_agent_start_follow=agent.find_friends(AGENT_LIST)
             # Viene fatto nella classe perché gli faccio eseguire in lbocco 
-            #print(f"LOG ---->Agent {agent.agent_id} e ha aggiunto Agent {friend_id} come amico.")
+            if id_agent_start_follow:print(f"LOG ---->Agent {agent.id} ha aggiunto Agent {id_agent_start_follow} come amico.")
         
 
         # Ogni tot tempo gli viene data la possibilità di pubblicare contenuto
@@ -61,5 +66,6 @@ env = si.Environment()
 # Run simulazione
 start_social_simu(env, config.NUM_AGENTS)
 
-# Salvataggio di tutti i post in un json Recap
-update_database_npost(config.POST_DATABASE)
+# Salvataggi dello stato ddel social al momento della conclusione della simulaizione
+updateJons_post(config.POST_DATABASE)
+#updateJson_rel(AGENT_LIST)
