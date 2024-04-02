@@ -56,34 +56,27 @@ def updateJson_rel(agent_list):
         single_agent(agent)
 
 # Fun ausiliaria, gli viene dato un agent, ne estrae la lista amici e la salva sotto l'agent corrispondete
-def single_agent():
+def single_agent(agent):
     
     if os.path.exists('social/data/relationship.json'):
         with open('social/data/relationship.json', 'r') as f:
             post_data = json.load(f)
     else:
-        post_data = {"agents":[]}
+        rel_data = {"agents":[]}
     
     #setto il nuovo agent che poi vado a salvare
-    new_post = {
-        "post_id": post.id,
-        "agent_id":post.agent_id,
-        "content": post.content,
-        "datatime": post.datatime.strftime("%Y-%m-%d %H:%M:%S"),
-        "comments":add_comment(post.comments)   #aggiungo dopo la lista commenti
+    new_ag = {
+        "agent_id": agent.id,
+        "friends_list":agent.friends  #aggiungo dopo la lista commenti
     }
-
-    for news_item in post_data["news"]:
-        if news_item["name"] == post.news:
-            news_item["post"].append(new_post)
-            break
-    else:
-        post_data["news"].append({
-            "name": post.news,
-            "topic": post.topic,
-            "post": [new_post]
-        })
+    
+    post_data["agents"].append(new_ag)
   
     # Aggiorno Json
-    with open('social/data/post.json', 'w') as file:
+    with open('social/data/relationship.json', 'w') as file:
         json.dump(post_data, file, indent=4)
+        
+# Fun aus per estrazione amici
+def add_friend(friends):
+    return [{"commenter_id": fr.agent, "content": fr.content, "datatime": fr.datetime} for fr in friends]
+

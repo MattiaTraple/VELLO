@@ -68,4 +68,4 @@ start_social_simu(env, config.NUM_AGENTS)
 
 # Salvataggi dello stato ddel social al momento della conclusione della simulaizione
 updateJons_post(config.POST_DATABASE)
-#updateJson_rel(AGENT_LIST)
+updateJson_rel(AGENT_LIST)
