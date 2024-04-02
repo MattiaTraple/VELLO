@@ -49,34 +49,39 @@ def add_comment(comments):
 
 
 
-# RELATIONSHIP
-# Fun per trasferire contenuto delle relazioni dei vari utenti nel json -> per ogni Agent la sua lista di amici
-def updateJson_rel(agent_list):
+# AGENTS
+# Fun che riporta tutto il database degli utenti completop di info personali, post, relazioni, ultimo feed
+def updateJson_agent(agent_list):
     for agent in agent_list:
         single_agent(agent)
 
-# Fun ausiliaria, gli viene dato un agent, ne estrae la lista amici e la salva sotto l'agent corrispondete
+# Fun ausiliaria, gli viene dato un agent, ne estrae tutte le info da salvare poi nel json 
 def single_agent(agent):
     
-    if os.path.exists('social/data/relationship.json'):
-        with open('social/data/relationship.json', 'r') as f:
-            post_data = json.load(f)
+    if os.path.exists('social/data/agents.json'):
+        with open('social/data/agents.json', 'r') as f:
+            agg_data = json.load(f)
     else:
-        rel_data = {"agents":[]}
+        agg_data = {"agents":[]}  
     
     #setto il nuovo agent che poi vado a salvare
     new_ag = {
         "agent_id": agent.id,
-        "friends_list":agent.friends  #aggiungo dopo la lista commenti
+        "age":agent.age,
+        "interest":', '.join(agent.interest),
+        "activity":agent.activity,
+        "friends_list":agent.friends,  #aggiungo dopo la lista commenti
+        "last_feed": agent.feed,
+        "published_post":add_post(agent.published)
     }
     
-    post_data["agents"].append(new_ag)
+    agg_data["agents"].append(new_ag)
   
     # Aggiorno Json
-    with open('social/data/relationship.json', 'w') as file:
-        json.dump(post_data, file, indent=4)
+    with open('social/data/agents.json', 'w') as file:
+        json.dump(agg_data, file, indent=4)
         
-# Fun aus per estrazione amici
-def add_friend(friends):
-    return [{"commenter_id": fr.agent, "content": fr.content, "datatime": fr.datetime} for fr in friends]
+# Fun aus per estrazione post, solo id, data e contenuto
+def add_post(posts): 
+    return [{"post_id": p.id, "content": p.content, "datatime": p.datatime.strftime("%Y-%m-%d %H:%M:%S")} for p in posts]
 

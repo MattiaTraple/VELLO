@@ -1,6 +1,6 @@
 import random
 import simpy as si
-from func.results_managment import updateJons_post, updateJson_rel
+from func.results_managment import updateJons_post, updateJson_agent
 from settings import  config
 
 # Lista oin cui vengono salvati tutti gli agenti
@@ -68,4 +68,4 @@ start_social_simu(env, config.NUM_AGENTS)
 
 # Salvataggi dello stato ddel social al momento della conclusione della simulaizione
 updateJons_post(config.POST_DATABASE)
-updateJson_rel(AGENT_LIST)
+updateJson_agent(AGENT_LIST)
