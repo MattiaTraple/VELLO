@@ -62,14 +62,15 @@ class Agent:
         print(f'LOG "{self.env.now}" ----> {str(self.id)} non ha postato')
         
     # L'utente decide se e come interagire con un post
-    def intWithPost(self,post):
+    def interaction_comment(self,post):
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
         #come ordino 
         
         # Deccide se commentare basato su activiti dell'utente
         if content_interaction_gen_prob(self.activity):
             post.create_comment(self)
-        
+            
+
 
         
     # Fun chiamata da order_by_degree per restituire il grado di un agents
@@ -107,20 +108,31 @@ class Agent:
     # mod1 -> 1 post randomico per i primi 10 amici della lista di persone che segue
     def polulate_feed1(self,agent_list):
         # Se per qualche motivo il feed non è stato riempito correttamente, vado a riempirlo in modo randomico, ex uni non ha abbasatnza amici alloraa devo andare a riempirgli il feed in altro modo
-        #while len(self.feed) != config.NUM_FEED:
-            for ag in itertools.islice(self.friends, config.NUM_FEED):
-                if ag!=self.id:
-                    agent=(next((agent for agent in agent_list if agent.id == ag), None))
-                    if agent.published:
+            for ag in agent_list:
+                if len(self.feed)==config.NUM_FEED:
+                    print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
+                    return
+                if ag!=self.id:    
+                    #fare in modo che s enon è negli amici ma il fee non è ancora pieno, allora agigungo anche se non è amico
+                    if ag.id in self.friends:
+                        if ag.published:
                         # Prende un post randomico tra quelli di un amico
-                        post=random.choice(agent.published)
-                        if post.id is not self.feed:
-                            self.feed.append(post.id)
-                            print(f'LOG "{self.env.now}" ----> Il post {post.id} è stato aggiunto')
+                            post=random.choice(ag.published)
+                            if post.id is not self.feed:
+                                self.feed.append(post.id)
+                                print(f'LOG "{self.env.now}" ----> Il post {post.id} è stato aggiunto')                        
+            # Prima provo a completare il feed solo con i post degli amici, se non è abbastanza prima provo add aggiugnere altri post degli amici
+    
+            self.complete_feed_f(agent_list)
+            if len(self.feed)<config.NUM_FEED:
+                # Se amici non bastano
+                self.complete_feed_nf(agent_list)
+            # Se anche i post degli altri amici non erano abbastanza vado ad attingere in modo randomico da post degli altri agent
             print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
 
-            
-                        
+    
+             
+    #GLI ALTRI FEED SONO DA REVISIONARE           
     # mod2 -> 1 post più recente i primi 10 amici della lista di persone che segue
     def polulate_feed2(self,agents_dict):
         for ag in itertools.islice(agents_dict.values(), config.NUM_FEED):
@@ -139,7 +151,40 @@ class Agent:
             if post.agent_id!=self.id and set(post.topic) & set(self.interest):
                 self.feed.append(post)
                 count+=1         
-            
+    
+# Fun ausiliaria per il completamento feed riprendendo post di agent nella lista friend
+    def complete_feed_f(self,agent_list): 
+            for ag in agent_list:
+                if len(self.feed)==config.NUM_FEED: return
+                if ag!=self.id:
+                    #fare in modo che se non è negli amici ma il feed non è ancora pieno, allora agigungo anche se non è amico
+                    if ag.id is self.friends:
+                        if ag.published:
+                        # Prende un post randomico tra quelli di un amico
+                            post=random.choice(ag.published)
+                            if post.id is not self.feed:
+                                self.feed.append(post.id)
+                                print(f'LOG "{self.env.now}" ----> *Completamento feed ausiliare_1* Il post {post.id} è stato aggiunto')                        
+
+             
+# Fun ausiliaria per il completamento feed in caso i post degli agent nella lista friends non basti
+    def complete_feed_nf(self,agent_list):
+            # Mischio l'ordine così da rendere più casuale l'agent che viene estratto
+            random.shuffle(agent_list)
+            for ag in agent_list:
+                if len(self.feed)==config.NUM_FEED: return
+                if ag!=self.id:
+                    #fare in modo che se non è negli amici ma il feed non è ancora pieno, allora agigungo anche se non è amico
+                    if ag.id is not self.friends:
+                        if ag.published:
+                        # Prende un post randomico tra quelli di un amico
+                            post=random.choice(ag.published)
+                            if post.id is not self.feed:
+                                self.feed.append(post.id)
+                                print(f'LOG "{self.env.now}" ----> *Completamento feed ausiliare_2* Il post {post.id} è stato aggiunto')                        
+
+    
+    
 
 '''
 # Generate post e riempi feed3

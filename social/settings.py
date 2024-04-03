@@ -4,9 +4,9 @@ from collections import namedtuple
 
 class Config:
     # Numero di agenti che verranno ccreati
-    NUM_AGENTS = 10
+    NUM_AGENTS = 20
     # Durata della simulazione
-    SIM_TIME = 1500
+    SIM_TIME = 1000
     # Limite iniziale di amici fissati
     NUM_FRIEND = 5
 
@@ -18,7 +18,7 @@ class Config:
     #NEWS = News(name=nam, topics=["Criptovalute", "Ambiente e cambiamenti climatici", ""])
 
     # Post Presenti nel feed
-    NUM_FEED = 3
+    NUM_FEED = 10
     # Lista momentanea in cui salvo i post di tutti gli utenti
     POST_DATABASE = []
 

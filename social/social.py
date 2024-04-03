@@ -13,7 +13,7 @@ if os.path.exists("social/data/agents.json"):os.remove("social/data/agents.json"
 
 
 # Funzione per la generazione degli agenti
-def generate_agents(env, num_agents):
+def generate_agents(env):
     from agent import Agent
     agent = Agent(env)
     # Tengo una lista degli agent che mi servirà per le varie interazioni
@@ -23,7 +23,6 @@ def generate_agents(env, num_agents):
     #-----
     # Qui puoi fare altre inizializzazioni per gli agenti se necessario
     yield env.process(agent_behavior(env, agent))
-    #yield env.process(feed_update(env,agent))
     
     
 
@@ -32,7 +31,7 @@ def agent_behavior(env, agent):
     # Simula il comportamento dell'agente nel social network
     while True:
         # Aggiunge un amico ogni tot tempo
-        yield env.timeout(random.randint(300, 500))
+        yield env.timeout(random.randint(200,300))
         if len(agent.friends)<len(AGENT_LIST)-1: # Se segue già tutti non ha senso aggiungergli follower
         #qua viene generato a caso, voglio che inizi a seguire un altro agente obbligaotriamente, segue l'elenco finchè non ne trova uno he gloi interessa  
         #faccio restituire dalla funzione l'id dell'agent di cui è diventato amico
@@ -42,33 +41,17 @@ def agent_behavior(env, agent):
         yield env.timeout(random.randint(50, 100))
         agent.generate_post()
         
-        # Aggiorna il feed
         yield env.timeout(random.randint(500, 500))
-        env.process(feed_update(env, agent))
-        
+        agent.polulate_feed1(AGENT_LIST)
+    
         # Commenta un contenuto
         #env.process(comment_content(env, agent))
-               
-      
-
-
-def feed_update(env,agent):
-    yield env.timeout(random.randint(50,100))
-    agent.polulate_feed1(AGENT_LIST)
-    
-
-
-
-
-def comment_content(env,agent):
+           
+ 
+#def comment_content(env,agent):
     #  Ogni tot tempo gli viene data la possibilità di commentare un contenuto
         # da modificare perchè si basa sull feed, non sugli amici
-        if agent.friends:
-            yield env.timeout(random.randint(30, 50))
-            friend_id = random.choice(list(agent.friends))
-            content = f"Commento casuale su un contenuto di {friend_id}"
-            agent.comment_content(friend_id, content)
-            print(f"LOG ---->Agent {agent.agent_id} e ha commentato il post  di Agent {friend_id}.")
+        
 
 
 
@@ -78,7 +61,7 @@ def comment_content(env,agent):
 def start_social_simu(env, num_agents):
    # Generazione degli agenti
    for _ in range(num_agents):
-        env.process(generate_agents(env, 1))
+        env.process(generate_agents(env))
    # Esegui la simulazione per un certo periodo di tempo
    env.run(until=config.SIM_TIME)
 

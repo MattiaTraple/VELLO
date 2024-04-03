@@ -27,3 +27,4 @@ class Post:
         if com:
             # Creazione oggetto com
             self.comments.append(Comment(self.env,self.id,self.agent_id,com))
+            print(f'LOG "{self.env}" ---->Agent {agent.id} e ha commentato il post {self.id}  di Agent {self.agent_id}.')
