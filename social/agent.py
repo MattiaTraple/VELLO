@@ -38,13 +38,14 @@ class Agent:
         
         ag_ca=self.order_by_degree(agents_candidates)
         for ag_id in ag_ca:
-            # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
-            #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
-                # Escludi l'agente corrente e gli agenti già presenti nella lista degli amici
-                if ag_id != self.id and ag_id not in self.friends:
-                    self.friends.append(ag_id)
-                    return ag_id                
-        self.json_update()
+                # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
+                #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
+                    # Escludi l'agente corrente e gli agenti già presenti nella lista degli amici
+                    if ag_id != self.id and ag_id not in self.friends and len(self.friends) < config.NUM_FRIEND:
+                        self.friends.append(ag_id)
+                        print(f'LOG "{self.env.now}" ----> Agent {self.id} ha aggiunto Agent {ag_id} come amico.')
+                
+       
 
 
     # Funi dedicata alla creazione e generazione del post
@@ -57,8 +58,8 @@ class Agent:
             new_p=gen_post(self.env,self.id, self.interest, self.age, config.NEWS)
             self.published.append(new_p)
             config.POST_DATABASE.append(new_p)
-            print("LOG ----> "+str(self.id)+" ha postato")
-        print("LOG ----> "+str(self.id)+" non ha postato")
+            print(f'LOG "{self.env.now}" ----> {str(self.id)} ha postato')
+        print(f'LOG "{self.env.now}" ----> {str(self.id)} non ha postato')
         
     # L'utente decide se e come interagire con un post
     def intWithPost(self,post):
@@ -99,37 +100,26 @@ class Agent:
         # Versione corta    
         # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
         return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
-
-
-    # PROBLEMA-> quando il file è già stato creato trovo due copie delle amicizie dello stesso id
-    # Fun usata per aggiugnere al file json, sotto l'id dell'agente attuale, la lista delle amicizie
-    def json_update(self):
-
-        if os.path.exists('social/data/relationship.json'):
-            with open('social/data/relationship.json', 'r') as f:
-                con_json = json.load(f)
-        else:
-            con_json = {}
-            
-        for id in self.friends:
-            if self.id in con_json:
-                con_json[self.id].append(id)
-            else:
-                con_json[self.id] = [id]
-        with open('social/data/relationship.json', 'w') as f:
-            json.dump(con_json, f, indent=4)
-            
-            
+                   
             
     # Fun che verrà chiamata dopo che sono stati creati un po di post che popola (e aggiorna) periodicamente il feed dell'utente personalizzandolo in base a:
 
     # mod1 -> 1 post randomico per i primi 10 amici della lista di persone che segue
-    def polulate_feed1(self,agents_dict):
-        for ag in itertools.islice(agents_dict.values(), config.NUM_FEED):
-            if ag.id!=self.id:
-                if ag.published:
-                    # Prende un post randomico tra quelli di un amico
-                    self.feed.append(random.choice(ag.published))
+    def polulate_feed1(self,agent_list):
+        # Se per qualche motivo il feed non è stato riempito correttamente, vado a riempirlo in modo randomico, ex uni non ha abbasatnza amici alloraa devo andare a riempirgli il feed in altro modo
+        #while len(self.feed) != config.NUM_FEED:
+            for ag in itertools.islice(self.friends, config.NUM_FEED):
+                if ag!=self.id:
+                    agent=(next((agent for agent in agent_list if agent.id == ag), None))
+                    if agent.published:
+                        # Prende un post randomico tra quelli di un amico
+                        post=random.choice(agent.published)
+                        if post.id is not self.feed:
+                            self.feed.append(post.id)
+                            print(f'LOG "{self.env.now}" ----> Il post {post.id} è stato aggiunto')
+            print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
+
+            
                         
     # mod2 -> 1 post più recente i primi 10 amici della lista di persone che segue
     def polulate_feed2(self,agents_dict):
