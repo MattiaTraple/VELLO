@@ -23,35 +23,55 @@ def generate_agents(env, num_agents):
     #-----
     # Qui puoi fare altre inizializzazioni per gli agenti se necessario
     yield env.process(agent_behavior(env, agent))
+    #yield env.process(feed_update(env,agent))
+    
+    
 
 # Processo che modella il comportamento di un agente nel social network
 def agent_behavior(env, agent):
+    # Simula il comportamento dell'agente nel social network
     while True:
-        # Simula il comportamento dell'agente nel social network
-        
         # Aggiunge un amico ogni tot tempo
-        yield env.timeout(random.randint(200, 300))
-        #print(f"agent: {agent.friends}, ng: {num_agents} ")
+        yield env.timeout(random.randint(300, 500))
         if len(agent.friends)<len(AGENT_LIST)-1: # Se segue già tutti non ha senso aggiungergli follower
-            #qua viene generato a caso, voglio che inizi a seguire un altro agente obbligaotriamente, segue l'elenco finchè non ne trova uno he gloi interessa  
-            #faccio restituire dalla funzione l'id dell'agent di cui è diventato amico
-            id_agent_start_follow=agent.find_friends(AGENT_LIST)
-            # Viene fatto nella classe perché gli faccio eseguire in lbocco 
-            if id_agent_start_follow:print(f"LOG ---->Agent {agent.id} ha aggiunto Agent {id_agent_start_follow} come amico.")
+        #qua viene generato a caso, voglio che inizi a seguire un altro agente obbligaotriamente, segue l'elenco finchè non ne trova uno he gloi interessa  
+        #faccio restituire dalla funzione l'id dell'agent di cui è diventato amico
+            agent.find_friends(AGENT_LIST)
         
-
-        # Ogni tot tempo gli viene data la possibilità di pubblicare contenuto
+        # Genera post
         yield env.timeout(random.randint(50, 100))
         agent.generate_post()
+        
+        # Aggiorna il feed
+        yield env.timeout(random.randint(500, 500))
+        env.process(feed_update(env, agent))
+        
+        # Commenta un contenuto
+        #env.process(comment_content(env, agent))
+               
+      
 
-        #  Ogni tot tempo gli viene data la possibilità di commentare un contenuto
+
+def feed_update(env,agent):
+    yield env.timeout(random.randint(50,100))
+    agent.polulate_feed1(AGENT_LIST)
+    
+
+
+
+
+def comment_content(env,agent):
+    #  Ogni tot tempo gli viene data la possibilità di commentare un contenuto
         # da modificare perchè si basa sull feed, non sugli amici
-        #if agent.friends:
-            #yield env.timeout(random.randint(30, 50))
-            #friend_id = random.choice(list(agent.friends))
-            #content = f"Commento casuale su un contenuto di {friend_id}"
-            #agent.comment_content(friend_id, content)
-            #print(f"LOG ---->Agent {agent.agent_id} e ha commentato il post {} di Agent {friend_id}.")
+        if agent.friends:
+            yield env.timeout(random.randint(30, 50))
+            friend_id = random.choice(list(agent.friends))
+            content = f"Commento casuale su un contenuto di {friend_id}"
+            agent.comment_content(friend_id, content)
+            print(f"LOG ---->Agent {agent.agent_id} e ha commentato il post  di Agent {friend_id}.")
+
+
+
 
 
 # Funzione principale di simulazione
