@@ -54,7 +54,7 @@ class Agent:
         if content_interaction_gen_prob(self.activity):
             #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
             #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
-            new_p=gen_post(self.id, self.interest, self.age, config.NEWS)
+            new_p=gen_post(self.env,self.id, self.interest, self.age, config.NEWS)
             self.published.append(new_p)
             config.POST_DATABASE.append(new_p)
             print("LOG ----> "+str(self.id)+" ha postato")

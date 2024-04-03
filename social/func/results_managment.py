@@ -23,7 +23,7 @@ def single_post(post):
         "post_id": post.id,
         "agent_id":post.agent_id,
         "content": post.content,
-        "datatime": post.datatime.strftime("%Y-%m-%d %H:%M:%S"),
+        "datatime": post.datatime,
         "comments":add_comment(post.comments)   #aggiungo dopo la lista commenti
     }
 
@@ -83,5 +83,5 @@ def single_agent(agent):
         
 # Fun aus per estrazione post, solo id, data e contenuto
 def add_post(posts): 
-    return [{"post_id": p.id, "content": p.content, "datatime": p.datatime.strftime("%Y-%m-%d %H:%M:%S")} for p in posts]
+    return [{"post_id": p.id, "content": p.content, "datatime": p.datatime} for p in posts]
 

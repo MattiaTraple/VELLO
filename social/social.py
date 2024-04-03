@@ -1,3 +1,4 @@
+import os
 import random
 import simpy as si
 from func.results_managment import updateJons_post, updateJson_agent
@@ -5,9 +6,15 @@ from settings import  config
 
 # Lista oin cui vengono salvati tutti gli agenti
 AGENT_LIST=[]
+# Cancello i file dove salvo i dati per resettarli
+if os.path.exists("social/data/post.json"):
+    # Cancella il file
+    os.remove("social/data/post.json")
+if os.path.exists("social/data/agents.json"):
+    # Cancella il file
+    os.remove("social/data/agents.json")
 
-#generazione degli agents
-#----->agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
+
 
 # Funzione per la generazione degli agenti
 def generate_agents(env, num_agents):

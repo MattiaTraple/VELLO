@@ -4,9 +4,9 @@ import datetime
 
 class Comment:
 
-    def __init__(self,post,content):
+    def __init__(self,env,post,content):
         self.post_id = post.id
         self.agent=post.agent
         self.content=content
-        self.datetime=datetime.datetime.now()
+        self.datetime=env.now
         

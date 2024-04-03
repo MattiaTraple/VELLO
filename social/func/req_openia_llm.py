@@ -7,7 +7,7 @@ CLIENT = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "<your OpenAI API key i
 
 
 # Fun dedicata alla generazioen dei post
-def gen_post(id,interest,age,news):
+def gen_post(env,id,interest,age,news):
     # Se lasciata sopra dava problemi di importazione circolare
     from post import Post
     # Faccio questo per escludere il terzo topic se non è presente
@@ -18,7 +18,7 @@ def gen_post(id,interest,age,news):
     user_cont="... "
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     #mettere request(sys_cont, user_cont) al posto di "bulaeivwribviwr"
-    post=Post("bulaeivwribviwr",news,id)
+    post=Post(env,"bulaeivwribviwr",news,id)
     return post
  
 # Fun dedicata alla decisione di iniziare un amicizia o meno

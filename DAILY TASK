@@ -1,6 +1,6 @@
-- studiare lo yeld e la simulazione
-
 SIMULATION
+- gestire il feed
+
 - iniziare a gestire al simulazione su social.py
     - aggiungere le stampe di tutte le azioni che vengono eseguite dagli utenti durante la simulazione, tengo traccia dei log
     - I commenti sono l'ultima cosa che devo fare nelle fasi dei vari utentei perchè altrimenti potrebbero non avere post nei loro feed da commentare
@@ -9,7 +9,7 @@ FEED
 - Se non ho abbastanza elementi che seguono i criteri dati per la costruizione del feed, assegno i nmodo randomico dei post per arrivare a quota 10
 
 STAMPA DATI
-    - aggiungere saalvataggio file utenti creati(con info agent, post pubblicati, amicizie strette, ultimo feed)
+    - post sono attualmente in completi nel file agents perchè esiste già un file a parte con tutte le specifiche complete dei post
 
 
 

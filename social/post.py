@@ -5,15 +5,16 @@ from comment import Comment
 
 class Post:
     id_counter = 0
-    def __init__(self,content,news,agent_id):
+    def __init__(self,env,content,news,agent_id):
         Post.id_counter+=1
+        self.env=env
         self.id = f"p-{agent_id}.{Post.id_counter}"
         self.agent_id=int(agent_id)
         self.news=news
         self.content=content
         # Campo dedicato ai 2/3 topic in cui può essere identetificata la news
         self.topic=[topic for topic in news.topics if topic]
-        self.datatime=datetime.datetime.now()
+        self.datatime=env.now
         # Sarà una lista di coppie id agente, contenuto del commento
         self.comments=[]
     
@@ -25,4 +26,4 @@ class Post:
         # Salvo id di chi pubblica il commento, il commento stesso, e il tempo in cui lo ha fatto
         if com:
             # Creazione oggetto com
-            self.comments.append(Comment(self.id,self.agent_id,com))
+            self.comments.append(Comment(self.env,self.id,self.agent_id,com))
