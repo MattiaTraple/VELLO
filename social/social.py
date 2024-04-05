@@ -41,11 +41,11 @@ def agent_behavior(env, agent):
         yield env.timeout(random.randint(50, 100))
         agent.generate_post()
         
-        yield env.timeout(random.randint(500, 500))
+        yield env.timeout(random.randint(500, 600))
         agent.polulate_feed1(AGENT_LIST)
     
         # Commenta un contenuto
-        #env.process(comment_content(env, agent))
+        agent.new_comment(AGENT_LIST)
            
  
 #def comment_content(env,agent):

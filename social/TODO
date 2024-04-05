@@ -17,11 +17,13 @@
     - Al momento esiste una limitazione di un post ad utente per ogni notizia, i commenti non sono contati
 
 INTERAZIONI
-- Commenti/like/condivisioni
+- like/condivisioni
 
 
 - STORIA
     - Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
+        - Forse potrei andare a creare una lista di gradi/indicatori che in base alla situazione indicano se è più o meno probabile fare eseguire all'utente una determianta azione
+            - Invece che una storia potrei andare a creare un "last action", passo solo questa last action all'LLM in modo da dirgli cosa ho fatto l'ultima volta, e quale azione sarebbe più coerente da eseguire per non distaccarsi troppo dall'azione passata (mantenere coerenza con il proprio profilo agente)
 
 - NOTIZIE
     - Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?
@@ -38,17 +40,18 @@ INTERAZIONI
 
 
 - DOMANDE PROF
-    - LAMA GPT
-    - richieste amiccizia
-        - La richiesta la fa inizio simulazione?
-        - Passo tutti sti campi a chat per decidere "self.age self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age" oppure posso limitarmi al grado/limitarmi da un certo piunto di vista (considerando che il grado funge da scrematura)
+    - 
+    - API
+        - LIAMA 
+        - Quale soluzione utilizzo
+    - AMICIZIA
+        - richieste amiccizia
+            - Passo tutti sti campi a chat per decidere "self.age self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age" oppure posso limitarmi al grado/limitarmi da un certo piunto di vista (considerando che il grado funge da scrematura)
 
 amicizia->non orientata
 commenti->passo le info al LLM e lui decide (come stavo facendo io
 )
 
-POST
-- Come avviene la distribuzione del post? succ
 
 - SIMULAZIONE:
     Posso sfruttare la simulaizone per

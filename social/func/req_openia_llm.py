@@ -31,7 +31,7 @@ def req_follow(my_age,my_interest,req_gr,req_int,req_age):
 # Fun dedicata alla generazione di un opportuno comment oad un post
 # Agent può servire o meno in base al metodo che uso per fargli deccidere se postare, se uso cativity+random non lo devo nenache passarenj 
 def gen_com(news,content,agent):
-    sys_cont=f"Il contesto è questo, tu sei un utente di un social media con interessi:{', '.join(agent.ininterest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}, genere il commento"
+    sys_cont=f"Il contesto è questo, tu sei un utente di un social media con interessi:{', '.join(agent.interest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}, genere il commento"
     user_cont="Sei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
     #return(request(sys_cont,user_cont))
     return "commentovavvweuiv"

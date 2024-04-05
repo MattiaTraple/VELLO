@@ -21,10 +21,10 @@ class Post:
     # Fun usata per la creazione dei commenti
     #agent è un oggetto
     def create_comment(self,agent):
-        from social.func.req_openia_llm import gen_com
+        from func.req_openia_llm import gen_com
         com=gen_com(self.news,self.content,agent)
         # Salvo id di chi pubblica il commento, il commento stesso, e il tempo in cui lo ha fatto
         if com:
             # Creazione oggetto com
-            self.comments.append(Comment(self.env,self.id,self.agent_id,com))
-            print(f'LOG "{self.env}" ---->Agent {agent.id} e ha commentato il post {self.id}  di Agent {self.agent_id}.')
+            self.comments.append(Comment(self.env,self.id,agent.id,com))
+            print(f'LOG "{self.env.now}" ----> AVVENUTA interazione: Agent: {agent.id}, Post: {self.id}, Propietario Post: {self.agent_id}, Commento: {com}')

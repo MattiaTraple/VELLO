@@ -61,15 +61,39 @@ class Agent:
             print(f'LOG "{self.env.now}" ----> {str(self.id)} ha postato')
         print(f'LOG "{self.env.now}" ----> {str(self.id)} non ha postato')
         
-    # L'utente decide se e come interagire con un post
+    
+    # Viene scelto un post casuale del feed e poi si sceglie se commentarlo
+    def new_comment(self,agent_list):
+        # Al momento non mischio l'ordine perchè teoricamente il feed viene generato basato inizialmente sugli amici che un utente ha , partendo da quello che ha grado più alto di compatibilità, quindi hanno già uno pseudo ordine di interesse peer l'utente
+        #random.shuffle(self.feed)
+        
+        # Scelgo un post dal feed, faccio scorrere tutti i post, inizialmente solo un commento per post
+        for id_post in self.feed:       
+            # Identifico a quale agent il post corrisponde, da quello risalgo al post per vedere se ho già commentato
+            publicant_agent=(next((agent for agent in agent_list if agent.id == int(id_post.split('-')[1].split('.')[0])), None))
+            
+            # Controllo i post pubblicati dall'agente finchè non trovo quello che voglio commentare
+            for post in publicant_agent.published:
+                if id_post==post.id :
+                    # Una volta trovato verifico se non l'ho già commentato
+                      if next((com for com in post.comments if com.agent ==publicant_agent.id), None) is None:
+                            # Posso finalemnte commentarlo
+                            self.interaction_comment(post)
+                    # L'ho già commentato quindi vado a vedere se posso commentare il psot successivo
+            
+                
+        
+        
+    
+    # L'utente decide se e come interagire con un post e di conseguenza commenta
     def interaction_comment(self,post):
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
         #come ordino 
         
-        # Deccide se commentare basato su activiti dell'utente
+        # Decide se commentare basato su activiti dell'utente
         if content_interaction_gen_prob(self.activity):
             post.create_comment(self)
-            
+        print(f'LOG "{self.env.now}" ----> MANCATA interazione: Agent {self.id} non ha interagito con {post.id}')
 
 
         
@@ -112,7 +136,7 @@ class Agent:
                 if len(self.feed)==config.NUM_FEED:
                     print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
                     return
-                if ag!=self.id:    
+                if ag.id!=self.id:    
                     #fare in modo che s enon è negli amici ma il fee non è ancora pieno, allora agigungo anche se non è amico
                     if ag.id in self.friends:
                         if ag.published:
@@ -156,7 +180,7 @@ class Agent:
     def complete_feed_f(self,agent_list): 
             for ag in agent_list:
                 if len(self.feed)==config.NUM_FEED: return
-                if ag!=self.id:
+                if ag.id!=self.id:
                     #fare in modo che se non è negli amici ma il feed non è ancora pieno, allora agigungo anche se non è amico
                     if ag.id is self.friends:
                         if ag.published:
@@ -173,7 +197,7 @@ class Agent:
             random.shuffle(agent_list)
             for ag in agent_list:
                 if len(self.feed)==config.NUM_FEED: return
-                if ag!=self.id:
+                if ag.id!=self.id:
                     #fare in modo che se non è negli amici ma il feed non è ancora pieno, allora agigungo anche se non è amico
                     if ag.id is not self.friends:
                         if ag.published:
