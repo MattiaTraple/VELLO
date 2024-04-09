@@ -1,12 +1,3 @@
-SIMULATION
-- gestire il feed
-
-- iniziare a gestire al simulazione su social.py
-    - aggiungere le stampe di tutte le azioni che vengono eseguite dagli utenti durante la simulazione, tengo traccia dei log
-
-COMMENTI
-    - I commenti sono l'ultima cosa che devo fare nelle fasi dei vari utentei perchè altrimenti potrebbero non avere post nei loro feed da commentare
-
 
 STAMPA DATI
     - post sono attualmente in completi nel file agents perchè esiste già un file a parte con tutte le specifiche complete dei post
@@ -18,6 +9,16 @@ NOTIZIE
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
 
-- creare classe post-> ci vanno dei metodi?
 
-- Adattare le richieste a LamaAi_>prof
+
+
+Nosq-> mongo db
+pymongo]]
+motordb
+
+
+
+modello per la storia dell agente
+
+Rag retriva agmentatiuon llm
+- Vector db

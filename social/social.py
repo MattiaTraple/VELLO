@@ -1,7 +1,7 @@
 import os
 import random
 import simpy as si
-from func.results_managment import updateJons_post, updateJson_agent
+from func.results_managment import save_data
 from settings import  config
 
 # Lista oin cui vengono salvati tutti gli agenti
@@ -48,15 +48,6 @@ def agent_behavior(env, agent):
         agent.new_comment(AGENT_LIST)
            
  
-#def comment_content(env,agent):
-    #  Ogni tot tempo gli viene data la possibilità di commentare un contenuto
-        # da modificare perchè si basa sull feed, non sugli amici
-        
-
-
-
-
-
 # Funzione principale di simulazione
 def start_social_simu(env, num_agents):
    # Generazione degli agenti
@@ -72,6 +63,5 @@ env = si.Environment()
 # Run simulazione
 start_social_simu(env, config.NUM_AGENTS)
 
-# Salvataggi dello stato ddel social al momento della conclusione della simulaizione
-updateJons_post(config.POST_DATABASE)
-updateJson_agent(AGENT_LIST)
+# Salvataggio dei dati della simulazione
+save_data(config.POST_DATABASE,AGENT_LIST)

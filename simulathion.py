@@ -1,23 +1,19 @@
-import simpy
+import pymongo
+from pymongo import MongoClient
+client = MongoClient("mongodb://localhost:27017/")
+db = client.get_database("local")
+collection = db.get_collection("Agents")
 
 
-class Agent:
-    def __init__(self, env, agent_id):
-        self.env = env
-        self.agent_id = agent_id
-        self.friends = set()  # Lista degli amici
-        self.published_content = []  # Contenuti pubblicati
+documento_di_prova = {
+    "campo_di_prova": "valore_di_prova"
+}
 
-    # Aggiunge un amico alla lista degli amici
-    def add_friend(self, friend_id):
-        self.friends.add(friend_id)
+# Inserimento del documento nella collezione
+inserimento = collection.insert_one(documento_di_prova)
 
-    # Pubblica un contenuto
-    def publish_content(self, content):
-        self.published_content.append(content)
-        print(f"Agent {self.agent_id} ha pubblicato: {content}")
 
-    # Commenta un contenuto di un amico
-    def comment_content(self, friend_id, content):
-        print(f"Agent {self.agent_id} ha commentato il contenuto di Agent {friend_id}: {content}")
-
+if inserimento.inserted_id:
+    print("Il documento con il campo di prova è stato inserito con successo.")
+else:
+    print("Si è verificato un errore durante l'inserimento del documento.")
