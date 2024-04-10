@@ -8,7 +8,7 @@ from settings import  config
 AGENT_LIST=[]
 # Cancello i file dove salvo i dati per resettarli
 if os.path.exists("social/data/post.json"):os.remove("social/data/post.json")
-if os.path.exists("social/data/agents.json"):os.remove("social/data/agents.json")
+if os.path.exists("social/data/simulations.json"):os.remove("social/data/simulations.json")
 
 
 

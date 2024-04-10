@@ -1,0 +1,396 @@
+{
+    "simulations": [
+        {
+            "simulation_number": "2024-04-10 17:00:33",
+            "simulation_settings": {
+                "simulation_time": 900,
+                "agents_number": 10,
+                "friend_limit": 3,
+                "feed_post_number": 5
+            },
+            "news_used": [
+                "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta"
+            ],
+            "agents": [
+                {
+                    "agent_id": 6,
+                    "age": 38,
+                    "interest": "Terapia cognitivo-comportamentale (TCC), Psicologia positiva, Abbigliamento sostenibile, Corsi online, Cucina italiana, Falegnameria",
+                    "activity": 0.8,
+                    "friends_list": [
+                        4,
+                        5,
+                        7
+                    ],
+                    "last_feed": [
+                        "p-4.5",
+                        "p-3.3",
+                        "p-2.4",
+                        "p-8.1",
+                        "p-9.2"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-6.6",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 358,
+                            "comments": [
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 837
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 880
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 892
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 8,
+                    "age": 17,
+                    "interest": "Lingue straniere, Sviluppo personale, Diritti umani, Jazz, Falegnameria, Crescita delle relazioni di coppia",
+                    "activity": 0.5,
+                    "friends_list": [
+                        7,
+                        1,
+                        2
+                    ],
+                    "last_feed": [
+                        "p-2.4",
+                        "p-3.3",
+                        "p-4.5",
+                        "p-2.4",
+                        "p-9.2"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-8.1",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 298,
+                            "comments": [
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 837
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 884
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 892
+                                },
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 894
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 7,
+                    "age": 17,
+                    "interest": "Progetti di bricolage, Falegnameria, Mindfulness, Viaggi low-cost, Nuove app e software, Allenamento a corpo libero",
+                    "activity": 0.5,
+                    "friends_list": [
+                        2,
+                        1,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-2.4",
+                        "p-6.6",
+                        "p-8.1",
+                        "p-3.3",
+                        "p-9.2"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 1,
+                    "age": 20,
+                    "interest": "Riduzione della plastica, Conservazione della biodiversit\u00c3\u00a0, Allenamento a corpo libero, Economia, Escursioni in montagna, Sparatutto in prima persona (FPS)",
+                    "activity": 0.5,
+                    "friends_list": [
+                        3,
+                        7,
+                        9
+                    ],
+                    "last_feed": [
+                        "p-3.3",
+                        "p-9.2",
+                        "p-8.1",
+                        "p-2.4",
+                        "p-4.5"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 3,
+                    "age": 32,
+                    "interest": "Stile vintage, Alta moda, Allenamento a corpo libero, Fantascienza, App per la produttivit\u00c3\u00a0, Sparatutto in prima persona (FPS)",
+                    "activity": 0.8,
+                    "friends_list": [
+                        1,
+                        5,
+                        7
+                    ],
+                    "last_feed": [
+                        "p-9.2",
+                        "p-8.1",
+                        "p-4.5",
+                        "p-6.6",
+                        "p-2.4"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-3.3",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 343,
+                            "comments": [
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 884
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 9,
+                    "age": 21,
+                    "interest": "Mindfulness, Crescita personale, Escursioni in montagna, Criptovalute, Arte digitale, Maratone e corsa",
+                    "activity": 0.8,
+                    "friends_list": [
+                        2,
+                        1,
+                        10
+                    ],
+                    "last_feed": [
+                        "p-2.4",
+                        "p-6.6",
+                        "p-4.5",
+                        "p-8.1",
+                        "p-2.4"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-9.2",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 325,
+                            "comments": [
+                                {
+                                    "commenter_id": 8,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 838
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 880
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 880
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 884
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 892
+                                },
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 894
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 2,
+                    "age": 14,
+                    "interest": "Progetti di bricolage, Lavorazione del legno, Mindfulness, Criptovalute, Risparmio, Acquariologia",
+                    "activity": 0.8,
+                    "friends_list": [
+                        7,
+                        9,
+                        4
+                    ],
+                    "last_feed": [
+                        "p-4.5",
+                        "p-9.2",
+                        "p-6.6",
+                        "p-9.2",
+                        "p-8.1"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-2.4",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 347,
+                            "comments": [
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 837
+                                },
+                                {
+                                    "commenter_id": 8,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 838
+                                },
+                                {
+                                    "commenter_id": 8,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 838
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 884
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 894
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 5,
+                    "age": 45,
+                    "interest": "Allenamento a corpo libero, Alimentazione sana, Psicologia positiva, Calcio, Viaggi low-cost, Criptovalute",
+                    "activity": 0.8,
+                    "friends_list": [
+                        7,
+                        10,
+                        6
+                    ],
+                    "last_feed": [
+                        "p-6.6",
+                        "p-8.1",
+                        "p-6.6",
+                        "p-9.2",
+                        "p-4.5"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 10,
+                    "age": 41,
+                    "interest": "Fotografia naturalistica, Fotografia di viaggio, Maratone e corsa, Cucito e ricamo, Protezione degli animali, Criptovalute",
+                    "activity": 0.2,
+                    "friends_list": [
+                        9,
+                        5,
+                        2
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 4,
+                    "age": 42,
+                    "interest": "Dessert e dolci, Ricette vegetariane/vegane, Acquariologia, Saggi di divulgazione scientifica, Commedie romantiche, Terapia cognitivo-comportamentale (TCC)",
+                    "activity": 0.8,
+                    "friends_list": [
+                        6,
+                        2,
+                        5
+                    ],
+                    "last_feed": [],
+                    "published_post": [
+                        {
+                            "post_id": "p-4.5",
+                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
+                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 356,
+                            "comments": [
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 880
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 884
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 892
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

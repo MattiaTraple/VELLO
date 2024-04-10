@@ -1,4 +1,3 @@
-
 STAMPA DATI
     - post sono attualmente in completi nel file agents perchè esiste già un file a parte con tutte le specifiche complete dei post
 
@@ -10,7 +9,7 @@ NOTIZIE
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
 
 
-
+AGGIUNGERE LE INFORMAZIONI/SETTINGS DELLA SIMULAZIONE CHE POI V SALVATO IN JSON E DATABASE-DEVO AGGIORNARE TUTTA STA ROBA
 
 Nosq-> mongo db
 pymongo]]

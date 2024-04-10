@@ -2,10 +2,14 @@
 import json
 import os
 import pymongo
+from settings import config
+import datetime
 
 def save_data(post_database,agent_list):
+    # In queste due prime funzioni faccio un backup dell'ultima simulazione e ddei post a lei legata che viene rinnovato ogni votla
     updateJons_post(post_database)
-    updateJson_agent(agent_list)
+    updateJson_simulations(agent_list)
+    # Aggiornamento database e in questo caso mi appariranno tutte le simulazioni che ho fatto
     update_mongodb()
 
 # JSON
@@ -53,46 +57,57 @@ def add_comment(comments):
     return [{"commenter_id": com.agent, "content": com.content, "datatime": com.datetime} for com in comments]
 
 
-# AGENTS
-# Fun che riporta tutto il database degli utenti completop di info personali, post, relazioni, ultimo feed
-def updateJson_agent(agent_list):
-    for agent in agent_list:
-        single_agent(agent)
+# SIMULATIONS
+# Fun che riporta tutto il database degli utenti completop di info personali, post, relazioni, ultimo feed e informazioni riguardanti la simulazione
+def updateJson_simulations(agent_list):
+    
+    if os.path.exists('social/data/simulations.json'):
+        with open('social/data/simulations.json', 'r') as f:
+            data = json.load(f)
+    else:
+        data = {"simulations":[]}  
+    
+    new_simulation={
+        "simulation_number": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "simulation_settings":{
+                "simulation_time":config.SIM_TIME,
+                "agents_number":config.NUM_AGENTS,
+                "friend_limit":config.NUM_FRIEND,
+                "feed_post_number":config.NUM_FEED
+        },
+        "news_used":[config.NEWS.name],
+        "agents":[single_agent(agent) for agent in agent_list]
+    }
+    data["simulations"].append(new_simulation)
+    
+
+    # Aggiorno Json
+    with open('social/data/simulations.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
 
 # Fun ausiliaria, gli viene dato un agent, ne estrae tutte le info da salvare poi nel json 
 def single_agent(agent):
-    
-    if os.path.exists('social/data/agents.json'):
-        with open('social/data/agents.json', 'r') as f:
-            agg_data = json.load(f)
-    else:
-        agg_data = {"agents":[]}  
-    
     #setto il nuovo agent che poi vado a salvare
-    new_ag = {
+    return{
         "agent_id": agent.id,
         "age":agent.age,
         "interest":', '.join(agent.interest),
         "activity":agent.activity,
-        "friends_list":agent.friends,  #aggiungo dopo la lista commenti
+        "friends_list":agent.friends,
         "last_feed": agent.feed,
         "published_post":add_post(agent.published)
     }
+  
     
-    agg_data["agents"].append(new_ag)
-  
-  
-    # Aggiorno Json
-    with open('social/data/agents.json', 'w') as file:
-        json.dump(agg_data, file, indent=4)
         
-# Fun aus per estrazione post, solo id, data e contenuto
+# Fun aus per l'aggiunta di tutti i post corrispondenti all'utente
 def add_post(posts): 
     post_format=[]
     for p in posts:
         new_post = {
             "post_id": p.id,
-            "name": p.news.name,
+            "news": p.news.name,
             "topic": ', '.join(p.news.topics),
             "content": p.content,
             "datatime": p.datatime,
@@ -103,30 +118,23 @@ def add_post(posts):
     return post_format
 
 # UPDATE DATABASE MONGODB
+# Andrò ad aggiugnere dati simulazione e agenti con relativi post e commenti al database 
 def update_mongodb():
     
     from pymongo import MongoClient
     client = MongoClient("mongodb://localhost:27017/")
     db = client.get_database("local")
-    collection_agent = db.get_collection("Agents")
-    collection_post = db.get_collection("Post")
+    collection = db.get_collection("Simulations")
     
-    # file post
-    with open('social/data/post.json', 'r') as f:
-       post = json.load(f)
-       
-    # file data   
-    with open('social/data/agents.json', 'r') as f:
-       agents = json.load(f)
+    if os.path.exists('social/data/simulations.json'):
+        with open('social/data/simulations.json', 'r') as f:
+            data = json.load(f)
     
-    # inserisco nel database post   
-    res_post=collection_post.insert_many(post['news'])
-    
-    # inserisco nel database agents
-    res_agg=collection_agent.insert_many(agents['agents'])
+    # inserisco nel database tutte le informazioni di simulaizoe, agenti e post
+    res=collection.insert_many(data["simulations"])
     
     # Controllo di aver inserito ddei dati
-    if  res_agg.inserted_ids and res_post.inserted_ids:
+    if  res.inserted_ids:
         print("SYS ----> Aggiornamento Database MondoDB avvenuto con successo")
     else:
         print("SYS ----> Aggiornamento Database MondoDB ha riscontrato qualche problema")
