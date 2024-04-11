@@ -3,7 +3,9 @@ STAMPA DATI
 
 
 NOTIZIE
-- Arricchire pull notizie da cui attingono gli agent (differennziare gli argomenti dei psot)
+- Arricchire pull notizie da cui attingono gli agent (differennziare gli argomenti dei psot)->  ansa
+    Vado poi a modificare il meccanismo di estrazione di notizie sul quale si vuole pubblicare, sorta di algoritmo che decide quale notizia fitta di più
+    
 
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho

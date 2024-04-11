@@ -2,6 +2,7 @@ import os
 import random
 import simpy as si
 from func.results_managment import save_data
+from func.gen_news import request_news
 from settings import  config
 
 # Lista oin cui vengono salvati tutti gli agenti
@@ -10,6 +11,8 @@ AGENT_LIST=[]
 if os.path.exists("social/data/post.json"):os.remove("social/data/post.json")
 if os.path.exists("social/data/simulations.json"):os.remove("social/data/simulations.json")
 
+# Popolazione pull feed notizie che verrà utilizzato
+#request_news()
 
 
 # Funzione per la generazione degli agenti

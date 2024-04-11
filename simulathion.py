@@ -1,19 +1,31 @@
-import pymongo
-from pymongo import MongoClient
-client = MongoClient("mongodb://localhost:27017/")
-db = client.get_database("local")
-collection = db.get_collection("Agents")
+import requests
+import xml.etree.ElementTree as ET
 
+# URL dell'RSS
+url = "https://www.ansa.it/sito/ansait_rss.xml"
 
-documento_di_prova = {
-    "campo_di_prova": "valore_di_prova"
-}
+try:
+    # Effettua la richiesta HTTP all'URL
+    response = requests.get(url)
 
-# Inserimento del documento nella collezione
-inserimento = collection.insert_one(documento_di_prova)
+    # Verifica se la richiesta ha avuto successo (codice di stato 200)
+    if response.status_code == 200:
+        # Parsa il contenuto XML
+        root = ET.fromstring(response.content)
 
+        # Crea una lista vuota per salvare i titoli
+        titoli = []
 
-if inserimento.inserted_id:
-    print("Il documento con il campo di prova è stato inserito con successo.")
-else:
-    print("Si è verificato un errore durante l'inserimento del documento.")
+        # Trova tutti gli elementi `<item>`
+        for item in root.findall('.//item'):
+            # Trova il titolo all'interno di ciascun `<item>` e aggiungilo alla lista
+            titolo = item.find('title').text
+            titoli.append(titolo)
+
+        
+
+    else:
+        print("SYS ----> Errore nella richiesta HTTP :", response.status_code)
+
+except requests.exceptions.RequestException as e:
+    print("Si è verificato un errore durante la richiesta:", e)

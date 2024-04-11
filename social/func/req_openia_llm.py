@@ -79,3 +79,8 @@ def print_topic_json():
     for sotto_cat in sotto_categorie:
         res += sotto_cat+", "  
     return res
+
+# Fun che utilizzo per categorizzare le notizie che ricevo da ANSA, in modo da avere i topic che poi vado ad usare per decidere l'interesse degli uteinti riguardo a una determinartraa notizia/ post che ricevono
+def topic_llm_request():
+    # Ricordo di passare sia il nome della notizia che la lista dei topic dal quale può attingere per la categorizzazione
+    return
