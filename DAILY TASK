@@ -1,25 +1,24 @@
-STAMPA DATI
-    - post sono attualmente in completi nel file agents perchè esiste già un file a parte con tutte le specifiche complete dei post
+- NEWS
+    - Controllare se funziona e non iterferisce con il database
+
+- VECTOR DB
+    - Vector db da implementare quandi devo identificare di che categoria tratta un determianto articolo estratto dall' ANSA
+    - In futuro cambire l'llm che sta dietro il database
+    - passare il db in locale, non in memory
+
+- PERSONALITA 
+    - riguardare meccanismi di funionamento sviluppo persoanlità llm
+    - Ricordare di delefare al LLM le scelte di post o meno
+modello per la storia dell agente
+
+Rag retriva agmentatiuon llm
+- Vector db
 
 
 NOTIZIE
 - Arricchire pull notizie da cui attingono gli agent (differennziare gli argomenti dei psot)->  ansa
     Vado poi a modificare il meccanismo di estrazione di notizie sul quale si vuole pubblicare, sorta di algoritmo che decide quale notizia fitta di più
     
-
+POST
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
-
-
-AGGIUNGERE LE INFORMAZIONI/SETTINGS DELLA SIMULAZIONE CHE POI V SALVATO IN JSON E DATABASE-DEVO AGGIORNARE TUTTA STA ROBA
-
-Nosq-> mongo db
-pymongo]]
-motordb
-
-
-
-modello per la storia dell agente
-
-Rag retriva agmentatiuon llm
-- Vector db

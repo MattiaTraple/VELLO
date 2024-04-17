@@ -4,8 +4,7 @@ import json
 
 #RANGE E INTERESSI
 range_age = [(range(13, 17), 0.066), (range(17, 24), 0.171), (range(25, 34), 0.385), (range(35, 49), 0.207), (range(50, 102), 0.171)]
-interest_list=json.load(open('social/data/topic.json', 'r'))
-
+interest_list=json.load(open("SimPy/social/data/topic.json", "r"))
 
 
 #AGE GENERATOR ---> START

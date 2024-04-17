@@ -4,16 +4,16 @@ import simpy as si
 from func.results_managment import save_data
 from func.gen_news import request_news
 from settings import  config
+import json
 
 # Lista oin cui vengono salvati tutti gli agenti
 AGENT_LIST=[]
 # Cancello i file dove salvo i dati per resettarli
-if os.path.exists("social/data/post.json"):os.remove("social/data/post.json")
-if os.path.exists("social/data/simulations.json"):os.remove("social/data/simulations.json")
+if os.path.exists("SimPy/social/data/post.json"):os.remove("SimPy/social/data/post.json")
+if os.path.exists("SimPy/social/data/simulations.json"):os.remove("SimPy/social/data/simulations.json")
 
 # Popolazione pull feed notizie che verrà utilizzato
 #request_news()
-
 
 # Funzione per la generazione degli agenti
 def generate_agents(env):

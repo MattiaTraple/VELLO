@@ -22,8 +22,8 @@ def updateJons_post(post_databasse):
 # Fun ausiliaria, gli viene dato il post e lo salva sotto la rispettiva notizia nel file json
 def single_post(post):
     
-    if os.path.exists('social/data/post.json'):
-        with open('social/data/post.json', 'r') as f:
+    if os.path.exists('SimPy/social/data/post.json'):
+        with open('SimPy/social/data/post.json', 'r') as f:
             post_data = json.load(f)
     else:
         post_data = {"news":[]}
@@ -49,7 +49,7 @@ def single_post(post):
         })
   
     # Aggiorno Json
-    with open('social/data/post.json', 'w') as file:
+    with open('SimPy/social/data/post.json', 'w') as file:
         json.dump(post_data, file, indent=4)
 
 # Fun aus per estrazione commenti
@@ -61,8 +61,8 @@ def add_comment(comments):
 # Fun che riporta tutto il database degli utenti completop di info personali, post, relazioni, ultimo feed e informazioni riguardanti la simulazione
 def updateJson_simulations(agent_list):
     
-    if os.path.exists('social/data/simulations.json'):
-        with open('social/data/simulations.json', 'r') as f:
+    if os.path.exists('SimPy/social/data/simulations.json'):
+        with open('SimPy/social/data/simulations.json', 'r') as f:
             data = json.load(f)
     else:
         data = {"simulations":[]}  
@@ -82,7 +82,7 @@ def updateJson_simulations(agent_list):
     
 
     # Aggiorno Json
-    with open('social/data/simulations.json', 'w') as file:
+    with open('SimPy/social/data/simulations.json', 'w') as file:
         json.dump(data, file, indent=4)
 
 
@@ -126,8 +126,8 @@ def update_mongodb():
     db = client.get_database("local")
     collection = db.get_collection("Simulations")
     
-    if os.path.exists('social/data/simulations.json'):
-        with open('social/data/simulations.json', 'r') as f:
+    if os.path.exists('SimPy/social/data/simulations.json'):
+        with open('SimPy/social/data/simulations.json', 'r') as f:
             data = json.load(f)
     
     # inserisco nel database tutte le informazioni di simulaizoe, agenti e post
