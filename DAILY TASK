@@ -16,7 +16,7 @@ Rag retriva agmentatiuon llm
 
 
 NOTIZIE
-- Arricchire pull notizie da cui attingono gli agent (differennziare gli argomenti dei psot)->  ansa
+- faccio copia della lista news, ne estraggo una casuale, vedo se dei topic che corrisponde almento uno a quelli dell'agent, in caso contrario lo scarto e passo al prossimo post generato casualmente
     Vado poi a modificare il meccanismo di estrazione di notizie sul quale si vuole pubblicare, sorta di algoritmo che decide quale notizia fitta di più
     
 POST

@@ -48,17 +48,21 @@ class Agent:
        
 
 
-    # Funi dedicata alla creazione e generazione del post
+    # Fun dedicata alla creazione e generazione del post
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
     def generate_post(self):
       #datatime di generazione
         if content_interaction_gen_prob(self.activity):
-            #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
-            #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
-            new_p=gen_post(self.env,self.id, self.interest, self.age, config.NEWS)
-            self.published.append(new_p)
-            config.POST_DATABASE.append(new_p)
-            print(f'LOG "{self.env.now}" ----> {str(self.id)} ha postato')
+            # Cerco la News che fitta di più con l'agent chiamante, se non la trovo l'agent non pubblica nulla
+            news=self.choosing_news()
+            if news:
+                #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
+                #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
+                new_p=gen_post(self.env,self.id, self.interest, self.age, news)
+                self.published.append(new_p)
+                config.POST_DATABASE.append(new_p)
+                print(f'LOG "{self.env.now}" ----> {str(self.id)} ha postato')
+        
         print(f'LOG "{self.env.now}" ----> {str(self.id)} non ha postato')
         
     
@@ -207,56 +211,16 @@ class Agent:
                                 self.feed.append(post.id)
                                 print(f'LOG "{self.env.now}" ----> *Completamento feed ausiliare_2* Il post {post.id} è stato aggiunto')                        
 
-    
-    
 
-'''
-# Generate post e riempi feed3
-agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
-count=0
-for ag in agents_dict.values():
-        ag.generate_post()    
-        ag.find_friends(agents_dict) 
-        if count==10:break
-        count+=1
-count=0
-for ag in agents_dict.values():
-    ag.polulate_feed3()
-    if count==1:break
-    count+=1
-'''
-
-# Test per follower relation
-"""
-agents_dict = {idx: Agent() for idx in range(1, NUM_AGENTS+1)}
-count=0
-for ag in agents_dict.values():
-         #dopo che tutti gli utentei sono stati ccreati,propongo liste di amici papabili che l'agent sceglie se seguire o meno
-         
-         ag.find_friends(agents_dict)
-         if count==1:break
-         count+=1
-"""         
-
-
-#GENERARE CSV AGENTI CASUALI 
-"""    
-def generate_agents(n):
-    agents = []
-    for _ in range(n):
-        agent = Agent()
-        agents.append(agent)
-    return agents
-
-def write_agents_to_csv(agents, filename):
-    with open(filename, 'w', newline='') as csvfile:
-        fieldnames = ['ID', 'Age', 'Interest', 'Activity']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for agent in agents:
-            writer.writerow({'ID': agent.id, 'Age': agent.age, 'Interest': agent.interest, 'Activity': agent.activity})
-
-
-agents = generate_agents(100)
-write_agents_to_csv(agents, 'agents.csv')
-"""
+    # Fun ausiliaria per scegliere la notizia cche fitta di più in base ai temi di interesse dell'utente    
+    def choosing_news(self):
+        # Mischio la lista in modo da far partire da un punto random ogni agent tutte le volte (ccoprire il maggiorn numero di notizie, evitare ripetizione)
+        random.shuffle(config.NEWS)
+        for news_item in config.NEWS:
+            for topic in news_item["topics"]:
+                # Se è negli interessi dell'agent 
+                
+                # AL MOMENTO è COMMENTATO PERCHè DEVO ASPETTARE DI AVERE LA CATEGORIZZAZIONE DELLA NEWS, ALRIMENTI NON RIESCO A FARE IL PARING CON GLI INTERESSI DELL'UTENTE
+                #if topic in self.interest:
+                    return {"name":news_item["name"],"topics":topic}
+                    

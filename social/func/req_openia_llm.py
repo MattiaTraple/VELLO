@@ -11,10 +11,10 @@ def gen_post(env,id,interest,age,news):
     # Se lasciata sopra dava problemi di importazione circolare
     from post import Post
     # Faccio questo per escludere il terzo topic se non è presente
-    topics = [topic for topic in news.topics if topic]
+    topics = [topic for topic in news["topics"] if topic]
     #scrivo bene le richeiste per openia
     #se uso 3.5 turbo specifico anche il sys, senno uso solo lo user
-    sys_cont=f"Il contesto è questo, tu sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news.name} e decidi di reagire creando un post a riguardo, tenendo conto delle informazioni demografiche e di interessi che ti ho dato in precedenza, considerando che i topic della notizia rientrano in:{', '.join(topics)} ,in  quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"#contino la richiesta
+    sys_cont=f"Il contesto è questo, tu sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news["name"]} e decidi di reagire creando un post a riguardo, tenendo conto delle informazioni demografiche e di interessi che ti ho dato in precedenza, considerando che i topic della notizia rientrano in:{', '.join(topics)} ,in  quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"#contino la richiesta
     user_cont="... "
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     #mettere request(sys_cont, user_cont) al posto di "bulaeivwribviwr"
@@ -83,4 +83,6 @@ def print_topic_json():
 # Fun che utilizzo per categorizzare le notizie che ricevo da ANSA, in modo da avere i topic che poi vado ad usare per decidere l'interesse degli uteinti riguardo a una determinartraa notizia/ post che ricevono
 def topic_llm_request():
     # Ricordo di passare sia il nome della notizia che la lista dei topic dal quale può attingere per la categorizzazione
+    
+    
     return

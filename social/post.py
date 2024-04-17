@@ -13,7 +13,7 @@ class Post:
         self.news=news
         self.content=content
         # Campo dedicato ai 2/3 topic in cui può essere identetificata la news
-        self.topic=[topic for topic in news.topics if topic]
+        self.topic=[topic for topic in news["topics"] if topic]
         self.datatime=env.now
         # Sarà una lista di coppie id agente, contenuto del commento
         self.comments=[]

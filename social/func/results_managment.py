@@ -38,13 +38,13 @@ def single_post(post):
     }
 
     for news_item in post_data["news"]:
-        if news_item["name"] == post.news.name:
+        if news_item["name"] == post.news["name"]:
             news_item["post"].append(new_post)
             break
     else:
         post_data["news"].append({
-            "name": post.news.name,
-            "topic": ', '.join(post.news.topics),
+            "name": post.news["name"],
+            "topic": ', '.join(post.news["topics"]),
             "post": [new_post]
         })
   
@@ -75,7 +75,8 @@ def updateJson_simulations(agent_list):
                 "friend_limit":config.NUM_FRIEND,
                 "feed_post_number":config.NUM_FEED
         },
-        "news_used":[config.NEWS.name],
+        # aggiornare salvataggio elenco news
+        "news_used":[news["name"] for news in config.NEWS],
         "agents":[single_agent(agent) for agent in agent_list]
     }
     data["simulations"].append(new_simulation)
@@ -107,8 +108,8 @@ def add_post(posts):
     for p in posts:
         new_post = {
             "post_id": p.id,
-            "news": p.news.name,
-            "topic": ', '.join(p.news.topics),
+            "news": p.news["name"],
+            "topic": ', '.join(p.news["topics"]),
             "content": p.content,
             "datatime": p.datatime,
             "comments":add_comment(p.comments)   #aggiungo dopo la lista commenti

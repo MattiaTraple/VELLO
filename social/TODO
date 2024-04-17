@@ -21,7 +21,7 @@ INTERAZIONI
             - Invece che una storia potrei andare a creare un "last action", passo solo questa last action all'LLM in modo da dirgli cosa ho fatto l'ultima volta, e quale azione sarebbe più coerente da eseguire per non distaccarsi troppo dall'azione passata (mantenere coerenza con il proprio profilo agente)
 
 - NOTIZIE
-    - Devo sccegliere il mecccanismo di generazione delle notizie... da dove le prendo? uso macro temi già scritti?
+
     - Asseganre in modo dinamico il tipo di topic che tratta una news, mi serve per la creazioen dei feed e la distribuzione dei postin generale
     - difficile fare un meccanismo di classificazione delle news (al momento li inserisco manualmente)
 

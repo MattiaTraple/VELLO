@@ -1,241 +1,129 @@
 {
     "simulations": [
         {
-            "simulation_number": "2024-04-17 12:39:48",
+            "simulation_number": "2024-04-17 16:22:52",
             "simulation_settings": {
-                "simulation_time": 900,
+                "simulation_time": 1400,
                 "agents_number": 10,
                 "friend_limit": 3,
                 "feed_post_number": 5
             },
             "news_used": [
-                "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta"
+                "Elkann, risultati e traguardi record per Ferrari nel 2023",
+                "'Colpita in Russia la fabbrica dei bombardieri Tupolev' ",
+                "Salvini, avanti dritto, al via i lavori del Ponte entro l'estate",
+                "Alluvione nel deserto, fiumi d'acqua nell'aeroporto di Dubai",
+                "Question time alla Camera con 5 ministri, anche Nordio e Valditara",
+                "Maturit\u00e0 2024, il toto-tracce per la prima prova: gli studenti scommettono su D'Annunzio e Pirandello ",
+                "Etichetta vaschetta Primopiano 1 (HP)",
+                "Fiorello, 'Warner tratta per comprare La7'. Discovery smentisce",
+                "A-live, lo zaino salvavita per le emergenze",
+                "Scontri alla Sapienza, tornano liberi i due arrestati. Studenti in sciopero della fame e incatenati ",
+                "Antitrust, restituiti 122 milioni a 600mila consumatori",
+                "Il Senato approva il ddl Valditara sul voto in condotta",
+                "Meloni, grazie Tunisia per lotta ai trafficanti di uomini",
+                "Etichetta vaschetta Primo piano 2 (HP)",
+                "Corruzione, sospeso il vice governatore della Sicilia Sammartino: 'Certo della mia estraneit\u00e0 ai fatti'",
+                "Fmi: 'Debito in Italia elevato, serve un aggiustamento credibile'",
+                "Confindustria stima +0,9% il Pil 2024, 'la crescita sorprende'",
+                "La migrazione dei giganti del Sistema Solare raccontata dai meteoriti  ",
+                "Il 99% dei tumori al seno e il 92% al colon guarisce se la diagnosi \u00e8 precoce",
+                "Draghi sferza l'Europa: 'Serve un cambiamento radicale'&nbsp;",
+                "La Nobel Mohammadi dal carcere: 'Le strade di Teheran campi di battaglia contro le donne'",
+                "Teheran: 'Pronti a colpire i nemici con i jet supersonici russi' ",
+                "Sopravvivenza felina nell'alluvione a Dubai",
+                "San Suu Kyi lascia il carcere, trasferita ai domiciliari",
+                "Orban: \"Meloni pu\u00f2 guidare i conservatori in Europa\"",
+                "L'appello dei garanti sui suicidi nelle carceri: 'Ora azioni urgenti'",
+                "Sophie Kinsella: 'Ho un cancro al cervello, faccio la chemio' ",
+                "A cosa servono i sogni? Una finestra aperta sulla nostra interiorit\u00e0",
+                "Italia in balia di correnti fredde e instabili, temporali e neve",
+                "Argentina, gli hacker svuotano il database delle patenti, pure quella di Milei",
+                "Il tabloid Sun paga una 'somma enorme', Hugh Grant chiude la causa&nbsp;"
             ],
             "agents": [
                 {
-                    "agent_id": 1,
+                    "agent_id": 8,
                     "age": 21,
-                    "interest": "Fotografia di paesaggi, Arte digitale, Consigli di abbinamento, Viaggi low-cost, Nuove app e software, Commedie romantiche",
-                    "activity": 0.5,
-                    "friends_list": [
-                        6,
-                        4,
-                        3
-                    ],
-                    "last_feed": [],
-                    "published_post": [
-                        {
-                            "post_id": "p-1.5",
-                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
-                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
-                            "content": "bulaeivwribviwr",
-                            "datatime": 344,
-                            "comments": [
-                                {
-                                    "commenter_id": 2,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 837
-                                },
-                                {
-                                    "commenter_id": 9,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 847
-                                },
-                                {
-                                    "commenter_id": 3,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 873
-                                },
-                                {
-                                    "commenter_id": 3,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 873
-                                },
-                                {
-                                    "commenter_id": 6,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 897
-                                },
-                                {
-                                    "commenter_id": 6,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 897
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "agent_id": 2,
-                    "age": 35,
-                    "interest": "Lingue straniere, Tecnologia dell'informazione, Dessert e dolci, Fotografia naturalistica, Conservazione della biodiversit\u00c3\u00a0, Diritti umani",
-                    "activity": 0.8,
-                    "friends_list": [
-                        6,
-                        7,
-                        9
-                    ],
-                    "last_feed": [
-                        "p-6.4",
-                        "p-5.3",
-                        "p-3.2",
-                        "p-6.4",
-                        "p-1.5"
-                    ],
-                    "published_post": [
-                        {
-                            "post_id": "p-2.1",
-                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
-                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
-                            "content": "bulaeivwribviwr",
-                            "datatime": 305,
-                            "comments": [
-                                {
-                                    "commenter_id": 8,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 826
-                                },
-                                {
-                                    "commenter_id": 3,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 873
-                                },
-                                {
-                                    "commenter_id": 6,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 897
-                                },
-                                {
-                                    "commenter_id": 6,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 897
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "agent_id": 4,
-                    "age": 17,
-                    "interest": "Surf, Pallavolo, Arte digitale, Economia, Yoga e meditazione, Mobilit\u00c3\u00a0 sostenibile",
+                    "interest": "Immobiliare, Investimenti azionari, Fotografia digitale, Fotografia di paesaggi, Destinazioni esotiche, Lingue straniere",
                     "activity": 0.2,
                     "friends_list": [
                         1,
-                        3,
-                        5
+                        4,
+                        7
                     ],
                     "last_feed": [
-                        "p-1.5",
+                        "p-4.1",
+                        "p-6.3",
+                        "p-4.1",
                         "p-3.2",
-                        "p-5.3",
-                        "p-1.5",
-                        "p-2.1"
+                        "p-2.4"
                     ],
                     "published_post": []
                 },
                 {
                     "agent_id": 7,
-                    "age": 44,
-                    "interest": "Fotografia naturalistica, Ritratti in studio, Arte digitale, Giochi indie, Politica internazionale, Immobiliare",
+                    "age": 19,
+                    "interest": "Giochi per dispositivi mobili, Sparatutto in prima persona (FPS), Viaggi low-cost, Fotografia di paesaggi, Lavorazione del legno, Pianificazione pensionistica",
                     "activity": 0.2,
                     "friends_list": [
-                        5,
-                        6,
-                        2
-                    ],
-                    "last_feed": [],
-                    "published_post": []
-                },
-                {
-                    "agent_id": 10,
-                    "age": 32,
-                    "interest": "Poesia contemporanea, Libri d'arte, Alta moda, Anime, Ricette vegetariane/vegane, Destinazioni esotiche",
-                    "activity": 0.2,
-                    "friends_list": [
-                        2,
                         8,
-                        5
-                    ],
-                    "last_feed": [],
-                    "published_post": []
-                },
-                {
-                    "agent_id": 9,
-                    "age": 25,
-                    "interest": "Cucito e ricamo, Lavorazione del legno, Cura dei gatti, Abbigliamento sostenibile, Disegno e illustrazione, Fotografia naturalistica",
-                    "activity": 0.5,
-                    "friends_list": [
-                        8,
-                        3,
-                        2
+                        1,
+                        3
                     ],
                     "last_feed": [
                         "p-3.2",
-                        "p-2.1",
+                        "p-5.5",
+                        "p-2.4",
                         "p-3.2",
-                        "p-1.5",
-                        "p-5.3"
-                    ],
-                    "published_post": []
-                },
-                {
-                    "agent_id": 8,
-                    "age": 30,
-                    "interest": "Sviluppo personale, Corsi online, Cucito e ricamo, Cura dei gatti, Abbigliamento sostenibile, Programmi di dimagrimento",
-                    "activity": 0.2,
-                    "friends_list": [
-                        9,
-                        3,
-                        10
-                    ],
-                    "last_feed": [
-                        "p-3.2",
-                        "p-1.5",
-                        "p-2.1",
-                        "p-3.2",
-                        "p-5.3"
+                        "p-4.1"
                     ],
                     "published_post": []
                 },
                 {
                     "agent_id": 6,
-                    "age": 19,
-                    "interest": "Ritratti in studio, Fotografia naturalistica, Dessert e dolci, Commedie romantiche, Fai da te per la casa, Diritti umani",
-                    "activity": 0.8,
+                    "age": 42,
+                    "interest": "Consigli di abbinamento, Moda streetwear, App per la produttivit\u00c3\u00a0, Fotografia naturalistica, Crescita personale, Surf",
+                    "activity": 0.5,
                     "friends_list": [
-                        2,
-                        1,
-                        7
+                        3,
+                        4,
+                        9
                     ],
                     "last_feed": [
-                        "p-1.5",
-                        "p-2.1",
-                        "p-2.1",
-                        "p-1.5",
+                        "p-3.2",
+                        "p-4.1",
+                        "p-2.4",
+                        "p-5.5",
                         "p-3.2"
                     ],
                     "published_post": [
                         {
-                            "post_id": "p-6.4",
-                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
-                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "post_id": "p-6.3",
+                            "news": "Question time alla Camera con 5 ministri, anche Nordio e Valditara",
+                            "topic": "h",
                             "content": "bulaeivwribviwr",
-                            "datatime": 339,
+                            "datatime": 313,
                             "comments": [
                                 {
-                                    "commenter_id": 2,
+                                    "commenter_id": 4,
                                     "content": "commentovavvweuiv",
-                                    "datatime": 837
-                                },
-                                {
-                                    "commenter_id": 2,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 837
+                                    "datatime": 875
                                 },
                                 {
                                     "commenter_id": 3,
                                     "content": "commentovavvweuiv",
-                                    "datatime": 873
+                                    "datatime": 900
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 935
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 938
                                 }
                             ]
                         }
@@ -243,38 +131,229 @@
                 },
                 {
                     "agent_id": 3,
-                    "age": 20,
-                    "interest": "Falegnameria, Progetti di bricolage, Abbigliamento sostenibile, Criptovalute, Corsi accademici, Psicologia positiva",
-                    "activity": 0.5,
+                    "age": 16,
+                    "interest": "Allenamento a corpo libero, Yoga e meditazione, Scultura, Editing di paesaggi, Destinazioni esotiche, Crescita personale",
+                    "activity": 0.8,
                     "friends_list": [
-                        9,
                         8,
-                        1
+                        1,
+                        2
                     ],
                     "last_feed": [
-                        "p-1.5",
-                        "p-1.5",
-                        "p-2.1",
-                        "p-5.3",
-                        "p-6.4"
+                        "p-2.4",
+                        "p-5.5",
+                        "p-2.4",
+                        "p-4.1",
+                        "p-6.3"
                     ],
                     "published_post": [
                         {
                             "post_id": "p-3.2",
-                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
-                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "news": "La migrazione dei giganti del Sistema Solare raccontata dai meteoriti  ",
+                            "topic": "h",
                             "content": "bulaeivwribviwr",
-                            "datatime": 306,
+                            "datatime": 304,
                             "comments": [
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 875
+                                },
                                 {
                                     "commenter_id": 2,
                                     "content": "commentovavvweuiv",
-                                    "datatime": 837
+                                    "datatime": 895
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 895
+                                },
+                                {
+                                    "commenter_id": 10,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 895
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 938
+                                }
+                            ]
+                        },
+                        {
+                            "post_id": "p-3.8",
+                            "news": "Elkann, risultati e traguardi record per Ferrari nel 2023",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1275,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 2,
+                    "age": 31,
+                    "interest": "Calcio, Maratone e corsa, Romanzi storici, Abbigliamento sostenibile, Allenamento a corpo libero, Allevamento di animali esotici",
+                    "activity": 0.5,
+                    "friends_list": [
+                        3,
+                        4,
+                        10
+                    ],
+                    "last_feed": [
+                        "p-3.2",
+                        "p-4.1",
+                        "p-3.2",
+                        "p-5.5",
+                        "p-4.1"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-2.4",
+                            "news": "Il 99% dei tumori al seno e il 92% al colon guarisce se la diagnosi \u00e8 precoce",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 349,
+                            "comments": [
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 871
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 875
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 900
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 900
                                 },
                                 {
                                     "commenter_id": 9,
                                     "content": "commentovavvweuiv",
-                                    "datatime": 847
+                                    "datatime": 935
+                                }
+                            ]
+                        },
+                        {
+                            "post_id": "p-2.6",
+                            "news": "La migrazione dei giganti del Sistema Solare raccontata dai meteoriti  ",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1156,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 10,
+                    "age": 32,
+                    "interest": "Indie, Rock, Mindfulness, Nuove app e software, Destinazioni esotiche, Cura dei gatti",
+                    "activity": 0.2,
+                    "friends_list": [
+                        2,
+                        3,
+                        4
+                    ],
+                    "last_feed": [
+                        "p-3.2",
+                        "p-4.1",
+                        "p-2.4",
+                        "p-5.5",
+                        "p-3.2"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 9,
+                    "age": 44,
+                    "interest": "Pittura ad olio, Fotografia di paesaggi, Libri d'arte, Riduzione della plastica, Editing di paesaggi, Viaggi in camper",
+                    "activity": 0.2,
+                    "friends_list": [
+                        3,
+                        6,
+                        7
+                    ],
+                    "last_feed": [
+                        "p-6.3",
+                        "p-3.2",
+                        "p-5.5",
+                        "p-2.4",
+                        "p-4.1"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 1,
+                    "age": 18,
+                    "interest": "Diritti umani, Economia, Alimentazione sana, Immobiliare, Addestramento dei cani, Conservazione della biodiversit\u00c3\u00a0",
+                    "activity": 0.5,
+                    "friends_list": [
+                        8,
+                        3,
+                        4
+                    ],
+                    "last_feed": [
+                        "p-4.1",
+                        "p-3.2",
+                        "p-6.3",
+                        "p-3.2",
+                        "p-2.4"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 4,
+                    "age": 62,
+                    "interest": "Lingue straniere, Sviluppo personale, Conservazione della biodiversit\u00c3\u00a0, App per la produttivit\u00c3\u00a0, Destinazioni esotiche, Romanzi storici",
+                    "activity": 0.8,
+                    "friends_list": [
+                        8,
+                        1,
+                        2
+                    ],
+                    "last_feed": [
+                        "p-2.4",
+                        "p-3.2",
+                        "p-6.3",
+                        "p-2.4",
+                        "p-5.5"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-4.1",
+                            "news": "Etichetta vaschetta Primo piano 2 (HP)",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 275,
+                            "comments": [
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 848
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 900
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 935
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 935
                                 }
                             ]
                         }
@@ -282,39 +361,43 @@
                 },
                 {
                     "agent_id": 5,
-                    "age": 42,
-                    "interest": "Gestione dello stress, Crescita personale, Arte digitale, App per la produttivit\u00c3\u00a0, Acquariologia, Progetti di bricolage",
+                    "age": 63,
+                    "interest": "Drammi, Fantascienza, Psicologia positiva, Acquariologia, Attualit\u00c3\u00a0 locali, Lavorazione del legno",
                     "activity": 0.5,
                     "friends_list": [
+                        4,
                         7,
-                        1,
-                        3
+                        1
                     ],
-                    "last_feed": [],
+                    "last_feed": [
+                        "p-4.1",
+                        "p-4.1",
+                        "p-2.4",
+                        "p-3.2",
+                        "p-6.3"
+                    ],
                     "published_post": [
                         {
-                            "post_id": "p-5.3",
-                            "news": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta",
-                            "topic": "Criptovalute, Ambiente e cambiamenti climatici, ",
+                            "post_id": "p-5.5",
+                            "news": "L'appello dei garanti sui suicidi nelle carceri: 'Ora azioni urgenti'",
+                            "topic": "h",
                             "content": "bulaeivwribviwr",
-                            "datatime": 327,
+                            "datatime": 394,
                             "comments": [
                                 {
-                                    "commenter_id": 2,
+                                    "commenter_id": 4,
                                     "content": "commentovavvweuiv",
-                                    "datatime": 837
-                                },
-                                {
-                                    "commenter_id": 9,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 847
-                                },
-                                {
-                                    "commenter_id": 3,
-                                    "content": "commentovavvweuiv",
-                                    "datatime": 873
+                                    "datatime": 875
                                 }
                             ]
+                        },
+                        {
+                            "post_id": "p-5.7",
+                            "news": "Il Senato approva il ddl Valditara sul voto in condotta",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1251,
+                            "comments": []
                         }
                     ]
                 }

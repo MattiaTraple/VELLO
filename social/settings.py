@@ -6,16 +6,12 @@ class Config:
     # Numero di agenti che verranno ccreati
     NUM_AGENTS = 10
     # Durata della simulazione
-    SIM_TIME =900
+    SIM_TIME =1400
     # Limite iniziale di amici fissati
     NUM_FRIEND = 3
 
-    # Notizia di prova fornita
-    News = namedtuple('News', ['name', 'topics'])
-    NEWS = News(name="Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta", topics=["Criptovalute", "Ambiente e cambiamenti climatici", ""])
-    # Versione ancora non provata
-    #nam,tpc=gen_define_news()
-    #NEWS = News(name=nam, topics=["Criptovalute", "Ambiente e cambiamenti climatici", ""])
+    # Lista notizie con notizia di defaul riportata
+    NEWS = [{"name": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta", "topics": ["Criptovalute", "Ambiente e cambiamenti climatici", ""]}]
 
     # Post Presenti nel feed
     NUM_FEED = 5

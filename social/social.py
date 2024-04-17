@@ -13,7 +13,7 @@ if os.path.exists("SimPy/social/data/post.json"):os.remove("SimPy/social/data/po
 if os.path.exists("SimPy/social/data/simulations.json"):os.remove("SimPy/social/data/simulations.json")
 
 # Popolazione pull feed notizie che verrà utilizzato
-#request_news()
+request_news()
 
 # Funzione per la generazione degli agenti
 def generate_agents(env):

@@ -26,6 +26,7 @@ def request_news():
 
             # Salvataggio della lista nelle notizie e categorizzazione di essa
             config.NEWS=topic_finder(news_titles)
+            print("SYS ----> Raccolta delle ultime norizie da ANSA andata a buon fine", response.status_code)
 
         else:
             print("SYS ----> Errore nella richiesta HTTP per la richiesta delle notizie:", response.status_code)
@@ -38,7 +39,7 @@ def topic_finder(news_titles):
     news_list=[]
     for titles in news_titles:
         # Mi aspetto come risultato una stringa, che io divido in 3 basandomi sulle virgole in 3, cche salvo poi in una lista
-        topics_res=(topic_llm_request(titles)).replace(" e ", ",").split(",")
-        news_list.append(name=titles,topics=topics_res)
+        topics_res=["h","r","dd"]#(topic_llm_request(titles)).replace(" e ", ",").split(",")
+        news_list.append({"name":titles,"topics":topics_res})
 
     return news_list
