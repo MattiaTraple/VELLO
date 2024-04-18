@@ -2,7 +2,7 @@ import itertools
 import json
 import os
 import random
-from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, activity_gen
+from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity
 from func.req_openia_llm import gen_post, req_follow
 from settings import config
 
@@ -22,7 +22,10 @@ class Agent:
       self.id = Agent.id_counter
       self.age=age_gen()
       self.interest=interest_gen()
-      self.activity=activity_gen()
+      # Stapilisco il grado di attivita (float) del'agent e genero le sue personalità (dictionary), i due attributi sono correlati
+      self.activity_degree,self.personality=personality_activity()
+      # In base al grado, stabilisco i livello di attività dell'agents
+      self.agent_activity="High" if self.activity_degree >= 0.8 else ("Medium" if self.activity_degree >= 0.2 else "Low")
       # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
       # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
@@ -52,7 +55,7 @@ class Agent:
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
     def generate_post(self):
       #datatime di generazione
-        if content_interaction_gen_prob(self.activity):
+        if content_interaction_gen_prob(self.activity_degree):
             # Cerco la News che fitta di più con l'agent chiamante, se non la trovo l'agent non pubblica nulla
             news=self.choosing_news()
             if news:
@@ -95,7 +98,7 @@ class Agent:
         #come ordino 
         
         # Decide se commentare basato su activiti dell'utente
-        if content_interaction_gen_prob(self.activity):
+        if content_interaction_gen_prob(self.activity_degree):
             post.create_comment(self)
         print(f'LOG "{self.env.now}" ----> MANCATA interazione: Agent {self.id} non ha interagito con {post.id}')
 

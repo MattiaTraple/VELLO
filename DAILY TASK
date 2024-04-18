@@ -1,23 +1,17 @@
-- NEWS
-    - Controllare se funziona e non iterferisce con il database
 
 - VECTOR DB
-    - Vector db da implementare quandi devo identificare di che categoria tratta un determianto articolo estratto dall' ANSA
     - In futuro cambire l'llm che sta dietro il database
     - passare il db in locale, non in memory
 
 - PERSONALITA 
     - riguardare meccanismi di funionamento sviluppo persoanlità llm
     - Ricordare di delefare al LLM le scelte di post o meno
+    - estroversione e open a nuove esperienze aumentano la probabilità di essere uno che interagisce di più(creo coerenza tra i valori)
 modello per la storia dell agente
 
 Rag retriva agmentatiuon llm
 - Vector db
 
-
-NOTIZIE
-- faccio copia della lista news, ne estraggo una casuale, vedo se dei topic che corrisponde almento uno a quelli dell'agent, in caso contrario lo scarto e passo al prossimo post generato casualmente
-    Vado poi a modificare il meccanismo di estrazione di notizie sul quale si vuole pubblicare, sorta di algoritmo che decide quale notizia fitta di più
     
 POST
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare

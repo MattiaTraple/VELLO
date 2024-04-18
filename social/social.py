@@ -21,7 +21,7 @@ def generate_agents(env):
     agent = Agent(env)
     # Tengo una lista degli agent che mi servirà per le varie interazioni
     AGENT_LIST.append(agent)
-    print(f'SYM ----> è stato creato l agent {agent.id} - activity: {agent.activity}')
+    print(f'SYM ----> è stato creato l agent {agent.id} - activity: {agent.activity_degree}')
     #devo scegliere quando inizializzare il feed
     #-----
     # Qui puoi fare altre inizializzazioni per gli agenti se necessario

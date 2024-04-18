@@ -94,7 +94,8 @@ def single_agent(agent):
         "agent_id": agent.id,
         "age":agent.age,
         "interest":', '.join(agent.interest),
-        "activity":agent.activity,
+        "activity level":agent.agent_activity,
+        "activity degree":agent.activity_degree,
         "friends_list":agent.friends,
         "last_feed": agent.feed,
         "published_post":add_post(agent.published)
