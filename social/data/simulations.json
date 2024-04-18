@@ -1,0 +1,465 @@
+{
+    "simulations": [
+        {
+            "simulation_number": "2024-04-18 22:21:49",
+            "simulation_settings": {
+                "simulation_time": 1400,
+                "agents_number": 10,
+                "friend_limit": 3,
+                "feed_post_number": 5
+            },
+            "news_used": [
+                "Francia, due bambine accoltellate davanti alla scuola",
+                "L'Iran minaccia di attaccare i siti nucleari israeliani in caso di aggressione. Biden impone nuove sanzioni",
+                "Europa League: in campo Roma-Milan 2-0 e Atalanta-Liverpool 0-1 DIRETTA e FOTO",
+                "La Piet\u00e0 di Gaza vince il World Press Photo 2024 ",
+                "Impatta disrupt, il festival italiano dell'innovability - La seconda giornata",
+                "Voto in condotta, dai 'debiti' con il 6 al rischio bocciatura   ",
+                "Innocente, per 5 mesi in cella: 'Ho perso tutto'",
+                "Rettori: 'Nessun boicottaggio dagli atenei italiani' ",
+                "Corruzione ad Avellino, arrestato il sindaco dimissionario",
+                "Harry sempre pi\u00f9 lontano, rinuncia alla residenza britannica",
+                "Etichetta vaschetta Primo piano 2 (HP)",
+                "Sportiello alla Camera: \"Oggi sono madre, ma 14 anni fa scelsi di abortire\"",
+                "In 2 anni 32.500 posti in meno negli ospedali",
+                "Amadeus dall'autunno sul Nove, porta anche la musica",
+                "Compleanno a Capri per Blinken, Tajani gli regala il disco dei Maneskin",
+                "Diritto di aborto: la Lega si astiene e si sfila sui pro life nei consultori\u00a0",
+                "Ilaria Salis candidata alle Europee con Avs. Bonelli-Fratoianni: \"D'accordo con il pap\u00e0 Roberto\"",
+                "Compie 105 anni la sudtirolese che sogna di tornare austriaca",
+                "FOCUS | La morte di Mattia, 'nessuno sapeva usare il defibrillatore'",
+                "'Gelato a rischio', i locali contro la stretta della movida ",
+                "Dormire s\u00ec, ma che fatica",
+                "Meloni: 'A giugno un'altra Ue, Draghi per ora \u00e8 filosofia' ",
+                "Etichetta vaschetta Primopiano 1 (HP)",
+                "'Preparavano attacchi', arrestate 2 spie russe in Germania",
+                "Marina Brambilla prima rettrice della Statale di Milano",
+                "Il G7 accelera sulla contraerea, 'Kiev non deve perdere'",
+                "L'alluvione a Dubai vista dai satelliti ",
+                "Un cucciolo di rinoceronte bianco a Londra",
+                "Casa di Montecarlo, slitta al 30 aprile la sentenza per Fini ",
+                "Fine vita, il governo fa ricorso al Tar contro l'Emilia-Romagna"
+            ],
+            "agents": [
+                {
+                    "agent_id": 8,
+                    "age": 27,
+                    "interest": "Editing di paesaggi, Ritratti in studio, Diritti umani, Pianificazione pensionistica, Viaggi low-cost, Poesia contemporanea",
+                    "activity level": "Medium",
+                    "activity degree": 0.33,
+                    "friends_list": [
+                        5,
+                        2,
+                        4
+                    ],
+                    "last_feed": [
+                        "p-5.4",
+                        "p-4.3",
+                        "p-3.2",
+                        "p-7.1",
+                        "p-1.5"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 7,
+                    "age": 25,
+                    "interest": "Yoga e meditazione, Programmi di dimagrimento, Criptovalute, Lingue straniere, Acquariologia, Fotografia naturalistica",
+                    "activity level": "Medium",
+                    "activity degree": 0.47,
+                    "friends_list": [
+                        4,
+                        9,
+                        1
+                    ],
+                    "last_feed": [
+                        "p-1.5",
+                        "p-4.3",
+                        "p-4.3",
+                        "p-5.4",
+                        "p-3.2"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-7.1",
+                            "news": "Il G7 accelera sulla contraerea, 'Kiev non deve perdere'",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 345,
+                            "comments": [
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 873
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 873
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 896
+                                },
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 902
+                                },
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 902
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 921
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 2,
+                    "age": 32,
+                    "interest": "Terapia cognitivo-comportamentale (TCC), Gestione dello stress, Viaggi low-cost, Indie, Alta moda, Crescita delle relazioni di coppia",
+                    "activity level": "Medium",
+                    "activity degree": 0.38,
+                    "friends_list": [
+                        1,
+                        8,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-1.5",
+                        "p-5.4",
+                        "p-7.1",
+                        "p-4.3",
+                        "p-3.2"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-2.7",
+                            "news": "Francia, due bambine accoltellate davanti alla scuola",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1234,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 9,
+                    "age": 25,
+                    "interest": "Lingue straniere, Corsi online, Alta moda, Conservazione della biodiversit\u00c3\u00a0, Fotografia di architettura, Politica internazionale",
+                    "activity level": "Medium",
+                    "activity degree": 0.45,
+                    "friends_list": [
+                        7,
+                        2,
+                        1
+                    ],
+                    "last_feed": [
+                        "p-7.1",
+                        "p-1.5",
+                        "p-7.1",
+                        "p-3.2",
+                        "p-5.4"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-9.8",
+                            "news": "Rettori: 'Nessun boicottaggio dagli atenei italiani' ",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1266,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 6,
+                    "age": 26,
+                    "interest": "Moda streetwear, Consigli di abbinamento, Gestione dello stress, Intelligenza artificiale, Disegno e illustrazione, Romanzi storici",
+                    "activity level": "Medium",
+                    "activity degree": 0.55,
+                    "friends_list": [
+                        4,
+                        5,
+                        2
+                    ],
+                    "last_feed": [
+                        "p-5.4",
+                        "p-4.3",
+                        "p-7.1",
+                        "p-4.3",
+                        "p-5.4"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 10,
+                    "age": 45,
+                    "interest": "Drammi, Fantascienza, Lavorazione del legno, Acquariologia, Riduzione della plastica, Libri d'arte",
+                    "activity level": "Medium",
+                    "activity degree": 0.34,
+                    "friends_list": [
+                        1,
+                        7,
+                        2
+                    ],
+                    "last_feed": [
+                        "p-7.1",
+                        "p-1.5",
+                        "p-1.5",
+                        "p-3.2",
+                        "p-5.4"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 5,
+                    "age": 25,
+                    "interest": "Fotografia digitale, Intelligenza artificiale, Ritratti in studio, Terapia cognitivo-comportamentale (TCC), Amicizia, Corsi accademici",
+                    "activity level": "Medium",
+                    "activity degree": 0.45,
+                    "friends_list": [
+                        6,
+                        8,
+                        2
+                    ],
+                    "last_feed": [
+                        "p-7.1",
+                        "p-3.2",
+                        "p-4.3",
+                        "p-1.5"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-5.4",
+                            "news": "Europa League: in campo Roma-Milan 2-0 e Atalanta-Liverpool 0-1 DIRETTA e FOTO",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 375,
+                            "comments": [
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 873
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 881
+                                },
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 902
+                                },
+                                {
+                                    "commenter_id": 8,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 904
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 939
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 982
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 1,
+                    "age": 37,
+                    "interest": "App per la produttivit\u00c3\u00a0, Fotografia digitale, Allevamento di animali esotici, Alta moda, Criptovalute, Lavorazione del legno",
+                    "activity level": "High",
+                    "activity degree": 0.8,
+                    "friends_list": [
+                        2,
+                        10,
+                        3
+                    ],
+                    "last_feed": [
+                        "p-3.2",
+                        "p-7.1",
+                        "p-5.4",
+                        "p-3.2",
+                        "p-4.3"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-1.5",
+                            "news": "Innocente, per 5 mesi in cella: 'Ho perso tutto'",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 395,
+                            "comments": [
+                                {
+                                    "commenter_id": 9,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 902
+                                },
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 909
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 921
+                                },
+                                {
+                                    "commenter_id": 10,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 935
+                                }
+                            ]
+                        },
+                        {
+                            "post_id": "p-1.9",
+                            "news": "Francia, due bambine accoltellate davanti alla scuola",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1339,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 3,
+                    "age": 17,
+                    "interest": "Maratone e corsa, Calcio, Allenamento funzionale, Fotografia digitale, Gestione dei conflitti, Anime",
+                    "activity level": "Medium",
+                    "activity degree": 0.54,
+                    "friends_list": [
+                        4,
+                        5,
+                        1
+                    ],
+                    "last_feed": [
+                        "p-4.3",
+                        "p-5.4",
+                        "p-1.5",
+                        "p-4.3",
+                        "p-1.5"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-3.2",
+                            "news": "La Piet\u00e0 di Gaza vince il World Press Photo 2024 ",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 361,
+                            "comments": [
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 873
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 873
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 921
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 982
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 982
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 4,
+                    "age": 27,
+                    "interest": "Fotografia di viaggio, Fotografia naturalistica, Dessert e dolci, Pittura ad olio, Maratone e corsa, Romanzi storici",
+                    "activity level": "Medium",
+                    "activity degree": 0.73,
+                    "friends_list": [
+                        6,
+                        7,
+                        3
+                    ],
+                    "last_feed": [
+                        "p-3.2",
+                        "p-7.1",
+                        "p-7.1",
+                        "p-5.4",
+                        "p-3.2"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-4.3",
+                            "news": "Compie 105 anni la sudtirolese che sogna di tornare austriaca",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 363,
+                            "comments": [
+                                {
+                                    "commenter_id": 3,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 881
+                                },
+                                {
+                                    "commenter_id": 7,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 909
+                                },
+                                {
+                                    "commenter_id": 5,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 921
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 939
+                                },
+                                {
+                                    "commenter_id": 6,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 939
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "commentovavvweuiv",
+                                    "datatime": 982
+                                }
+                            ]
+                        },
+                        {
+                            "post_id": "p-4.6",
+                            "news": "Compleanno a Capri per Blinken, Tajani gli regala il disco dei Maneskin",
+                            "topic": "h",
+                            "content": "bulaeivwribviwr",
+                            "datatime": 1188,
+                            "comments": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
