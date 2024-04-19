@@ -1,13 +1,12 @@
 
 - VECTOR DB
-    - In futuro cambire l'llm che sta dietro il database
+    - In futuro cambiare l'llm che sta dietro il database
     - passare il db in locale, non in memory
 
 - PERSONALITA 
     - riguardare meccanismi di funionamento sviluppo persoanlità llm
     - Ricordare di delefare al LLM le scelte di post o meno
-    - estroversione e open a nuove esperienze aumentano la probabilità di essere uno che interagisce di più(creo coerenza tra i valori)
-modello per la storia dell agente
+    - In base alla coscienziosità o alla negatività emotiva posso far commentare l'LLM in modo più coinvolto e cattivo, oppure più coscenzioso
 
 Rag retriva agmentatiuon llm
 - Vector db
