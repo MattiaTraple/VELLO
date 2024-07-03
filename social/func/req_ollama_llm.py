@@ -30,20 +30,20 @@ def req_follow(my_age,my_interest,req_gr,req_int,req_age):
 def gen_com(news,content,agent):
     user_cont=f"Ora sei un utente che ha come interessi interessi:{', '.join(agent.interest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}; genere il commento (rispondi solo con il commento, non scivere altro)"
     return(request(user_cont))
+
+
+# Fun usata ad inizio simulazione per categorizzare le notizie estratte da ANSA (i topic vengono presi dalla lista che ho creato con i casi base + generici)
+def topic_llm_request(starting_news_dic):  
+    # Recupero le categorie
+    with open('data/topic.json', 'r', encoding='utf-8') as file:
+        topic_data_tot = json.load(file)
+    # Considero solo le sottocategorie
+    topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
     
-# Fun usata per generare le notizie ed estrarne quelli che sono i topic, vengono usati per generazione feed, offerta agli utenti
-def gen_define_news():  
     # Richiesta usata per la generazione del contenuto del commento
-    sys_cont1=f"Primo messaggio al sistema:"
-    user_cont1="Primo messaggio allo userSei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
-    req1=request(sys_cont1,user_cont1)
-    
-    # Richiesta usata per l'estrazione delle categorie a cui può essere associata la news appena generata
-    sys_cont1=f"Secno:"
-    user_cont1=f"Secondo messaggio allo user: consideranto la precedente risposta, dato il contenuto del seguente elenco di categorie: {print_topic_json()}, riesci a restituirmi un elenco delle tre categorie che più rispecchiano la news che mi hai generato? l'elenco ddelle 3 categorie estratte deve essere divio solamente da virgole tra le diverse categorie, rispettando le maiuscole dei nomi di come ti sono state inoltrate"
-    req2=[elemento.strip() for elemento in request(sys_cont1,user_cont1).split(",")]
- 
-    return req1,req2
+    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic, indent=4)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno dui topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci solamente il json"
+    req=request(user_cont)
+    return req
   
 # Richiesta generica che verrà inviata a Ollama
 def request(user_cont):
@@ -64,7 +64,7 @@ def request(user_cont):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-
+            complete_response=complete_response[2:-2]
             return complete_response
             
         except json.JSONDecodeError:
@@ -88,10 +88,3 @@ def print_topic_json():
     for sotto_cat in sotto_categorie:
         res += sotto_cat+", "  
     return res
-
-# Fun che utilizzo per categorizzare le notizie che ricevo da ANSA, in modo da avere i topic che poi vado ad usare per decidere l'interesse degli uteinti riguardo a una determinartraa notizia/ post che ricevono
-def topic_llm_request():
-    # Ricordo di passare sia il nome della notizia che la lista dei topic dal quale può attingere per la categorizzazione
-    
-    
-    return

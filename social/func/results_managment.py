@@ -81,7 +81,7 @@ def updateJson_simulations(agent_list):
                 "feed_post_number":config.NUM_FEED
         },
         # aggiornare salvataggio elenco news
-        "news_used":[news["name"] for news in config.NEWS],
+        "news_used":config.NEWS,
         "agents":[single_agent(agent) for agent in agent_list]
     }
     data["simulations"].append(new_simulation)

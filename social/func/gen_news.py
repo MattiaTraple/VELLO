@@ -16,30 +16,25 @@ def request_news():
         # Verifica se la richiesta ha avuto successo (codice di stato 200)
         if response.status_code == 200:
             # Parsa il contenuto XML
+            print("SYS ----> NEWS: news collected - ", response.status_code)
             root = ET.fromstring(response.content)
             news_titles = []
             # Trova tutti gli elementi `<item>`
             for item in root.findall('.//item'):
                 # Trova il titolo all'interno di ciascun `<item>` e aggiungilo alla lista con il relativo testo
                 title = item.find('title').text
-                news_titles.append(title)
+                # tratto la lista di notizie come un dictionary
+                news_item = {
+                    'news_title': title,
+                    'topic': []  # Inizialmente vuoto, sarà aggiornato manualmente
+                }
+                news_titles.append(title)    
 
-            # Salvataggio della lista nelle notizie e categorizzazione di essa
-            config.NEWS=topic_finder(news_titles)
-            print("SYS ----> Raccolta delle ultime norizie da ANSA andata a buon fine", response.status_code)
-
+            # Salvataggio della lista nelle notizie e categorizzazione di essa, l'LLM mi restituirà in formato Json la lista dei titoli con le categorizzazioni
+            config.NEWS=topic_llm_request(news_titles)
+            print("SYS ----> NEWS: categorization and savings completed")
         else:
-            print("SYS ----> Errore nella richiesta HTTP per la richiesta delle notizie:", response.status_code)
+            print("SYS ----> NEWS: Error during news collections - ", response.status_code)
 
     except requests.exceptions.RequestException as e:
-        print("SYS ----> Si è verificato un errore durante la richiesta:", e)
-
-# Funzione che in base al titolo e il testo della news che gli viene data, restituisce per ognuno nome della news e tre cateregorie topic inerenti
-def topic_finder(news_titles):
-    news_list=[]
-    for titles in news_titles:
-        # Mi aspetto come risultato una stringa, che io divido in 3 basandomi sulle virgole in 3, cche salvo poi in una lista
-        topics_res=["h","r","dd"]#(topic_llm_request(titles)).replace(" e ", ",").split(",")
-        news_list.append({"name":titles,"topics":topics_res})
-
-    return news_list
+        print("SYS ----> NEWS: Error during news rewuest - ", e)

@@ -10,8 +10,8 @@ class Config:
     # Limite iniziale di amici fissati
     NUM_FRIEND = 2
 
-    # Lista notizie con notizia di defaul riportata
-    NEWS = [{"name": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta", "topics": ["Criptovalute", "Ambiente e cambiamenti climatici", ""]}]
+    # Lista notizie con categorizzazione
+    NEWS = []
 
     # Post Presenti nel feed
     NUM_FEED = 2
