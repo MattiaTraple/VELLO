@@ -7,7 +7,7 @@ import json
 # Range di età che vengono usati, con le relative probabilità
 range_age = [(range(13, 17), 0.066), (range(17, 24), 0.171), (range(25, 34), 0.385), (range(35, 49), 0.207), (range(50, 102), 0.171)]
 # Inseme dei topic di interesse
-interest_list=json.load(open("SimPy/social/data/topic.json", "r"))
+interest_list=json.load(open("/data/homes_data/mattiatrapletti/SimPy/social/data/topic.json", "r"))
 
 
 

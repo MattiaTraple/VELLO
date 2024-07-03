@@ -1,23 +1,26 @@
 # Questo file è dedicato ai settings della simulazione e a tutte le librerie comuni
 from collections import namedtuple
-#from social.func.req_openia_llm import gen_define_news
+#from social.func.req_ollama_llm import gen_define_news
 
 class Config:
     # Numero di agenti che verranno ccreati
-    NUM_AGENTS = 10
+    NUM_AGENTS = 2
     # Durata della simulazione
-    SIM_TIME =1400
+    SIM_TIME =500
     # Limite iniziale di amici fissati
-    NUM_FRIEND = 3
+    NUM_FRIEND = 2
 
     # Lista notizie con notizia di defaul riportata
     NEWS = [{"name": "Sale il valore di Bitcoin, di conseguenza l'inquinamento aumenta", "topics": ["Criptovalute", "Ambiente e cambiamenti climatici", ""]}]
 
     # Post Presenti nel feed
-    NUM_FEED = 5
+    NUM_FEED = 2
     # Lista momentanea in cui salvo i post di tutti gli utenti
     POST_DATABASE = []
 
+    #Percorso per posizione file json che raccolgono info sulla sim e servono per il funzionamento
+    DATA_POSITION="/data/homes_data/mattiatrapletti/SimPy/social/data/"
+    
 # Creazione dell'oggetto di configurazione
 config = Config()
 

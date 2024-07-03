@@ -3,7 +3,7 @@ import json
 import os
 import random
 from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity
-from func.req_openia_llm import gen_post, req_follow
+from func.req_ollama_llm import gen_post, req_follow
 from settings import config
 
 
@@ -41,12 +41,12 @@ class Agent:
         
         ag_ca=self.order_by_degree(agents_candidates)
         for ag_id in ag_ca:
-                # Questa funzione fa una richiesta a OpenIa che restituisce True/False se è interessato o meno all'amicizia
+                # Questa funzione fa una richiesta a OLlama che restituisce True/False se è interessato o meno all'amicizia
                 #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
                     # Escludi l'agente corrente e gli agenti già presenti nella lista degli amici
                     if ag_id != self.id and ag_id not in self.friends and len(self.friends) < config.NUM_FRIEND:
                         self.friends.append(ag_id)
-                        print(f'LOG "{self.env.now}" ----> Agent {self.id} ha aggiunto Agent {ag_id} come amico.')
+                        print(f'LOG "{self.env.now}" ----> FRIEND_REQUEST: agent {self.id} add agent {ag_id}')
                 
        
 
@@ -60,13 +60,13 @@ class Agent:
             news=self.choosing_news()
             if news:
                 #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
-                #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in openia
+                #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in ollama
                 new_p=gen_post(self.env,self.id, self.interest, self.age, news)
                 self.published.append(new_p)
                 config.POST_DATABASE.append(new_p)
-                print(f'LOG "{self.env.now}" ----> {str(self.id)} ha postato')
+                print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} posted')
         
-        print(f'LOG "{self.env.now}" ----> {str(self.id)} non ha postato')
+        print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} not-posted')
         
     
     # Viene scelto un post casuale del feed e poi si sceglie se commentarlo
@@ -100,7 +100,7 @@ class Agent:
         # Decide se commentare basato su activiti dell'utente
         if content_interaction_gen_prob(self.activity_degree):
             post.create_comment(self)
-        print(f'LOG "{self.env.now}" ----> MANCATA interazione: Agent {self.id} non ha interagito con {post.id}')
+        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and adent {post.id}')
 
 
         
@@ -141,7 +141,7 @@ class Agent:
         # Se per qualche motivo il feed non è stato riempito correttamente, vado a riempirlo in modo randomico, ex uni non ha abbasatnza amici alloraa devo andare a riempirgli il feed in altro modo
             for ag in agent_list:
                 if len(self.feed)==config.NUM_FEED:
-                    print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
+                    print(f'SYM "{self.env.now}" ----> FEED_UPD: agent feed {self.id} updated')
                     return
                 if ag.id!=self.id:    
                     #fare in modo che s enon è negli amici ma il fee non è ancora pieno, allora agigungo anche se non è amico
@@ -159,7 +159,7 @@ class Agent:
                 # Se amici non bastano
                 self.complete_feed_nf(agent_list)
             # Se anche i post degli altri amici non erano abbastanza vado ad attingere in modo randomico da post degli altri agent
-            print(f'SYM "{self.env.now}" ----> il feed dell Agent {self.id} è stato aggiornato')
+            print(f'SYM "{self.env.now}" ----> FEED_UPD: agent feed {self.id} updated')
 
     
              
@@ -195,7 +195,7 @@ class Agent:
                             post=random.choice(ag.published)
                             if post.id is not self.feed:
                                 self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> *Completamento feed ausiliare_1* Il post {post.id} è stato aggiunto')                        
+                                print(f'LOG "{self.env.now}" ----> FEED_OP: *Completamento feed ausiliare_1* post {post.id} added')                        
 
              
 # Fun ausiliaria per il completamento feed in caso i post degli agent nella lista friends non basti
@@ -212,7 +212,7 @@ class Agent:
                             post=random.choice(ag.published)
                             if post.id is not self.feed:
                                 self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> *Completamento feed ausiliare_2* Il post {post.id} è stato aggiunto')                        
+                                print(f'LOG "{self.env.now}" ----> FEED_OP: *Completamento feed ausiliare_2* post {post.id} added')                        
 
 
     # Fun ausiliaria per scegliere la notizia cche fitta di più in base ai temi di interesse dell'utente    

@@ -1,15 +1,14 @@
 
 - VECTOR DB
-    - In futuro cambiare l'llm che sta dietro il database
-    - passare il db in locale, non in memory
+
+    - Creare il meccanismo per il salvataggio deòòa storia e delle azioni dei vari utentei, così ogni volta che vengono poste delle scelte al LLM gli vado a fornire le sue azioni precedenti, comprese informazioni personal ie personalità, per rendere più personalizzata possibile la scelta
+        - metodi che salvano le interszioni nel database
+        - la classificazione delle notizie non va salvata perchè va messa poi nel database della simulazione, vedere in furuto se fornirgli le corrispodneze notizia/topic per aiutarlo a categorizzare delle news in futuro
 
 - PERSONALITA 
     - riguardare meccanismi di funionamento sviluppo persoanlità llm
     - Ricordare di delefare al LLM le scelte di post o meno
     - In base alla coscienziosità o alla negatività emotiva posso far commentare l'LLM in modo più coinvolto e cattivo, oppure più coscenzioso
-
-Rag retriva agmentatiuon llm
-- Vector db
 
     
 POST

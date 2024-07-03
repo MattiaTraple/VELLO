@@ -2,28 +2,33 @@
 import json
 import os
 import pymongo
+import sys
 from settings import config
 import datetime
+import ssl
 
 def save_data(post_database,agent_list):
     # In queste due prime funzioni faccio un backup dell'ultima simulazione e ddei post a lei legata che viene rinnovato ogni votla
+    print(f'SYM ----> SAVE_PROC: saving procedure start')
     updateJons_post(post_database)
     updateJson_simulations(agent_list)
     # Aggiornamento database e in questo caso mi appariranno tutte le simulazioni che ho fatto
     update_mongodb()
-
+    print(f'SYM ----> SAVE_PROC: saving procedure end')
 # JSON
 
 #POST
 # Fun per trasferire contenuto POST_DATABASE nel json
-def updateJons_post(post_databasse):
-    for post in post_databasse:
+def updateJons_post(post_database):
+    print(post_database)
+    for post in post_database:
+        print(post)
         single_post(post)
 # Fun ausiliaria, gli viene dato il post e lo salva sotto la rispettiva notizia nel file json
 def single_post(post):
     
-    if os.path.exists('SimPy/social/data/post.json'):
-        with open('SimPy/social/data/post.json', 'r') as f:
+    if os.path.exists(config.DATA_POSITION+'/post.json'):
+        with open(config.DATA_POSITION+'post.json', 'r') as f:
             post_data = json.load(f)
     else:
         post_data = {"news":[]}
@@ -49,7 +54,7 @@ def single_post(post):
         })
   
     # Aggiorno Json
-    with open('SimPy/social/data/post.json', 'w') as file:
+    with open(config.DATA_POSITION+'post.json', 'w') as file:
         json.dump(post_data, file, indent=4)
 
 # Fun aus per estrazione commenti
@@ -61,8 +66,8 @@ def add_comment(comments):
 # Fun che riporta tutto il database degli utenti completop di info personali, post, relazioni, ultimo feed e informazioni riguardanti la simulazione
 def updateJson_simulations(agent_list):
     
-    if os.path.exists('SimPy/social/data/simulations.json'):
-        with open('SimPy/social/data/simulations.json', 'r') as f:
+    if os.path.exists(config.DATA_POSITION+'simulations.json'):
+        with open(config.DATA_POSITION+'simulations.json', 'r') as f:
             data = json.load(f)
     else:
         data = {"simulations":[]}  
@@ -83,7 +88,7 @@ def updateJson_simulations(agent_list):
     
 
     # Aggiorno Json
-    with open('SimPy/social/data/simulations.json', 'w') as file:
+    with open(config.DATA_POSITION+'simulations.json', 'w') as file:
         json.dump(data, file, indent=4)
 
 
@@ -123,13 +128,51 @@ def add_post(posts):
 # Andrò ad aggiugnere dati simulazione e agenti con relativi post e commenti al database 
 def update_mongodb():
     
-    from pymongo import MongoClient
-    client = MongoClient("mongodb://localhost:27017/")
-    db = client.get_database("local")
-    collection = db.get_collection("Simulations")
+    import certifi
+    ca= certifi.where()
+    #Connesione a mongo in locale
+    #client = MongoClient("mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/")
     
-    if os.path.exists('SimPy/social/data/simulations.json'):
-        with open('SimPy/social/data/simulations.json', 'r') as f:
+    # Connessione a mongo con Atlas
+    uri = "mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/"
+        # Create a new client and connect to the server
+    try:
+        client = pymongo.MongoClient(uri, tls=True, tlsAllowInvalidCertificates=True)
+    # return a friendly error if a URI error is thrown 
+    except pymongo.errors.ConfigurationError:
+        print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
+        sys.exit(1)
+    
+    """
+    db = client.test
+    print("Connesso al database:", db.name)
+    """
+    recipes=[{ "name": "elotes", "ingredients": ["corn", "mayonnaise", "cotija cheese", "sour cream", "lime"], "prep_time": 35 },
+                    { "name": "loco moco", "ingredients": ["ground beef", "butter", "onion", "egg", "bread bun", "mushrooms"], "prep_time": 54 },
+                    { "name": "patatas bravas", "ingredients": ["potato", "tomato", "olive oil", "onion", "garlic", "paprika"], "prep_time": 80 },
+                    { "name": "fried rice", "ingredients": ["rice", "soy sauce", "egg", "onion", "pea", "carrot", "sesame oil"], "prep_time": 40 }]
+    
+    db=client.get_database("SimPy")
+    collection = db["Simulations"]
+    documents = collection.find()
+
+    # Itera sui documenti e stampali a schermo
+    for document in documents:
+        print(document)
+    """
+    try: 
+        result = collection.insert_many(recipes)
+    # return a friendly error if the operation fails
+    except pymongo.errors.OperationFailure:
+        print("An authentication error was received. Are you sure your database user is authorized to perform write operations?")
+        sys.exit(1)
+    else:
+        inserted_count = len(result.inserted_ids)
+        print("I inserted %x documents." %(inserted_count))
+    
+    
+    if os.path.exists(config.DATA_POSITION+'simulations.json'):
+        with open(config.DATA_POSITION+'simulations.json', 'r') as f:
             data = json.load(f)
     
     # inserisco nel database tutte le informazioni di simulaizoe, agenti e post
@@ -140,3 +183,4 @@ def update_mongodb():
         print("SYS ----> Aggiornamento Database MondoDB avvenuto con successo")
     else:
         print("SYS ----> Aggiornamento Database MondoDB ha riscontrato qualche problema")
+        """

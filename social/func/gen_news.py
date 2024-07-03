@@ -1,7 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 from settings import  config
-from func.req_openia_llm import topic_llm_request
+from func.req_ollama_llm import topic_llm_request
 
 
 # Eseguo la richiesta ad ANSA per le news, cche poi immagazzino ed utilizzo per lampubblicazione degli articoli

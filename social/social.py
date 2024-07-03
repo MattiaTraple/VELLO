@@ -3,14 +3,14 @@ import random
 import simpy as si
 from func.results_managment import save_data
 from func.gen_news import request_news
-from settings import  config
+from settings import config
 import json
 
 # Lista oin cui vengono salvati tutti gli agenti
 AGENT_LIST=[]
 # Cancello i file dove salvo i dati per resettarli
-if os.path.exists("SimPy/social/data/post.json"):os.remove("SimPy/social/data/post.json")
-if os.path.exists("SimPy/social/data/simulations.json"):os.remove("SimPy/social/data/simulations.json")
+if os.path.exists(config.DATA_POSITION+"/post.json"):os.remove(config.DATA_POSITION+"post.json")
+if os.path.exists(config.DATA_POSITION+"simulations.json"):os.remove(config.DATA_POSITION+"simulations.json")
 
 # Popolazione pull feed notizie che verrà utilizzato
 request_news()
@@ -21,7 +21,7 @@ def generate_agents(env):
     agent = Agent(env)
     # Tengo una lista degli agent che mi servirà per le varie interazioni
     AGENT_LIST.append(agent)
-    print(f'SYM ----> è stato creato l agent {agent.id} - activity: {agent.activity_degree}')
+    print(f'SYM ----> NEW_AG: created agent {agent.id} - activity level: {agent.activity_degree}')
     #devo scegliere quando inizializzare il feed
     #-----
     # Qui puoi fare altre inizializzazioni per gli agenti se necessario
