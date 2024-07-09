@@ -5,7 +5,6 @@ import pymongo
 import sys
 from settings import config
 import datetime
-import ssl
 
 def save_data(post_database,agent_list):
     # In queste due prime funzioni faccio un backup dell'ultima simulazione e ddei post a lei legata che viene rinnovato ogni votla
@@ -43,12 +42,12 @@ def single_post(post):
     }
 
     for news_item in post_data["news"]:
-        if news_item["name"] == post.news["name"]:
+        if news_item["title"] == post.news["title"]:
             news_item["post"].append(new_post)
             break
     else:
         post_data["news"].append({
-            "name": post.news["name"],
+            "name": post.news["title"],
             "topic": ', '.join(post.news["topics"]),
             "post": [new_post]
         })
@@ -86,7 +85,6 @@ def updateJson_simulations(agent_list):
     }
     data["simulations"].append(new_simulation)
     
-
     # Aggiorno Json
     with open(config.DATA_POSITION+'simulations.json', 'w') as file:
         json.dump(data, file, indent=4)
@@ -127,49 +125,22 @@ def add_post(posts):
 # UPDATE DATABASE MONGODB
 # Andrò ad aggiugnere dati simulazione e agenti con relativi post e commenti al database 
 def update_mongodb():
-    
-    import certifi
-    ca= certifi.where()
     #Connesione a mongo in locale
     #client = MongoClient("mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/")
     
     # Connessione a mongo con Atlas
     uri = "mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/"
-        # Create a new client and connect to the server
+
     try:
+        #collego al server il nuovo client
         client = pymongo.MongoClient(uri, tls=True, tlsAllowInvalidCertificates=True)
-    # return a friendly error if a URI error is thrown 
     except pymongo.errors.ConfigurationError:
         print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
         sys.exit(1)
-    
-    """
-    db = client.test
-    print("Connesso al database:", db.name)
-    """
-    recipes=[{ "name": "elotes", "ingredients": ["corn", "mayonnaise", "cotija cheese", "sour cream", "lime"], "prep_time": 35 },
-                    { "name": "loco moco", "ingredients": ["ground beef", "butter", "onion", "egg", "bread bun", "mushrooms"], "prep_time": 54 },
-                    { "name": "patatas bravas", "ingredients": ["potato", "tomato", "olive oil", "onion", "garlic", "paprika"], "prep_time": 80 },
-                    { "name": "fried rice", "ingredients": ["rice", "soy sauce", "egg", "onion", "pea", "carrot", "sesame oil"], "prep_time": 40 }]
-    
+        
+    print("SYS ----> DATABASE: the database is connected")
     db=client.get_database("SimPy")
     collection = db["Simulations"]
-    documents = collection.find()
-
-    # Itera sui documenti e stampali a schermo
-    for document in documents:
-        print(document)
-    """
-    try: 
-        result = collection.insert_many(recipes)
-    # return a friendly error if the operation fails
-    except pymongo.errors.OperationFailure:
-        print("An authentication error was received. Are you sure your database user is authorized to perform write operations?")
-        sys.exit(1)
-    else:
-        inserted_count = len(result.inserted_ids)
-        print("I inserted %x documents." %(inserted_count))
-    
     
     if os.path.exists(config.DATA_POSITION+'simulations.json'):
         with open(config.DATA_POSITION+'simulations.json', 'r') as f:
@@ -180,7 +151,7 @@ def update_mongodb():
     
     # Controllo di aver inserito ddei dati
     if  res.inserted_ids:
-        print("SYS ----> Aggiornamento Database MondoDB avvenuto con successo")
+        print("SYS ---->DATABASE: the database update was a success")
     else:
-        print("SYS ----> Aggiornamento Database MondoDB ha riscontrato qualche problema")
-        """
+        print("SYS ---->DATABASE: something wrong happen with the database updating process")
+        

@@ -1,4 +1,4 @@
-- NEWS
+- NEWS (infattibile)
     - Per la raccolta di notizie, potrei inserire una funzione che va ad aprire il link di un determinato articolo, seguirlo nella pagina html, fare lo scrapping della notizia, e passarla assieme al titpolo all LLM per permettere una migliore categorizzazioen dell'articolo
 
 - SIMULAZIONE

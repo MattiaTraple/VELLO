@@ -11,6 +11,14 @@
     - In base alla coscienziosità o alla negatività emotiva posso far commentare l'LLM in modo più coinvolto e cattivo, oppure più coscenzioso
 
     
-POST
+POST (work in proogress)
 - rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
+
+
+- testare simulazione decommentando gen_news:
+ # Salvataggio della lista nelle notizie e categorizzazione di essa, l'LLM mi restituirà in formato Json la lista dei titoli con le categorizzazioni
+            #config.NEWS=response_cleaner(topic_llm_request(news_list))
+            #with open(config.DATA_POSITION+"news_classification.json","w")as f:
+            #    json.dump(config.NEWS,f,indent=4)>
+- analizzo risultato scorsa simuazione,o di una nuova, e cerco irregolarità

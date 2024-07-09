@@ -219,11 +219,10 @@ class Agent:
     def choosing_news(self):
         # Mischio la lista in modo da far partire da un punto random ogni agent tutte le volte (ccoprire il maggiorn numero di notizie, evitare ripetizione)
         random.shuffle(config.NEWS)
+        
         for news_item in config.NEWS:
-            for topic in news_item["topics"]:
-                # Se è negli interessi dell'agent 
-                
-                # AL MOMENTO è COMMENTATO PERCHè DEVO ASPETTARE DI AVERE LA CATEGORIZZAZIONE DELLA NEWS, ALRIMENTI NON RIESCO A FARE IL PARING CON GLI INTERESSI DELL'UTENTE
+            for topics in news_item["topics"]:
+                # Se è negli interessi dell'agent, altrimenti controllo negli altri topic
                 #if topic in self.interest:
-                    return {"name":news_item["name"],"topics":topic}
+                    return {"title":news_item["title"],"topics":topics}
                     

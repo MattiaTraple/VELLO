@@ -10,7 +10,7 @@ def gen_post(env,id,interest,age,news):
     # Faccio questo per escludere il terzo topic se non è presente
     topics = [topic for topic in news["topics"] if topic]
     #scrivo bene le richeiste per ollama
-    user_cont=f"Il contesto è questo, sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news['name']} e di cui i topic sono:{', '.join(topics)}, considerando le informazioni che ti ho fornito, quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"
+    user_cont=f"Il contesto è questo, sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news['title']} e di cui i topic sono:{', '.join(topics)}, considerando le informazioni che ti ho fornito, quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"
     print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} start richiesta')
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     response=request(user_cont)
@@ -39,9 +39,10 @@ def topic_llm_request(starting_news_dic):
         topic_data_tot = json.load(file)
     # Considero solo le sottocategorie
     topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
-    
+
     # Richiesta usata per la generazione del contenuto del commento
-    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic, indent=4)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno dui topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci solamente il json"
+    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno dui topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci il json facendo la classificazione per tutte le notizie che ti ho inviato"
+    print("SYS ----> NEWS: categorization and savings start")
     req=request(user_cont)
     return req
   
