@@ -4,11 +4,9 @@ from comment import Comment
 # Classe dedicata al funzionamento dei post in generale
 
 class Post:
-    id_counter = 0
-    def __init__(self,env,content,news,agent_id):
-        Post.id_counter+=1
+    def __init__(self,env,content,news,agent_id,post_count):
         self.env=env
-        self.id = f"p-{agent_id}.{Post.id_counter}"
+        self.id = f"p-{agent_id}.{post_count}"
         self.agent_id=int(agent_id)
         self.news=news
         self.content=content

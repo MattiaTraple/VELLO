@@ -4,7 +4,7 @@ import requests
 
 
 # Fun dedicata alla generazioen dei post
-def gen_post(env,id,interest,age,news):
+def gen_post(env,id,interest,age,news,counter):
     # Se lasciata sopra dava problemi di importazione circolare
     from post import Post
     # Faccio questo per escludere il terzo topic se non è presente
@@ -15,7 +15,7 @@ def gen_post(env,id,interest,age,news):
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     response=request(user_cont)
     print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} end richiesta')
-    post=Post(env,response,news,id)
+    post=Post(env,response,news,id,counter)
     return post
  
 # Fun dedicata alla decisione di iniziare un amicizia o meno
@@ -26,9 +26,9 @@ def req_follow(my_age,my_interest,req_gr,req_int,req_age):
                  
 
 # Fun dedicata alla generazione di un opportuno comment oad un post
-# Agent può servire o meno in base al metodo che uso per fargli deccidere se postare, se uso cativity+random non lo devo nenache passarenj 
+# Viene deciso se l'agent commenta in base al suo grado di interattivita e se i suoi interessi sono parte del post
 def gen_com(news,content,agent):
-    user_cont=f"Ora sei un utente che ha come interessi interessi:{', '.join(agent.interest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}; genere il commento (rispondi solo con il commento, non scivere altro)"
+    user_cont=f"Ora sei un utente che ha come interessi interessi:{', '.join(agent.interest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}; genere il commento (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"
     return(request(user_cont))
 
 
@@ -44,7 +44,7 @@ def topic_llm_request(starting_news_dic):
     user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno dui topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci il json facendo la classificazione per tutte le notizie che ti ho inviato"
     print("SYS ----> NEWS: categorization and savings start")
     req=request(user_cont)
-    return req
+    return req,topic_data
   
 # Richiesta generica che verrà inviata a Ollama
 def request(user_cont):
@@ -65,7 +65,7 @@ def request(user_cont):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            complete_response=complete_response[2:-2]
+            complete_response=complete_response[1:-1]
             return complete_response
             
         except json.JSONDecodeError:

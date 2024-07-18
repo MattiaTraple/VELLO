@@ -30,15 +30,18 @@ def request_news():
                     'title': title,
                     'topics': []  # Inizialmente vuoto, sarà aggiornato manualmente
                 }
-                news_list.append(news_item)    
+                news_list.append(news_item)
+            #news_list=news_list[:5]    
+            #with open(config.DATA_POSITION+"news_classification.json","r")as f:
+                #config.NEWS=json.load(f)
             
-            with open(config.DATA_POSITION+"news_classification.json","r")as f:
-                config.NEWS=json.load(f)
-            
-            # Salvataggio della lista nelle notizie e categorizzazione di essa, l'LLM mi restituirà in formato Json la lista dei titoli con le categorizzazioni
-            #config.NEWS=response_cleaner(topic_llm_request(news_list))
-            #with open(config.DATA_POSITION+"news_classification.json","w")as f:
-            #    json.dump(config.NEWS,f,indent=4)
+            # Vado a far fare la classificazioen all'LLM, la prima contiene il risultao della classificazione, la seconda mi serve per fare dei controlli previo salvataggio delle news(cntiene i topic già scorporati)
+            classified_news,topic_list=topic_llm_request(news_list)
+            response=response_cleaner(classified_news)
+            with open(config.DATA_POSITION+"news_classification.json","w")as f:
+                json.dump(response,f,indent=4)
+            #se una news non è stata classificata, la rimuovo dalla lista generale
+            config.NEWS=detect_miss_classification(response,topic_list)
                 
             print("SYS ----> NEWS: categorization and savings completed")
         else:
@@ -69,3 +72,10 @@ def response_cleaner(res):
         print(f"An error occurred: {e}")
         return res
     
+def detect_miss_classification(response,topic_list):
+    res=[]
+    for item in response:
+        if item['title'] not in topic_list:
+            if len(item['topics'])!=0:
+                res.append(item)
+    return res

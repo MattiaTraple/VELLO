@@ -6,7 +6,7 @@ class Config:
     # Numero di agenti che verranno ccreati
     NUM_AGENTS = 2
     # Durata della simulazione
-    SIM_TIME =500
+    SIM_TIME =800
     # Limite iniziale di amici fissati
     NUM_FRIEND = 2
 

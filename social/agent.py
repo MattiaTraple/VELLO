@@ -12,7 +12,6 @@ from settings import config
 class Agent:
     
     id_counter = 0
-    
     # Inizializzare un nuovo agents
     def __init__(self,env):
       # Permette ddi tenera a conatto con il riferimento dell'agent nella simulazione
@@ -33,6 +32,8 @@ class Agent:
       self.feed=[]
       # Lista post pubblicati
       self.published=[]
+      # Counter dei post
+      self.post_counter=1
 
     # Versione c 
     def find_friends(self,agents_candidates):   
@@ -61,9 +62,10 @@ class Agent:
             if news:
                 #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
                 #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in ollama
-                new_p=gen_post(self.env,self.id, self.interest, self.age, news)
+                new_p=gen_post(self.env,self.id, self.interest, self.age, news,self.post_counter)
                 self.published.append(new_p)
                 config.POST_DATABASE.append(new_p)
+                self.post_counter+=1
                 print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} posted')
         
         print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} not-posted')
@@ -95,12 +97,13 @@ class Agent:
     # L'utente decide se e come interagire con un post e di conseguenza commenta
     def interaction_comment(self,post):
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
-        #come ordino 
+        #come ordino- come scelgo il post - da implementare meccanismo decisionale basato su interesse
         
         # Decide se commentare basato su activiti dell'utente
         if content_interaction_gen_prob(self.activity_degree):
             post.create_comment(self)
-        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and adent {post.id}')
+            return
+        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.id}')
 
 
         
@@ -221,8 +224,8 @@ class Agent:
         random.shuffle(config.NEWS)
         
         for news_item in config.NEWS:
-            for topics in news_item["topics"]:
+            for topic in news_item["topics"]:
                 # Se è negli interessi dell'agent, altrimenti controllo negli altri topic
                 #if topic in self.interest:
-                    return {"title":news_item["title"],"topics":topics}
+                    return {"title":news_item["title"],"topics":news_item['topics']}
                     

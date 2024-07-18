@@ -19,9 +19,7 @@ def save_data(post_database,agent_list):
 #POST
 # Fun per trasferire contenuto POST_DATABASE nel json
 def updateJons_post(post_database):
-    print(post_database)
     for post in post_database:
-        print(post)
         single_post(post)
 # Fun ausiliaria, gli viene dato il post e lo salva sotto la rispettiva notizia nel file json
 def single_post(post):
@@ -47,7 +45,7 @@ def single_post(post):
             break
     else:
         post_data["news"].append({
-            "name": post.news["title"],
+            "title": post.news["title"],
             "topic": ', '.join(post.news["topics"]),
             "post": [new_post]
         })
@@ -80,7 +78,7 @@ def updateJson_simulations(agent_list):
                 "feed_post_number":config.NUM_FEED
         },
         # aggiornare salvataggio elenco news
-        "news_used":config.NEWS,
+        "news":config.NEWS,
         "agents":[single_agent(agent) for agent in agent_list]
     }
     data["simulations"].append(new_simulation)
@@ -112,7 +110,7 @@ def add_post(posts):
     for p in posts:
         new_post = {
             "post_id": p.id,
-            "news": p.news["name"],
+            "news": p.news["title"],
             "topic": ', '.join(p.news["topics"]),
             "content": p.content,
             "datatime": p.datatime,

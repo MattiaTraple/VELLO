@@ -1,52 +1,108 @@
-from pymongo import MongoClient
-import ssl
-import sys
+import json
+jso=[
+    {
+        "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo",
+        "topics": [
+            "Musica classica",
+            "Hip hop"
+        ]
+    },
+    {
+        "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
+        "topics": []
+    },
+    {
+        "title": "Volo no-stress, 10 tips per viaggiare in aereo",
+        "topics": [
+            "Viaggi low-cost",
+            "Turismo culturale"
+        ]
+    },
+    {
+        "title": "Tredici citt\u00e0 con il bollino rosso, venerd\u00ec saranno 17",
+        "topics": []
+    },
+    {
+        "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
+        "topics": [
+            "Arte digitale",
+            "Pittura ad olio"
+        ]
+    },
+    {
+        "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+        "topics": []
+    },
+    {
+        "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
+        "topics": [
+            "Ambiente e cambiamenti climatici",
+            "Conservazione della biodiversit\u00e0"
+        ]
+    },
+    {
+        "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
+        "topics": []
+    },
+    {
+        "title": "Francia: in fiamme un edificio residenziale a Nizza, 7 morti",
+        "topics": [
+            "Politica internazionale",
+            "Economia"
+        ]
+    },
+    {
+        "title": "Giochi di ruolo (RPG)",
+        "topics": [
+            "Fantascienza",
+            "Drammi"
+        ]
+    },
+    {
+        "title": "Surf",
+        "topics": [
+            "Sport estremi",
+            "Turismo culturale"
+        ]
+    },
+    {
+        "title": "Pallavolo",
+        "topics": []
+    },
+    {
+        "title": "Maratone e corsa",
+        "topics": [
+            "Gestione dello stress",
+            "Crescita personale"
+        ]
+    },
+    {
+        "title": "Giochi indie",
+        "topics": [
+            "Tecnologia dellinformazione",
+            "Criptovalute"
+        ]
+    },
+    {
+        "title": "Addestramento dei cani",
+        "topics": [
+            "Animale domestico",
+            "Conservazione della biodiversit\u00e0"
+        ]
+    }
+]
 
-uri = "mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/"
-try:
-    client = MongoClient(uri, tls=True, tlsAllowInvalidCertificates=True)
-except Exception as e:
-    print(f"An error occurred: {e}")
-    
-db=client.get_database("SimPy")
-collection = db["Simulations"]
-documents = collection.find()
-for document in documents:
-        print(document)
-    
-'''import pymongo
-import certifi
-import ssl
-import sys
+with open('/data/homes_data/mattiatrapletti/SimPy/social/data/topic.json', 'r', encoding='utf-8') as file:
+        topic_data_tot = json.load(file)
+    # Considero solo le sottocategorie
+topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
 
-ca = certifi.where()
+def detect_miss_classification(response,topic_list):
+    res=[]
+    for item in response:
+        if item['title'] not in topic_list:
+            if len(item['topics'])!=0:
+                res.append(item)
+    return res
 
-# Connessione a mongo con Atlas
-uri = "mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-# Create a new client and connect to the server
-try:
-    client = pymongo.MongoClient(uri, tlsCAFile=ca, serverSelectionTimeoutMS=5000)  # Imposta un timeout di 5 secondi
-except pymongo.errors.ConfigurationError as e:
-    print(f"An Invalid URI host error was received. Is your Atlas host name correct in your connection string? Error: {e}")
-    sys.exit(1)
-
-# Prova a selezionare il server per verificare la connessione
-try:
-    client.admin.command('ping')
-    print("Connesso al database MongoDB Atlas!")
-except pymongo.errors.ServerSelectionTimeoutError as e:
-    print(f"Errore di connessione al server MongoDB: {e}")
-    sys.exit(1)
-
-# Connetti al database "SimPy"
-db = client.get_database("SimPy")
-collection = db["Simulations"]
-
-# Trova tutti i documenti nella collezione
-documents = collection.find()
-
-# Itera sui documenti e stampali a schermo
-for document in documents:
-    print(document)
-    '''
+print(detect_miss_classification(jso,topic_data))

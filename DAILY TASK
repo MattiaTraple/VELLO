@@ -16,9 +16,13 @@ POST (work in proogress)
     - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
 
 
-- testare simulazione decommentando gen_news:
- # Salvataggio della lista nelle notizie e categorizzazione di essa, l'LLM mi restituirà in formato Json la lista dei titoli con le categorizzazioni
-            #config.NEWS=response_cleaner(topic_llm_request(news_list))
-            #with open(config.DATA_POSITION+"news_classification.json","w")as f:
-            #    json.dump(config.NEWS,f,indent=4)>
-- analizzo risultato scorsa simuazione,o di una nuova, e cerco irregolarità
+
+
+- RIPROVARE IL RUN
+- 
+- come ordino- come scelgo il post - da implementare meccanismo decisionale basato su interesse
+
+
+- Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO
+- decommentare rga 228 agnt.py
+

@@ -1,0 +1,99 @@
+{
+    "simulations": [
+        {
+            "simulation_number": "2024-07-18 11:38:15",
+            "simulation_settings": {
+                "simulation_time": 800,
+                "agents_number": 2,
+                "friend_limit": 2,
+                "feed_post_number": 2
+            },
+            "news": [
+                {
+                    "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
+                    "topics": [
+                        "Arte digitale",
+                        "Cultura"
+                    ]
+                },
+                {
+                    "title": "Tredici citt\u00e0 con il bollino rosso, venerd\u00ec saranno 17",
+                    "topics": [
+                        "Politica internazionale",
+                        "Ambiente e cambiamenti climatici"
+                    ]
+                },
+                {
+                    "title": "Volo no-stress, 10 tips per viaggiare in aereo",
+                    "topics": [
+                        "Viaggi",
+                        "Turismo culturale"
+                    ]
+                },
+                {
+                    "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+                    "topics": [
+                        "Politica internazionale",
+                        "Economia"
+                    ]
+                },
+                {
+                    "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo",
+                    "topics": [
+                        "Hip hop",
+                        "Spazio"
+                    ]
+                },
+                {
+                    "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
+                    "topics": [
+                        "Politica internazionale",
+                        "Salute"
+                    ]
+                },
+                {
+                    "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
+                    "topics": [
+                        "Ambiente e cambiamenti climatici",
+                        "Riduzione della plastica"
+                    ]
+                }
+            ],
+            "agents": [
+                {
+                    "agent_id": 1,
+                    "age": 21,
+                    "interest": "Allevamento di animali esotici, Cura dei gatti, Ambiente e cambiamenti climatici, Fotografia di viaggio, Criptovalute, Viaggi in camper",
+                    "activity level": "Medium",
+                    "activity degree": 0.62,
+                    "friends_list": [
+                        2
+                    ],
+                    "last_feed": [],
+                    "published_post": [
+                        {
+                            "post_id": "p-1.1",
+                            "news": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
+                            "topic": "Arte digitale, Cultura",
+                            "content": "Sono un amante dell'arte e della tecnologia! Questa settimana ho scoperto che i Weekend of Art sono tornati con mostre incredibili di Guido Reni, Magritte e Merz. Ma cosa mi ha colpito \u00e8 la sezione dedicata all'Arte digitale! La convergenza tra cultura e innovazione \u00e8 proprio il mio genere. Ecco un po' della mia ispirazione per il futuro #WeekendOfArt #ArteDigitale #Cultura",
+                            "datatime": 344,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 2,
+                    "age": 25,
+                    "interest": "Gestione dello stress, Crescita personale, Arte digitale, Rock, Commedie romantiche, Allenamento funzionale",
+                    "activity level": "Medium",
+                    "activity degree": 0.44,
+                    "friends_list": [
+                        1
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                }
+            ]
+        }
+    ]
+}
