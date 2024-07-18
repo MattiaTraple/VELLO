@@ -10,17 +10,6 @@
     - Ricordare di delefare al LLM le scelte di post o meno
     - In base alla coscienziosità o alla negatività emotiva posso far commentare l'LLM in modo più coinvolto e cattivo, oppure più coscenzioso
 
-    
-POST (work in proogress)
-- rendere la richeista di creazione post più dinamica, voglio inoltrare all'ia una richeista di classificazione delle news che gli arrivano, in base alla news e ai temi che ho a disposizione, gli faccio restituire 2/3 temi che potrebbero centrare
-    - da verificare la fattiobilità perchè dovrei inoltrargli tutte le categorie di topic che ho
-
-
-
-
-- RIPROVARE IL RUN
-- 
-- come ordino- come scelgo il post - da implementare meccanismo decisionale basato su interesse
 
 
 - Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO

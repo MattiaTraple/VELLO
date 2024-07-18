@@ -1,19 +1,40 @@
 {
     "simulations": [
         {
-            "simulation_number": "2024-07-18 11:38:15",
+            "simulation_number": "2024-07-18 13:51:19",
             "simulation_settings": {
-                "simulation_time": 800,
-                "agents_number": 2,
-                "friend_limit": 2,
-                "feed_post_number": 2
+                "simulation_time": 1200,
+                "agents_number": 5,
+                "friend_limit": 4,
+                "feed_post_number": 4
             },
             "news": [
                 {
                     "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
                     "topics": [
-                        "Arte digitale",
-                        "Cultura"
+                        "Arte contemporanea",
+                        "Mostre e eventi culturali"
+                    ]
+                },
+                {
+                    "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+                    "topics": [
+                        "Politica internazionale",
+                        "Diritti umani"
+                    ]
+                },
+                {
+                    "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
+                    "topics": [
+                        "Scienza e ambiente",
+                        "Emergenza e soccorso"
+                    ]
+                },
+                {
+                    "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo ",
+                    "topics": [
+                        "Musica classica",
+                        "Spazio e astronomia"
                     ]
                 },
                 {
@@ -24,73 +45,142 @@
                     ]
                 },
                 {
-                    "title": "Volo no-stress, 10 tips per viaggiare in aereo",
-                    "topics": [
-                        "Viaggi",
-                        "Turismo culturale"
-                    ]
-                },
-                {
-                    "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
-                    "topics": [
-                        "Politica internazionale",
-                        "Economia"
-                    ]
-                },
-                {
-                    "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo",
-                    "topics": [
-                        "Hip hop",
-                        "Spazio"
-                    ]
-                },
-                {
                     "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
                     "topics": [
-                        "Politica internazionale",
-                        "Salute"
+                        "Politica USA",
+                        "Situazione epidemiologica"
                     ]
                 },
                 {
-                    "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
+                    "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
                     "topics": [
-                        "Ambiente e cambiamenti climatici",
-                        "Riduzione della plastica"
+                        "TV e media"
+                    ]
+                },
+                {
+                    "title": "The Bear e Shogun dominano le candidature agli Emmy",
+                    "topics": [
+                        "Turismo culturale",
+                        "Cinema"
                     ]
                 }
             ],
             "agents": [
                 {
-                    "agent_id": 1,
-                    "age": 21,
-                    "interest": "Allevamento di animali esotici, Cura dei gatti, Ambiente e cambiamenti climatici, Fotografia di viaggio, Criptovalute, Viaggi in camper",
+                    "agent_id": 5,
+                    "age": 23,
+                    "interest": "Viaggi low-cost, Destinazioni esotiche, Diritti umani, Fotografia di viaggio, Allenamento a corpo libero, Intelligenza artificiale",
                     "activity level": "Medium",
-                    "activity degree": 0.62,
+                    "activity degree": 0.47,
                     "friends_list": [
-                        2
+                        4,
+                        1,
+                        2,
+                        3
                     ],
                     "last_feed": [],
                     "published_post": [
                         {
-                            "post_id": "p-1.1",
-                            "news": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
-                            "topic": "Arte digitale, Cultura",
-                            "content": "Sono un amante dell'arte e della tecnologia! Questa settimana ho scoperto che i Weekend of Art sono tornati con mostre incredibili di Guido Reni, Magritte e Merz. Ma cosa mi ha colpito \u00e8 la sezione dedicata all'Arte digitale! La convergenza tra cultura e innovazione \u00e8 proprio il mio genere. Ecco un po' della mia ispirazione per il futuro #WeekendOfArt #ArteDigitale #Cultura",
-                            "datatime": 344,
-                            "comments": []
+                            "post_id": "p-5.1",
+                            "news": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+                            "topic": "Politica internazionale, Diritti umani",
+                            "content": "Sono stato molto colpito dalle parole della presidente Von der Leyen: 'Non lascer\u00f2 che gli estremismi distruggano l'Europa'. Questa frase mi fa pensare ai tanti viaggi fatti in giro per il mondo e alle persone che ho incontrato, con culture e storie diverse dalle mie. Non vedo l'ora di riprendere la mia camera da viaggio e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche. #ViaggiLowCost #FotografiaDiViaggio #DirittiUmani",
+                            "datatime": 364,
+                            "comments": [
+                                {
+                                    "commenter_id": 2,
+                                    "content": "Mi sono espresso anch'io sulla violenza e sull'estremismo, ma vorrei chiederti: cosa puoi fare per aiutare queste comunit\u00e0 esotiche che ami tanto? Forse potresti unire la tua passione per la fotografia con la tua voce contro gli estremismi?",
+                                    "datatime": 841
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "Mi piace molto questa frase di Von der Leyen. Come amante dei viaggi in camper e del turismo culturale, mi rendo conto della importanza dell'accoglienza delle culture diverse e dell'importanza di preservare l'identit\u00e0 europea. Spero che la sua leadership possa aiutare a creare un futuro pi\u00f9 pacifico e inclusivo per tutti noi. Ecco perch\u00e9 sono felice di partire per nuovi viaggi e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche",
+                                    "datatime": 868
+                                },
+                                {
+                                    "commenter_id": 1,
+                                    "content": "Mi sento proprio d'accordo con Von der Leyen. Come viaggiatore in camper e appassionato di cultura, ho avuto modo di incontrare persone da diverse parti del mondo e sono stato colpito dalla diversit\u00e0 e bellezza delle storie che hanno da raccontare. Spero che la nostra presidente sia riuscita a far sentire la sua voce contro gli estremismi e che questo atteggiamento possa ispirare un cambio di rotta per una maggiore comprensione e tolleranza tra le culture",
+                                    "datatime": 868
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "Mi fa pensare a quando ascolto jazz e indie, e come la musica pu\u00f2 unire culture diverse. Spero che la presidente Von der Leyen possa essere un faro di tolleranza e comprensione per tutte le storie esotiche da raccontare. Ecco un'idea: creare un libro d'arte con foto di viaggio e testi ispirati ai diritti umani, per promuovere la cultura dell'accoglienza e della diversit\u00e0.",
+                                    "datatime": 876
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "agent_id": 2,
-                    "age": 25,
-                    "interest": "Gestione dello stress, Crescita personale, Arte digitale, Rock, Commedie romantiche, Allenamento funzionale",
+                    "agent_id": 4,
+                    "age": 27,
+                    "interest": "Saggi di divulgazione scientifica, Poesia contemporanea, Criptovalute, Attualit\u00e0 locali, Alta moda, Agricoltura biologica",
                     "activity level": "Medium",
-                    "activity degree": 0.44,
+                    "activity degree": 0.29,
                     "friends_list": [
-                        1
+                        5,
+                        1,
+                        2,
+                        3
                     ],
-                    "last_feed": [],
+                    "last_feed": [
+                        "p-5.1",
+                        "p-5.1"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 3,
+                    "age": 101,
+                    "interest": "Jazz, Indie, Anime, Libri d'arte, Cura dei gatti, Cucina gourmet",
+                    "activity level": "Medium",
+                    "activity degree": 0.32,
+                    "friends_list": [
+                        1,
+                        2,
+                        4,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-5.1",
+                        "p-5.1"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 2,
+                    "age": 38,
+                    "interest": "Dessert e dolci, Cucina internazionale, Moda streetwear, Strategia in tempo reale (RTS), Allenamento funzionale, Cura dei gatti",
+                    "activity level": "Medium",
+                    "activity degree": 0.58,
+                    "friends_list": [
+                        3,
+                        1,
+                        4,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-5.1",
+                        "p-5.1"
+                    ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 1,
+                    "age": 71,
+                    "interest": "Viaggi in camper, Turismo culturale, Amicizia, Addestramento dei cani, Indie, Abbigliamento sostenibile",
+                    "activity level": "Medium",
+                    "activity degree": 0.59,
+                    "friends_list": [
+                        3,
+                        2,
+                        4,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-5.1",
+                        "p-5.1"
+                    ],
                     "published_post": []
                 }
             ]

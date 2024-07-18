@@ -226,6 +226,6 @@ class Agent:
         for news_item in config.NEWS:
             for topic in news_item["topics"]:
                 # Se è negli interessi dell'agent, altrimenti controllo negli altri topic
-                #if topic in self.interest:
+                if topic in self.interest:
                     return {"title":news_item["title"],"topics":news_item['topics']}
                     

@@ -4,17 +4,17 @@ from collections import namedtuple
 
 class Config:
     # Numero di agenti che verranno ccreati
-    NUM_AGENTS = 2
+    NUM_AGENTS = 5
     # Durata della simulazione
-    SIM_TIME =800
+    SIM_TIME =1200
     # Limite iniziale di amici fissati
-    NUM_FRIEND = 2
+    NUM_FRIEND = 4
 
     # Lista notizie con categorizzazione
     NEWS = []
 
     # Post Presenti nel feed
-    NUM_FEED = 2
+    NUM_FEED = 4
     # Lista momentanea in cui salvo i post di tutti gli utenti
     POST_DATABASE = []
 

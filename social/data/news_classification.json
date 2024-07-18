@@ -1,20 +1,22 @@
 [
     {
-        "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo",
+        "title": "The Bear e Shogun dominano le candidature agli Emmy",
         "topics": [
-            "Hip hop",
-            "Spazio"
+            "Turismo culturale",
+            "Cinema"
+        ]
+    },
+    {
+        "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo ",
+        "topics": [
+            "Musica classica",
+            "Spazio e astronomia"
         ]
     },
     {
         "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
-        "topics": []
-    },
-    {
-        "title": "Volo no-stress, 10 tips per viaggiare in aereo",
         "topics": [
-            "Viaggi",
-            "Turismo culturale"
+            "TV e media"
         ]
     },
     {
@@ -27,33 +29,127 @@
     {
         "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
         "topics": [
-            "Arte digitale",
-            "Cultura"
+            "Arte contemporanea",
+            "Mostre e eventi culturali"
         ]
     },
     {
         "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
         "topics": [
             "Politica internazionale",
-            "Economia"
+            "Diritti umani"
         ]
     },
     {
         "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
         "topics": [
-            "Ambiente e cambiamenti climatici",
-            "Riduzione della plastica"
+            "Scienza e ambiente",
+            "Emergenza e soccorso"
         ]
     },
     {
         "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
         "topics": [
-            "Politica internazionale",
-            "Salute"
+            "Politica USA",
+            "Situazione epidemiologica"
+        ]
+    },
+    {
+        "title": "Moda streetwear",
+        "topics": [
+            "Stile vintage",
+            "Alta moda"
+        ]
+    },
+    {
+        "title": "Calcio",
+        "topics": [
+            "Sport calcistici",
+            "Gestione dello stress"
         ]
     },
     {
         "title": "Tennis",
-        "topics": []
+        "topics": [
+            "Sport tennistici",
+            "Crescita personale"
+        ]
+    },
+    {
+        "title": "Surf",
+        "topics": [
+            "Sport acquatici",
+            "Consigli di relazione"
+        ]
+    },
+    {
+        "title": "Pallavolo",
+        "topics": [
+            "Sport pallavicoli",
+            "Gestione dei conflitti"
+        ]
+    },
+    {
+        "title": "Maratone e corsa",
+        "topics": [
+            "Sport di resistenza",
+            "Sviluppo personale"
+        ]
+    },
+    {
+        "title": "Giochi di ruolo (RPG)",
+        "topics": [
+            "Giochi indie",
+            "Sviluppo personale"
+        ]
+    },
+    {
+        "title": "Sparatutto in prima persona (FPS)",
+        "topics": [
+            "Giochi a tema",
+            "Gestione dello stress"
+        ]
+    },
+    {
+        "title": "Strategia in tempo reale (RTS)",
+        "topics": [
+            "Giochi strategici",
+            "Crescita personale"
+        ]
+    },
+    {
+        "title": "Giochi indie",
+        "topics": [
+            "Giochi di ruolo (RPG)",
+            "Giochi a tema"
+        ]
+    },
+    {
+        "title": "Giochi per dispositivi mobili",
+        "topics": [
+            "Giochi mobile",
+            "Sviluppo personale"
+        ]
+    },
+    {
+        "title": "Addestramento dei cani",
+        "topics": [
+            "Animali domestici",
+            "Consigli di relazione"
+        ]
+    },
+    {
+        "title": "Cura dei gatti",
+        "topics": [
+            "Animali domestici",
+            "Consigli di relazione"
+        ]
+    },
+    {
+        "title": "Acquariologia",
+        "topics": [
+            "Scienza e ambiente",
+            "Conservazione della biodiversit\u00e0"
+        ]
     }
 ]

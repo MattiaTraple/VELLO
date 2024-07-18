@@ -1,15 +1,36 @@
 {
     "news": [
         {
-            "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
-            "topic": "Arte digitale, Cultura",
+            "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+            "topic": "Politica internazionale, Diritti umani",
             "post": [
                 {
-                    "post_id": "p-1.1",
-                    "agent_id": 1,
-                    "content": "Sono un amante dell'arte e della tecnologia! Questa settimana ho scoperto che i Weekend of Art sono tornati con mostre incredibili di Guido Reni, Magritte e Merz. Ma cosa mi ha colpito \u00e8 la sezione dedicata all'Arte digitale! La convergenza tra cultura e innovazione \u00e8 proprio il mio genere. Ecco un po' della mia ispirazione per il futuro #WeekendOfArt #ArteDigitale #Cultura",
-                    "datatime": 344,
-                    "comments": []
+                    "post_id": "p-5.1",
+                    "agent_id": 5,
+                    "content": "Sono stato molto colpito dalle parole della presidente Von der Leyen: 'Non lascer\u00f2 che gli estremismi distruggano l'Europa'. Questa frase mi fa pensare ai tanti viaggi fatti in giro per il mondo e alle persone che ho incontrato, con culture e storie diverse dalle mie. Non vedo l'ora di riprendere la mia camera da viaggio e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche. #ViaggiLowCost #FotografiaDiViaggio #DirittiUmani",
+                    "datatime": 364,
+                    "comments": [
+                        {
+                            "commenter_id": 2,
+                            "content": "Mi sono espresso anch'io sulla violenza e sull'estremismo, ma vorrei chiederti: cosa puoi fare per aiutare queste comunit\u00e0 esotiche che ami tanto? Forse potresti unire la tua passione per la fotografia con la tua voce contro gli estremismi?",
+                            "datatime": 841
+                        },
+                        {
+                            "commenter_id": 1,
+                            "content": "Mi piace molto questa frase di Von der Leyen. Come amante dei viaggi in camper e del turismo culturale, mi rendo conto della importanza dell'accoglienza delle culture diverse e dell'importanza di preservare l'identit\u00e0 europea. Spero che la sua leadership possa aiutare a creare un futuro pi\u00f9 pacifico e inclusivo per tutti noi. Ecco perch\u00e9 sono felice di partire per nuovi viaggi e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche",
+                            "datatime": 868
+                        },
+                        {
+                            "commenter_id": 1,
+                            "content": "Mi sento proprio d'accordo con Von der Leyen. Come viaggiatore in camper e appassionato di cultura, ho avuto modo di incontrare persone da diverse parti del mondo e sono stato colpito dalla diversit\u00e0 e bellezza delle storie che hanno da raccontare. Spero che la nostra presidente sia riuscita a far sentire la sua voce contro gli estremismi e che questo atteggiamento possa ispirare un cambio di rotta per una maggiore comprensione e tolleranza tra le culture",
+                            "datatime": 868
+                        },
+                        {
+                            "commenter_id": 3,
+                            "content": "Mi fa pensare a quando ascolto jazz e indie, e come la musica pu\u00f2 unire culture diverse. Spero che la presidente Von der Leyen possa essere un faro di tolleranza e comprensione per tutte le storie esotiche da raccontare. Ecco un'idea: creare un libro d'arte con foto di viaggio e testi ispirati ai diritti umani, per promuovere la cultura dell'accoglienza e della diversit\u00e0.",
+                            "datatime": 876
+                        }
+                    ]
                 }
             ]
         }
