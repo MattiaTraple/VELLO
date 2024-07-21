@@ -1,11 +1,8 @@
-import os
 import random
 import json
 
-#from personality import big_five_generator
-
-# Range di età che vengono usati, con le relative probabilità
-range_age = [(range(13, 17), 0.066), (range(17, 24), 0.171), (range(25, 34), 0.385), (range(35, 49), 0.207), (range(50, 102), 0.171)]
+# Range di età che vengono usati, con le relative probabilità(specificare la provenienza dei dati)
+range_age = [(range(13, 17), 0.049), (range(18, 24), 0.226), (range(25, 34), 0.296), (range(35, 44), 0.19), (range(45, 54), 0.113),(range(55,64), 0.071), (range(65, 100), 0.113)]
 # Inseme dei topic di interesse
 interest_list=json.load(open("/data/homes_data/mattiatrapletti/SimPy/social/data/topic.json", "r"))
 
@@ -45,16 +42,44 @@ def interest_gen():
 
 
 # Fun per generare la personalità dell'agent e stabilire l'activity in base ad essa
-def personality_activity():
+def personality_activity(età):
     # Dictionary della personalità dell'agent -> basata su valori che ne orientano i tratti in base al peso
     personality=big_five_generator()
     
-    activity=round(((personality["apertura mentale"]+personality["estroversione"])/2),2)
+    # Definire il tempo medio speso sui social media per ciascun range di età
+    tempo_medio_social = {
+        (16, 24): 2.46,
+        (25, 34): 2.40,
+        (35, 44): 2.19,
+        (45, 54): 2.01,
+        (55, 64): 1.39
+    }
 
-    #0.8=active, 0.5=intermediate, 0.2 inactive
-    #return random.choice([0.8, 0.5, 0.2])  
+    # Trova il tempo medio corretto per l'età dell'utente
+    tempo_base = 0
+    for range_eta, tempo in tempo_medio_social.items():
+        if range_eta[0] <= età <= range_eta[1]:
+            tempo_base = tempo
+            break
+    
+    # Assicurati che personality sia tra 0.01 e 1
+    personality = max(0.01, min(personality, 1))  
 
-    # Prima ritorno il grado di activity, poi la perosnality
+    # Calcola il grado di attività basato sul tempo medio e sul livello di estroversione
+    grado_attivita = (tempo_base / 2.5) * personality
+    grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
+    
+    # Aggiungi una componente di casualità controllata
+    casualita = random.uniform(-0.1, 0.1)  # Varianza controllata da -0.1 a 0.1
+    grado_attivita += casualita
+    grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
+
+    return grado_attivita
+    
+    
+
+
+    # Prima ritorno il grado di activity, poi la personality
     return activity,personality
 
 # Funzione usata per stabilire in base al livello ddi attività di un utente, se questo andrà a compiere o meno un azione
@@ -81,7 +106,7 @@ def big_five_generator():
     deviazione_standard = 0.2
     
     # Generazione iniziale dei valori 
-    for trait in ["apertura mentale", "coscienziosità", "estroversione", "gradevolezza", "nevroticismo"]:
+    for trait in ["apertura_mentale", "coscienziosità", "estroversione", "gradevolezza", "nevroticismo"]:
         value = round(random.gauss(0.5, deviazione_standard), 2)
         value = max(min(value, 1), 0.01)  # Limitiamo i valori nell'intervallo da 0.01 a 1
         big_five[trait] = value

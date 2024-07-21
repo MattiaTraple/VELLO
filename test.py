@@ -1,108 +1,38 @@
-import json
-jso=[
-    {
-        "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo",
-        "topics": [
-            "Musica classica",
-            "Hip hop"
-        ]
-    },
-    {
-        "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
-        "topics": []
-    },
-    {
-        "title": "Volo no-stress, 10 tips per viaggiare in aereo",
-        "topics": [
-            "Viaggi low-cost",
-            "Turismo culturale"
-        ]
-    },
-    {
-        "title": "Tredici citt\u00e0 con il bollino rosso, venerd\u00ec saranno 17",
-        "topics": []
-    },
-    {
-        "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
-        "topics": [
-            "Arte digitale",
-            "Pittura ad olio"
-        ]
-    },
-    {
-        "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
-        "topics": []
-    },
-    {
-        "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
-        "topics": [
-            "Ambiente e cambiamenti climatici",
-            "Conservazione della biodiversit\u00e0"
-        ]
-    },
-    {
-        "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
-        "topics": []
-    },
-    {
-        "title": "Francia: in fiamme un edificio residenziale a Nizza, 7 morti",
-        "topics": [
-            "Politica internazionale",
-            "Economia"
-        ]
-    },
-    {
-        "title": "Giochi di ruolo (RPG)",
-        "topics": [
-            "Fantascienza",
-            "Drammi"
-        ]
-    },
-    {
-        "title": "Surf",
-        "topics": [
-            "Sport estremi",
-            "Turismo culturale"
-        ]
-    },
-    {
-        "title": "Pallavolo",
-        "topics": []
-    },
-    {
-        "title": "Maratone e corsa",
-        "topics": [
-            "Gestione dello stress",
-            "Crescita personale"
-        ]
-    },
-    {
-        "title": "Giochi indie",
-        "topics": [
-            "Tecnologia dellinformazione",
-            "Criptovalute"
-        ]
-    },
-    {
-        "title": "Addestramento dei cani",
-        "topics": [
-            "Animale domestico",
-            "Conservazione della biodiversit\u00e0"
-        ]
+import random
+
+def personality_activity(eta, personality):
+    # Definire il tempo medio speso sui social media per ciascun range di età
+    tempo_medio_social = {
+        (16, 24): 2.46,
+        (25, 34): 2.40,
+        (35, 44): 2.19,
+        (45, 54): 2.01,
+        (55, 64): 1.39
     }
-]
 
-with open('/data/homes_data/mattiatrapletti/SimPy/social/data/topic.json', 'r', encoding='utf-8') as file:
-        topic_data_tot = json.load(file)
-    # Considero solo le sottocategorie
-topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
+    # Trova il tempo medio corretto per l'età dell'utente
+    tempo_base = 0
+    for range_eta, tempo in tempo_medio_social.items():
+        if range_eta[0] <= eta <= range_eta[1]:
+            tempo_base = tempo
+            break
+    
+    # Assicurati che personality sia tra 0.01 e 1
+    personality = max(0.01, min(personality, 1))  
 
-def detect_miss_classification(response,topic_list):
-    res=[]
-    for item in response:
-        if item['title'] not in topic_list:
-            if len(item['topics'])!=0:
-                res.append(item)
-    return res
+    # Calcola il grado di attività basato sul tempo medio e sul livello di estroversione
+    grado_attivita = (tempo_base / 2.5) * personality
+    grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
+    
+    # Aggiungi una componente di casualità controllata
+    casualita = random.uniform(-0.1, 0.1)  # Varianza controllata da -0.1 a 0.1
+    grado_attivita += casualita
+    grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
 
-print(detect_miss_classification(jso,topic_data))
+    return grado_attivita
+
+# Esempio di utilizzo
+eta = 30
+personality = 0.7
+grado_attivita = personality_activity(eta, personality)
+print(f"Il grado di attività per un utente di {eta} anni con estroversione {personality} è {grado_attivita:.2f}")
