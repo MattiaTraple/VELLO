@@ -74,13 +74,9 @@ def personality_activity(età):
     grado_attivita += casualita
     grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
 
-    return grado_attivita
-    
-    
-
 
     # Prima ritorno il grado di activity, poi la personality
-    return activity,personality
+    return grado_attivita,personality
 
 # Funzione usata per stabilire in base al livello ddi attività di un utente, se questo andrà a compiere o meno un azione
 def content_interaction_gen_prob(prob):
@@ -111,29 +107,7 @@ def big_five_generator():
         value = max(min(value, 1), 0.01)  # Limitiamo i valori nell'intervallo da 0.01 a 1
         big_five[trait] = value
     
-    balance_function()
    
     return big_five
 
-# Fun aus per eseguire opportuni bilanciamenti agli indici estratti
-def balance_function():
-    # Vero e prorpio bilanciamento
-    # Bilancio la coppia e-g
-    big_five["estroversione"],big_five["gradevolezza"]=couple_balancer(big_five["estroversione"],big_five["gradevolezza"])
-    # Bilancio la coppia n-c
-    big_five["nevroticismo"],big_five["estroversione"]=couple_balancer(big_five["nevroticismo"],big_five["estroversione"])
-    # Bilancio la coppia c-g
-    big_five["coscienziosità"],big_five["gradevolezza"]=couple_balancer(big_five["coscienziosità"],big_five["gradevolezza"])
 
-
-# Fun aus a cui passo due campi e li bilnacio
-def couple_balancer(big_1, big_2):
-    # Differenza tra i campi dopo la quale viene iniziato il bilanciaento
-    soglia=0.3
-    # Se il || della differenza è sopra la soglia, quindi troppa differneza
-    if abs(big_1-big_2) > soglia:
-        if big_1>big_2:
-            big_2+=0.1
-        else:
-            big_1+=0.1
-    return round(big_1,2),round(big_2,2)
