@@ -22,7 +22,7 @@ class Agent:
       self.age=age_gen()
       self.interest=interest_gen()
       # Stapilisco il grado di attivita (float) del'agent e genero le sue personalità (dictionary), i due attributi sono correlati
-      self.activity_degree,self.personality=personality_activity()
+      self.activity_degree,self.personality=personality_activity(self.age)
       # In base al grado, stabilisco i livello di attività dell'agents
       self.agent_activity="High" if self.activity_degree >= 0.8 else ("Medium" if self.activity_degree >= 0.2 else "Low")
       # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
@@ -37,8 +37,8 @@ class Agent:
 
     # Versione c 
     def find_friends(self,agents_candidates):   
-        # Possi limitare in caso gli amici che voglio fare aggiugnere   
-        # if len(self.friends)==config.NUM_FRIEND:return              
+        # Posso limitare num ma di amici   
+        if len(self.friends)==config.NUM_FRIEND:return              
         
         ag_ca=self.order_by_degree(agents_candidates)
         for ag_id in ag_ca:
@@ -57,17 +57,20 @@ class Agent:
     def generate_post(self):
       #datatime di generazione
         if content_interaction_gen_prob(self.activity_degree):
+            print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} TRY to post')
             # Cerco la News che fitta di più con l'agent chiamante, se non la trovo l'agent non pubblica nulla
             news=self.choosing_news()
             if news:
                 #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
                 #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in ollama
-                new_p=gen_post(self.env,self.id, self.interest, self.age, news,self.post_counter)
+                new_p=gen_post(self.env,self.id, self.interest, self.age, news,self.post_counter,self.personality)
                 self.published.append(new_p)
                 config.POST_DATABASE.append(new_p)
                 self.post_counter+=1
-                print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} posted')
-        
+                print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} SUCCESS to post')
+            else:
+                print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} FAIL to post')
+                
         print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} not-posted')
         
     
@@ -89,24 +92,29 @@ class Agent:
                             # Posso finalemnte commentarlo
                             self.interaction_comment(post)
                     # L'ho già commentato quindi vado a vedere se posso commentare il psot successivo
-            
-                
-        
-        
-    
+           
     # L'utente decide se e come interagire con un post e di conseguenza commenta
     def interaction_comment(self,post):
         #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
         #come ordino- come scelgo il post - da implementare meccanismo decisionale basato su interesse
         
-        # Decide se commentare basato su activiti dell'utente
+        # Decide se commentare basato su activity dell'utente
         if content_interaction_gen_prob(self.activity_degree):
             post.create_comment(self)
             return
-        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.id}')
+        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.id}')       
 
-
-        
+    # Fun chiamata da find_friends per restituire una lista di agent ordinati per grado di coerenza
+    def order_by_degree(self,ag_cd):
+        agent_gr_dic={}
+        # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
+        for ag in ag_cd:
+            gr = self.cal_degree_friend(ag.age,ag.interest)
+            agent_gr_dic[ag.id] = {'grade': gr}
+        # Versione corta    
+        # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
+        return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
+                   
     # Fun chiamata da order_by_degree per restituire il grado di un agents
     def cal_degree_friend(self, ag_age, ag_int):
         grado = 0
@@ -123,49 +131,37 @@ class Agent:
         # Calcola il grado dell'utente in base agli interessi in comune
         grado+=sum(0.5 for int1 in self.interest for int2 in ag_int if int1 == int2)
         return grado
-        
-
-    # Fun chiamata da find_friends per restituire una lista di agent ordinati per grado di coerenza
-    def order_by_degree(self,ag_cd):
-        agent_gr_dic={}
-        # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
-        for ag in ag_cd:
-            gr = self.cal_degree_friend(ag.age,ag.interest)
-            agent_gr_dic[ag.id] = {'grade': gr}
-        # Versione corta    
-        # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
-        return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))
-                   
+      
             
     # Fun che verrà chiamata dopo che sono stati creati un po di post che popola (e aggiorna) periodicamente il feed dell'utente personalizzandolo in base a:
 
     # mod1 -> 1 post randomico per i primi 10 amici della lista di persone che segue
     def polulate_feed1(self,agent_list):
-        # Se per qualche motivo il feed non è stato riempito correttamente, vado a riempirlo in modo randomico, ex uni non ha abbasatnza amici alloraa devo andare a riempirgli il feed in altro modo
+        # Se per qualche motivo il feed non è stato riempito correttamente, vado a riempirlo in modo randomico, ex uno non ha abbasatnza amici allora devo andare a riempirgli il feed in altro modo
             for ag in agent_list:
                 if len(self.feed)==config.NUM_FEED:
-                    print(f'SYM "{self.env.now}" ----> FEED_UPD: agent feed {self.id} updated')
+                    print(f'SYM "{self.env.now}" ----> FEED_UPD: agent feed {self.id} FULL')
                     return
                 if ag.id!=self.id:    
-                    #fare in modo che s enon è negli amici ma il fee non è ancora pieno, allora agigungo anche se non è amico
                     if ag.id in self.friends:
                         if ag.published:
                         # Prende un post randomico tra quelli di un amico
                             post=random.choice(ag.published)
                             if post.id is not self.feed:
                                 self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> Il post {post.id} è stato aggiunto')                        
+                                print(f'LOG "{self.env.now}" ----> FEED_UPD: post {post.id} ADDED to agent {self.id} feed')                        
             # Prima provo a completare il feed solo con i post degli amici, se non è abbastanza prima provo add aggiugnere altri post degli amici
     
+           #fare in modo che se non è negli amici ma il fee non è ancora pieno, allora agigungo anche se non è amico
             self.complete_feed_f(agent_list)
+            
             if len(self.feed)<config.NUM_FEED:
                 # Se amici non bastano
                 self.complete_feed_nf(agent_list)
             # Se anche i post degli altri amici non erano abbastanza vado ad attingere in modo randomico da post degli altri agent
-            print(f'SYM "{self.env.now}" ----> FEED_UPD: agent feed {self.id} updated')
+            
 
-    
-             
+         
     #GLI ALTRI FEED SONO DA REVISIONARE           
     # mod2 -> 1 post più recente i primi 10 amici della lista di persone che segue
     def polulate_feed2(self,agents_dict):
@@ -186,6 +182,8 @@ class Agent:
                 self.feed.append(post)
                 count+=1         
     
+    
+    
 # Fun ausiliaria per il completamento feed riprendendo post di agent nella lista friend
     def complete_feed_f(self,agent_list): 
             for ag in agent_list:
@@ -198,8 +196,8 @@ class Agent:
                             post=random.choice(ag.published)
                             if post.id is not self.feed:
                                 self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> FEED_OP: *Completamento feed ausiliare_1* post {post.id} added')                        
-
+                                print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                        
+            print(f'SYM "{self.env.now}" ----> FEED_UPD: *Auxiliary function-friend* agent feed {self.id} UPDATED')
              
 # Fun ausiliaria per il completamento feed in caso i post degli agent nella lista friends non basti
     def complete_feed_nf(self,agent_list):
@@ -215,7 +213,8 @@ class Agent:
                             post=random.choice(ag.published)
                             if post.id is not self.feed:
                                 self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> FEED_OP: *Completamento feed ausiliare_2* post {post.id} added')                        
+                                print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                                                
+            print(f'SYM "{self.env.now}" ----> FEED_UPD: *Auxiliary function-not friend* agent feed {self.id} UPDATED')
 
 
     # Fun ausiliaria per scegliere la notizia cche fitta di più in base ai temi di interesse dell'utente    

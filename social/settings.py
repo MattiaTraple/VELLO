@@ -4,9 +4,9 @@ from collections import namedtuple
 
 class Config:
     # Numero di agenti che verranno ccreati
-    NUM_AGENTS = 5
+    NUM_AGENTS = 10
     # Durata della simulazione
-    SIM_TIME =1200
+    SIM_TIME =2500
     # Limite iniziale di amici fissati
     NUM_FRIEND = 4
 

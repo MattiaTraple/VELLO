@@ -2,7 +2,7 @@ import random
 import json
 
 # Range di età che vengono usati, con le relative probabilità(specificare la provenienza dei dati)
-range_age = [(range(13, 17), 0.049), (range(18, 24), 0.226), (range(25, 34), 0.296), (range(35, 44), 0.19), (range(45, 54), 0.113),(range(55,64), 0.071), (range(65, 100), 0.113)]
+range_age = [(range(13, 17), 0.049), (range(18, 24), 0.226), (range(25, 34), 0.296), (range(35, 44), 0.19), (range(45, 54), 0.113),(range(55,64), 0.071), (range(65, 100), 0.056)]
 # Inseme dei topic di interesse
 interest_list=json.load(open("/data/homes_data/mattiatrapletti/SimPy/social/data/topic.json", "r"))
 
@@ -42,31 +42,30 @@ def interest_gen():
 
 
 # Fun per generare la personalità dell'agent e stabilire l'activity in base ad essa
-def personality_activity(età):
+def personality_activity(eta):
     # Dictionary della personalità dell'agent -> basata su valori che ne orientano i tratti in base al peso
     personality=big_five_generator()
     
     # Definire il tempo medio speso sui social media per ciascun range di età
+    # Il tempo di utilizzo è convertito in proporzione per rappresentarlo in ore, ad esempio 2.46 ore equivale a 2.27, la conversione è stata eseguita sui valori presi dalle analisi fatte su alcuni social
     tempo_medio_social = {
-        (16, 24): 2.46,
-        (25, 34): 2.40,
-        (35, 44): 2.19,
-        (45, 54): 2.01,
-        (55, 64): 1.39
+        (16, 24): 2.27,
+        (25, 34): 2.24,
+        (35, 44): 2.11,
+        (45, 54): 2.0,
+        (55, 64): 1.23,
+        (65,100) : 0.30
     }
 
     # Trova il tempo medio corretto per l'età dell'utente
     tempo_base = 0
     for range_eta, tempo in tempo_medio_social.items():
-        if range_eta[0] <= età <= range_eta[1]:
+        if range_eta[0] <= eta <= range_eta[1]:
             tempo_base = tempo
             break
-    
-    # Assicurati che personality sia tra 0.01 e 1
-    personality = max(0.01, min(personality, 1))  
 
     # Calcola il grado di attività basato sul tempo medio e sul livello di estroversione
-    grado_attivita = (tempo_base / 2.5) * personality
+    grado_attivita = (tempo_base / 2.5) * personality["estroversione"]
     grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
     
     # Aggiungi una componente di casualità controllata
@@ -74,18 +73,19 @@ def personality_activity(età):
     grado_attivita += casualita
     grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
 
-
     # Prima ritorno il grado di activity, poi la personality
     return grado_attivita,personality
 
 # Funzione usata per stabilire in base al livello ddi attività di un utente, se questo andrà a compiere o meno un azione
+# Al momento viene un po pilotato per alzare il numeto di interazioni tra utenti/post/commenti
 def content_interaction_gen_prob(prob):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
-    if rand < prob:
+    if rand+10 < prob:
         return True  # L'utente pubblica
     else:
         return False
+
 
 # Fun dedicata alla gestione e decisione dei tratti della personalità dell'agent, basandol sui big five
 def personality_manager():
@@ -95,19 +95,88 @@ def personality_manager():
 
 
 # Dict che viene poi salvato nel rispettivo attributo del agente
-big_five = {}
+
 
 # Fun per generazione dei 5 valori per i 5 big five di ogni agents
 def big_five_generator():
     deviazione_standard = 0.2
-    
+    big_five = {}
     # Generazione iniziale dei valori 
     for trait in ["apertura_mentale", "coscienziosità", "estroversione", "gradevolezza", "nevroticismo"]:
         value = round(random.gauss(0.5, deviazione_standard), 2)
         value = max(min(value, 1), 0.01)  # Limitiamo i valori nell'intervallo da 0.01 a 1
         big_five[trait] = value
-    
    
     return big_five
 
+# Fun usata per stabilire verso ceh tipologia di commento/post soi vuole andare in base a delle soglie che possono essere superate nei valori dei big 5
+def big_five_personalizer(personality):
+    # ...Fai in modo di...
+    # Val max e min
+    max,min=min_max_dic_finder(personality)
+    
+    # Seleziono solo il più estremo tra max e min
+    ext=extreme_selector(max,min)
+    prompt=""
 
+    #Estroversione
+    if ext[0]=="estroversione":
+        if ext[1] > 0.7:
+            prompt += "Rispondere in modo energico e coinvolgente. "
+        elif ext[1] < 0.3:
+            prompt += "Rispondere in modo tranquillo e riservato. "
+    
+    # Gradevolezza
+    if ext[0]=="gradevolezza":
+        if ext[1] > 0.7:
+            prompt += "essere gentile e collaborativo. "
+        elif ext[1] < 0.3:
+            prompt += "essere più diretto e assertivo. "
+    
+    # Coscienziosità
+    if ext[0]=="coscienziosità":
+        if ext[1] > 0.7:
+            prompt += "fornire dettagli accurati e ben organizzati. "
+        elif ext[1] < 0.3:
+            prompt += "Rispondere in modo conciso e informale. "
+    
+    # Nevroticismo
+    if ext[0]=="nevroticismo":  
+        if ext[1] > 0.7:
+            prompt += "Esprimere una leggera preoccupazione o cautela. "
+        elif ext[1] < 0.3:
+            prompt += "Rispondere con sicurezza e serenità. "
+    
+    # Apertura Mentale
+    if ext[0]=="apertura_mentale":
+        if ext[1] > 0.7:
+            prompt += "essere creativo e esplorativo nella risposta. "
+        elif ext[1] < 0.3:
+            prompt += "Rispondere in modo semplice e pratico. "
+    
+    return prompt
+    
+    #devo decidere se voglio restituire una stringa da aggiungere al prompt o altro
+    
+# Fun usata per cercare i tratti dei big 5 maggiori o minori
+def min_max_dic_finder(personality):
+    # Trova la chiave e il valore massimi
+    max_key = max(personality, key=personality.get)
+    max_value = personality[max_key]
+    
+    # Trova la chiave e il valore minimi
+    min_key = min(personality, key=personality.get)
+    min_value = personality[min_key]
+    
+    return (max_key, max_value), (min_key, min_value)
+
+def extreme_selector(max,min):
+    # Calcola quanto il massimo si avvicina a 1 e il minimo a 0
+    distanza_max = 1 - max[1]
+    distanza_min = min[1]
+    
+    # Se il valore massimo è più estremo, ritorna il massimo, altrimenti il minimo
+    if distanza_max < distanza_min:
+        return max
+    else:
+        return min

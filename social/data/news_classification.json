@@ -1,155 +1,116 @@
 [
     {
-        "title": "The Bear e Shogun dominano le candidature agli Emmy",
+        "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
         "topics": [
-            "Turismo culturale",
-            "Cinema"
+            "Arte digitale"
         ]
     },
     {
-        "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo ",
-        "topics": [
-            "Musica classica",
-            "Spazio e astronomia"
-        ]
-    },
-    {
-        "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
-        "topics": [
-            "TV e media"
-        ]
-    },
-    {
-        "title": "Tredici citt\u00e0 con il bollino rosso, venerd\u00ec saranno 17",
-        "topics": [
-            "Politica internazionale",
-            "Ambiente e cambiamenti climatici"
-        ]
-    },
-    {
-        "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
-        "topics": [
-            "Arte contemporanea",
-            "Mostre e eventi culturali"
-        ]
-    },
-    {
-        "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+        "title": "Allarme dell'Onu: in Afghanistan le donne cancellate dalla vita pubblica",
         "topics": [
             "Politica internazionale",
             "Diritti umani"
         ]
     },
     {
-        "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
+        "title": "A Ferragosto oltre 100 mila visitatori per musei e luoghi di cultura",
         "topics": [
-            "Scienza e ambiente",
-            "Emergenza e soccorso"
+            "Turismo culturale",
+            "Viaggi in camper"
         ]
     },
     {
-        "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
+        "title": "Taylor Swift sul palco a Londra, Ed Sheeran ospite a sorpresa",
         "topics": [
-            "Politica USA",
-            "Situazione epidemiologica"
+            "Musica classica",
+            "Indie",
+            "Rock"
         ]
     },
     {
-        "title": "Moda streetwear",
+        "title": "Concluso il vertice a Doha. Altri colloqui nei prossimi giorni, poi un nuovo vertice al Cairo",
         "topics": [
-            "Stile vintage",
-            "Alta moda"
+            "Politica internazionale",
+            "Economia"
         ]
     },
     {
-        "title": "Calcio",
+        "title": "'Inviati Rai entrati in Kursk rischiano un procedimento penale'",
         "topics": [
-            "Sport calcistici",
-            "Gestione dello stress"
+            "Attualita' locali",
+            "Giustizia"
         ]
     },
     {
-        "title": "Tennis",
+        "title": "Precipitano sul Cervino, due alpinisti morti",
         "topics": [
-            "Sport tennistici",
-            "Crescita personale"
+            "Escursioni in montagna",
+            "Allenamento a corpo libero"
         ]
     },
     {
-        "title": "Surf",
+        "title": "Mosca: 'La Nato ha aiutato attacco di Kiev a Kursk'",
         "topics": [
-            "Sport acquatici",
-            "Consigli di relazione"
+            "Politica internazionale",
+            "Economia",
+            "Giustizia"
         ]
     },
     {
-        "title": "Pallavolo",
+        "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
         "topics": [
-            "Sport pallavicoli",
-            "Gestione dei conflitti"
+            "Arte digitale"
         ]
     },
     {
-        "title": "Maratone e corsa",
+        "title": "Allarme dell'Onu: in Afghanistan le donne cancellate dalla vita pubblica",
         "topics": [
-            "Sport di resistenza",
-            "Sviluppo personale"
+            "Politica internazionale",
+            "Diritti umani"
         ]
     },
     {
-        "title": "Giochi di ruolo (RPG)",
+        "title": "A Ferragosto oltre 100 mila visitatori per musei e luoghi di cultura",
         "topics": [
-            "Giochi indie",
-            "Sviluppo personale"
+            "Turismo culturale",
+            "Viaggi in camper"
         ]
     },
     {
-        "title": "Sparatutto in prima persona (FPS)",
+        "title": "Taylor Swift sul palco a Londra, Ed Sheeran ospite a sorpresa",
         "topics": [
-            "Giochi a tema",
-            "Gestione dello stress"
+            "Musica classica",
+            "Indie",
+            "Rock"
         ]
     },
     {
-        "title": "Strategia in tempo reale (RTS)",
+        "title": "Concluso il vertice a Doha. Altri colloqui nei prossimi giorni, poi un nuovo vertice al Cairo",
         "topics": [
-            "Giochi strategici",
-            "Crescita personale"
+            "Politica internazionale",
+            "Economia"
         ]
     },
     {
-        "title": "Giochi indie",
+        "title": "'Inviati Rai entrati in Kursk rischiano un procedimento penale'",
         "topics": [
-            "Giochi di ruolo (RPG)",
-            "Giochi a tema"
+            "Attualita' locali",
+            "Giustizia"
         ]
     },
     {
-        "title": "Giochi per dispositivi mobili",
+        "title": "Precipitano sul Cervino, due alpinisti morti",
         "topics": [
-            "Giochi mobile",
-            "Sviluppo personale"
+            "Escursioni in montagna",
+            "Allenamento a corpo libero"
         ]
     },
     {
-        "title": "Addestramento dei cani",
+        "title": "Mosca: 'La Nato ha aiutato attacco di Kiev a Kursk'",
         "topics": [
-            "Animali domestici",
-            "Consigli di relazione"
-        ]
-    },
-    {
-        "title": "Cura dei gatti",
-        "topics": [
-            "Animali domestici",
-            "Consigli di relazione"
-        ]
-    },
-    {
-        "title": "Acquariologia",
-        "topics": [
-            "Scienza e ambiente",
-            "Conservazione della biodiversit\u00e0"
+            "Politica internazionale",
+            "Economia",
+            "Giustizia"
         ]
     }
 ]

@@ -95,6 +95,7 @@ def single_agent(agent):
         "agent_id": agent.id,
         "age":agent.age,
         "interest":', '.join(agent.interest),
+        "big5_values:":agent.personality,
         "activity level":agent.agent_activity,
         "activity degree":agent.activity_degree,
         "friends_list":agent.friends,

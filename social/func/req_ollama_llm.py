@@ -4,13 +4,19 @@ import requests
 
 
 # Fun dedicata alla generazioen dei post
-def gen_post(env,id,interest,age,news,counter):
+def gen_post(env,id,interest,age,news,counter,personality):
     # Se lasciata sopra dava problemi di importazione circolare
     from post import Post
+    
     # Faccio questo per escludere il terzo topic se non è presente
     topics = [topic for topic in news["topics"] if topic]
+    
+    # Personalizzazione del tono del commento in base ai suoi big 5
+    from func.random_generator import big_five_personalizer
+    big5_per=big_five_personalizer(personality)
+    
     #scrivo bene le richeiste per ollama
-    user_cont=f"Il contesto è questo, sei un utente di un social media, hai un età di {str(age)} anni e i temi che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news['title']} e di cui i topic sono:{', '.join(topics)}, considerando le informazioni che ti ho fornito, quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"
+    user_cont=f"Il contesto è questo, sei un utente di un social media, hai un età di {str(age)} anni e i topic che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news['title']} e di cui i topic sono:{', '.join(topics)}, considerando le informazioni che ti ho fornito, quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi e fai in modo di {big5_per})"
     print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} start richiesta')
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     response=request(user_cont)
@@ -28,7 +34,12 @@ def req_follow(my_age,my_interest,req_gr,req_int,req_age):
 # Fun dedicata alla generazione di un opportuno comment oad un post
 # Viene deciso se l'agent commenta in base al suo grado di interattivita e se i suoi interessi sono parte del post
 def gen_com(news,content,agent):
-    user_cont=f"Ora sei un utente che ha come interessi interessi:{', '.join(agent.interest)}, che deve commentare un post che parla di questa notizia :{news}, il post ha il seguente contenuto: {content}; genere il commento (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi)"
+    
+    # Personalizzazione del tono del commento in base ai suoi big 5
+    from func.random_generator import big_five_personalizer
+    big5_per=big_five_personalizer(agent.personality)
+    
+    user_cont=f"Ora sei un utente che ha come interessi:{', '.join(agent.interest)}. Devi commentare un post che parla di questa notizia :'{news}' ed ha il seguente contenuto: {content}; genere il commento basandoti anche su tono con il quale è stato scritto l0'articolo del post (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi, inoltre fai in modo di {big5_per})"
     return(request(user_cont))
 
 
@@ -41,7 +52,7 @@ def topic_llm_request(starting_news_dic):
     topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
 
     # Richiesta usata per la generazione del contenuto del commento
-    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno dui topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci il json facendo la classificazione per tutte le notizie che ti ho inviato"
+    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno due topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci il json facendo la classificazione per tutte le notizie che ti ho inviato"
     print("SYS ----> NEWS: categorization and savings start")
     req=request(user_cont)
     return req,topic_data

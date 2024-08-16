@@ -1,186 +1,348 @@
 {
     "simulations": [
         {
-            "simulation_number": "2024-07-18 13:51:19",
+            "simulation_number": "2024-08-16 19:45:38",
             "simulation_settings": {
-                "simulation_time": 1200,
-                "agents_number": 5,
+                "simulation_time": 2500,
+                "agents_number": 10,
                 "friend_limit": 4,
                 "feed_post_number": 4
             },
             "news": [
                 {
-                    "title": "Le mostre del weekend, da Guido Reni e Magritte a Merz",
+                    "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
                     "topics": [
-                        "Arte contemporanea",
-                        "Mostre e eventi culturali"
+                        "Arte digitale"
                     ]
                 },
                 {
-                    "title": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
+                    "title": "Allarme dell'Onu: in Afghanistan le donne cancellate dalla vita pubblica",
                     "topics": [
                         "Politica internazionale",
                         "Diritti umani"
                     ]
                 },
                 {
-                    "title": "Forte scossa di terremoto nella zona dei Campi Flegrei ",
-                    "topics": [
-                        "Scienza e ambiente",
-                        "Emergenza e soccorso"
-                    ]
-                },
-                {
-                    "title": "Dalla Nasa la prima canzone hip-hop nello spazio profondo ",
-                    "topics": [
-                        "Musica classica",
-                        "Spazio e astronomia"
-                    ]
-                },
-                {
-                    "title": "Tredici citt\u00e0 con il bollino rosso, venerd\u00ec saranno 17",
-                    "topics": [
-                        "Politica internazionale",
-                        "Ambiente e cambiamenti climatici"
-                    ]
-                },
-                {
-                    "title": "Joe Biden ha il Covid ma assicura, mi sento ben\u00e8",
-                    "topics": [
-                        "Politica USA",
-                        "Situazione epidemiologica"
-                    ]
-                },
-                {
-                    "title": "Novit\u00e0 Mediaset, speciali Amici-Verissimo e c\u00e8 Leotta&nbsp;",
-                    "topics": [
-                        "TV e media"
-                    ]
-                },
-                {
-                    "title": "The Bear e Shogun dominano le candidature agli Emmy",
+                    "title": "A Ferragosto oltre 100 mila visitatori per musei e luoghi di cultura",
                     "topics": [
                         "Turismo culturale",
-                        "Cinema"
+                        "Viaggi in camper"
+                    ]
+                },
+                {
+                    "title": "Taylor Swift sul palco a Londra, Ed Sheeran ospite a sorpresa",
+                    "topics": [
+                        "Musica classica",
+                        "Indie",
+                        "Rock"
+                    ]
+                },
+                {
+                    "title": "Concluso il vertice a Doha. Altri colloqui nei prossimi giorni, poi un nuovo vertice al Cairo",
+                    "topics": [
+                        "Politica internazionale",
+                        "Economia"
+                    ]
+                },
+                {
+                    "title": "'Inviati Rai entrati in Kursk rischiano un procedimento penale'",
+                    "topics": [
+                        "Attualita' locali",
+                        "Giustizia"
+                    ]
+                },
+                {
+                    "title": "Precipitano sul Cervino, due alpinisti morti",
+                    "topics": [
+                        "Escursioni in montagna",
+                        "Allenamento a corpo libero"
+                    ]
+                },
+                {
+                    "title": "Mosca: 'La Nato ha aiutato attacco di Kiev a Kursk'",
+                    "topics": [
+                        "Politica internazionale",
+                        "Economia",
+                        "Giustizia"
+                    ]
+                },
+                {
+                    "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
+                    "topics": [
+                        "Arte digitale"
+                    ]
+                },
+                {
+                    "title": "Allarme dell'Onu: in Afghanistan le donne cancellate dalla vita pubblica",
+                    "topics": [
+                        "Politica internazionale",
+                        "Diritti umani"
+                    ]
+                },
+                {
+                    "title": "A Ferragosto oltre 100 mila visitatori per musei e luoghi di cultura",
+                    "topics": [
+                        "Turismo culturale",
+                        "Viaggi in camper"
+                    ]
+                },
+                {
+                    "title": "Taylor Swift sul palco a Londra, Ed Sheeran ospite a sorpresa",
+                    "topics": [
+                        "Musica classica",
+                        "Indie",
+                        "Rock"
+                    ]
+                },
+                {
+                    "title": "Concluso il vertice a Doha. Altri colloqui nei prossimi giorni, poi un nuovo vertice al Cairo",
+                    "topics": [
+                        "Politica internazionale",
+                        "Economia"
+                    ]
+                },
+                {
+                    "title": "'Inviati Rai entrati in Kursk rischiano un procedimento penale'",
+                    "topics": [
+                        "Attualita' locali",
+                        "Giustizia"
+                    ]
+                },
+                {
+                    "title": "Precipitano sul Cervino, due alpinisti morti",
+                    "topics": [
+                        "Escursioni in montagna",
+                        "Allenamento a corpo libero"
+                    ]
+                },
+                {
+                    "title": "Mosca: 'La Nato ha aiutato attacco di Kiev a Kursk'",
+                    "topics": [
+                        "Politica internazionale",
+                        "Economia",
+                        "Giustizia"
                     ]
                 }
             ],
             "agents": [
                 {
-                    "agent_id": 5,
-                    "age": 23,
-                    "interest": "Viaggi low-cost, Destinazioni esotiche, Diritti umani, Fotografia di viaggio, Allenamento a corpo libero, Intelligenza artificiale",
+                    "agent_id": 1,
+                    "age": 31,
+                    "interest": "Acquariologia, Allevamento di animali esotici, Intelligenza artificiale, Consigli di abbinamento, Risparmio, Economia",
+                    "big5_values:": {
+                        "apertura_mentale": 0.57,
+                        "coscienziosit\u00e0": 0.34,
+                        "estroversione": 0.65,
+                        "gradevolezza": 0.61,
+                        "nevroticismo": 0.46
+                    },
                     "activity level": "Medium",
-                    "activity degree": 0.47,
+                    "activity degree": 0.5934734099658466,
                     "friends_list": [
+                        10,
                         4,
-                        1,
-                        2,
-                        3
+                        5,
+                        7
                     ],
                     "last_feed": [],
-                    "published_post": [
-                        {
-                            "post_id": "p-5.1",
-                            "news": "Von der Leyen: Non lascer\u00f2 che gli estremismi distruggano lU\u00e8",
-                            "topic": "Politica internazionale, Diritti umani",
-                            "content": "Sono stato molto colpito dalle parole della presidente Von der Leyen: 'Non lascer\u00f2 che gli estremismi distruggano l'Europa'. Questa frase mi fa pensare ai tanti viaggi fatti in giro per il mondo e alle persone che ho incontrato, con culture e storie diverse dalle mie. Non vedo l'ora di riprendere la mia camera da viaggio e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche. #ViaggiLowCost #FotografiaDiViaggio #DirittiUmani",
-                            "datatime": 364,
-                            "comments": [
-                                {
-                                    "commenter_id": 2,
-                                    "content": "Mi sono espresso anch'io sulla violenza e sull'estremismo, ma vorrei chiederti: cosa puoi fare per aiutare queste comunit\u00e0 esotiche che ami tanto? Forse potresti unire la tua passione per la fotografia con la tua voce contro gli estremismi?",
-                                    "datatime": 841
-                                },
-                                {
-                                    "commenter_id": 1,
-                                    "content": "Mi piace molto questa frase di Von der Leyen. Come amante dei viaggi in camper e del turismo culturale, mi rendo conto della importanza dell'accoglienza delle culture diverse e dell'importanza di preservare l'identit\u00e0 europea. Spero che la sua leadership possa aiutare a creare un futuro pi\u00f9 pacifico e inclusivo per tutti noi. Ecco perch\u00e9 sono felice di partire per nuovi viaggi e catturare le storie delle comunit\u00e0 pi\u00f9 esotiche",
-                                    "datatime": 868
-                                },
-                                {
-                                    "commenter_id": 1,
-                                    "content": "Mi sento proprio d'accordo con Von der Leyen. Come viaggiatore in camper e appassionato di cultura, ho avuto modo di incontrare persone da diverse parti del mondo e sono stato colpito dalla diversit\u00e0 e bellezza delle storie che hanno da raccontare. Spero che la nostra presidente sia riuscita a far sentire la sua voce contro gli estremismi e che questo atteggiamento possa ispirare un cambio di rotta per una maggiore comprensione e tolleranza tra le culture",
-                                    "datatime": 868
-                                },
-                                {
-                                    "commenter_id": 3,
-                                    "content": "Mi fa pensare a quando ascolto jazz e indie, e come la musica pu\u00f2 unire culture diverse. Spero che la presidente Von der Leyen possa essere un faro di tolleranza e comprensione per tutte le storie esotiche da raccontare. Ecco un'idea: creare un libro d'arte con foto di viaggio e testi ispirati ai diritti umani, per promuovere la cultura dell'accoglienza e della diversit\u00e0.",
-                                    "datatime": 876
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "agent_id": 4,
-                    "age": 27,
-                    "interest": "Saggi di divulgazione scientifica, Poesia contemporanea, Criptovalute, Attualit\u00e0 locali, Alta moda, Agricoltura biologica",
-                    "activity level": "Medium",
-                    "activity degree": 0.29,
-                    "friends_list": [
-                        5,
-                        1,
-                        2,
-                        3
-                    ],
-                    "last_feed": [
-                        "p-5.1",
-                        "p-5.1"
-                    ],
                     "published_post": []
                 },
                 {
-                    "agent_id": 3,
-                    "age": 101,
-                    "interest": "Jazz, Indie, Anime, Libri d'arte, Cura dei gatti, Cucina gourmet",
+                    "agent_id": 6,
+                    "age": 25,
+                    "interest": "Programmi di dimagrimento, Allenamento a corpo libero, Scultura, Moda streetwear, Turismo culturale, Falegnameria",
+                    "big5_values:": {
+                        "apertura_mentale": 0.43,
+                        "coscienziosit\u00e0": 0.58,
+                        "estroversione": 0.49,
+                        "gradevolezza": 0.39,
+                        "nevroticismo": 0.65
+                    },
                     "activity level": "Medium",
-                    "activity degree": 0.32,
+                    "activity degree": 0.4955224803429452,
+                    "friends_list": [
+                        3,
+                        7,
+                        1,
+                        4
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 7,
+                    "age": 30,
+                    "interest": "Gestione dello stress, Psicologia positiva, Giochi di ruolo (RPG), Cucina gourmet, Fantascienza, Libri d'arte",
+                    "big5_values:": {
+                        "apertura_mentale": 0.28,
+                        "coscienziosit\u00e0": 0.46,
+                        "estroversione": 0.55,
+                        "gradevolezza": 0.89,
+                        "nevroticismo": 0.46
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.5899132549976728,
+                    "friends_list": [
+                        3,
+                        1,
+                        4,
+                        9
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 8,
+                    "age": 58,
+                    "interest": "Agricoltura biologica, Energia rinnovabile, Criptovalute, Lingue straniere, Cucina internazionale, Alta moda",
+                    "big5_values:": {
+                        "apertura_mentale": 0.76,
+                        "coscienziosit\u00e0": 0.73,
+                        "estroversione": 0.27,
+                        "gradevolezza": 0.79,
+                        "nevroticismo": 0.53
+                    },
+                    "activity level": "Low",
+                    "activity degree": 0.09160396579297148,
+                    "friends_list": [
+                        2,
+                        9,
+                        10,
+                        1
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 4,
+                    "age": 18,
+                    "interest": "Corsi accademici, Corsi online, Psicologia positiva, Cucina italiana, Poesia contemporanea, Economia",
+                    "big5_values:": {
+                        "apertura_mentale": 0.38,
+                        "coscienziosit\u00e0": 0.24,
+                        "estroversione": 0.32,
+                        "gradevolezza": 0.54,
+                        "nevroticismo": 0.18
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.23411319225695998,
+                    "friends_list": [
+                        1,
+                        7,
+                        3,
+                        6
+                    ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 10,
+                    "age": 49,
+                    "interest": "Ritratti in studio, Fotografia naturalistica, Risparmio, Intelligenza artificiale, Fantascienza, Indie",
+                    "big5_values:": {
+                        "apertura_mentale": 0.5,
+                        "coscienziosit\u00e0": 0.4,
+                        "estroversione": 1,
+                        "gradevolezza": 0.72,
+                        "nevroticismo": 0.66
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.7718446142268457,
                     "friends_list": [
                         1,
                         2,
-                        4,
-                        5
+                        3,
+                        7
                     ],
-                    "last_feed": [
-                        "p-5.1",
-                        "p-5.1"
-                    ],
+                    "last_feed": [],
                     "published_post": []
                 },
                 {
                     "agent_id": 2,
-                    "age": 38,
-                    "interest": "Dessert e dolci, Cucina internazionale, Moda streetwear, Strategia in tempo reale (RTS), Allenamento funzionale, Cura dei gatti",
+                    "age": 47,
+                    "interest": "Crescita personale, Mindfulness, Pittura ad olio, Musica classica, Cucina internazionale, Conservazione della biodiversit\u00e0",
+                    "big5_values:": {
+                        "apertura_mentale": 0.58,
+                        "coscienziosit\u00e0": 0.8,
+                        "estroversione": 0.68,
+                        "gradevolezza": 0.24,
+                        "nevroticismo": 0.69
+                    },
                     "activity level": "Medium",
-                    "activity degree": 0.58,
+                    "activity degree": 0.46859477425923907,
                     "friends_list": [
-                        3,
-                        1,
-                        4,
-                        5
+                        8,
+                        9,
+                        10,
+                        1
                     ],
-                    "last_feed": [
-                        "p-5.1",
-                        "p-5.1"
-                    ],
+                    "last_feed": [],
                     "published_post": []
                 },
                 {
-                    "agent_id": 1,
-                    "age": 71,
-                    "interest": "Viaggi in camper, Turismo culturale, Amicizia, Addestramento dei cani, Indie, Abbigliamento sostenibile",
-                    "activity level": "Medium",
-                    "activity degree": 0.59,
+                    "agent_id": 5,
+                    "age": 97,
+                    "interest": "Allevamento di animali esotici, Cura dei gatti, Progetti di bricolage, Crescita delle relazioni di coppia, Escursioni in montagna, Diritti umani",
+                    "big5_values:": {
+                        "apertura_mentale": 0.38,
+                        "coscienziosit\u00e0": 0.27,
+                        "estroversione": 0.66,
+                        "gradevolezza": 0.28,
+                        "nevroticismo": 0.59
+                    },
+                    "activity level": "Low",
+                    "activity degree": 0.12417656382240384,
                     "friends_list": [
+                        1,
                         3,
                         2,
-                        4,
-                        5
+                        4
                     ],
-                    "last_feed": [
-                        "p-5.1",
-                        "p-5.1"
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 3,
+                    "age": 23,
+                    "interest": "Lavorazione del legno, Fai da te per la casa, Yoga e meditazione, Fantascienza, Diritti umani, Investimenti azionari",
+                    "big5_values:": {
+                        "apertura_mentale": 0.59,
+                        "coscienziosit\u00e0": 0.87,
+                        "estroversione": 0.63,
+                        "gradevolezza": 0.7,
+                        "nevroticismo": 0.47
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.47640592648013214,
+                    "friends_list": [
+                        7,
+                        5,
+                        6,
+                        9
                     ],
+                    "last_feed": [],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 9,
+                    "age": 46,
+                    "interest": "Dessert e dolci, Cucina gourmet, Energia rinnovabile, Thriller psicologici, Lavorazione del legno, Fotografia di architettura",
+                    "big5_values:": {
+                        "apertura_mentale": 0.55,
+                        "coscienziosit\u00e0": 0.5,
+                        "estroversione": 0.3,
+                        "gradevolezza": 0.62,
+                        "nevroticismo": 0.43
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.32880669093499604,
+                    "friends_list": [
+                        2,
+                        3,
+                        7,
+                        8
+                    ],
+                    "last_feed": [],
                     "published_post": []
                 }
             ]

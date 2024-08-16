@@ -1,19 +1,37 @@
+NB E COSE PER ORA INFATTIVILI
+- NEWS
+    - Per la raccolta di notizie, potrei inserire una funzione che va ad aprire il link di un determinato articolo, seguirlo nella pagina html, fare lo scrapping della notizia, e passarla assieme al titpolo all LLM per permettere una migliore categorizzazioen dell'articolo
+(pausa)
+- SIMULAZIONE
+    - Ba tenuta non troppo basso il tempo della simulaizone in quanto si riscchia di non completare tutti i feed degli agent
+    - Scegliere una misurazione di tempo che permetta agli agent di eseguire un secodn ogiro di aggiornamenti dfeed edd interazioni con gli altri post
+    - Tenere d'occhio i tempi di eseccuzione
+
+- PERSONALITY->BIG 5
+    - Bilancaire ulteriormente i valori della personalità, dovrei eseguire uno studio più specifico (cercare paper scientifico, non sono sicuro però che esistano studi a riguardo in quanto si parli di personalità)
+(pausa)
+
+
+
+
+
 
 - VECTOR DB
 
     - Creare il meccanismo per il salvataggio deòòa storia e delle azioni dei vari utentei, così ogni volta che vengono poste delle scelte al LLM gli vado a fornire le sue azioni precedenti, comprese informazioni personal ie personalità, per rendere più personalizzata possibile la scelta
         - metodi che salvano le interszioni nel database
-        - la classificazione delle notizie non va salvata perchè va messa poi nel database della simulazione, vedere in furuto se fornirgli le corrispodneze notizia/topic per aiutarlo a categorizzare delle news in futuro
 
 - PERSONALITA 
-    - riguardare meccanismi di funionamento sviluppo persoanlità llm
-    - Ricordare di delegare al LLM le scelte di post o meno
-    - In base alla coscienziosità o alla negatività emotiva posso far commentare l'LLM in modo più coinvolto e cattivo, oppure più coscenzioso
-
-
-# fixare cpdice randomicità scelta livello di attività in base all'età
-
+    - Ricordare di delegare al LLM le scelte di post o meno -> per il momento lo tengo a random
 
 - Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO
-- decommentare rga 228 agnt.py
 
+# arricchire il pull di notiezie che viene estratto da ANSA riguardare come vengono riempiti i feed
+
+# Creare meccanismo per salvare per ogni agente le sue info su un vector db, che viene fornito di volta in volta all'LLM per decidere se interagire o meno
+
+
+DOMANDE DA FARE AL PROF
+
+# riguardare i meccanismi di rischieste di amiciia e personalizzarli (alzare la proabilità di interessse se ai due interessano gli stessi topic e se hanno punteggi dei tratti dei big 5 simili)
+- ad ora uso topic, età e livello di interazione
