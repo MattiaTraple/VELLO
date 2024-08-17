@@ -26,8 +26,9 @@ NB E COSE PER ORA INFATTIVILI
 
 - Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO
 
-# arricchire il pull di notiezie che viene estratto da ANSA riguardare come vengono riempiti i feed
+# Giu agent possono taggare altri agent, dovrà passare assieme al contenuto del post anche tutti commenti corrispondenti per permettere all'utente di orientarsi meglio
 
+serve sto coso? non ho già le info che mi servono tra commenti tag e post?
 # Creare meccanismo per salvare per ogni agente le sue info su un vector db, che viene fornito di volta in volta all'LLM per decidere se interagire o meno
 
 

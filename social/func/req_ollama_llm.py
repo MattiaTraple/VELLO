@@ -39,7 +39,7 @@ def gen_com(news,content,agent):
     from func.random_generator import big_five_personalizer
     big5_per=big_five_personalizer(agent.personality)
     
-    user_cont=f"Ora sei un utente che ha come interessi:{', '.join(agent.interest)}. Devi commentare un post che parla di questa notizia :'{news}' ed ha il seguente contenuto: {content}; genere il commento basandoti anche su tono con il quale è stato scritto l0'articolo del post (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi, inoltre fai in modo di {big5_per})"
+    user_cont=f"Ora sei un utente che ha come interessi:{', '.join(agent.interest)}. Devi commentare un post che parla di questa notizia :'{news}' ed ha il seguente contenuto: {content}; genere il commento basandoti anche su tono con il quale è stato scritto l'articolo del post (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi, inoltre fai in modo di {big5_per})"
     return(request(user_cont))
 
 
@@ -76,15 +76,15 @@ def request(user_cont):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            complete_response=complete_response[1:-1]
+            complete_response=complete_response[0:-1]
             return complete_response
             
         except json.JSONDecodeError:
             # Se la risposta non è un JSON valido, stampa il contenuto grezzo della risposta
             print("Risposta non è un JSON valido. Contenuto grezzo della risposta:")
-            print(response.text)
+            print(raw_response.text)
     else:
-        print(f"Errore nella richiesta: {response.status_code}, {response.text}")
+        print(f"Errore nella richiesta: {raw_response.status_code}, {raw_response.text}")
     
 
 

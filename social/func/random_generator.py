@@ -34,9 +34,9 @@ def interest_gen():
     cat_mac1 = random.choice(list(interest_list.keys()))
     topic_res = random.sample(interest_list[cat_mac1], 2)
 
-    # Estrai quattro sottoargomenti casuali da macrocategorie diverse
+    # Estrai 5 sottoargomenti casuali da macrocategorie diverse
     other_cat_mac = [mc for mc in interest_list if mc != cat_mac1]
-    topic_res.extend([random.choice(interest_list[m]) for m in random.sample(other_cat_mac, 4)])
+    topic_res.extend([random.choice(interest_list[m]) for m in random.sample(other_cat_mac, 5)])
 
     return topic_res
 
@@ -81,7 +81,7 @@ def personality_activity(eta):
 def content_interaction_gen_prob(prob):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
-    if rand+10 < prob:
+    if rand < prob+10:
         return True  # L'utente pubblica
     else:
         return False

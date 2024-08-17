@@ -28,14 +28,14 @@ def request_news():
                     'title': title,
                     'topics': []  # Inizialmente vuoto, sarà aggiornato manualmente
                 }
-                return news_list.append(news_item)
+                print(news_item.values())
+                news_list.append(news_item.values)
            
-                
+            
         else:
             print("SYS ----> NEWS: Error during news collections - ", response.status_code)
 
     except requests.exceptions.RequestException as e:
         print("SYS ----> NEWS: Error during news rewuest - ", e)
 
-
-print(request_news)
+request_news()
