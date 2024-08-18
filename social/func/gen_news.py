@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import re
 import requests
@@ -19,6 +20,15 @@ news_source_list={"WORLD":"https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml"
                   "TRIP":"https://www.ansa.it/canale_viaggi/notizie/viaggiart_rss.xml"}
 
 def request_news():
+    # Vuoi rieseguire la selezione delle news?
+    reload=True
+    # Mi assicuro di nn voler rifare la ricerca, di avere un ile e che questo contenga qualcosa
+    if reload==True and os.path.exists(config.DATA_POSITION + "news_classification.json") and os.path.getsize(config.DATA_POSITION + "news_classification.json") > 0:
+        with open(config.DATA_POSITION + "news_classification.json", "r") as f:
+            config.NEWS=json.load(f)
+        print("SYS ----> NEWS: categorization and collection was already done")
+        return
+    
     res = []
     for field,url in news_source_list.items():
         res.extend(single_news(field,url))  # Estende la lista invece di aggiungere una lista nidificata
@@ -90,7 +100,7 @@ def response_cleaner(res,topic_list):
     extracted_data = res[start_index:end_graf]+"]"
 
     # Rimuovi caratteri di troppo e cambia alcune lettere con accenti e apostrofi
-    cleaned_data = extracted_data.replace('\n', '').replace("è", "e'").replace('ò',"o'").replace('à',"a'")
+    cleaned_data = extracted_data.replace('\n', '').replace("è", "e'").replace('ò',"o'").replace('à',"a'").replace('ù',"u'")
     cleaned_data = re.sub(r'\s+', ' ', cleaned_data)  # Rimuove spazi extra
     cleaned_data = re.sub(r'\"(.*?)\"', r'"\1"', cleaned_data)  # Mantiene le virgolette corrette
     cleaned_data = cleaned_data.replace('\\\"', "\'")  # Sostituisce \\" con '

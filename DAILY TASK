@@ -26,6 +26,11 @@ NB E COSE PER ORA INFATTIVILI
 
 - Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO
 
+
+
+# Aggiungere una sorta di funzione che permette di vedere quale è un pattern/una preoccupazione/una caratteristica agiuntiva dell'utente in base ai suoi comportamenti (ex. "se una persona che si preoccupa spesso dell'ambiente"-> da aggiugnere poi nel prompting per renderlo più preciso)
+
+
 # Giu agent possono taggare altri agent, dovrà passare assieme al contenuto del post anche tutti commenti corrispondenti per permettere all'utente di orientarsi meglio
 
 serve sto coso? non ho già le info che mi servono tra commenti tag e post?
@@ -33,6 +38,9 @@ serve sto coso? non ho già le info che mi servono tra commenti tag e post?
 
 
 DOMANDE DA FARE AL PROF
+
+# A livello di prompting, ad ora specifico quali sono il tratto maggiore e quello minore nel prompting, sarebbe utile aggiugnergli anche a cosa corrisponde avere quel ddetermianto tratto?
+
 
 # riguardare i meccanismi di rischieste di amiciia e personalizzarli (alzare la proabilità di interessse se ai due interessano gli stessi topic e se hanno punteggi dei tratti dei big 5 simili)
 - ad ora uso topic, età e livello di interazione

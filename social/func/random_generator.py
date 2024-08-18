@@ -81,7 +81,7 @@ def personality_activity(eta):
 def content_interaction_gen_prob(prob):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
-    if rand < prob+10:
+    if rand < prob+15:
         return True  # L'utente pubblica
     else:
         return False
@@ -115,6 +115,7 @@ def big_five_personalizer(personality):
     # Val max e min
     max,min=min_max_dic_finder(personality)
     
+    # PER ORA RESTITUISCO SOLAMENTE IL TRATTO NEGATIVO E IL TRATTO POSITIVO PIU ALTO
     # Seleziono solo il più estremo tra max e min
     ext=extreme_selector(max,min)
     prompt=""
@@ -154,7 +155,7 @@ def big_five_personalizer(personality):
         elif ext[1] < 0.3:
             prompt += "Rispondere in modo semplice e pratico. "
     
-    return prompt
+    return max[0],min[0]
     
     #devo decidere se voglio restituire una stringa da aggiungere al prompt o altro
     

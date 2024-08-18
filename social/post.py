@@ -10,14 +10,13 @@ class Post:
         self.agent_id=int(agent_id)
         self.news=news
         self.content=content
-        # Campo dedicato ai 2/3 topic in cui può essere identetificata la news
+        # Field for the post's
         self.topic=[topic for topic in news["topics"] if topic]
         self.datatime=env.now
-        # Sarà una lista di coppie id agente, contenuto del commento
+        # List of coupple in form "id_agent:comment"
         self.comments=[]
     
-    # Fun usata per la creazione dei commenti
-    #agent è un oggetto
+    # Fun used to the comment generation
     def create_comment(self,agent):
         from func.req_ollama_llm import gen_com
         com=gen_com(self.news,self.content,agent)

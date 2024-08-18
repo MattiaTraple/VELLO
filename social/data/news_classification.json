@@ -1,164 +1,212 @@
 [
     {
-        "title": "Madonna a Pompei, popstar finanzia progetto 'Sogno di volare'",
-        "topics": [
-            "Viaggi in camper",
-            "Turismo culturale"
-        ]
-    },
-    {
-        "title": "Google porta la ricerca con l'IA in nuovi mercati",
-        "topics": [
-            "Intelligenza artificiale",
-            "Criptovalute",
-            "App per la produttivita'"
-        ]
-    },
-    {
-        "title": "'A tavola con il Nobile', sfida tra le 8 contrade di Montepulciano",
-        "topics": [
-            "Cucina italiana",
-            "Ricette vegetariane/vegane",
-            "Cucina gourmet"
-        ]
-    },
-    {
-        "title": "Nuovo incidente sul Cervino, morto un altro alpinista",
-        "topics": [
-            "Escursioni in montagna",
-            "Allenamento a corpo libero"
-        ]
-    },
-    {
-        "title": "Cinema, morta a 94 anni l'attrice americana Gena Rowlands",
-        "topics": [
-            "Film e televisione",
-            "Celebrity"
-        ]
-    },
-    {
-        "title": "Musica e contaminazioni, torna il Kaulonia Tarantella festival",
-        "topics": [
-            "Rock",
-            "Indie",
-            "Jazz",
-            "Music classica"
-        ]
-    },
-    {
-        "title": "Boldi a Meloni, 'stai cambiando in meglio il Paese', polemiche",
-        "topics": [
-            "Politica internazionale",
-            "Economia",
-            "Attualita' locali"
-        ]
-    },
-    {
-        "title": "Lanciato il satellite-fattorino italiano, Iperdrone.0 ",
-        "topics": [
-            "Tecnologia dell'informazione",
-            "Criptovalute"
-        ]
-    },
-    {
-        "title": "Jackpot!, nuova commedia di Paul Feig in stile Jackie Chan",
-        "topics": [
-            "Film e televisione",
-            "Commedie romantiche"
-        ]
-    },
-    {
-        "title": "Mastercard taglia il 3% del personale, 1.000 persone",
-        "topics": [
-            "Allenamento a corpo libero",
-            "Crescita personale"
-        ]
-    },
-    {
-        "title": "Siccit\u00e0: Legacoop Agroalimentare, al Sud 4 miliardi di danni",
-        "topics": [
-            "Riduzione della plastica",
-            "Energia rinnovabile"
-        ]
-    },
-    {
-        "title": "Via dell'Amore, in una settimana quasi 11 mila prenotazioni",
+        "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
         "topics": [
             "Turismo culturale",
-            "Viaggi low-cost"
-        ]
-    },
-    {
-        "title": "Pirateria online, Kim Dotcom sar\u00e0 estradato negli Usa",
-        "topics": [
-            "Criptovalute",
-            "Intelligenza artificiale"
-        ]
-    },
-    {
-        "title": "Nuovo incidente sul Cervino, morto un altro alpinista",
-        "topics": [
-            "Escursioni in montagna",
-            "Alpinismo"
+            "Escursioni in montagna"
         ]
     },
     {
         "title": "I ghiacci della Groenlandia sono pi\u00f9 fragili del previsto ",
         "topics": [
             "Ambiente e cambiamenti climatici",
-            "Conservazione della biodiversita'"
+            "Criptovalute"
         ]
     },
     {
-        "title": "Ue chiede a Meta i dati sui controlli dei processi elettorali",
+        "title": "Google porta la ricerca con l'IA in nuovi mercati",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Intelligenza artificiale"
+        ]
+    },
+    {
+        "title": "Lazio: Baroni 'pronti per l'esordio, Dia dar\u00e0 una grande mano'",
+        "topics": [
+            "Politica internazionale",
+            "Calcio"
+        ]
+    },
+    {
+        "title": "Pirateria online, Kim Dotcom sar\u00e0 estradato negli Usa",
+        "topics": [
+            "Criptovalute",
+            "Gestione dello stress"
+        ]
+    },
+    {
+        "title": "Arrestato a Caracas l'ex deputato di Azione democratica Maroun",
         "topics": [
             "Politica internazionale",
             "Diritti umani"
         ]
     },
     {
-        "title": "Chef altoatesino ospita Mattarella a Ferragosto e posta foto",
+        "title": "Via dell'Amore, in una settimana quasi 11 mila prenotazioni",
         "topics": [
-            "Cucina italiana"
+            "Turismo culturale",
+            "Escursioni in montagna"
         ]
     },
     {
-        "title": "Gigantesca opera di land art biodegradabile in Svizzera",
+        "title": "Ue chiede a Meta i dati sui controlli dei processi elettorali",
         "topics": [
-            "Arte digitale"
+            "Politica internazionale",
+            "Economia"
+        ]
+    },
+    {
+        "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
+        "topics": [
+            "Arte digitale",
+            "Fantascienza"
+        ]
+    },
+    {
+        "title": "Mucillagine in Adriatico, sott'acqua regala colori inediti",
+        "topics": [
+            "Escursioni in montagna",
+            "Viaggi in camper",
+            "Turismo culturale",
+            "Viaggi low-cost",
+            "Destinazioni esotiche",
+            "Fotografia di paesaggi",
+            "Conservazione della biodiversita'"
+        ]
+    },
+    {
+        "title": "Il papa' di Sharon, impediscano al killer di far male a altri",
+        "topics": [
+            "Crescita personale",
+            "Mindfulness",
+            "Terapia cognitivo-comportamentale (TCC)",
+            "Psicologia positiva"
+        ]
+    },
+    {
+        "title": "Carceri: penalisti, governo si e' messo in un vicolo cieco",
+        "topics": [
+            "Politica internazionale",
+            "Economia",
+            "Ambiente e cambiamenti climatici",
+            "Diritti umani",
+            "Attualita' locali",
+            "Riduzione della plastica",
+            "Energia rinnovabile"
+        ]
+    },
+    {
+        "title": "Da M a Tolkien, e' ancora binomio bestseller-serie tv",
+        "topics": [
+            "Fantascienza",
+            "Romanzi storici",
+            "Fantasy epico",
+            "Saggi di divulgazione scientifica",
+            "Poesia contemporanea"
+        ]
+    },
+    {
+        "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
+        "topics": [
+            "Musica classica",
+            "Indie",
+            "Criptovalute"
+        ]
+    },
+    {
+        "title": "Chef altoatesino ospita Mattarella a Ferragosto e posta foto",
+        "topics": [
+            "Cucina italiana",
+            "Ricette vegetariane/vegane",
+            "Cucina gourmet",
+            "Dessert e dolci",
+            "Cucina internazionale",
+            "Fotografia di viaggio"
+        ]
+    },
+    {
+        "title": "I penalisti, 'governo carcerocentrico, e' passo indietro'",
+        "topics": [
+            "Politica internazionale",
+            "Economia",
+            "Ambiente e cambiamenti climatici",
+            "Diritti umani",
+            "Attualita' locali",
+            "Riduzione della plastica",
+            "Energia rinnovabile"
+        ]
+    },
+    {
+        "title": ">>>ANSA/ Il Green Deal avanza, arriva il Ripristino della natura",
+        "topics": [
+            "Ambiente e cambiamenti climatici",
+            "Conservazione della biodiversita'",
+            "Energia rinnovabile",
+            "Agricoltura biologica",
+            "Mobilita' sostenibile"
+        ]
+    },
+    {
+        "title": "Il vezzo delle rime di Giacomo Vettori",
+        "topics": [
+            "Cultura italiana",
+            "Poesia contemporanea"
+        ]
+    },
+    {
+        "title": "Violento acquazzone nel Cagliaritano, 93 mm di pioggia",
+        "topics": [
+            "Viaggi in camper",
+            "Meteorologia"
+        ]
+    },
+    {
+        "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
+        "topics": [
+            "Cinema",
+            "Festival cinematografici"
         ]
     },
     {
         "title": "Anna Maria Fabriani, la Scuola Romana a palazzo Merulana",
         "topics": [
-            "Turismo culturale"
+            "Arte contemporanea",
+            "Mostre e esposizioni"
         ]
     },
     {
-        "title": "Tennis: Cincinnati; Paolini cede alla russa Andreeva",
+        "title": "Incendio a Somerset House a Londra, 100 pompieri sul posto",
+        "topics": [
+            "Notizie internazionali",
+            "Emergenze"
+        ]
+    },
+    {
+        "title": "Tajani, con Gb-Germania-Francia sostegno a sforzi tregua",
+        "topics": [
+            "Politica internazionale",
+            "Diplomazia"
+        ]
+    },
+    {
+        "title": "Orrore delle guerre in corso, Ucraina e Gaza, di casa al Lido",
+        "topics": [
+            "Notizie internazionali",
+            "Diritti umani"
+        ]
+    },
+    {
+        "title": "Lanciato il satellite-fattorino italiano, Iperdrone.0 ",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Innovazioni"
+        ]
+    },
+    {
+        "title": "Calcio: in campo con il Milan Primavera, doppietta per Ibra jr",
         "topics": [
             "Calcio",
-            "Tennis"
-        ]
-    },
-    {
-        "title": "Gaza, 'uccise 15 persone della stessa famiglia, 9 bambini'",
-        "topics": [
-            "Politica internazionale",
-            "Attualita' locali"
-        ]
-    },
-    {
-        "title": "Mosca, 'missili Usa usati per distruggere ponte nel Kursk'",
-        "topics": [
-            "Politica internazionale",
-            "Guerra e conflitti"
-        ]
-    },
-    {
-        "title": "Morto a Savona il pianista Mauro Castellano",
-        "topics": [
-            "Musica classica"
+            "Sport professionistico"
         ]
     }
 ]

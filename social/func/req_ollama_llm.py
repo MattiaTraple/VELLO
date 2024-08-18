@@ -2,6 +2,33 @@ import json
 import os
 import requests
 
+# Usati per inidirzzare meglio l'LLM alla categorizzazione di news, la pubblicazione di post e la pubblicazione di commenti
+examples = {
+            "news_classification":{
+                "input": 
+                   """
+                   [{"title": "I ghiacci della Groenlandia sono pi\u00f9 fragili del previsto ","topics": []},"
+                    {"title": "Google porta la ricerca con l'IA in nuovi mercati","topics": []}
+                    ]
+                    """,
+                    
+                "output": 
+                    """
+                   [{"title": "I ghiacci della Groenlandia sono pi\u00f9 fragili del previsto ","topics": ["Ambiente e cambiamenti climatici","Criptovalute"]},"
+                    {"title": "Google porta la ricerca con l'IA in nuovi mercati","topics": ["Tecnologia dell'informazione","Intelligenza artificiale"]}
+                    ]
+                    """
+            },
+            "post":{
+                "input": "Stonehenge, scoperta la vera origine della pietra dell'altare",
+                "output": "Questa scoperta è la realizzazione di un sogno per gli amanti della storia e della fantascienza! Sono curiosissimo di dove le ricerche a riguardo porteranno, chissa se scopriremo di non essere soli in questo universo...  #Stonehenge #Fantascienza"
+            },
+            "comment":{
+                "input":"Questa scoperta è la realizzazione di un sogno per gli amanti della storia e della fantascienza! Sono curiosissimo di dove le ricerche a riguardo porteranno, chissa se scopriremo di non essere soli in questo universo...  #Stonehenge #Fantascienza",
+                "output":"Wow che scoperta stupefacente, mi immgino tutti i fan come noi che ora saranno solo in attesa di ulteriori aggiornamenti! "
+            }
+}
+
 
 # Fun dedicata alla generazioen dei post
 def gen_post(env,id,interest,age,news,counter,personality):
@@ -13,13 +40,21 @@ def gen_post(env,id,interest,age,news,counter,personality):
     
     # Personalizzazione del tono del commento in base ai suoi big 5
     from func.random_generator import big_five_personalizer
-    big5_per=big_five_personalizer(personality)
+    bi5_max,big5_min=big_five_personalizer(personality)
     
-    #scrivo bene le richeiste per ollama
-    user_cont=f"Il contesto è questo, sei un utente di un social media, hai un età di {str(age)} anni e i topic che ti interessano sono :{', '.join(interest)}. Hai appena letto della notizia {news['title']} e di cui i topic sono:{', '.join(topics)}, considerando le informazioni che ti ho fornito, quale sarebbe il testo di questo post?(scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi e fai in modo di {big5_per})"
+    # Contesto su chi è l'agent
+    syst_cont=( f"Sei un utente di un social media, hai un età di {str(age)}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
+                f"I tuoi interessi sono {', '.join(interest)} ma nel generare non devi menzionare direttamente questi argomenti. ")
+    
+     # Contesto cosa deve fare l'agent
+    user_cont=( f"Hai appena letto della notizia '{news['title']}' di cui i topic centrali sono {', '.join(topics)}."
+                f"Scrivi un post a riguardo in italiano che pubblicheresti sul social in cui esprimi le tue opinioni in modo diretto e coinvolgente, cercando di stimolare la partecipazione degli altri utenti."
+                "Oltre al testo del post non scrivere nient'altro nella risposta")
+   
+    
     print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} start richiesta')
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
-    response=request(user_cont)
+    response=request(user_cont,syst_cont,examples['post'])
     print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} end richiesta')
     post=Post(env,response,news,id,counter)
     return post
@@ -37,10 +72,19 @@ def gen_com(news,content,agent):
     
     # Personalizzazione del tono del commento in base ai suoi big 5
     from func.random_generator import big_five_personalizer
-    big5_per=big_five_personalizer(agent.personality)
+    bi5_max,big5_min=big_five_personalizer(agent.personality)
     
-    user_cont=f"Ora sei un utente che ha come interessi:{', '.join(agent.interest)}. Devi commentare un post che parla di questa notizia :'{news}' ed ha il seguente contenuto: {content}; genere il commento basandoti anche su tono con il quale è stato scritto l'articolo del post (scrivi solo quello che metteresti nel post, senza commenti o appunti agiguntivi, inoltre fai in modo di {big5_per})"
-    return(request(user_cont))
+    # Contesto su chi è l'agent 
+    syst_cont=( f"Sei un utente di un social media, hai un età di {agent.age}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
+                f"I tuoi interessi sono {', '.join(agent.interest)} ma nel generare non devi menzionare direttamente questi argomenti.")
+
+    # Contesto cosa deve fare l'agent
+    user_cont=(f"Hai appena letto un post in cui un altro utente dice: '{content}'. "
+               f"La notizia riporta '{news}'. "
+                "Oltre al testo del post in italiano non scrivere nient'altro nella risposta")
+    
+    
+    return(request(syst_cont,user_cont,examples['comment']))
 
 
 # Fun usata ad inizio simulazione per categorizzare le notizie estratte da ANSA (i topic vengono presi dalla lista che ho creato con i casi base + generici)
@@ -51,20 +95,62 @@ def topic_llm_request(starting_news_dic):
     # Considero solo le sottocategorie
     topic_data = [item for sublist in topic_data_tot.values() for item in sublist]
 
-    # Richiesta usata per la generazione del contenuto del commento
-    user_cont=f"Sei in un social media e queste sono le notizie sulle quali poi gli utenti andranno a creare poste e a commentare:{json.dumps(starting_news_dic)}; devi restituirmi il contenuto precedente come lo hai trovato, completando però il campo topic: all'intenro devi inserire come attributi delle liste di topic, almeno due topic presenti all'interno della seguente lista {topic_data} che rispecchino i temi trattati dalla notizia, restituisci il json facendo la classificazione per tutte le notizie che ti ho inviato"
+    # Conteto sul social e l'utilizzoche viene fatto delle news
+    syst_cont=("Sei un assistente linguistico esperto nella categorizzazione delle notizie che verranno usate dagli utenti di un social per pubblicare dei post a riguardo."
+                "Riceverai delle notizie con informazioni in formato JSON e Il tuo compito è classificare ogni notizia aggiungendo come campo di 'topic', una lista di almeno due argomenti inerenti alla notizia."
+                f"Gli argomenti disponibili si trovano nella seguente lista: {topic_data}.")
+    # Conteso sul compito dell'LLM
+    user_cont=(f"Queste sono le notizie che dovrai calssificare completandone il campo topic con la lista dei temi che vengono trattati nella notizia:{json.dumps(starting_news_dic)}"
+                "Rispondi solamente con quello che sarebbe il contenuto del Json copmpleto")
+
     print("SYS ----> NEWS: categorization and savings start")
-    req=request(user_cont)
+    req=request(syst_cont,user_cont,examples["news_classification"])
     return req,topic_data
   
+  
+  
+class ExampleSelector:
+    def __init__(self, examples):
+        self.examples = examples
+
+    def select_example(self, user_cont):
+        # Seleziona un esempio rilevante in base a condizioni specifiche
+        for example in self.examples:
+            if self.is_relevant(example, user_cont):
+                return example
+        return None
+
+    def is_relevant(self, example, user_cont):
+        # Implementa la logica per determinare se un esempio è rilevante
+        # Ad esempio, puoi confrontare keyword o la struttura dell'input
+        return any(keyword in user_cont for keyword in example['input_keywords'])
+
+
+
+  
+  
 # Richiesta generica che verrà inviata a Ollama
-def request(user_cont):
-    # URL dell'endpoint
+def request(syst_cont, user_cont,selected_example):
     url = "http://localhost:11434/api/chat"
+      
+    # Costruisce il messaggio con l'esempio se disponibile
+    if selected_example:
+        prompt = (
+            f"Ecco un esempio:\n"
+            f"Input: {selected_example['input']}\n"
+            f"Output desiderato: {selected_example['output']}\n\n"
+            f"Adesso gestisci il seguente input:\n"
+            f"{user_cont}"
+        )
+    else:
+        prompt = user_cont
+
     # Dati da inviare
     data = {
         "model": "llama3",
-        "messages": [{"role": "user","content": user_cont}]
+        "messages": [
+            {"role": "system", "content": syst_cont},
+            {"role": "user", "content": prompt}]
     }
 
     # Invia la richiesta POST
@@ -76,9 +162,8 @@ def request(user_cont):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            complete_response=complete_response[0:-1]
+            complete_response = complete_response[0:-1]
             return complete_response
-            
         except json.JSONDecodeError:
             # Se la risposta non è un JSON valido, stampa il contenuto grezzo della risposta
             print("Risposta non è un JSON valido. Contenuto grezzo della risposta:")
