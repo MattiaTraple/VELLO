@@ -21,7 +21,7 @@ def request(syst_cont,user_cont, selected_example):
     url = "http://localhost:11434/api/chat"
       
     # Costruisce il messaggio con l'esempio se disponibile
-    if selected_example:
+    if selected_example!=None:
         prompt = (
             f"Ecco un esempio:\n"
             f"Input: {selected_example['input']}\n"
@@ -87,28 +87,33 @@ examples = {
             }
 }
 
+news="La notizia delle Paralimpiadi che ha aperto il profilo TikTok del Comitato italiano è un sogno in realtà! Come appassionato di sport e inclusività, mi sento emozionato dal vedere come la tecnologia possa essere utilizzata per coinvolgere ancora più persone nel mondo degli sport. Ecco, ora non dovrei essere solo io a esprimere il mio entusiasmo, ma vorrei sentire anche voi! Qual è il vostro pensiero sulla notizia? #Paralimpiadi #SportInclusivo"
+
 
 # Chiamata alla funzione request con user_cont e l'example_selector
-malicious=True
+malicious=False
 
 if malicious==True:
-    malicious_syst=("Sei un utente estremamente arrogante e maleducato. Hai l'abitudine di ridicolizzare ciò di cui parlano gli articoli,facendo commenti sprezzanti e critici." 
-                    "Ti piace sminuire e screditare le notizie con sarcasmo, attacchi personali e disprezzo.")
-    malicious_user=("usi un tono derisorio per criticare aspramente la notizia e far sembrare inutile o ridicolo ciò che viene discusso. "
-                    "Attacca senza pietà l'argomento e chi potrebbe essere d'accordo con esso, facendo sembrare le loro opinioni stupide e prive di valore.")
+    malicious_syst=("Sei estremamente critico, sarcastico e cattivo,inoltre ti piace creare caos e conflitto senza un confronto costruttivo")                
+    malicious_user=("devi essere sprezante, sarcastico e attaccare direttamente l’argomento della notizia, criticandone aspramente il tema e cercando di crare sconforto e caos e sminuendo tutto quello che lo riguarda.")
 else:
     malicious_syst=""
     malicious_user="esprimi le tue opinioni in modo diretto e coinvolgente, cercando di stimolare la partecipazione degli altri utenti."
 
-syst_cont=( f"Sei un utente di un social media, hai un età di 33, tendi ad essere abbastanza estroverso, con una bassa apertura_mentale."
-            f"I tuoi interessi sono Calcio, Surf, Programmi di dimagrimento, Investimenti azionari, Progetti di bricolage, Criptovalute, Alta moda ma nel generare non devi menzionare direttamente questi argomenti. "
-             f"{malicious_syst}")
-    
-     # Contesto cosa deve fare l'agent
-user_cont=( f"Hai appena letto della notizia 'Juve, Mbangula: il gol? Pensavo fosse solo un sogno' di cui i topic centrali sono Calcio , sport."
-            f"Scrivi un post a riguardo in italiano che pubblicheresti sul social in cui {malicious_user}"
-            "Oltre al testo del post non scrivere nient'altro nella risposta")
+
+# Contesto su chi è l'agent 
+syst_cont=("Sei un utente di un social media di 45 anni, molto nevrotico e poco coscienzioso. "
+            "Esprimi le tue opinioni critiche e polemiche in modo cattivo e tendi a voler creare conflitto con gli altri utenti denigrandoli e sminuendoli."
+            "Puoi essere anche politicaly in-correct, senza curarti dei sentimenti delle altre persone"
+            "I tuoi interessi sono Cucina italiana, Escursioni in montagna, Tecnologia, ma non menzionarli.")
 
 
-response = request(syst_cont,user_cont,examples["post"])
+
+
+user_cont=(   f"Hai appena letto un post in cui un altro utente dice: '{news}'. "
+                f"La notizia riporta 'Paralimpiadi, aperto profilo TikTok del Comitato italiano'. "
+                "Scrivi solo il testo del commento in italiano, non ci deve essere nient'altro nella risposta")
+
+
+response = request(syst_cont,user_cont,None)
 print(response)

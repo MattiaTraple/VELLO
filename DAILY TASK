@@ -17,7 +17,11 @@ NB E COSE PER ORA INFATTIVILI
 # PIù EMOTIVI
 
 # TORANARE IN CARREGGIATA, devo rendere alcuni agent più politicaly incorrect, e devo inserire il meccanismo di promozione di chi incentiva le interazioi positive facendo salire di ranking sul feed pubblico di questi
-- Come decidose un utente è positivo o meno -> farlo pseudo randomicamente, uno ogni tot esce bacato
+
+
+# verificare che non ci siano ancora gli unicode
+# meglio tratto dei big 5 o frasi correlate?
+
 - Devo creargli una storia di background così si tiene man mano conto di quella?
     - Appesantire LLM, ci metterebbe un sacco a gestire sta roba
 

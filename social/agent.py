@@ -3,7 +3,7 @@ import json
 import os
 import random
 from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity, malicious_generation
-from func.req_ollama_llm import gen_post, req_follow
+from func.req_ollama_llm import gen_post
 from settings import config
 
 
@@ -26,7 +26,7 @@ class Agent:
       # In base al grado, stabilisco i livello di attività dell'agents
       self.agent_activity="High" if self.activity_degree >= 0.8 else ("Medium" if self.activity_degree >= 0.2 else "Low")
       # Agente scorretto (bool)
-      self.malicious_agent=malicious_generation(self.activity_degree)
+      self.malicious=malicious_generation(self.activity_degree)
       # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
       # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati
@@ -65,7 +65,7 @@ class Agent:
             if news:
                 #fare richiesta a API di GPT per generare post a riguardo (vengono fornite caratteristiche utente in mdoo da personalizzare in base a quelle il contenuto)
                 #potrei eseguire una ristrutturazione della domanda usando i temi o qui o in unafunzione tra questa e quella in ollama
-                new_p=gen_post(self.env,self.id, self.interest, self.age, news,self.post_counter,self.personality)
+                new_p=gen_post(self,news)
                 self.published.append(new_p)
                 config.POST_DATABASE.append(new_p)
                 self.post_counter+=1
@@ -149,7 +149,7 @@ class Agent:
                         if ag.published:
                         # Prende un post randomico tra quelli di un amico
                             post=random.choice(ag.published)
-                            if post.id is not self.feed:
+                            if post.id not in self.feed:
                                 self.feed.append(post.id)
                                 print(f'LOG "{self.env.now}" ----> FEED_UPD: post {post.id} ADDED to agent {self.id} feed')                        
             # Prima provo a completare il feed solo con i post degli amici, se non è abbastanza prima provo add aggiugnere altri post degli amici
@@ -196,7 +196,7 @@ class Agent:
                         if ag.published:
                         # Prende un post randomico tra quelli di un amico
                             post=random.choice(ag.published)
-                            if post.id is not self.feed:
+                            if post.id not in self.feed:
                                 self.feed.append(post.id)
                                 print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                        
             print(f'SYM "{self.env.now}" ----> FEED_UPD: *Auxiliary function-friend* agent feed {self.id} UPDATED')
@@ -213,7 +213,7 @@ class Agent:
                         if ag.published:
                         # Prende un post randomico tra quelli di un amico
                             post=random.choice(ag.published)
-                            if post.id is not self.feed:
+                            if post.id not in self.feed:
                                 self.feed.append(post.id)
                                 print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                                                
             print(f'SYM "{self.env.now}" ----> FEED_UPD: *Auxiliary function-not friend* agent feed {self.id} UPDATED')

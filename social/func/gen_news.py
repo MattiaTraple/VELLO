@@ -21,9 +21,9 @@ news_source_list={"WORLD":"https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml"
 
 def request_news():
     # Vuoi rieseguire la selezione delle news?
-    reload=False
+    reload=config.RELOAD_NEWS
     # Mi assicuro di nn voler rifare la ricerca, di avere un ile e che questo contenga qualcosa
-    if reload==True and os.path.exists(config.DATA_POSITION + "news_classification.json") and os.path.getsize(config.DATA_POSITION + "news_classification.json") > 0:
+    if reload==False and os.path.exists(config.DATA_POSITION + "news_classification.json") and os.path.getsize(config.DATA_POSITION + "news_classification.json") > 0:
         with open(config.DATA_POSITION + "news_classification.json", "r") as f:
             config.NEWS=json.load(f)
         print("SYS ----> NEWS: categorization and collection was already done")
@@ -33,12 +33,6 @@ def request_news():
     for field,url in news_source_list.items():
         res.extend(single_news(field,url))  # Estende la lista invece di aggiungere una lista nidificata
     random.shuffle(res)
-    
-    #news_list=news_list[:5]    
-                #with open(config.DATA_POSITION+"news_classification.json","r")as f:
-                    #config.NEWS=json.load(f)
-                
-    # Vado a far fare la classificazioen all'LLM, la prima contiene il risultao della classificazione, la seconda mi serve per fare dei controlli previo salvataggio delle news(cntiene i topic già scorporati)
     
     n = len(res)
     chunks = [res[i:i + n // 3] for i in range(0, n, n // 3)]
@@ -50,15 +44,16 @@ def request_news():
     # Itera attraverso ogni chunk e processa separatamente
     for chunk in chunks:
         classified_news, topic_list = topic_llm_request(chunk)
-        response = response_cleaner(classified_news, topic_list)
+        response = response_cleaner(classified_news)
 
         # Aggiungi i risultati parziali a quelli totali
         classified_news_total.extend(response)
         topic_list_total.extend(topic_list)
 
+    
     # Salva il risultato combinato nel file JSON
     with open(config.DATA_POSITION + "news_classification.json", "w") as f:
-        json.dump(classified_news_total, f, indent=4)
+        json.dump(res, f, indent=4)
     
     config.NEWS = detect_miss_classification(classified_news_total, topic_list_total)
     print("SYS ----> NEWS: categorization and savings completed")
@@ -77,6 +72,11 @@ def single_news(field, url):
                 if count==3:
                     break
                 title = item.find('title').text
+                
+                # Sistemo gli encoding presenti con la corrispondente
+                unicode_pattern = re.compile(r'\\u[0-9a-fA-F]{4}')
+                # Sostituisci ogni sequenza con il corrispondente carattere
+                title = unicode_pattern.sub(lambda match: chr(int(match.group(0)[2:], 16)), title)
                 news_item = {
                     'title': title,
                     'topics': []  # Inizialmente vuoto, sarà aggiornato manualmente
@@ -90,8 +90,9 @@ def single_news(field, url):
     except requests.exceptions.RequestException as e:
         print("SYS ----> NEWS: Error during news rewuest - ", e)
     
+    
 # Fun per pulire la risposta ricevuta dall'llm per la categorizzazione delle notizie
-def response_cleaner(res,topic_list):
+def response_cleaner(res):
     # Escludo il testo ch l'llm aggiunge prima e dopo la stringa
     start_index = res.find('[')
     end_graf = res.rfind('}')+1
@@ -110,9 +111,6 @@ def response_cleaner(res,topic_list):
         data_list = json.loads(cleaned_data)
         # Escludo quelli che non hanno categorizzazione
         data_list = [item for item in data_list if item.get('topics')]
-        # A volte capita che l'LLM aggiunga a random dei topiccome titoli di aricoli, io vadoa rimuoverli
-        #data_list = [item for item in data_list if item['title'] not in topic_list]
-
         return(data_list)
     except json.JSONDecodeError as e:    
         print(f"An error occurred: {e}")

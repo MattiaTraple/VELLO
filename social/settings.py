@@ -19,6 +19,9 @@ class Config:
     #Percorso per posizione file json che raccolgono info sulla sim e servono per il funzionamento
     DATA_POSITION="/data/homes_data/mattiatrapletti/SimPy/social/data/"
     
+    # Decido se rieseguire la classificazione delle news
+    RELOAD_NEWS=True
+    
 # Creazione dell'oggetto di configurazione
 config = Config()
 

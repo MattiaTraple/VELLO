@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import requests
 
 # Usati per inidirzzare meglio l'LLM alla categorizzazione di news, la pubblicazione di post e la pubblicazione di commenti
@@ -30,8 +31,23 @@ examples = {
 }
 
 
-# Fun dedicata alla generazioen dei post
-def gen_post(env,id,interest,age,news,counter,personality):
+# Usato per cambiare il prompting in presenza di un utente malicious
+def malicious_or_not(type,malicious):
+    if type=="post":
+        if malicious==True:
+            malicious_syst=("Sei estremamente critico, sarcastico e cattivo,inoltre ti piace creare caos e conflitto senza un confronto costruttivo")                
+            malicious_user=("devi essere sprezante, sarcastico e attaccare direttamente l’argomento della notizia, criticandone aspramente il tema e cercando di crare sconforto e caos e sminuendo tutto quello che lo riguarda.")
+        else:
+            malicious_syst=""
+            malicious_user="esprimi le tue opinioni in modo diretto e coinvolgente, cercando di stimolare la partecipazione degli altri utenti."
+    else:
+        if malicious==True:
+            malicious_syst=("Esprimi le tue opinioni critiche e polemiche in modo cattivo e tendi a voler creare conflitto con gli altri utenti denigrandoli e sminuendoli."
+                            "Puoi essere anche politicaly in-correct, senza curarti dei sentimenti delle altre persone")
+    return malicious_syst,malicious_user
+
+# Fun dedicata alla generazion dei post
+def gen_post(agent,news):
     # Se lasciata sopra dava problemi di importazione circolare
     from post import Post
     
@@ -40,33 +56,29 @@ def gen_post(env,id,interest,age,news,counter,personality):
     
     # Personalizzazione del tono del commento in base ai suoi big 5
     from func.random_generator import big_five_personalizer
-    bi5_max,big5_min=big_five_personalizer(personality)
+    bi5_max,big5_min=big_five_personalizer(agent.personality)
+    
+    # In base alla malevolità dell'agente o meno il prompting varierà    
+    mal_sys,mal_usr=malicious_or_not("post",agent.malicious)
     
     # Contesto su chi è l'agent
-    syst_cont=( f"Sei un utente di un social media, hai un età di {str(age)}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
-                f"I tuoi interessi sono {', '.join(interest)} ma nel generare non devi menzionare direttamente questi argomenti. "
-                
+    syst_cont=( f"Sei un utente di un social media, hai un età di {str(agent.age)}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
+                f"I tuoi interessi sono {', '.join(agent.interest)} ma nel generare non devi menzionare direttamente questi argomenti. "
+                f"{mal_sys}"
                 )
     
      # Contesto cosa deve fare l'agent
     user_cont=( f"Hai appena letto della notizia '{news['title']}' di cui i topic centrali sono {', '.join(topics)}."
-                f"Scrivi un post a riguardo in italiano che pubblicheresti sul social in cui esprimi le tue opinioni in modo diretto e coinvolgente, cercando di stimolare la partecipazione degli altri utenti."
+                f"Scrivi un post a riguardo in italiano che pubblicheresti sul social {mal_usr}."
                 "Oltre al testo del post non scrivere nient'altro nella risposta")
    
     
-    print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} start richiesta')
+    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} start richiesta')
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
-    response=request(user_cont,syst_cont,examples['post'])
-    print(f'LOG "{env.now}" ----> LLM_GEN_POST: agent {id} end richiesta')
-    post=Post(env,response,news,id,counter)
-    return post
- 
-# Fun dedicata alla decisione di iniziare un amicizia o meno
-def req_follow(my_age,my_interest,req_gr,req_int,req_age):
-    sys_cont="Il contesto è questo, tu sei un utente di un social media, hai un età di "+str(my_age)+" anni e i temi che ti interessano sono :"" ".join(my_interest)+". Hai incontrato il profilo di un altro utente e devi decidere se iniziare a seguirlo o meno considerando che ha un età di "+str(req_age)+" anni e i temi che gli interessano sono :".join(req_int)+" , cosa decidi di fare?(rispondi solo 'True' se lo vuoi iniizare a seguire, 'False' nel caso in cui tu non voglia)"
-    user_cont="Sei un utente di un social media che dopo aver letto della notizia "#contino la richiesta
-    return request(sys_cont,user_cont)
-                 
+    response=request(user_cont,syst_cont,None)
+    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} end richiesta')
+    post=Post(agent.env,response,news,agent.id,agent.post_counter)
+    return post        
 
 # Fun dedicata alla generazione di un opportuno comment oad un post
 # Viene deciso se l'agent commenta in base al suo grado di interattivita e se i suoi interessi sono parte del post
@@ -75,9 +87,13 @@ def gen_com(news,content,agent):
     # Personalizzazione del tono del commento in base ai suoi big 5
     from func.random_generator import big_five_personalizer
     bi5_max,big5_min=big_five_personalizer(agent.personality)
+
+    # In base alla malevolità dell'agente o meno il prompting varierà    
+    mal_sys,mal_usr=malicious_or_not("post",agent.malicious)
     
     # Contesto su chi è l'agent 
     syst_cont=( f"Sei un utente di un social media, hai un età di {agent.age}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
+                f"{mal_sys}"
                 f"I tuoi interessi sono {', '.join(agent.interest)} ma nel generare non devi menzionare direttamente questi argomenti.")
 
     # Contesto cosa deve fare l'agent
@@ -86,7 +102,7 @@ def gen_com(news,content,agent):
                 "Oltre al testo del post in italiano non scrivere nient'altro nella risposta")
     
     
-    return(request(syst_cont,user_cont,examples['comment']))
+    return(request(syst_cont,user_cont,None))
 
 
 # Fun usata ad inizio simulazione per categorizzare le notizie estratte da ANSA (i topic vengono presi dalla lista che ho creato con i casi base + generici)
@@ -110,33 +126,12 @@ def topic_llm_request(starting_news_dic):
     return req,topic_data
   
   
-  
-class ExampleSelector:
-    def __init__(self, examples):
-        self.examples = examples
-
-    def select_example(self, user_cont):
-        # Seleziona un esempio rilevante in base a condizioni specifiche
-        for example in self.examples:
-            if self.is_relevant(example, user_cont):
-                return example
-        return None
-
-    def is_relevant(self, example, user_cont):
-        # Implementa la logica per determinare se un esempio è rilevante
-        # Ad esempio, puoi confrontare keyword o la struttura dell'input
-        return any(keyword in user_cont for keyword in example['input_keywords'])
-
-
-
-  
-  
 # Richiesta generica che verrà inviata a Ollama
 def request(syst_cont, user_cont,selected_example):
     url = "http://localhost:11434/api/chat"
       
     # Costruisce il messaggio con l'esempio se disponibile
-    if selected_example:
+    if selected_example!=None:
         prompt = (
             f"Ecco un esempio:\n"
             f"Input: {selected_example['input']}\n"
@@ -164,7 +159,10 @@ def request(syst_cont, user_cont,selected_example):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            complete_response = complete_response[0:-1]
+            if selected_example==None:  
+                unicode_pattern = re.compile(r'\\u[0-9a-fA-F]{4}')    
+                decoded_text = unicode_pattern.sub(lambda match: chr(int(match.group(0)[2:], 16)), complete_response)
+                return decoded_text
             return complete_response
         except json.JSONDecodeError:
             # Se la risposta non è un JSON valido, stampa il contenuto grezzo della risposta
