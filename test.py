@@ -89,15 +89,26 @@ examples = {
 
 
 # Chiamata alla funzione request con user_cont e l'example_selector
+malicious=True
+
+if malicious==True:
+    malicious_syst=("Sei un utente estremamente arrogante e maleducato. Hai l'abitudine di ridicolizzare ciò di cui parlano gli articoli,facendo commenti sprezzanti e critici." 
+                    "Ti piace sminuire e screditare le notizie con sarcasmo, attacchi personali e disprezzo.")
+    malicious_user=("usi un tono derisorio per criticare aspramente la notizia e far sembrare inutile o ridicolo ciò che viene discusso. "
+                    "Attacca senza pietà l'argomento e chi potrebbe essere d'accordo con esso, facendo sembrare le loro opinioni stupide e prive di valore.")
+else:
+    malicious_syst=""
+    malicious_user="esprimi le tue opinioni in modo diretto e coinvolgente, cercando di stimolare la partecipazione degli altri utenti."
+
+syst_cont=( f"Sei un utente di un social media, hai un età di 33, tendi ad essere abbastanza estroverso, con una bassa apertura_mentale."
+            f"I tuoi interessi sono Calcio, Surf, Programmi di dimagrimento, Investimenti azionari, Progetti di bricolage, Criptovalute, Alta moda ma nel generare non devi menzionare direttamente questi argomenti. "
+             f"{malicious_syst}")
+    
+     # Contesto cosa deve fare l'agent
+user_cont=( f"Hai appena letto della notizia 'Juve, Mbangula: il gol? Pensavo fosse solo un sogno' di cui i topic centrali sono Calcio , sport."
+            f"Scrivi un post a riguardo in italiano che pubblicheresti sul social in cui {malicious_user}"
+            "Oltre al testo del post non scrivere nient'altro nella risposta")
 
 
-syst_cont=("Sei un assistente linguistico esperto nella categorizzazione delle notizie che verranno usate dagli utenti di un social per pubblicare dei post a riguardo."
-            "Riceverai delle notizie con informazioni in formato JSON e Il tuo compito è classificare ogni notizia aggiungendo come campo di 'topic', una lista di almeno due argomenti inerenti alla notizia."
-            "Gli argomenti disponibili si trovano nella seguente lista: {'ambiente','clima','animali','sostenibilità','salute','cibo','bambini poveri','ciclismo','vacanze'}.")
-
-
-user_cont = (f"Queste sono le notizie che dovrai calssificare completandone il campo topic con la lista dei temi che vengono trattati nella notizia:{news}"
-            "Rispondi solamente con quello che sarebbe il contenuto del Json copmpleto")
-
-response = request(syst_cont,user_cont,examples["news_classification"])
+response = request(syst_cont,user_cont,examples["post"])
 print(response)

@@ -7,23 +7,15 @@
             - Il feed va prima a prendere quelli dei seguiti, poi in modo randomico, potrei scegleire di privilegare i post degli utenti molto attivi
 
 
-- POST
-    - Tenere conto dell'aspetto emtivo nei post
-    - Al momento esiste una limitazione di un post ad utente per ogni notizia, i commenti non sono contati
-
-INTERAZIONI
-- like
-
 
 - STORIA
     - Tenere un tracciamento di che post pubblica l'agent, con quali post interagisce, in base a quello poi le richieste verranno inviate all'LLM per la scelta di come interagire nelle operazioni successive
         - Forse potrei andare a creare una lista di gradi/indicatori che in base alla situazione indicano se è più o meno probabile fare eseguire all'utente una determianta azione
             - Invece che una storia potrei andare a creare un "last action", passo solo questa last action all'LLM in modo da dirgli cosa ho fatto l'ultima volta, e quale azione sarebbe più coerente da eseguire per non distaccarsi troppo dall'azione passata (mantenere coerenza con il proprio profilo agente)
 
-- NOTIZIE
 
-    - Asseganre in modo dinamico il tipo di topic che tratta una news, mi serve per la creazioen dei feed e la distribuzione dei postin generale
-    - difficile fare un meccanismo di classificazione delle news (al momento li inserisco manualmente)
+LIKE
+
 
 - COMMENTI
     - Nella classe serve l'id?
@@ -33,13 +25,4 @@ INTERAZIONI
         - se il post fa parte del feed molto probabilmente è più interessato, se il feed è generato in basse agli amici/in base ai topic dei post che interessano all'utente
     - Opzione commento di risposta da parte del proprietario del post
 
-
-
-- DOMANDE PROF
-
-
-
-- SIMULAZIONE:
-    Posso sfruttare la simulaizone per
-    - Scambi di commenti tra utenti: uno scrive, ua votla che invia il messaggio sblocca l'altro se il messaggio è in risposta a lui, una volta che viene sbloccato il secondo interlocutore, viene fatta la stessa cosa come per il primo, la cconversazione non so ancora come stopparla
 

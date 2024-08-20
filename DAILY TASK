@@ -13,34 +13,43 @@ NB E COSE PER ORA INFATTIVILI
 
 
 
+# DA FARE
+# PIù EMOTIVI
+
+# TORANARE IN CARREGGIATA, devo rendere alcuni agent più politicaly incorrect, e devo inserire il meccanismo di promozione di chi incentiva le interazioi positive facendo salire di ranking sul feed pubblico di questi
+- Come decidose un utente è positivo o meno -> farlo pseudo randomicamente, uno ogni tot esce bacato
+- Devo creargli una storia di background così si tiene man mano conto di quella?
+    - Appesantire LLM, ci metterebbe un sacco a gestire sta roba
 
 
+DOMANDE DA FARE AL PROF
+
+# Aggiungere una sorta di funzione che permette di vedere quale è un pattern/una preoccupazione/una caratteristica agiuntiva dell'utente in base ai suoi comportamenti (ex. "se una persona che si preoccupa spesso dell'ambiente"-> da aggiugnere poi nel prompting per renderlo più preciso)
+- Magari farlo alla fine dl programma
+- Comportamento tossico
+
+
+RISPOSTE
+
+# noj devo perdere troppo nel ssistemare quelo che l'LLM mi restituisce
+- Meglio, lo specifico nella tesi, specifico
+- ci faccio delle analisi
+
+# voglio andare 
+- voglio 100 llm
+- ababsso i livelli di interazioni
+
+- analizi della rete poi
+- Posso fare community detection
+- vedere se le intereazioni rispecchiano i topic che hanno
+
+
+# SE HO TEMPO
+
+# vector db
+- utile memorizzare (rag)
 
 - VECTOR DB
 
     - Creare il meccanismo per il salvataggio deòòa storia e delle azioni dei vari utentei, così ogni volta che vengono poste delle scelte al LLM gli vado a fornire le sue azioni precedenti, comprese informazioni personal ie personalità, per rendere più personalizzata possibile la scelta
         - metodi che salvano le interszioni nel database
-
-- PERSONALITA 
-    - Ricordare di delegare al LLM le scelte di post o meno -> per il momento lo tengo a random
-
-- Al momento tolgo gli elementi che non riesce a classificare l'llm, LI ESCLUDO
-
-
-
-# Aggiungere una sorta di funzione che permette di vedere quale è un pattern/una preoccupazione/una caratteristica agiuntiva dell'utente in base ai suoi comportamenti (ex. "se una persona che si preoccupa spesso dell'ambiente"-> da aggiugnere poi nel prompting per renderlo più preciso)
-
-
-# Giu agent possono taggare altri agent, dovrà passare assieme al contenuto del post anche tutti commenti corrispondenti per permettere all'utente di orientarsi meglio
-
-serve sto coso? non ho già le info che mi servono tra commenti tag e post?
-# Creare meccanismo per salvare per ogni agente le sue info su un vector db, che viene fornito di volta in volta all'LLM per decidere se interagire o meno
-
-
-DOMANDE DA FARE AL PROF
-
-# A livello di prompting, ad ora specifico quali sono il tratto maggiore e quello minore nel prompting, sarebbe utile aggiugnergli anche a cosa corrisponde avere quel ddetermianto tratto?
-
-
-# riguardare i meccanismi di rischieste di amiciia e personalizzarli (alzare la proabilità di interessse se ai due interessano gli stessi topic e se hanno punteggi dei tratti dei big 5 simili)
-- ad ora uso topic, età e livello di interazione

@@ -21,7 +21,7 @@ news_source_list={"WORLD":"https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml"
 
 def request_news():
     # Vuoi rieseguire la selezione delle news?
-    reload=True
+    reload=False
     # Mi assicuro di nn voler rifare la ricerca, di avere un ile e che questo contenga qualcosa
     if reload==True and os.path.exists(config.DATA_POSITION + "news_classification.json") and os.path.getsize(config.DATA_POSITION + "news_classification.json") > 0:
         with open(config.DATA_POSITION + "news_classification.json", "r") as f:

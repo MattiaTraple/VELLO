@@ -96,8 +96,9 @@ def single_agent(agent):
         "age":agent.age,
         "interest":', '.join(agent.interest),
         "big5_values:":agent.personality,
-        "activity level":agent.agent_activity,
-        "activity degree":agent.activity_degree,
+        "activity_level":agent.agent_activity,
+        "activity_degree":agent.activity_degree,
+        "malicious_agent":agent.malicious_agent,
         "friends_list":agent.friends,
         "last_feed": agent.feed,
         "published_post":add_post(agent.published)

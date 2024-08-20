@@ -2,7 +2,7 @@ import itertools
 import json
 import os
 import random
-from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity
+from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity, malicious_generation
 from func.req_ollama_llm import gen_post, req_follow
 from settings import config
 
@@ -25,6 +25,8 @@ class Agent:
       self.activity_degree,self.personality=personality_activity(self.age)
       # In base al grado, stabilisco i livello di attività dell'agents
       self.agent_activity="High" if self.activity_degree >= 0.8 else ("Medium" if self.activity_degree >= 0.2 else "Low")
+      # Agente scorretto (bool)
+      self.malicious_agent=malicious_generation(self.activity_degree)
       # Campo che mi dovrebbe servire per tenere traccia di ciò che ga l'agent
       self.history=[]
       # Quando decide di aggiungere qualcuno, viene rimosso poi dalla lista dei consigliati

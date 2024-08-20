@@ -36,7 +36,7 @@ def interest_gen():
 
     # Estrai 5 sottoargomenti casuali da macrocategorie diverse
     other_cat_mac = [mc for mc in interest_list if mc != cat_mac1]
-    topic_res.extend([random.choice(interest_list[m]) for m in random.sample(other_cat_mac, 5)])
+    topic_res.extend([random.choice(interest_list[m]) for m in random.sample(other_cat_mac, 4)])
 
     return topic_res
 
@@ -76,12 +76,20 @@ def personality_activity(eta):
     # Prima ritorno il grado di activity, poi la personality
     return grado_attivita,personality
 
+
+# Funzione dedicata alla scelta di quali saranno gli agent dannosi che anranno a provare a rendere meno vivibil il social con commenti e post molto negativi e scorretti
+def malicious_generation(activity_degree):
+    if activity_degree>0.5:
+        if random.choice([True, False])==True:return True
+    # Non malizioso
+    return False
+
 # Funzione usata per stabilire in base al livello ddi attività di un utente, se questo andrà a compiere o meno un azione
 # Al momento viene un po pilotato per alzare il numeto di interazioni tra utenti/post/commenti
 def content_interaction_gen_prob(prob):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
-    if rand < prob+15:
+    if rand < prob:
         return True  # L'utente pubblica
     else:
         return False

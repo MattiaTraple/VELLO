@@ -1,12 +1,10 @@
 # Questo file è dedicato ai settings della simulazione e a tutte le librerie comuni
-from collections import namedtuple
-#from social.func.req_ollama_llm import gen_define_news
 
 class Config:
     # Numero di agenti che verranno ccreati
     NUM_AGENTS = 5
     # Durata della simulazione
-    SIM_TIME =1500
+    SIM_TIME =1000
     # Limite iniziale di amici fissati
     NUM_FRIEND = 5
 

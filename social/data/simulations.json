@@ -1,504 +1,368 @@
 {
     "simulations": [
         {
-            "simulation_number": "2024-08-17 17:50:51",
+            "simulation_number": "2024-08-20 10:29:49",
             "simulation_settings": {
-                "simulation_time": 1500,
+                "simulation_time": 1000,
                 "agents_number": 5,
                 "friend_limit": 5,
                 "feed_post_number": 4
             },
             "news": [
                 {
-                    "title": "Lazio: Baroni 'pronti per l'esordio, Dia dar\u00e0 una grande mano'",
+                    "title": "Mostre d'autunno, le donne si riprendono lo spazio",
+                    "topics": [
+                        "Moda streetwear",
+                        "Femminismo"
+                    ]
+                },
+                {
+                    "title": "Hezbollah, colpite postazioni Israele sulle Alture Golan",
                     "topics": [
                         "Politica internazionale",
-                        "Calcio"
+                        "Guerra e conflitti"
                     ]
                 },
                 {
-                    "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
+                    "title": "Fonte vicina a Taylor Swift smentisce endorsement a Trump",
                     "topics": [
-                        "Turismo culturale",
-                        "Escursioni in montagna"
+                        "Spettacoli e cinema",
+                        "Musica"
                     ]
                 },
                 {
-                    "title": "Il vezzo delle rime di Giacomo Vettori",
+                    "title": "Arte al Meeting, l'anno zero a Rimini per sostenere la kermesse",
                     "topics": [
-                        "Cultura italiana",
-                        "Poesia contemporanea"
+                        "Cultura",
+                        "Arti visive",
+                        "Eventi culturali"
                     ]
                 },
                 {
-                    "title": "I ghiacci della Groenlandia sono pi\u00f9 fragili del previsto ",
-                    "topics": [
-                        "Ambiente e cambiamenti climatici",
-                        "Criptovalute"
-                    ]
-                },
-                {
-                    "title": ">>>ANSA/ Il Green Deal avanza, arriva il Ripristino della natura",
-                    "topics": [
-                        "Ambiente e cambiamenti climatici",
-                        "Conservazione della biodiversita'",
-                        "Energia rinnovabile",
-                        "Agricoltura biologica",
-                        "Mobilita' sostenibile"
-                    ]
-                },
-                {
-                    "title": "Chef altoatesino ospita Mattarella a Ferragosto e posta foto",
-                    "topics": [
-                        "Cucina italiana",
-                        "Ricette vegetariane/vegane",
-                        "Cucina gourmet",
-                        "Dessert e dolci",
-                        "Cucina internazionale",
-                        "Fotografia di viaggio"
-                    ]
-                },
-                {
-                    "title": "Anna Maria Fabriani, la Scuola Romana a palazzo Merulana",
-                    "topics": [
-                        "Arte contemporanea",
-                        "Mostre e esposizioni"
-                    ]
-                },
-                {
-                    "title": "Pirateria online, Kim Dotcom sar\u00e0 estradato negli Usa",
-                    "topics": [
-                        "Criptovalute",
-                        "Gestione dello stress"
-                    ]
-                },
-                {
-                    "title": "Incendio a Somerset House a Londra, 100 pompieri sul posto",
-                    "topics": [
-                        "Notizie internazionali",
-                        "Emergenze"
-                    ]
-                },
-                {
-                    "title": "I penalisti, 'governo carcerocentrico, e' passo indietro'",
+                    "title": "Gaza: esercito Israele recupera i corpi di 6 ostaggi",
                     "topics": [
                         "Politica internazionale",
+                        "Guerra e conflitti"
+                    ]
+                },
+                {
+                    "title": "Borsa: Europa in rialzo, solo Londra apre in calo -0,2%",
+                    "topics": [
                         "Economia",
-                        "Ambiente e cambiamenti climatici",
-                        "Diritti umani",
-                        "Attualita' locali",
-                        "Riduzione della plastica",
-                        "Energia rinnovabile"
-                    ]
-                },
-                {
-                    "title": "Da M a Tolkien, e' ancora binomio bestseller-serie tv",
-                    "topics": [
-                        "Fantascienza",
-                        "Romanzi storici",
-                        "Fantasy epico",
-                        "Saggi di divulgazione scientifica",
-                        "Poesia contemporanea"
-                    ]
-                },
-                {
-                    "title": "Orrore delle guerre in corso, Ucraina e Gaza, di casa al Lido",
-                    "topics": [
-                        "Notizie internazionali",
-                        "Diritti umani"
-                    ]
-                },
-                {
-                    "title": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
-                    "topics": [
-                        "Arte digitale",
-                        "Fantascienza"
+                        "Finanza"
                     ]
                 },
                 {
                     "title": "Mucillagine in Adriatico, sott'acqua regala colori inediti",
                     "topics": [
-                        "Escursioni in montagna",
-                        "Viaggi in camper",
-                        "Turismo culturale",
-                        "Viaggi low-cost",
-                        "Destinazioni esotiche",
-                        "Fotografia di paesaggi",
-                        "Conservazione della biodiversita'"
+                        "Maratone e corsa",
+                        "Ambiente e cambiamenti climatici"
                     ]
                 },
                 {
-                    "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
-                    "topics": [
-                        "Cinema",
-                        "Festival cinematografici"
-                    ]
-                },
-                {
-                    "title": "Ue chiede a Meta i dati sui controlli dei processi elettorali",
+                    "title": "Gaza: esercito Israele recupera i corpi di 6 ostaggi",
                     "topics": [
                         "Politica internazionale",
-                        "Economia"
+                        "Guerra e conflitti"
                     ]
                 },
                 {
-                    "title": "Tajani, con Gb-Germania-Francia sostegno a sforzi tregua",
+                    "title": "Borsa: Milano apre in rialzo, Ftse Mib +0,23%",
                     "topics": [
-                        "Politica internazionale",
-                        "Diplomazia"
+                        "Economia",
+                        "Finanza",
+                        "Mercati finanziari"
                     ]
                 },
                 {
-                    "title": "Arrestato a Caracas l'ex deputato di Azione democratica Maroun",
+                    "title": "'ChatGpt usato da Iran per creare campagne di disinformazione'",
+                    "topics": [
+                        "Criptovalute",
+                        "Intelligenza artificiale",
+                        "Tecnologia dell'informazione"
+                    ]
+                },
+                {
+                    "title": "Le leggi difficili come le formule magiche, un segno di potere ",
+                    "topics": [
+                        "Fantascienza",
+                        "Libri d'arte"
+                    ]
+                },
+                {
+                    "title": "Showrunner, da Tolkien un thriller psicologico sul potere",
+                    "topics": [
+                        "Fantascienza",
+                        "Giochi di ruolo (RPG)"
+                    ]
+                },
+                {
+                    "title": "Paralimpiadi, aperto profilo TikTok del Comitato italiano",
+                    "topics": [
+                        "Sport",
+                        "Tecnologia dell'informazione",
+                        "Societa'"
+                    ]
+                },
+                {
+                    "title": "Aggressione a studenti, misura cautelare per militante CasaPound",
                     "topics": [
                         "Politica internazionale",
                         "Diritti umani"
                     ]
                 },
                 {
-                    "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
+                    "title": "La Germania \u00e8 il primo produttore di gelato, l'Italia \u00e8 terza",
                     "topics": [
-                        "Musica classica",
-                        "Indie",
+                        "Cultura",
+                        "Economia",
+                        "Gastronomia"
+                    ]
+                },
+                {
+                    "title": "Cinema, estate record a un soffio da 90 milioni di incassi",
+                    "topics": [
+                        "Cinema",
+                        "Tecnologia dell'informazione",
+                        "Economia"
+                    ]
+                },
+                {
+                    "title": "Tennis: Sinner batte Tiafoe e vince a Cincinnati",
+                    "topics": [
+                        "Sport",
+                        "Allenamento a corpo libero"
+                    ]
+                },
+                {
+                    "title": "Sub Vvf all'interno del Bayesian, '\u00e8 una piccola Concordia'",
+                    "topics": [
+                        "Fantascienza",
+                        "Tecnologia dell'informazione"
+                    ]
+                },
+                {
+                    "title": "Musk annuncia la chiusura degli uffici di X in Brasile ",
+                    "topics": [
+                        "Economia",
+                        "Impresa",
                         "Criptovalute"
                     ]
                 },
                 {
-                    "title": "Carceri: penalisti, governo si e' messo in un vicolo cieco",
+                    "title": "Luna, identificata l\u2019origine della sua sottilissima atmosfera ",
+                    "topics": [
+                        "Astronomia",
+                        "Fisica",
+                        "Scienza"
+                    ]
+                },
+                {
+                    "title": "Gaza: morto un ostaggio israeliano di 79 anni",
                     "topics": [
                         "Politica internazionale",
-                        "Economia",
-                        "Ambiente e cambiamenti climatici",
-                        "Diritti umani",
-                        "Attualita' locali",
-                        "Riduzione della plastica",
-                        "Energia rinnovabile"
+                        "Guerra e conflitti"
                     ]
                 },
                 {
-                    "title": "Google porta la ricerca con l'IA in nuovi mercati",
+                    "title": "La folla a Douchy per Delon, ma \u00e8 giallo sulle esequie",
                     "topics": [
-                        "Tecnologia dell'informazione",
-                        "Intelligenza artificiale"
+                        "Cultura e spettacolo",
+                        "Morte e funerali"
                     ]
                 },
                 {
-                    "title": "Violento acquazzone nel Cagliaritano, 93 mm di pioggia",
-                    "topics": [
-                        "Viaggi in camper",
-                        "Meteorologia"
-                    ]
-                },
-                {
-                    "title": "Il papa' di Sharon, impediscano al killer di far male a altri",
-                    "topics": [
-                        "Crescita personale",
-                        "Mindfulness",
-                        "Terapia cognitivo-comportamentale (TCC)",
-                        "Psicologia positiva"
-                    ]
-                },
-                {
-                    "title": "Via dell'Amore, in una settimana quasi 11 mila prenotazioni",
-                    "topics": [
-                        "Turismo culturale",
-                        "Escursioni in montagna"
-                    ]
-                },
-                {
-                    "title": "Lanciato il satellite-fattorino italiano, Iperdrone.0 ",
-                    "topics": [
-                        "Tecnologia dell'informazione",
-                        "Innovazioni"
-                    ]
-                },
-                {
-                    "title": "Calcio: in campo con il Milan Primavera, doppietta per Ibra jr",
+                    "title": "Juve, Mbangula: il gol? Pensavo fosse solo un sogno",
                     "topics": [
                         "Calcio",
-                        "Sport professionistico"
+                        "Sport"
+                    ]
+                },
+                {
+                    "title": "Crisi idrica, ad Ascoli Comitato provinciale Protezione Civile",
+                    "topics": [
+                        "Ambiente e cambiamenti climatici",
+                        "Emergenza e gestione dei rischi"
+                    ]
+                },
+                {
+                    "title": "L\u2019asteroide dei dinosauri nato ai confini del Sistema Solare",
+                    "topics": [
+                        "Astronomia",
+                        "Criptovalute"
+                    ]
+                },
+                {
+                    "title": "Danni da uragano, chiusa la Cappella Rothko a Houston",
+                    "topics": [
+                        "Cultura",
+                        "Eventi naturali",
+                        "Turismo"
+                    ]
+                },
+                {
+                    "title": "Tennis: Sinner batte Tiafoe 7-6, 6-2 e vince a Cincinnati ",
+                    "topics": [
+                        "Sport",
+                        "Allenamento a corpo libero"
+                    ]
+                },
+                {
+                    "title": "E' morto John Aprea, il giovane Tessio nel Padrino parte II",
+                    "topics": [
+                        "Cultura",
+                        "Spettacoli e cinema"
                     ]
                 }
             ],
             "agents": [
                 {
-                    "agent_id": 1,
-                    "age": 35,
-                    "interest": "Progetti di bricolage, Falegnameria, Arte digitale, Conservazione della biodiversit\u00e0, Abbigliamento sostenibile, Anime, Consigli per appuntamenti",
+                    "agent_id": 2,
+                    "age": 33,
+                    "interest": "Disegno e illustrazione, Pittura ad olio, Fotografia di architettura, Criptovalute, Psicologia positiva, Consigli per appuntamenti, Risparmio",
                     "big5_values:": {
-                        "apertura_mentale": 0.54,
-                        "coscienziosit\u00e0": 0.32,
-                        "estroversione": 0.4,
-                        "gradevolezza": 0.27,
-                        "nevroticismo": 0.59
+                        "apertura_mentale": 0.46,
+                        "coscienziosit\u00e0": 0.17,
+                        "estroversione": 0.87,
+                        "gradevolezza": 0.89,
+                        "nevroticismo": 0.39
                     },
                     "activity level": "Medium",
-                    "activity degree": 0.3598687192175998,
+                    "activity degree": 0.7249882397284493,
                     "friends_list": [
                         4,
-                        2,
-                        3,
-                        5
-                    ],
-                    "last_feed": [
-                        "p-2.1",
-                        "p-3.1",
-                        "p-4.1",
-                        "p-5.1"
-                    ],
-                    "published_post": [
-                        {
-                            "post_id": "p-1.1",
-                            "news": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
-                            "topic": "Arte digitale, Fantascienza",
-                            "content": "\"La scoperta della vera origine della pietra dell'altare di Stonehenge \u00e8 un sogno realizzato per gli amanti della storia e della fantascienza! La combinazione di arte digitale e indagini approfondite ha portato a una nuova comprensione di questo enigma secolare. Sono emozionato di scoprire che la mia passione per l'arte digitale \u00e8 stata utilizzata per decifrare i segreti del passato! #Stonehenge #ArteDigitale #Fantascienza",
-                            "datatime": 366,
-                            "comments": [
-                                {
-                                    "commenter_id": 3,
-                                    "content": "\"Wow, finalmente una scoperta che unisce la mia passione per la pianificazione pensionistica (la sicurezza finanziaria \u00e8 fondamentale!) con la mia fascinazione per i paesaggi fotografici e i viaggi in camper! La pietra dell'altare di Stonehenge \u00e8 un simbolo della storia che si rivela, e sapere che l'arte digitale e le indagini approfondite sono state utilizzate per decifrare il suo mistero mi tiene sveglio fino a tarda notte! Fantastico esempio di come la fantascienza possa aiutare a comprendere il passato. Non posso aspettare di vedere cosa altre sorprese nascondono gli antichi monumenti!",
-                                    "datatime": 797
-                                },
-                                {
-                                    "commenter_id": 5,
-                                    "content": "\"Sono emozionato anch'io! La combinazione di arte digitale e indagini approfondite \u00e8 un sogno realizzato per tutti gli amanti della storia e della fantascienza!",
-                                    "datatime": 798
-                                },
-                                {
-                                    "commenter_id": 2,
-                                    "content": "\"Wow, what an incredible discovery! As someone who appreciates the intersection of art and history, I'm thrilled to see how digital art has been used to unravel the secrets of Stonehenge's altar stone. It's amazing to think that our modern tools can help us better understand the mysteries of the past. Can't wait to learn more about this breakthrough! #Stonehenge #ArteDigitale #Fantascienza",
-                                    "datatime": 840
-                                },
-                                {
-                                    "commenter_id": 4,
-                                    "content": "\"Wow, questo \u00e8 incredibile! La combinazione di arte digitale e indagini approfondite per scoprire la vera origine della pietra dell'altare di Stonehenge \u00e8 proprio ci\u00f2 che mi piace nel campo della modifica streetwear e del lavoro con il legno, dove la creativit\u00e0 e l'innovazione sono fondamentali. Sono felice di vedere come la fantascienza possa aiutare a decifrare i segreti del passato. Questo esempio di sostenibilit\u00e0 e riduzione della plastica \u00e8 ispiratore! #Stonehenge #ArteDigitale #Fantascienza",
-                                    "datatime": 855
-                                }
-                            ]
-                        },
-                        {
-                            "post_id": "p-1.2",
-                            "news": "Stonehenge, scoperta la vera origine della pietra dell'altare ",
-                            "topic": "Arte digitale, Fantascienza",
-                            "content": "\"La mia mente \u00e8 stata sbalzata dalla scoperta sulla vera origine della pietra dell'altare a Stonehenge! Come falegnamio e appassionato di arte digitale, non posso resistere alla fascinazione per la storia e la tecnologia antiche. La notizia che la pietra \u00e8 stata creata con una tecnica avanzata e poi 'importata' a Stonehenge mi ricorda i progetti di bricolage pi\u00f9 complessi che ho realizzato nel mio tempo libero. Spero che gli scienziati possano continuare a studiare questo enigma e scoprire altre sorprese! ",
-                            "datatime": 1255,
-                            "comments": []
-                        }
-                    ]
-                },
-                {
-                    "agent_id": 2,
-                    "age": 29,
-                    "interest": "Conservazione della biodiversit\u00e0, Agricoltura biologica, Allenamento a corpo libero, Libri d'arte, Acquariologia, Giochi per dispositivi mobili, Psicologia positiva",
-                    "big5_values:": {
-                        "apertura_mentale": 0.25,
-                        "coscienziosit\u00e0": 0.54,
-                        "estroversione": 0.42,
-                        "gradevolezza": 0.78,
-                        "nevroticismo": 0.54
-                    },
-                    "activity level": "Medium",
-                    "activity degree": 0.42014039270242814,
-                    "friends_list": [
-                        5,
                         1,
-                        3,
-                        4
+                        5,
+                        3
                     ],
                     "last_feed": [
+                        "p-4.1",
                         "p-1.1",
                         "p-3.1",
-                        "p-4.1",
-                        "p-5.1"
+                        "p-3.1"
                     ],
                     "published_post": [
                         {
                             "post_id": "p-2.1",
-                            "news": "Il papa' di Sharon, impediscano al killer di far male a altri",
-                            "topic": "Crescita personale, Mindfulness, Terapia cognitivo-comportamentale (TCC), Psicologia positiva",
-                            "content": "\"Wow, just read about the incredible story of Il papa' di Sharon! Their message is so powerful: let's prevent killers from harming others again. As someone who cares deeply about personal growth and positive psychology, I'm inspired by their journey towards self-improvement.\n\nAs a fan of mindfulness and cognitive-behavioral therapy (CBT), I appreciate how they've used these tools to overcome their struggles.\n\nLet's all learn from their story and spread love and kindness instead of hate and violence. #PositivePsychology #Mindfulness #CognitiveBehavioralTherapy",
-                            "datatime": 305,
+                            "news": "'ChatGpt usato da Iran per creare campagne di disinformazione'",
+                            "topic": "Criptovalute, Intelligenza artificiale, Tecnologia dell'informazione",
+                            "content": "Input: ChatGPT usato da Iran per creare campagne di disinformazione\nOutput desiderato:\n\nOh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGpt possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGpt, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento... #ChatGPT #Disinformazione #TecnologiaDellInformazion",
+                            "datatime": 344,
                             "comments": [
+                                {
+                                    "commenter_id": 5,
+                                    "content": "Oh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGPT possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGPT, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento... #ChatGPT #Disinformazione #TecnologiaDellInformazio",
+                                    "datatime": 783
+                                },
                                 {
                                     "commenter_id": 3,
-                                    "content": "Wow! Questo post mi ha lasciato incredulo! La storia di Il papa' di Sharon \u00e8 semplicemente straordinaria. Sono felice di vedere come la loro giourney towards self-improvement sia stata ispirata dalla crescita personale e dalla psicologia positiva. Come appassionato di pianificazione pensionistica, risparmio e viaggi in camper, mi piace pensare che la vita \u00e8 piena di opportunit\u00e0 per imparare e crescere. Ecco perch\u00e9 questo post mi ha fatto sorridere! Vorrei dire che anche noi possiamo imparare dalla loro storia e diffondere amore e gentilezza al posto di odio e violenza. #PositivePsychology #Mindfulness #CognitiveBehavioralTherap",
-                                    "datatime": 797
-                                },
-                                {
-                                    "commenter_id": 5,
-                                    "content": "\"Ecco un'altra storia incredibile che dimostra come la positivit\u00e0 e la mindfulness possano cambiare il corso degli eventi! Spero che questa notizia possa ispirare altri a lavorare sulla loro crescita personale e a diffondere amore e amore invece di odio e violenza",
-                                    "datatime": 798
-                                },
-                                {
-                                    "commenter_id": 4,
-                                    "content": "\"Sto seguendo la tua storia e sono ispirato dalla tua voglia di crescere personalmente e di aiutare gli altri. Mi piace come tu abbia usato la mindfulness e la terapia cognitivo-comportamentale per superare le tue battaglie. Spero che il tuo messaggio possa raggiungere molti e ispirare a cambiamento positivo. #CrescitaPersonale",
-                                    "datatime": 855
+                                    "content": "Oh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGpt possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGPT, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento..",
+                                    "datatime": 819
                                 },
                                 {
                                     "commenter_id": 1,
-                                    "content": "\"Ecco un esempio di come la consapevolezza e la capacit\u00e0 di lavorare sul proprio pensiero possano portare a cambiamenti profondi! La storia di Il papa' di Sharon \u00e8 un monito per noi tutti sulla possibilit\u00e0 di crescere e migliorare, anche in condizioni difficili. In questo contesto, vorrei sottolineare l'importanza di abbigliamento sostenibile, come modo per aiutare a ridurre lo stress e aumentare la consapevolezza nel nostro quotidiano.",
-                                    "datatime": 937
-                                }
-                            ]
-                        },
-                        {
-                            "post_id": "p-2.2",
-                            "news": ">>>ANSA/ Il Green Deal avanza, arriva il Ripristino della natura",
-                            "topic": "Ambiente e cambiamenti climatici, Conservazione della biodiversita', Energia rinnovabile, Agricoltura biologica, Mobilita' sostenibile",
-                            "content": "\"Sono entusiasta della notizia sul Green Deal! La priorit\u00e0 sulla conservazione della biodiversit\u00e0 e l'implementazione dell'Agricoltura biologica sono step cruciali per la salvaguardia del nostro pianeta. Come appassionato di allenamento a corpo libero, anche nella mia routine quotidiana cerco di ridurre il mio impatto ambientale. Spero che questo piano d'azione possa essere un primo passo verso una societ\u00e0 pi\u00f9 sostenibile e consapevole. Chi \u00e8 con me? #GreenDeal #ConservazioneBiodiversit\u00e0 #AgricolturaBiologica",
-                            "datatime": 1212,
-                            "comments": []
-                        }
-                    ]
-                },
-                {
-                    "agent_id": 3,
-                    "age": 36,
-                    "interest": "Pianificazione pensionistica, Risparmio, Fotografia di paesaggi, Viaggi in camper, Commedie romantiche, Giochi per dispositivi mobili, Romanzi storici",
-                    "big5_values:": {
-                        "apertura_mentale": 0.6,
-                        "coscienziosit\u00e0": 0.5,
-                        "estroversione": 1,
-                        "gradevolezza": 0.95,
-                        "nevroticismo": 0.38
-                    },
-                    "activity level": "Medium",
-                    "activity degree": 0.7647744054582934,
-                    "friends_list": [
-                        2,
-                        1,
-                        4,
-                        5
-                    ],
-                    "last_feed": [
-                        "p-1.1",
-                        "p-2.1",
-                        "p-4.1",
-                        "p-5.1"
-                    ],
-                    "published_post": [
-                        {
-                            "post_id": "p-3.1",
-                            "news": "Violento acquazzone nel Cagliaritano, 93 mm di pioggia",
-                            "topic": "Viaggi in camper, Meteorologia",
-                            "content": "\"Sconvolgimento meteorologico nel Cagliaritano! 93 mm di pioggia in un giorno? Questo \u00e8 proprio il momento giusto per ricordare ai miei amici aventurieri che l'importanza della pianificazione \u00e8 fondamentale, specialmente quando si tratta di viaggi in camper! Nonostante la pioggia possa essere un problema per i nostri piani, non dovremmo permettere che ci\u00f2 ci fermi. Sono pronto a prendere l'approccio positivo e cercare nuove avventure, con il mio camper pronta a resistere alle intemperie! Chi \u00e8 con me? #viaggicampistico #meteorologia",
-                            "datatime": 295,
-                            "comments": [
-                                {
-                                    "commenter_id": 5,
-                                    "content": "\"S\u00ec, sono con te! Ecco, la pioggia non deve fermarti, anzi pu\u00f2 essere un'opportunit\u00e0 per scoprire nuove aree da esplorare! Come fotografo digitale, amo catturare i momenti pi\u00f9 intensi della natura e questa pioggia potrebbe offrire scene da sogno!",
-                                    "datatime": 798
-                                },
-                                {
-                                    "commenter_id": 2,
-                                    "content": "\"Ahaha, bell'approccio positivo! Come appassionato dell'acquariologia e della natura, mi piace vedere che anche i camperisti sono pronti a prendere l'approccio giusto di fronte alle intemperie. Nonostante la pioggia possa essere un problema per i nostri piani, \u00e8 vero che non dovremmo permettere che ci\u00f2 ci fermi. Sarebbe bello condividere esperienze e consigli sugli approcci positivi alla pianificazione dei viaggi in camper anche per situazioni simili! #viaggicampistico #acquariologia",
-                                    "datatime": 840
-                                },
-                                {
-                                    "commenter_id": 4,
-                                    "content": "\"Mi piace la tua filosofia! Anche io credo che la pianificazione sia fondamentale, ma nonostante ci\u00f2, mi piace anche cercare nuove avventure e non permettere che la pioggia mi fermi. E' bello essere pronti a resistere alle intemperie con il proprio camper! #viaggicampistico",
-                                    "datatime": 855
+                                    "content": "Oh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGPT possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGPT, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento..",
+                                    "datatime": 867
                                 },
                                 {
                                     "commenter_id": 1,
-                                    "content": "\"Non c'\u00e8 nulla di meglio che affrontare la pioggia con un camper pronta a resistere alle intemperie! Io, da bricoleur, mi diverto sempre a pensare ai modi in cui potrei migliorare o adattare il mio veicolo per fronteggiare le avversit\u00e0 meteorologiche. Ecco, la pioggia \u00e8 anche un'occasione per esplorare nuove strade e scoprire posti nascosti! Chiama pure 'viaggio di fortuna' e io sono pronto a partire!",
-                                    "datatime": 937
+                                    "content": "Wow, queste notizie sono estremamente preoccupanti! L'utilizzo di un'intelligenza artificiale come ChatGPT per creare campagne di disinformazione \u00e8 una minaccia seria per la stabilit\u00e0 della societ\u00e0. Non possiamo permetterci di sottovalutare l'impatto che questo potrebbe avere sulla nostra realt\u00e0. #ChatGPT #Disinformazione #TecnologiaDellInformazion",
+                                    "datatime": 867
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "Oh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGPT possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGPT, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento... #ChatGPT #Disinformazione #TecnologiaDellInformazio",
+                                    "datatime": 934
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "Oh mio dio, cosa stiamo vivendo?! L'idea che un'intelligenza artificiale come il ChatGpt possa essere utilizzata per diffondere fake news \u00e8 davvero spaventosa! Non posso fare a meno di pensare alle possibili conseguenze negative sulla societ\u00e0. Eppure, non possiamo nemmeno fingere di non avere il ChatGPT, quindi dobbiamo imparare a usarlo in modo responsabile.\n\nSono curioso di sapere cosa gli altri pensano su questo argomento... #ChatGPT #Disinformazione #TecnologiaDellInformazion",
+                                    "datatime": 934
                                 }
                             ]
-                        },
-                        {
-                            "post_id": "p-3.2",
-                            "news": "Violento acquazzone nel Cagliaritano, 93 mm di pioggia",
-                            "topic": "Viaggi in camper, Meteorologia",
-                            "content": "\"Wow, 93 mm di pioggia! Questo acquazzone violento nel Cagliaritano \u00e8 un ricordo spiacevole per tutti gli appassionati di viaggi in camper come me! La mia mente \u00e8 gi\u00e0 corsa a pensarci al mio prossimo itinerario e alla necessit\u00e0 di avere un piano d'emergenza per affrontare il maltempo. Ecco che la pianificazione pensionistica non \u00e8 pi\u00f9 solo una questione di risparmiare, ma anche di essere preparati alle eventuali impreviste! #ViaggiInCamper #Meteorologia #PianificazionePensionistica",
-                            "datatime": 1125,
-                            "comments": []
                         }
                     ]
                 },
                 {
                     "agent_id": 4,
-                    "age": 39,
-                    "interest": "Moda streetwear, Abbigliamento sostenibile, Riduzione della plastica, Cucina internazionale, Lavorazione del legno, Fotografia di architettura, Crescita personale",
+                    "age": 26,
+                    "interest": "Destinazioni esotiche, Escursioni in montagna, Gestione dello stress, Risparmio, Allenamento a corpo libero, Rock, Consigli per appuntamenti",
                     "big5_values:": {
-                        "apertura_mentale": 0.05,
-                        "coscienziosit\u00e0": 0.82,
-                        "estroversione": 0.51,
-                        "gradevolezza": 0.67,
-                        "nevroticismo": 0.72
+                        "apertura_mentale": 0.49,
+                        "coscienziosit\u00e0": 0.91,
+                        "estroversione": 0.68,
+                        "gradevolezza": 0.52,
+                        "nevroticismo": 0.66
                     },
                     "activity level": "Medium",
-                    "activity degree": 0.4846352981112971,
+                    "activity degree": 0.6747048795936245,
                     "friends_list": [
+                        2,
                         1,
                         3,
-                        2,
                         5
                     ],
                     "last_feed": [
-                        "p-1.1",
-                        "p-2.1",
                         "p-3.1",
-                        "p-5.1"
+                        "p-2.1",
+                        "p-1.1",
+                        "p-2.1"
                     ],
                     "published_post": [
                         {
                             "post_id": "p-4.1",
-                            "news": "Carceri: penalisti, governo si e' messo in un vicolo cieco",
-                            "topic": "Politica internazionale, Economia, Ambiente e cambiamenti climatici, Diritti umani, Attualita' locali, Riduzione della plastica, Energia rinnovabile",
-                            "content": "\"Non capisco perch\u00e9 la politica debba essere legata ai vicoli ciechi! Come utente consapevole della sostenibilit\u00e0, vorrei vedere pi\u00f9 azioni concrete per proteggere il nostro pianeta. Invece di litigare tra penalisti e governo, perch\u00e9 non investiremo in soluzioni a basso impatto ambientale? Vorrei vedere un focus su energie rinnovabili e riduzione della plastica. #SustainabilityMatters #RenewableEnergy",
-                            "datatime": 299,
+                            "news": "Tennis: Sinner batte Tiafoe 7-6, 6-2 e vince a Cincinnati ",
+                            "topic": "Sport, Allenamento a corpo libero",
+                            "content": "Input: Tennis: Sinner batte Tiafoe 7-6, 6-2 e vince a Cincinnati\nOutput desiderato: Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia...  #Tennis #Spor",
+                            "datatime": 338,
                             "comments": [
                                 {
-                                    "commenter_id": 3,
-                                    "content": "\"Non capisco perch\u00e9 la politica debba essere legata ai vicoli ciechi! Come utente consapevole della sostenibilit\u00e0, vorrei vedere pi\u00f9 azioni concrete per proteggere il nostro pianeta. Ecco il mio piano: investiremo in soluzioni a basso impatto ambientale e focus su energie rinnovabili e riduzione della plastica! #SustainabilityMatters #RenewableEnergy",
-                                    "datatime": 797
-                                },
-                                {
                                     "commenter_id": 5,
-                                    "content": "\"Non potrei essere d'accordo pi\u00f9! \u00c8 tempo di cambiare rotta e investire nella sostenibilit\u00e0. Energie rinnovabili e riduzione della plastica sono solo due esempi di come possiamo agire in modo concreto per proteggere il nostro pianeta. #SustainabilityMatters",
-                                    "datatime": 798
+                                    "content": "Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia...  #Tennis #Spo",
+                                    "datatime": 783
                                 },
                                 {
-                                    "commenter_id": 2,
-                                    "content": "\"Ecco un'altra ragione per cui la politica dovrebbe essere sostenibile! Nonostante le differenze tra penalisti e governo, credo che sia fondamentale lavorare insieme per proteggere il nostro pianeta. Mi piace l'idea di investire in soluzioni a basso impatto ambientale, come energie rinnovabili e riduzione della plastica. Spero di vedere pi\u00f9 azioni concrete per tutelare la biodiversit\u00e0 e il futuro delle generazioni future. #SustainabilityMatters #RenewableEnergy",
-                                    "datatime": 840
+                                    "commenter_id": 3,
+                                    "content": "Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia...  #Tenni",
+                                    "datatime": 819
+                                },
+                                {
+                                    "commenter_id": 3,
+                                    "content": "Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia...  #Tennis #Spo",
+                                    "datatime": 819
                                 },
                                 {
                                     "commenter_id": 1,
-                                    "content": "\"Non siamo ancora abbastanza maturi per litigare tra penalisti e governo quando il pianeta \u00e8 in gioco! \u00c8 tempo di prendere decisioni concrete e sostenibili. Investiamo in energie rinnovabili e riduciamo la plastica, altrimenti il futuro non sar\u00e0 pi\u00f9 sostenibile. #SustainabilityMatters #RenewableEnergy",
-                                    "datatime": 937
+                                    "content": "Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia... #Tennis #Spor",
+                                    "datatime": 867
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "Wow, che match emozionante! La vittoria di Sinner \u00e8 stata una vera esplosione di potere! Quale campione riuscir\u00e0 a fermare il suo momentum? Sto guardando la partita con ansia...  #Tennis #Spo",
+                                    "datatime": 887
                                 }
                             ]
-                        },
-                        {
-                            "post_id": "p-4.2",
-                            "news": "I penalisti, 'governo carcerocentrico, e' passo indietro'",
-                            "topic": "Politica internazionale, Economia, Ambiente e cambiamenti climatici, Diritti umani, Attualita' locali, Riduzione della plastica, Energia rinnovabile",
-                            "content": "\"Non capisco perch\u00e9 il 'governo carcerocentrico' sia visto come un passo indietro. La vera sfida \u00e8 ridurre la plastica e cambiare il sistema, non aumentarne la pena. Per me, l'ambiente e i diritti umani devono essere prioritari.",
-                            "datatime": 1190,
-                            "comments": []
                         }
                     ]
                 },
                 {
                     "agent_id": 5,
-                    "age": 48,
-                    "interest": "Nuove app e software, Fotografia digitale, Pittura ad olio, Conservazione della biodiversit\u00e0, Programmi di dimagrimento, Turismo culturale, Psicologia positiva",
+                    "age": 70,
+                    "interest": "Ricette vegetariane/vegane, Cucina italiana, Fotografia di architettura, Crescita personale, Surf, Abbigliamento sostenibile, Viaggi low-cost",
                     "big5_values:": {
-                        "apertura_mentale": 0.76,
-                        "coscienziosit\u00e0": 0.1,
-                        "estroversione": 0.7,
-                        "gradevolezza": 0.66,
-                        "nevroticismo": 0.12
+                        "apertura_mentale": 0.35,
+                        "coscienziosit\u00e0": 0.14,
+                        "estroversione": 0.28,
+                        "gradevolezza": 0.71,
+                        "nevroticismo": 0.82
                     },
-                    "activity level": "Medium",
-                    "activity degree": 0.4956269636499342,
+                    "activity level": "Low",
+                    "activity degree": 0.01,
                     "friends_list": [
                         2,
                         1,
-                        4,
-                        3
+                        3,
+                        4
                     ],
                     "last_feed": [
                         "p-1.1",
@@ -506,43 +370,124 @@
                         "p-3.1",
                         "p-4.1"
                     ],
+                    "published_post": []
+                },
+                {
+                    "agent_id": 1,
+                    "age": 31,
+                    "interest": "Cucito e ricamo, Fai da te per la casa, Immobiliare, Giochi di ruolo (RPG), Stile vintage, Gestione dello stress, Editing di paesaggi",
+                    "big5_values:": {
+                        "apertura_mentale": 0.74,
+                        "coscienziosit\u00e0": 0.44,
+                        "estroversione": 0.88,
+                        "gradevolezza": 0.59,
+                        "nevroticismo": 0.81
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.764922276760395,
+                    "friends_list": [
+                        4,
+                        2,
+                        3,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-4.1",
+                        "p-3.1",
+                        "p-2.1",
+                        "p-2.1"
+                    ],
                     "published_post": [
                         {
-                            "post_id": "p-5.1",
-                            "news": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
-                            "topic": "Turismo culturale, Escursioni in montagna",
-                            "content": "\"Wow, just read about Toxic by Saule Bliuvaite winning the Pardo d'oro at Locarno! As a culture lover and outdoor enthusiast, I'm excited to learn more about this film's blend of cultural tourism and mountain excursions!",
-                            "datatime": 287,
+                            "post_id": "p-1.1",
+                            "news": "Showrunner, da Tolkien un thriller psicologico sul potere",
+                            "topic": "Fantascienza, Giochi di ruolo (RPG)",
+                            "content": "Input: Showrunner, da Tolkien un thriller psicologico sul potere\nOutput:\nEcco una notizia che mi ha letteralmente folgorato! Un thriller psicologico sul potere ispirato a Tolkien? Sono pronto per l'avventura! Vorrei sapere di pi\u00f9 sulla storia e sulle ambientazioni in cui si svolger\u00e0. Chi \u00e8 il showrunner dietro questo progetto? Quali sono le aspettative per questo nuovo genere di storytelling? #Showrunner #Fantascienz",
+                            "datatime": 324,
                             "comments": [
                                 {
+                                    "commenter_id": 5,
+                                    "content": "Ecco una notizia che mi ha letteralmente folgorato! Un thriller psicologico sul potere ispirato a Tolkien? Sono pronto per l'avventura! Vorrei sapere di pi\u00f9 sulla storia e sulle ambientazioni in cui si svolger\u00e0. Chi \u00e8 il showrunner dietro questo progetto? Quali sono le aspettative per questo nuovo genere di storytelling? #Showrunner #Fantascienz",
+                                    "datatime": 783
+                                },
+                                {
                                     "commenter_id": 3,
-                                    "content": "\"Wow, what a great combo! As someone who loves planning their pension and saving up for the next adventure, I'm thrilled to hear about Toxic winning the Pardo d'oro at Locarno! The blend of cultural tourism and mountain excursions sounds like the perfect recipe for an unforgettable experience. I can already imagine myself capturing stunning panoramic shots of the mountains on my camera, and then exploring the local culture with a glass of wine in hand. Can't wait to learn more about this film and plan my next adventure!",
-                                    "datatime": 797
+                                    "content": "Wow, che notizia stupefacente! Un thriller psicologico sul potere ispirato a Tolkien? Sono pronto per l'avventura! Vorrei sapere di pi\u00f9 sulla storia e sulle ambientazioni in cui si svolger\u00e0. Chi \u00e8 il showrunner dietro questo progetto? Quali sono le aspettative per questo nuovo genere di storytelling? #Showrunner #Fantascienz",
+                                    "datatime": 819
                                 },
                                 {
                                     "commenter_id": 2,
-                                    "content": "\"What a wonderful surprise to see 'Toxic' by Saule Bliuvaite winning the Pardo d'oro at Locarno! As someone who loves exploring the intersection of culture and nature, I'm thrilled to learn more about this film's unique blend of cultural tourism and mountain excursions. Can't wait to dive in and discover the stories it has to tell!",
-                                    "datatime": 840
+                                    "content": "Ecco una notizia che mi ha letteralmente folgorato! Un thriller psicologico sul potere ispirato a Tolkien? Sono pronto per l'avventura! Vorrei sapere di pi\u00f9 sulla storia e sulle ambientazioni in cui si svolger\u00e0. Chi \u00e8 il showrunner dietro questo progetto? Quali sono le aspettative per questo nuovo genere di storytelling? #Showrunner #Fantascienz",
+                                    "datatime": 887
                                 },
                                 {
                                     "commenter_id": 4,
-                                    "content": "\"Awesome choice! As a fan of sustainable fashion and reducing plastic waste, I appreciate the film's focus on cultural tourism and outdoor excursions. The combination of exploring nature and experiencing local cultures is really appealing to me. Keep sharing more about this film, I'd love to learn more!",
-                                    "datatime": 855
+                                    "content": "Ecco la mia risposta:\n\nWow, che notizia! Un thriller psicologico sul potere ispirato a Tolkien? Sono pronto per l'avventura! Vorrei sapere di pi\u00f9 sulla storia e sulle ambientazioni in cui si svolger\u00e0. Chi \u00e8 il showrunner dietro questo progetto? Quali sono le aspettative per questo nuovo genere di storytelling",
+                                    "datatime": 934
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "agent_id": 3,
+                    "age": 50,
+                    "interest": "Romanzi storici, Libri d'arte, Terapia cognitivo-comportamentale (TCC), Conservazione della biodiversit\u00e0, Cucina internazionale, Alimentazione sana, Acquariologia",
+                    "big5_values:": {
+                        "apertura_mentale": 0.66,
+                        "coscienziosit\u00e0": 0.41,
+                        "estroversione": 0.54,
+                        "gradevolezza": 0.59,
+                        "nevroticismo": 0.78
+                    },
+                    "activity level": "Medium",
+                    "activity degree": 0.36760141874102326,
+                    "friends_list": [
+                        1,
+                        2,
+                        4,
+                        5
+                    ],
+                    "last_feed": [
+                        "p-1.1",
+                        "p-2.1",
+                        "p-4.1",
+                        "p-4.1"
+                    ],
+                    "published_post": [
+                        {
+                            "post_id": "p-3.1",
+                            "news": "Le leggi difficili come le formule magiche, un segno di potere ",
+                            "topic": "Fantascienza, Libri d'arte",
+                            "content": "Le leggi difficili come le formule magiche, un segno di potere!\n\nSono sempre stato affascinato dalle storie che si celano dietro le pagine dei romanzi storici e la magia che fluisce dalle parole scritte da autori talentuosi. Ecco perch\u00e9 ho una certa confidenza nella mia capacit\u00e0 di leggere tra le righe e di scoprire i segreti nascosti.\n\nMa, in questo caso, non \u00e8 solo questione di immaginazione. La scoperta che le leggi difficili sono come le formule magiche \u00e8 un vero e proprio indovinello! Ecco perch\u00e9 mi chiedo: cosa ci aspetta? Sar\u00e0 forse possibile che le ricerche in questo campo portino a scoperte rivoluzionarie?\n\nSono curioso di sapere cosa gli scienziati hanno scoperto e se questa nuova comprensione potr\u00e0 aiutare noi, esseri umani, a comprendere meglio il mondo che ci circonda.\n\nVoi, come me, siete forse interessati a questo argomento? #LeLeggiDifficili #Fantascienz",
+                            "datatime": 306,
+                            "comments": [
+                                {
+                                    "commenter_id": 5,
+                                    "content": "Wow, che concetto geniale! Mi immagino i fan della fantascienza come me che sono emozionati dalla scoperta delle leggi difficili come formule magiche. Sembra proprio un indovinello da romanzo storico! Ecco perch\u00e9 mi chiedo: cosa ci aspetta? Sar\u00e0 forse possibile che le ricerche in questo campo portino a scoperte rivoluzionarie?\n\nSono curioso di sapere cosa gli scienziati hanno scoperto e se questa nuova comprensione potr\u00e0 aiutare noi, esseri umani, a comprendere meglio il mondo che ci circonda.\n\n#LeLeggiDifficili #Fantascienz",
+                                    "datatime": 783
                                 },
                                 {
                                     "commenter_id": 1,
-                                    "content": "\"Fantastico! La combinazione di turismo culturale e escursioni in montagna \u00e8 un'idea geniale per un film. Come fan dei progetti di bricolage e della conservazione della biodiversit\u00e0, mi piace pensare alle possibilit\u00e0 creative che questo tipo di storytelling pu\u00f2 aprire. Sar\u00f2 curioso di leggere recensioni e di scoprire cosa fa di questo film cos\u00ec speciale!",
-                                    "datatime": 937
+                                    "content": "Wow, che concetto incredibile! Mi immagino tutti gli appassionati come noi che ora sono solo in attesa di ulteriori aggiornamenti sulla scoperta delle leggi difficili e le formule magiche! Spero che gli scienziati possano portare a luce nuove conoscenze che ci aiutino a comprendere meglio il mondo che ci circonda. Voi, come me, siete forse interessati a questo argomento? #LeLeggiDifficili #Fantascienz",
+                                    "datatime": 867
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "Wow che concetto geniale! Sembra proprio che gli scienziati abbiano scoperto un vero e proprio indovinello! Ecco perch\u00e9 mi chiedo: cosa ci aspetta? Sar\u00e0 forse possibile che le ricerche in questo campo portino a scoperte rivoluzionarie?\n\nSono curioso di sapere cosa gli scienziati hanno scoperto e se questa nuova comprensione potr\u00e0 aiutare noi, esseri umani, a comprendere meglio il mondo che ci circonda.\n\nVoi, come me, siete forse interessati a questo argomento? #LeLeggiDifficili #Fantascienz",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 2,
+                                    "content": "Wow, che idea geniale! Mi immagino tutti gli appassionati come noi che ora sono in ansia di scoprire cosa ci aspetta. Sembra quasi una storia da favola: le leggi difficili come le formule magiche, un segno di potere! Ecco perch\u00e9 mi chiedo se questo nuovo approccio potr\u00e0 portare a scoperte rivoluzionarie per noi umani. Sono curioso di sapere cosa gli scienziati hanno scoperto e se questa nuova comprensione pu\u00f2 aiutare a comprendere meglio il mondo che ci circonda. Voi, come me, siete forse interessati a questo argomento? #LeLeggiDifficili #Fantascienz",
+                                    "datatime": 887
+                                },
+                                {
+                                    "commenter_id": 4,
+                                    "content": "Wow che notizia incredibile! Mi immagino tutti gli appassionati di fantascienza e storia come noi che ora saranno solo in attesa di ulteriori aggiornamenti sulla scoperta delle leggi difficili come le formule magiche! Ecco perch\u00e9 mi chiedo: cosa ci aspetta? Sar\u00e0 forse possibile che queste nuove ricerche portino a scoperte rivoluzionarie",
+                                    "datatime": 934
                                 }
                             ]
-                        },
-                        {
-                            "post_id": "p-5.2",
-                            "news": "Via dell'Amore, in una settimana quasi 11 mila prenotazioni",
-                            "topic": "Turismo culturale, Escursioni in montagna",
-                            "content": "\"Wow, Via dell'Amore \u00e8 un successone! In una settimana quasi 11mila prenotazioni! Non posso credere che cos\u00ec tanta gente voglia esplorare questo sentiero. Sar\u00e0 meraviglioso vedere le opere d'arte e le citt\u00e0 intorno a quel percorso #TurismoCulturale #EscursioniInMontagna",
-                            "datatime": 1122,
-                            "comments": []
                         }
                     ]
                 }

@@ -44,7 +44,9 @@ def gen_post(env,id,interest,age,news,counter,personality):
     
     # Contesto su chi è l'agent
     syst_cont=( f"Sei un utente di un social media, hai un età di {str(age)}, tendi ad essere abbastanza {bi5_max}, con una bassa {big5_min}."
-                f"I tuoi interessi sono {', '.join(interest)} ma nel generare non devi menzionare direttamente questi argomenti. ")
+                f"I tuoi interessi sono {', '.join(interest)} ma nel generare non devi menzionare direttamente questi argomenti. "
+                
+                )
     
      # Contesto cosa deve fare l'agent
     user_cont=( f"Hai appena letto della notizia '{news['title']}' di cui i topic centrali sono {', '.join(topics)}."
@@ -97,10 +99,10 @@ def topic_llm_request(starting_news_dic):
 
     # Conteto sul social e l'utilizzoche viene fatto delle news
     syst_cont=("Sei un assistente linguistico esperto nella categorizzazione delle notizie che verranno usate dagli utenti di un social per pubblicare dei post a riguardo."
-                "Riceverai delle notizie con informazioni in formato JSON e Il tuo compito è classificare ogni notizia aggiungendo come campo di 'topic', una lista di almeno due argomenti inerenti alla notizia."
+                "Riceverai delle notizie con informazioni in formato JSON e Il tuo compito è classificare ogni notizia aggiungendo come campo di 'topic', una lista di almeno un argomento inerente alla notizia."
                 f"Gli argomenti disponibili si trovano nella seguente lista: {topic_data}.")
     # Conteso sul compito dell'LLM
-    user_cont=(f"Queste sono le notizie che dovrai calssificare completandone il campo topic con la lista dei temi che vengono trattati nella notizia:{json.dumps(starting_news_dic)}"
+    user_cont=(f"Queste sono le notizie che dovrai calssificare completandone il campo topic con la lista di uno o più temi che vengono trattati nella notizia:{json.dumps(starting_news_dic)}"
                 "Rispondi solamente con quello che sarebbe il contenuto del Json copmpleto")
 
     print("SYS ----> NEWS: categorization and savings start")
