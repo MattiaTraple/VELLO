@@ -2,6 +2,7 @@ import json
 import os
 import re
 import requests
+from func.rag_vector_managment import add_agent_action, get_agent_action 
 
 # Usati per inidirzzare meglio l'LLM alla categorizzazione di news, la pubblicazione di post e la pubblicazione di commenti
 examples = {
@@ -70,7 +71,10 @@ def gen_post(agent,news):
      # Contesto cosa deve fare l'agent
     user_cont=( f"Hai appena letto della notizia '{news['title']}' di cui i topic centrali sono {', '.join(topics)}."
                 f"Scrivi un post a riguardo in italiano che pubblicheresti sul social {mal_usr}."
-                "Oltre al testo del post non scrivere nient'altro nella risposta")
+                "- Oltre al testo del post non scrivere nient'altro nella risposta."
+                "- Il post deve essere non più lungo di 200 caratteri"
+                f"Qui ci sono alcuni dei tuoi commenti recenti che potrebbero essere utili per generare il post:\n\n"
+                r"{'\n'.join(get_agent_action(agent.id))}\n\n")
    
     
     print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} start richiesta')
@@ -78,6 +82,7 @@ def gen_post(agent,news):
     response=request(user_cont,syst_cont,None)
     print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} end richiesta')
     post=Post(agent.env,response,news,agent.id,agent.post_counter)
+    add_agent_action(agent.id,response)
     return post        
 
 # Fun dedicata alla generazione di un opportuno comment oad un post
@@ -99,10 +104,14 @@ def gen_com(news,content,agent):
     # Contesto cosa deve fare l'agent
     user_cont=(f"Hai appena letto un post in cui un altro utente dice: '{content}'. "
                f"La notizia riporta '{news}'. "
-                "Oltre al testo del post in italiano non scrivere nient'altro nella risposta")
+                "- Oltre al testo del post in italiano non scrivere nient'altro nella risposta."
+                "- Il commento deve essere non più lungo di 200 caratteri"
+                f"Qui ci sono alcuni dei tuoi commenti recenti che potrebbero essere utili per generare il post:\n\n"
+                r"{'\n'.join(get_agent_action(agent.id))}\n\n")
     
-    
-    return(request(syst_cont,user_cont,None))
+    res=request(syst_cont,user_cont,None)
+    add_agent_action(agent.id,res)
+    return()
 
 
 # Fun usata ad inizio simulazione per categorizzare le notizie estratte da ANSA (i topic vengono presi dalla lista che ho creato con i casi base + generici)
@@ -159,10 +168,6 @@ def request(syst_cont, user_cont,selected_example):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            if selected_example==None:  
-                unicode_pattern = re.compile(r'\\u[0-9a-fA-F]{4}')    
-                decoded_text = unicode_pattern.sub(lambda match: chr(int(match.group(0)[2:], 16)), complete_response)
-                return decoded_text
             return complete_response
         except json.JSONDecodeError:
             # Se la risposta non è un JSON valido, stampa il contenuto grezzo della risposta

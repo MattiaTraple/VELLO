@@ -17,7 +17,12 @@ news_source_list={"WORLD":"https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml"
                   "FOOD":"https://www.ansa.it/canale_terraegusto/notizie/terraegusto_rss.xml",
                   "TECHNOLOGY":"https://www.ansa.it/canale_tecnologia/notizie/tecnologia_rss.xml",
                   "SCIENCE":"https://www.ansa.it/canale_scienza_tecnica/notizie/scienzaetecnica_rss.xml",
-                  "TRIP":"https://www.ansa.it/canale_viaggi/notizie/viaggiart_rss.xml"}
+                  "TRIP":"https://www.ansa.it/canale_viaggi/notizie/viaggiart_rss.xml",
+                  "ANIMALS":"https://www.corriere.it/dynamic-feed/rss/section/Animali.xml",
+                  "VIDEOGAME":"https://www.everyeye.it/feed/feed_news_rss.asp",
+                  "FITNESS":"https://www.ilsole24ore.com/rss/sport24--fitness-e-wellness.xml",
+                  "MUSIC":"https://www.rtl.it/feed/notizie/spettacoli/musica/"}
+
 
 def request_news():
     # Vuoi rieseguire la selezione delle news?
@@ -35,7 +40,7 @@ def request_news():
     random.shuffle(res)
     
     n = len(res)
-    chunks = [res[i:i + n // 3] for i in range(0, n, n // 3)]
+    chunks = [res[i:i + n // 5] for i in range(0, n, n // 5)]
 
     # Inizializza le variabili per i risultati finali
     classified_news_total = []
@@ -50,12 +55,13 @@ def request_news():
         classified_news_total.extend(response)
         topic_list_total.extend(topic_list)
 
+    config.NEWS = detect_miss_classification(classified_news_total, topic_list_total)
     
     # Salva il risultato combinato nel file JSON
     with open(config.DATA_POSITION + "news_classification.json", "w") as f:
-        json.dump(res, f, indent=4)
+        json.dump(config.NEWS, f, indent=4)
     
-    config.NEWS = detect_miss_classification(classified_news_total, topic_list_total)
+    
     print("SYS ----> NEWS: categorization and savings completed")
 
 # Eseguo la richiesta ad ANSA per le news, cche poi immagazzino ed utilizzo per lampubblicazione degli articoli
@@ -69,10 +75,10 @@ def single_news(field, url):
             #Voglio limitare a 4 news per tipo da aggiungere alla lista generale
             count=0
             for item in root.findall('.//item'):
-                if count==3:
+                if count==config.NEWSXCATEGORY:
                     break
                 title = item.find('title').text
-                
+                    
                 # Sistemo gli encoding presenti con la corrispondente
                 unicode_pattern = re.compile(r'\\u[0-9a-fA-F]{4}')
                 # Sostituisci ogni sequenza con il corrispondente carattere

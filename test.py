@@ -2,21 +2,6 @@ import requests
 import json
 
 
-news=[ 
-    {
-        "title": "I ghiacci della Groenlandia sono pi\u00f9 fragili del previsto ",
-        "topics": []
-        },
-    {
-        "title": "Toxic di Saule Bliuvaite Pardo d'oro a Locarno",
-        "topics": []
-        },
-    {
-        "title": "Lazio: Baroni 'pronti per l'esordio, Dia dar\u00e0 una grande mano'",
-        "topics": []
-        }]
-
-
 def request(syst_cont,user_cont, selected_example):
     url = "http://localhost:11434/api/chat"
       
@@ -49,7 +34,6 @@ def request(syst_cont,user_cont, selected_example):
             json_parts = raw_response.text.strip().split("\n")
             # Decodifica ogni parte JSON e ricostruisci la risposta completa
             complete_response = ''.join(json.loads(part)['message']['content'] for part in json_parts)
-            complete_response = complete_response[0:-1]
             return complete_response
         except json.JSONDecodeError:
             # Se la risposta non è un JSON valido, stampa il contenuto grezzo della risposta
@@ -103,16 +87,11 @@ else:
 
 # Contesto su chi è l'agent 
 syst_cont=("Sei un utente di un social media di 45 anni, molto nevrotico e poco coscienzioso. "
-            "Esprimi le tue opinioni critiche e polemiche in modo cattivo e tendi a voler creare conflitto con gli altri utenti denigrandoli e sminuendoli."
-            "Puoi essere anche politicaly in-correct, senza curarti dei sentimenti delle altre persone"
-            "I tuoi interessi sono Cucina italiana, Escursioni in montagna, Tecnologia, ma non menzionarli.")
+            "I tuoi interessi sono Cucina italiana, Escursioni in montagna, Tecnologia.")
 
 
-
-
-user_cont=(   f"Hai appena letto un post in cui un altro utente dice: '{news}'. "
-                f"La notizia riporta 'Paralimpiadi, aperto profilo TikTok del Comitato italiano'. "
-                "Scrivi solo il testo del commento in italiano, non ci deve essere nient'altro nella risposta")
+user_cont=(   f"Decidi se ti interessa aggiungere come amico un utente che ha anni 22 e i suoi interessi sono il calcio, i viaggi, gli animali"
+                "Rispondi solo con True o False")
 
 
 response = request(syst_cont,user_cont,None)

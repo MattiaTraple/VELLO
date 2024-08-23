@@ -34,14 +34,14 @@ def agent_behavior(env, agent):
     # Simula il comportamento dell'agente nel social network
     while True:
         # Aggiunge un amico ogni tot tempo
-        yield env.timeout(random.randint(200,300))
+        yield env.timeout(random.randint(300,500))
         if len(agent.friends)<len(AGENT_LIST)-1: # Se segue già tutti non ha senso aggiungergli follower
         #qua viene generato a caso, voglio che inizi a seguire un altro agente obbligaotriamente, segue l'elenco finchè non ne trova uno he gloi interessa  
         #faccio restituire dalla funzione l'id dell'agent di cui è diventato amico
             agent.find_friends(AGENT_LIST)
         
         # Genera post
-        yield env.timeout(random.randint(50, 100))
+        yield env.timeout(random.randint(100, 200))
         agent.generate_post()
         
         yield env.timeout(random.randint(500, 600))

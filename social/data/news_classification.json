@@ -1,122 +1,92 @@
 [
     {
-        "title": "Sinner, rispetto per antidoping, ora alle spalle periodo no",
-        "topics": []
+        "title": "Antonini, 'gioiosa e immediata, la musica barocca \u00e8 rock'",
+        "topics": [
+            "Musica classica",
+            "Rock"
+        ]
     },
     {
-        "title": "A Pupi Avati il premio Spadolini cultura politica",
-        "topics": []
+        "title": "Le grandi mostre d'autunno, da Munch a Ligabue",
+        "topics": [
+            "Arte digitale",
+            "Turismo culturale"
+        ]
     },
     {
-        "title": "Diventa libro il carteggio inedito tra Puccini e moglie Elvira",
-        "topics": []
+        "title": "Badante killer confessa quattro omicidi",
+        "topics": [
+            "Crime",
+            "Drammi"
+        ]
     },
     {
-        "title": "Con una videochiamata poliziotta rintraccia anziana scomparsa",
-        "topics": []
+        "title": "Sbranato un allevamento di pecore a Terranuova Bracciolini",
+        "topics": [
+            "Allevamento di animali esotici",
+            "Agricoltura biologica"
+        ]
     },
     {
-        "title": "Crisi idrica, ad Ascoli Comitato provinciale Protezione Civile",
-        "topics": []
+        "title": "Neuralink, risolti i problemi del chip sul secondo paziente",
+        "topics": [
+            "Intelligenza artificiale",
+            "Criptovalute"
+        ]
     },
     {
-        "title": "Zelensky, 'situazione difficile al fronte nel Donetsk'",
-        "topics": []
+        "title": "De Niro, Scorsese insieme per salvare un giardino",
+        "topics": [
+            "Turismo culturale",
+            "Fotografia di viaggio"
+        ]
     },
     {
-        "title": "Danni da uragano, chiusa la Cappella Rothko a Houston",
-        "topics": []
+        "title": "Argentina, 'L'orca pi\u00f9 sola al mondo' fa commuovere i social",
+        "topics": [
+            "Animale esotico",
+            "Conservazione della biodiversita'"
+        ]
     },
     {
-        "title": "La Germania \u00e8 il primo produttore di gelato, l'Italia \u00e8 terza",
-        "topics": []
+        "title": "Il gas conclude in marginale rialzo a 36,8 euro al Megawattora",
+        "topics": [
+            "Energia rinnovabile"
+        ]
     },
     {
-        "title": "++ Valditara, 'su presidi strumentalizzazione e allarmismo' ++",
-        "topics": []
+        "title": "New Hit di RTL 102.5: in rotazione da questa settimana sulla prima radio d'Italia 'Pretty Slowly' di Benson Boone e 'World On Fire' dei Thirty Seconds To Mars",
+        "topics": [
+            "Musica classica",
+            "Riduzione della plastica"
+        ]
     },
     {
-        "title": "Registi e sceneggiatori under 35, 75% sotto la soglia di povert\u00e0",
-        "topics": []
+        "title": "Due asteroidi dedicati Piero e Umberto Benvenuti ",
+        "topics": [
+            "Fantascienza"
+        ]
     },
     {
-        "title": "Mostre d'autunno, le donne si riprendono lo spazio",
-        "topics": []
+        "title": "Stati Uniti e Argentina stringono un accordo su minerali critici",
+        "topics": [
+            "Economia",
+            "Politica internazionale"
+        ]
     },
     {
-        "title": "Premio Siae Andrea Purgatori alla Carriera ad Alice Rohrwacher",
-        "topics": []
+        "title": "Domani la Giornata Internazionale dello Yoga, si celebra la forza delle donne",
+        "topics": [
+            "Allenamento a corpo libero",
+            "Yoga e meditazione",
+            "Gestione dello stress"
+        ]
     },
     {
-        "title": "Sinner positivo a steroide, ma per l'antidoping \u00e8 innocente",
-        "topics": []
-    },
-    {
-        "title": "Al via la Festa del Vino nel comune pi\u00f9 'vitato d'Italia",
-        "topics": []
-    },
-    {
-        "title": "Dalla sonda Juice una manovra mai vista per raggiungere Giove ",
-        "topics": []
-    },
-    {
-        "title": "Sinner: Itia,'assoluzione il 15 agosto, appellabile da Wada'",
-        "topics": []
-    },
-    {
-        "title": "'ChatGpt usato da Iran per creare campagne di disinformazione'",
-        "topics": []
-    },
-    {
-        "title": "Tra storia e benessere, torna la Giornata delle Ville Venete",
-        "topics": []
-    },
-    {
-        "title": "Diventa libro il carteggio inedito tra Puccini e moglie Elvira",
-        "topics": []
-    },
-    {
-        "title": "Zoom torna alla carica con chiamate da 1 milione di utenti",
-        "topics": []
-    },
-    {
-        "title": "L\u2019asteroide dei dinosauri nato ai confini del Sistema Solare",
-        "topics": []
-    },
-    {
-        "title": "Ong, 'in Venezuela cancellata la presunzione di innocenza'",
-        "topics": []
-    },
-    {
-        "title": "Sinner \u00e8 risultato positivo al doping, ma per l'agenzia Itia \u00e8 innocente",
-        "topics": []
-    },
-    {
-        "title": "Harris sfoggia completo marrone chiaro, 'sfida ai repubblicani'",
-        "topics": []
-    },
-    {
-        "title": "In America Latina il primo albero nato da 'semi spaziali'",
-        "topics": []
-    },
-    {
-        "title": "Diventa libro il carteggio inedito tra Puccini e moglie Elvira",
-        "topics": []
-    },
-    {
-        "title": "In fuoristrada precipita dal sentiero, morto un pilota di Formula 3",
-        "topics": []
-    },
-    {
-        "title": "Paralimpiadi, aperto profilo TikTok del Comitato italiano",
-        "topics": []
-    },
-    {
-        "title": "Zelensky, 'situazione difficile al fronte nel Donetsk'",
-        "topics": []
-    },
-    {
-        "title": "Borsa: Europa debole, Wall Street poco mossa, Milano -0,4%",
-        "topics": []
+        "title": "Synduality Echo of Ada: mecha e magie nel trailer che svela il Closed Network Test",
+        "topics": [
+            "Fantascienza",
+            "Giochi di ruolo (RPG)"
+        ]
     }
 ]

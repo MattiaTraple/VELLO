@@ -44,12 +44,16 @@ class Agent:
         
         ag_ca=self.order_by_degree(agents_candidates)
         for ag_id in ag_ca:
-                # Questa funzione fa una richiesta a OLlama che restituisce True/False se è interessato o meno all'amicizia
-                #if(req_follow(self.age,self.interest,inner['grade'],inner['agent'].interest,inner['agent'].age)): #---> possibile implementare .selfhistory in futuro
                     # Escludi l'agente corrente e gli agenti già presenti nella lista degli amici
-                    if ag_id != self.id and ag_id not in self.friends and len(self.friends) < config.NUM_FRIEND:
-                        self.friends.append(ag_id)
-                        print(f'LOG "{self.env.now}" ----> FRIEND_REQUEST: agent {self.id} add agent {ag_id}')
+                    if ag_id != self.id and ag_id not in self.friends and len(self.friends)<config.NUM_FRIEND:
+                        if self.id not in ag_ca[ag_id]["agent"].friends and len(ag_ca[ag_id]["agent"].friends)<config.NUM_FRIEND:
+                            # Il degree deve essere almeno
+                            # 0.5
+                            if ag_ca[ag_id]["grade"]>=0.58:                            
+                                self.friends.append(ag_id)
+                                # Devo aggiungere l'amicizia anche al corrispondente
+                                ag_ca[ag_id]["agent"].friends.append(self.id)
+                                print(f'LOG "{self.env.now}" ----> FRIEND_REQUEST: agent {self.id} add agent {ag_id} with a compatibility grade of {ag_ca[ag_id]["grade"]}')
                 
        
 
@@ -78,8 +82,6 @@ class Agent:
     
     # Viene scelto un post casuale del feed e poi si sceglie se commentarlo
     def new_comment(self,agent_list):
-        # Al momento non mischio l'ordine perchè teoricamente il feed viene generato basato inizialmente sugli amici che un utente ha , partendo da quello che ha grado più alto di compatibilità, quindi hanno già uno pseudo ordine di interesse peer l'utente
-        #random.shuffle(self.feed)
         
         # Scelgo un post dal feed, faccio scorrere tutti i post, inizialmente solo un commento per post
         for id_post in self.feed:       
@@ -104,7 +106,7 @@ class Agent:
         if content_interaction_gen_prob(self.activity_degree):
             post.create_comment(self)
             return
-        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.id}')       
+        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.agent_id} post {post.id}')       
 
     # Fun chiamata da find_friends per restituire una lista di agent ordinati per grado di coerenza
     def order_by_degree(self,ag_cd):
@@ -112,7 +114,7 @@ class Agent:
         # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
         for ag in ag_cd:
             gr = self.cal_degree_friend(ag.age,ag.interest)
-            agent_gr_dic[ag.id] = {'grade': gr}
+            agent_gr_dic[ag.id] = {'agent': ag,'grade': gr}
         # Versione corta    
         # agent_gr_dic = {ag_id: {'grade': self.cal_degree_friend(ag.age, ag.interest), 'agent': ag} for ag_id, ag in ag_cd.items()}
         return dict(sorted(agent_gr_dic.items(), key=lambda x: x[1]['grade'], reverse=True))

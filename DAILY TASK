@@ -7,40 +7,33 @@ NB E COSE PER ORA INFATTIVILI
     - Scegliere una misurazione di tempo che permetta agli agent di eseguire un secodn ogiro di aggiornamenti dfeed edd interazioni con gli altri post
     - Tenere d'occhio i tempi di eseccuzione
 
-- PERSONALITY->BIG 5
-    - Bilancaire ulteriormente i valori della personalità, dovrei eseguire uno studio più specifico (cercare paper scientifico, non sono sicuro però che esistano studi a riguardo in quanto si parli di personalità)
-(pausa)
+
 
 
 
 # DA FARE
-# PIù EMOTIVI
+
 
 # TORANARE IN CARREGGIATA, devo rendere alcuni agent più politicaly incorrect, e devo inserire il meccanismo di promozione di chi incentiva le interazioi positive facendo salire di ranking sul feed pubblico di questi
 
 
-# verificare che non ci siano ancora gli unicode
-# meglio tratto dei big 5 o frasi correlate?
 
 - Devo creargli una storia di background così si tiene man mano conto di quella?
     - Appesantire LLM, ci metterebbe un sacco a gestire sta roba
 
+# Devo prestare + attenzione per l'algoritmo di creazione feed, scelta di come commentare?
 
-DOMANDE DA FARE AL PROF
-
-# Aggiungere una sorta di funzione che permette di vedere quale è un pattern/una preoccupazione/una caratteristica agiuntiva dell'utente in base ai suoi comportamenti (ex. "se una persona che si preoccupa spesso dell'ambiente"-> da aggiugnere poi nel prompting per renderlo più preciso)
-- Magari farlo alla fine dl programma
-- Comportamento tossico
 
 
 RISPOSTE
 
 # noj devo perdere troppo nel ssistemare quelo che l'LLM mi restituisce
 - Meglio, lo specifico nella tesi, specifico
+    - Specifico perchè ho scetlo i far determinate cose con il prompting, posso offrire degli esempi di codice per rendero più completo
 - ci faccio delle analisi
 
 # voglio andare 
-- voglio 100 llm
+- voglio 100 llm 
 - ababsso i livelli di interazioni
 
 - analizi della rete poi
@@ -49,6 +42,7 @@ RISPOSTE
 
 
 # SE HO TEMPO
+
 
 # vector db
 - utile memorizzare (rag)
