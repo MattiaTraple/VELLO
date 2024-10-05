@@ -15,13 +15,14 @@ class Post:
         self.datatime=env.now
         # List of coupple in form "id_agent:comment"
         self.comments=[]
+        
     
     # Fun used to the comment generation
     def create_comment(self,agent):
         from func.req_ollama_llm import gen_com
-        com=gen_com(self.news,self.content,agent)
+        com=gen_com(self.env,self.news,self.content,agent)
         # Salvo id di chi pubblica il commento, il commento stesso, e il tempo in cui lo ha fatto
         if com:
             # Creazione oggetto com
             self.comments.append(Comment(self.env,self.id,agent.id,com))
-            print(f'LOG "{self.env.now}" ----> COMMENT: Done-int beetween agent {agent.id}, post {self.id}, post owner {self.agent_id}')
+            print(f'LOG "{self.env.now}" ----> COMMENT: agent {agent.id} SUCCESS to comment post {self.id} from agent {self.agent_id}')

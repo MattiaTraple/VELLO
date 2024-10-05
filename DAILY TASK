@@ -13,24 +13,8 @@ NB E COSE PER ORA INFATTIVILI
 
 # DA FARE
 
+- i commenti nell'ultima simulazione non sono andati
 
-# TORANARE IN CARREGGIATA, devo rendere alcuni agent più politicaly incorrect, e devo inserire il meccanismo di promozione di chi incentiva le interazioi positive facendo salire di ranking sul feed pubblico di questi
-
-
-
-- Devo creargli una storia di background così si tiene man mano conto di quella?
-    - Appesantire LLM, ci metterebbe un sacco a gestire sta roba
-
-# Devo prestare + attenzione per l'algoritmo di creazione feed, scelta di come commentare?
-
-
-
-RISPOSTE
-
-# noj devo perdere troppo nel ssistemare quelo che l'LLM mi restituisce
-- Meglio, lo specifico nella tesi, specifico
-    - Specifico perchè ho scetlo i far determinate cose con il prompting, posso offrire degli esempi di codice per rendero più completo
-- ci faccio delle analisi
 
 # voglio andare 
 - voglio 100 llm 
@@ -39,15 +23,3 @@ RISPOSTE
 - analizi della rete poi
 - Posso fare community detection
 - vedere se le intereazioni rispecchiano i topic che hanno
-
-
-# SE HO TEMPO
-
-
-# vector db
-- utile memorizzare (rag)
-
-- VECTOR DB
-
-    - Creare il meccanismo per il salvataggio deòòa storia e delle azioni dei vari utentei, così ogni volta che vengono poste delle scelte al LLM gli vado a fornire le sue azioni precedenti, comprese informazioni personal ie personalità, per rendere più personalizzata possibile la scelta
-        - metodi che salvano le interszioni nel database

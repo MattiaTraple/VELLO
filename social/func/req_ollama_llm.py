@@ -77,17 +77,17 @@ def gen_post(agent,news):
                 r"{'\n'.join(get_agent_action(agent.id))}\n\n")
    
     
-    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} start richiesta')
+    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} star request')
     #quando verrà aggiunta la parte emotiva del bot gli verrà cheisto di tenerne conto nella creazione nel post
     response=request(user_cont,syst_cont,None)
-    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} end richiesta')
+    print(f'LOG "{agent.env.now}" ----> LLM_GEN_POST: agent {agent.id} end request')
     post=Post(agent.env,response,news,agent.id,agent.post_counter)
     add_agent_action(agent.id,response)
     return post        
 
 # Fun dedicata alla generazione di un opportuno comment oad un post
 # Viene deciso se l'agent commenta in base al suo grado di interattivita e se i suoi interessi sono parte del post
-def gen_com(news,content,agent):
+def gen_com(env,news,content,agent):
     
     # Personalizzazione del tono del commento in base ai suoi big 5
     from func.random_generator import big_five_personalizer
@@ -109,9 +109,12 @@ def gen_com(news,content,agent):
                 f"Qui ci sono alcuni dei tuoi commenti recenti che potrebbero essere utili per generare il post:\n\n"
                 r"{'\n'.join(get_agent_action(agent.id))}\n\n")
     
+    print(f'LOG "{env.now}" ----> LLM_GEN_COM:agent {agent.id} start request')
     res=request(syst_cont,user_cont,None)
+    print(f'LOG "{env.now}" ----> LLM_GEN_COM:agent {agent.id} end request')
+    print(res)
     add_agent_action(agent.id,res)
-    return()
+    return(res)
 
 
 # Fun usata ad inizio simulazione per categorizzare le notizie estratte da ANSA (i topic vengono presi dalla lista che ho creato con i casi base + generici)

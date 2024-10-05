@@ -2,7 +2,7 @@ import itertools
 import json
 import os
 import random
-from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen, personality_activity, malicious_generation
+from func.random_generator import age_gen, content_interaction_gen_prob, interest_gen,get_macro_category ,personality_activity, malicious_generation
 from func.req_ollama_llm import gen_post
 from settings import config
 
@@ -53,7 +53,7 @@ class Agent:
                                 self.friends.append(ag_id)
                                 # Devo aggiungere l'amicizia anche al corrispondente
                                 ag_ca[ag_id]["agent"].friends.append(self.id)
-                                print(f'LOG "{self.env.now}" ----> FRIEND_REQUEST: agent {self.id} add agent {ag_id} with a compatibility grade of {ag_ca[ag_id]["grade"]}')
+                                print(f'LOG {self.env.now} ----> FRIEND_REQUEST: agent {self.id} add agent {ag_id} with a compatibility grade of {ag_ca[ag_id]["grade"]}')
                 
        
 
@@ -62,7 +62,7 @@ class Agent:
     # News andrà a contenere una notizia sulla quale voglio fargli pubblicare il post che devo ancora decidere
     def generate_post(self):
       #datatime di generazione
-        if content_interaction_gen_prob(self.activity_degree):
+        if content_interaction_gen_prob(self.activity_degree,config.PROBABILITY_INTERACTION_BOOST):
             print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} TRY to post')
             # Cerco la News che fitta di più con l'agent chiamante, se non la trovo l'agent non pubblica nulla
             news=self.choosing_news()
@@ -74,6 +74,7 @@ class Agent:
                 config.POST_DATABASE.append(new_p)
                 self.post_counter+=1
                 print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} SUCCESS to post')
+                return
             else:
                 print(f'LOG "{self.env.now}" ----> POST_PUB: agent {str(self.id)} FAIL to post')
                 
@@ -93,22 +94,13 @@ class Agent:
                 if id_post==post.id :
                     # Una volta trovato verifico se non l'ho già commentato
                       if next((com for com in post.comments if com.agent ==publicant_agent.id), None) is None:
-                            # Posso finalemnte commentarlo
-                            self.interaction_comment(post)
+                        # Posso finalemnte commentarlo
+                        if content_interaction_gen_prob(self.activity_degree,config.PROBABILITY_INTERACTION_BOOST):
+                             post.create_comment(self)
+                             return
+                        print(f'LOG "{self.env.now}" ----> COMMENT: agent {self.id} did not comment agent {post.agent_id} post {post.id}')
                     # L'ho già commentato quindi vado a vedere se posso commentare il psot successivo
            
-    # L'utente decide se e come interagire con un post e di conseguenza commenta
-    def interaction_comment(self,post):
-        #in base all'activity dell'utente, ogni tot tempo gli verrà posta la scelta se ccreare o meno un post su un determinato contenuto 
-        #come ordino- come scelgo il post - da implementare meccanismo decisionale basato su interesse
-        
-        # Decide se commentare basato su activity dell'utente
-        if content_interaction_gen_prob(self.activity_degree):
-            post.create_comment(self)
-            return
-        print(f'LOG "{self.env.now}" ----> COMMENT: Miss_Int beetween agent {self.id} and agent {post.agent_id} post {post.id}')       
-
-    # Fun chiamata da find_friends per restituire una lista di agent ordinati per grado di coerenza
     def order_by_degree(self,ag_cd):
         agent_gr_dic={}
         # Calcola il grado di ogni utente e salvalo nel dizionario gradi_utenti
@@ -133,9 +125,27 @@ class Agent:
             grado += 0.04
         
         # Calcola il grado dell'utente in base agli interessi in comune
-        grado+=sum(0.5 for int1 in self.interest for int2 in ag_int if int1 == int2)
-        return grado
+        
+        
+        grado+=self.categories_score(ag_int)
+        return round(grado,2)
       
+           
+    def categories_score(self, ag_int):
+        score = 0.0
+        for sel_interest in self.interest:
+            if sel_interest in ag_int:
+                # Incremento di 0.5 per interesse comune
+                score += 0.5
+            else:
+                sel_category = get_macro_category(sel_interest)
+                for ag_interest in ag_int:
+                    ag_category = get_macro_category(ag_interest)
+                    if sel_category and ag_category and sel_category == ag_category:
+                        # Incremento di 0.2 se appartengono alla stessa macro-categoria
+                        score += 0.2
+                        break  # Esce dal ciclo una volta trovata una corrispondenza nella stessa macro-categoria
+        return score
             
     # Fun che verrà chiamata dopo che sono stati creati un po di post che popola (e aggiorna) periodicamente il feed dell'utente personalizzandolo in base a:
 
@@ -196,11 +206,15 @@ class Agent:
                     #fare in modo che se non è negli amici ma il feed non è ancora pieno, allora agigungo anche se non è amico
                     if ag.id is self.friends:
                         if ag.published:
-                        # Prende un post randomico tra quelli di un amico
-                            post=random.choice(ag.published)
-                            if post.id not in self.feed:
-                                self.feed.append(post.id)
-                                print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                        
+                            # Farò scorrere tutti i post dell'amico, mischaiti, finchè non ne trovo uno non ancora libero, oppure finisco la lista e passo all'utente successivo
+                            posts = ag.published[:]
+                            random.shuffle(posts)
+                            
+                            # Usa un for per trovare il primo post non ancora nel feed
+                            for post in posts:
+                                if post.id not in self.feed:
+                                    self.feed.append(post.id)
+                                    print(f'LOG "{self.env.now}" ----> FEED_OP: post {post.id} ADDED to agent {self.id} feed')                        
             print(f'SYM "{self.env.now}" ----> FEED_UPD: *Auxiliary function-friend* agent feed {self.id} UPDATED')
              
 # Fun ausiliaria per il completamento feed in caso i post degli agent nella lista friends non basti
@@ -225,7 +239,6 @@ class Agent:
     def choosing_news(self):
         # Mischio la lista in modo da far partire da un punto random ogni agent tutte le volte (ccoprire il maggiorn numero di notizie, evitare ripetizione)
         random.shuffle(config.NEWS)
-        
         for news_item in config.NEWS:
             for topic in news_item["topics"]:
                 # Se è negli interessi dell'agent, altrimenti controllo negli altri topic

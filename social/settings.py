@@ -2,17 +2,17 @@
 
 class Config:
     # Numero di agenti che verranno ccreati
-    NUM_AGENTS = 10
+    NUM_AGENTS = 100
     # Durata della simulazione
-    SIM_TIME =4000
+    SIM_TIME =10000
     # Limite iniziale di amici fissati
-    NUM_FRIEND = 6
+    NUM_FRIEND = 15
 
     # Lista notizie con categorizzazione
     NEWS = []
 
     # Post Presenti nel feed
-    NUM_FEED = 6
+    NUM_FEED =  20
     # Lista momentanea in cui salvo i post di tutti gli utenti
     POST_DATABASE = []
 
@@ -20,9 +20,12 @@ class Config:
     DATA_POSITION="/data/homes_data/mattiatrapletti/SimPy/social/data/"
     
     # Decido se rieseguire la classificazione delle news
-    RELOAD_NEWS=True
+    RELOAD_NEWS= False
     # Num di news che vengono selezionate per ognuna delle category
-    NEWSXCATEGORY=3
+    NEWSXCATEGORY=4
+    
+    # Meccanismo per aumentare la capacità di interazione degli utenti, andando a "falsare" la loro probabilità di itnerazione
+    PROBABILITY_INTERACTION_BOOST=0.10
     
 # Creazione dell'oggetto di configurazione
 config = Config()

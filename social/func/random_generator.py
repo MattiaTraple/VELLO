@@ -40,6 +40,12 @@ def interest_gen():
 
     return topic_res
 
+# Fun ausiliaria per recupero macro-categorei
+def get_macro_category(interest):
+    for category, sub_interests in interest_list.items():
+        if interest in sub_interests:
+            return category
+    return None
 
 # Fun per generare la personalità dell'agent e stabilire l'activity in base ad essa
 def personality_activity(eta):
@@ -71,7 +77,7 @@ def personality_activity(eta):
     # Aggiungi una componente di casualità controllata
     casualita = random.uniform(-0.1, 0.1)  # Varianza controllata da -0.1 a 0.1
     grado_attivita += casualita
-    grado_attivita = max(0.01, min(grado_attivita, 1))  # Limita tra 0.01 e 1
+    grado_attivita = round(max(0.01, min(grado_attivita, 1)),2)  # Limita tra 0.01 e 1
 
     # Prima ritorno il grado di activity, poi la personality
     return grado_attivita,personality
@@ -86,10 +92,10 @@ def malicious_generation(activity_degree):
 
 # Funzione usata per stabilire in base al livello ddi attività di un utente, se questo andrà a compiere o meno un azione
 # Al momento viene un po pilotato per alzare il numeto di interazioni tra utenti/post/commenti
-def content_interaction_gen_prob(prob):
+def content_interaction_gen_prob(prob,probability_boost):
     rand = random.random()
     #in base a ciò che ho estratto, l'utente vorra pubblicare o meno
-    if rand < prob:
+    if rand < prob+probability_boost:
         return True  # L'utente pubblica
     else:
         return False

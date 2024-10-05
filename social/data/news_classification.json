@@ -1,92 +1,368 @@
 [
     {
-        "title": "Antonini, 'gioiosa e immediata, la musica barocca \u00e8 rock'",
+        "title": "Elkann lascia Gedi, Orfeo nuovo direttore di Repubblica",
         "topics": [
-            "Musica classica",
-            "Rock"
-        ]
-    },
-    {
-        "title": "Le grandi mostre d'autunno, da Munch a Ligabue",
-        "topics": [
-            "Arte digitale",
-            "Turismo culturale"
-        ]
-    },
-    {
-        "title": "Badante killer confessa quattro omicidi",
-        "topics": [
-            "Crime",
-            "Drammi"
-        ]
-    },
-    {
-        "title": "Sbranato un allevamento di pecore a Terranuova Bracciolini",
-        "topics": [
-            "Allevamento di animali esotici",
-            "Agricoltura biologica"
-        ]
-    },
-    {
-        "title": "Neuralink, risolti i problemi del chip sul secondo paziente",
-        "topics": [
-            "Intelligenza artificiale",
-            "Criptovalute"
-        ]
-    },
-    {
-        "title": "De Niro, Scorsese insieme per salvare un giardino",
-        "topics": [
-            "Turismo culturale",
-            "Fotografia di viaggio"
-        ]
-    },
-    {
-        "title": "Argentina, 'L'orca pi\u00f9 sola al mondo' fa commuovere i social",
-        "topics": [
-            "Animale esotico",
-            "Conservazione della biodiversita'"
-        ]
-    },
-    {
-        "title": "Il gas conclude in marginale rialzo a 36,8 euro al Megawattora",
-        "topics": [
-            "Energia rinnovabile"
-        ]
-    },
-    {
-        "title": "New Hit di RTL 102.5: in rotazione da questa settimana sulla prima radio d'Italia 'Pretty Slowly' di Benson Boone e 'World On Fire' dei Thirty Seconds To Mars",
-        "topics": [
-            "Musica classica",
-            "Riduzione della plastica"
-        ]
-    },
-    {
-        "title": "Due asteroidi dedicati Piero e Umberto Benvenuti ",
-        "topics": [
-            "Fantascienza"
-        ]
-    },
-    {
-        "title": "Stati Uniti e Argentina stringono un accordo su minerali critici",
-        "topics": [
-            "Economia",
             "Politica internazionale"
         ]
     },
     {
         "title": "Domani la Giornata Internazionale dello Yoga, si celebra la forza delle donne",
         "topics": [
-            "Allenamento a corpo libero",
             "Yoga e meditazione",
-            "Gestione dello stress"
+            "Femminismo"
         ]
     },
     {
-        "title": "Synduality Echo of Ada: mecha e magie nel trailer che svela il Closed Network Test",
+        "title": "Errani e Paolini lottano ma non basta, trionfano Gauff-Siniakova",
         "topics": [
-            "Fantascienza",
-            "Giochi di ruolo (RPG)"
+            "Tennist",
+            "Sport"
+        ]
+    },
+    {
+        "title": "In Libano 37 morti in 24 ore, 9 a Beirut",
+        "topics": [
+            "Politica internazionale",
+            "Ambiente e cambiamenti climatici"
+        ]
+    },
+    {
+        "title": "Liberata 'Luna', la sesta lince del progetto di ripopolamento della specie",
+        "topics": [
+            "Conservazione della biodiversita'",
+            "Tecnologia dell'informazione"
+        ]
+    },
+    {
+        "title": "Nanni Moretti colpito da infarto nei giorni scorsi, sta bene",
+        "topics": [
+            "Cinema",
+            "Salute"
+        ]
+    },
+    {
+        "title": "Gli impianti petroliferi iraniani nel mirino di Israele",
+        "topics": [
+            "Politica internazionale",
+            "Energia rinnovabile"
+        ]
+    },
+    {
+        "title": "Fiorentina: Palladino, 'Spero bene sull'infortunio di Mandragora'",
+        "topics": [
+            "Calcio",
+            "Sport"
+        ]
+    },
+    {
+        "title": "La vera storia di Dracula in un documentario di Syusy Blady",
+        "topics": [
+            "Cinema",
+            "Fantascienza"
+        ]
+    },
+    {
+        "title": "Ragazza con l'orecchino di perla, il dipinto dal fascino ipnotico",
+        "topics": [
+            "Arte contemporanea",
+            "Moda"
+        ]
+    },
+    {
+        "title": "Parte il progetto Iris, per cavi superconduttori senza dispersioni ",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Innovazione"
+        ]
+    },
+    {
+        "title": "Nozze per i Coma_cose, dopo nove anni insieme",
+        "topics": [
+            "Moda streetwear",
+            "Stile vintage",
+            "Alta moda"
+        ]
+    },
+    {
+        "title": "Conference League: Fiorentina-New Saints 2-0",
+        "topics": [
+            "Calcio",
+            "Tennis",
+            "Surf"
+        ]
+    },
+    {
+        "title": "Roma, Papi e Santi marchigiani a Castel Sant'Angelo",
+        "topics": [
+            "Turismo culturale",
+            "Viaggi in camper"
+        ]
+    },
+    {
+        "title": "'Obiettivo nuovi raid a Beirut il successore di Nasrallah'",
+        "topics": [
+            "Politica internazionale",
+            "Criptovalute"
+        ]
+    },
+    {
+        "title": "A 20 anni Virgo fa da volano all'Einstein Telescope ",
+        "topics": [
+            "Fisica",
+            "Tecnologia dell'informazione"
+        ]
+    },
+    {
+        "title": "Nubifragio a Sassari, caduti 55,6 mm di pioggia in 4 ore",
+        "topics": [
+            "Ambiente e cambiamenti climatici",
+            "Riduzione della plastica"
+        ]
+    },
+    {
+        "title": "Microsoft, possibile addio alla realta' aumentata di Hololens",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Intelligenza artificiale"
+        ]
+    },
+    {
+        "title": "In Libano 37 morti in 24 ore, 9 a Beirut",
+        "topics": [
+            "Politica internazionale",
+            "Criptovalute"
+        ]
+    },
+    {
+        "title": "Europa League: Elfsborg-Roma 1-0",
+        "topics": [
+            "Calcio",
+            "Tennis",
+            "Surf"
+        ]
+    },
+    {
+        "title": "Dragon Quest 3 HD-2D Remake in azione al TGS 2024: il nuovo trailer da non perdere",
+        "topics": [
+            "Giochi indie",
+            "Giochi per dispositivi mobili"
+        ]
+    },
+    {
+        "title": "Wada fa appello su assoluzione Sinner, chiesto stop 1-2 anni",
+        "topics": [
+            "Sport",
+            "Calcio"
+        ]
+    },
+    {
+        "title": "In un libro i 60 di storia della sede Rai dell'Umbria",
+        "topics": [
+            "Libri d'arte",
+            "Storia"
+        ]
+    },
+    {
+        "title": "Salvini, nessun aumento di tasse o accise",
+        "topics": [
+            "Politica internazionale",
+            "Economia"
+        ]
+    },
+    {
+        "title": "\u00abGli allevamenti intensivi inquinano e sono causa di decessi. Vanno superati\u00bb",
+        "topics": [
+            "Ambiente e cambiamenti climatici",
+            "Animali"
+        ]
+    },
+    {
+        "title": "A piedi in ricordo della campana dei marinai rubata dai turchi",
+        "topics": [
+            "Storia",
+            "Viaggi in camper"
+        ]
+    },
+    {
+        "title": "Citt\u00e0 di Castello, conto alla rovescia per il tartufo bianco",
+        "topics": [
+            "Turismo culturale",
+            "Ricette vegetariane/vegane"
+        ]
+    },
+    {
+        "title": "Microsoft annuncia investimento da 4,3 miliardi di euro in Italia",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Criptovalute"
+        ]
+    },
+    {
+        "title": "Cile, l'ex compagna del presidente Boric sotto inchiesta",
+        "topics": [
+            "Politica internazionale",
+            "Notizie locali"
+        ]
+    },
+    {
+        "title": "Un marchio per il Biologico italiano, indetto concorso di idee",
+        "topics": [
+            "Moda streetwear",
+            "Sviluppo personale"
+        ]
+    },
+    {
+        "title": "Egitto, apre il 26 ottobre il Farmers Market di Alessandria",
+        "topics": [
+            "Turismo culturale"
+        ]
+    },
+    {
+        "title": "A Milano, inaugurata la prima isola Technogym Outdoor ",
+        "topics": [
+            "Viaggi in camper",
+            "Turismo culturale"
+        ]
+    },
+    {
+        "title": "Microsoft, 'l'IA una rivoluzione come l'elettricit\u00e0'",
+        "topics": [
+            "Tecnologia dell'informazione",
+            "Intelligenza artificiale"
+        ]
+    },
+    {
+        "title": "Dal Maxxi al Vittoriale, la visita \u00e8 'phygital'",
+        "topics": [
+            "Arte digitale",
+            "Fotografia digitale"
+        ]
+    },
+    {
+        "title": "Laura Pausini presenta a RTL 102.5 il nuovo singolo \u201cCiao\u201d: \u00abPer essere felice mi basta stare su un palco. Il singolo racconta come lasciare andare un rapporto senza litigare\u00bb",
+        "topics": [
+            "Musica classica"
+        ]
+    },
+    {
+        "title": "Giornate Fai d'autunno, visita a 700 luoghi insoliti",
+        "topics": [
+            "Turismo culturale",
+            "Viaggi naturalistici"
+        ]
+    },
+    {
+        "title": "Successo del test sul motore apre al lancio di Vega C ",
+        "topics": [
+            "Criptovalute",
+            "Agricoltura biologica"
+        ]
+    },
+    {
+        "title": "The Last of Us Parte 1 su PlayStation Plus: il numero di giocatori \u00e8 aumentato a dismisura",
+        "topics": [
+            "Giochi videoludici",
+            "Fantascienza"
+        ]
+    },
+    {
+        "title": "Inchiesta su appalti Anas, 'tangenti per 846mila euro' ",
+        "topics": [
+            "Politica internazionale",
+            "Economia"
+        ]
+    },
+    {
+        "title": "Caos treni, sospeso il contratto con l'azienda coinvolta ",
+        "topics": [
+            "Mobilita' sostenibile",
+            "Ambiente e cambiamenti climatici"
+        ]
+    },
+    {
+        "title": "Dragon Ball Sparking Zero: uno spettacolare trailer ci ricorda la data dell'Early Access",
+        "topics": [
+            "Giochi videoludici",
+            "Fantascienza"
+        ]
+    },
+    {
+        "title": "Istituto Mario Negri, in Italia prezzi sigarette tra i pi\u00f9 bassi",
+        "topics": [
+            "Economia"
+        ]
+    },
+    {
+        "title": "Cani o panda? Perch\u00e9 alcuni zoo cinesi dipingono gli animali per attirare pubblico (tra le polemiche)",
+        "topics": [
+            "Animale domestico",
+            "Turismo culturale"
+        ]
+    },
+    {
+        "title": "Oggi Ornella Vanoni compie 90 anni, domani compleanno e stessa et\u00e0 per Gino Paoli",
+        "topics": [
+            "Spettacolo"
+        ]
+    },
+    {
+        "title": "In mostra costumi di 'Fratello sole sorella luna' di Zeffirelli",
+        "topics": [
+            "Arte digitale",
+            "Teatro"
+        ]
+    },
+    {
+        "title": "Diamanti di Ozpetek, le prime immagini e il trailer del film",
+        "topics": [
+            "Cinema",
+            "Spettacolo"
+        ]
+    },
+    {
+        "title": "Fortnite x Shaq: come sbloccare la skin di Shaquille O'Neal",
+        "topics": [
+            "Giochi di ruolo (RPG)",
+            "E-sport"
+        ]
+    },
+    {
+        "title": "Moretti colpito da infarto nei giorni scorsi, sta bene",
+        "topics": [
+            "Salute"
+        ]
+    },
+    {
+        "title": "Chimenti: domani camera ardente al Coni, sabato funerali",
+        "topics": [
+            "Sport",
+            "Politica internazionale"
+        ]
+    },
+    {
+        "title": "'Obiettivo nuovi raid a Beirut il successore di Nasrallah'",
+        "topics": [
+            "Politica internazionale"
+        ]
+    },
+    {
+        "title": "Brasile: getta soldi sugli elettori, arrestato candidato sindaco",
+        "topics": [
+            "Politica internazionale",
+            "Economia"
+        ]
+    },
+    {
+        "title": "Omicidio Macchi: Avvocatura Stato, stop risarcimento a Binda",
+        "topics": [
+            "Giustizia"
+        ]
+    },
+    {
+        "title": "New Hit di RTL 102.5: i nuovi successi in rotazione da questa settimana sulla prima radio d'Italia",
+        "topics": [
+            "Musica classica",
+            "Riduzione della plastica"
         ]
     }
 ]
