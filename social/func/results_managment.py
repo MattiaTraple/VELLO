@@ -129,7 +129,7 @@ def update_mongodb():
     #client = MongoClient("mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/")
     
     # Connessione a mongo con Atlas
-    uri = "mongodb+srv://mattiatrapletti:mattiaatlassimpy@cluster0.l98hiqh.mongodb.net/"
+    uri = "mongodb+srv://.../"
 
     try:
         #collego al server il nuovo client
