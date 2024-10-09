@@ -6,13 +6,13 @@ class Config:
     # Durata della simulazione
     SIM_TIME =10000
     # Limite iniziale di amici fissati
-    NUM_FRIEND = 15
+    NUM_FRIEND = 30
 
     # Lista notizie con categorizzazione
     NEWS = []
 
     # Post Presenti nel feed
-    NUM_FEED =  20
+    NUM_FEED =  25
     # Lista momentanea in cui salvo i post di tutti gli utenti
     POST_DATABASE = []
 
@@ -25,7 +25,7 @@ class Config:
     NEWSXCATEGORY=4
     
     # Meccanismo per aumentare la capacità di interazione degli utenti, andando a "falsare" la loro probabilità di itnerazione
-    PROBABILITY_INTERACTION_BOOST=0.10
+    PROBABILITY_INTERACTION_BOOST=0.12
     
 # Creazione dell'oggetto di configurazione
 config = Config()

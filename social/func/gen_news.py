@@ -125,6 +125,7 @@ def response_cleaner(res):
 def detect_miss_classification(response,topic_list):
     res=[]
     for item in response:
+    
         if item['title'] not in topic_list:
             if len(item['topics'])!=0:
                 res.append(item)
