@@ -140,7 +140,7 @@ def topic_llm_request(starting_news_dic):
   
 # Richiesta generica che verrà inviata a Ollama
 def request(syst_cont, user_cont,selected_example):
-    url = "http://localhost:11434/api/chat"
+    url = "http://<address_server>/api/chat"
       
     # Costruisce il messaggio con l'esempio se disponibile
     if selected_example!=None:
